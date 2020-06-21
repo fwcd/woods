@@ -13,12 +13,11 @@ struct ContentView: View {
  
     var body: some View {
         TabView(selection: $selection){
-            Text("First View")
-                .font(.title)
+            GeocacheMapView()
                 .tabItem {
                     VStack {
-                        Image("first")
-                        Text("First")
+                        Image(systemName: "map.fill")
+                        Text("Geocache Map")
                     }
                 }
                 .tag(0)
@@ -26,8 +25,8 @@ struct ContentView: View {
                 .font(.title)
                 .tabItem {
                     VStack {
-                        Image("second")
-                        Text("Second")
+                        Image(systemName: "list.bullet")
+                        Text("Geocache List")
                     }
                 }
                 .tag(1)

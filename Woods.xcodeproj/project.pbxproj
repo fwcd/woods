@@ -15,6 +15,8 @@
 		C73E04C7249F9F4A00C6E22C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C73E04C5249F9F4A00C6E22C /* LaunchScreen.storyboard */; };
 		C73E04D2249F9F4A00C6E22C /* WoodsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73E04D1249F9F4A00C6E22C /* WoodsTests.swift */; };
 		C73E04DD249F9F4A00C6E22C /* WoodsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73E04DC249F9F4A00C6E22C /* WoodsUITests.swift */; };
+		C7B6F0FD249FA16B00454841 /* GeocacheMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B6F0FC249FA16B00454841 /* GeocacheMapView.swift */; };
+		C7B6F0FF249FA1B300454841 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B6F0FE249FA1B300454841 /* MapView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		C73E04D8249F9F4A00C6E22C /* WoodsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WoodsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C73E04DC249F9F4A00C6E22C /* WoodsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoodsUITests.swift; sourceTree = "<group>"; };
 		C73E04DE249F9F4A00C6E22C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C7B6F0FC249FA16B00454841 /* GeocacheMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocacheMapView.swift; sourceTree = "<group>"; };
+		C7B6F0FE249FA1B300454841 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,9 +103,9 @@
 		C73E04B9249F9F4700C6E22C /* Woods */ = {
 			isa = PBXGroup;
 			children = (
+				C7E8C79A249FA02B00B5BAF9 /* View */,
 				C73E04BA249F9F4700C6E22C /* AppDelegate.swift */,
 				C73E04BC249F9F4700C6E22C /* SceneDelegate.swift */,
-				C73E04BE249F9F4700C6E22C /* ContentView.swift */,
 				C73E04C0249F9F4A00C6E22C /* Assets.xcassets */,
 				C73E04C5249F9F4A00C6E22C /* LaunchScreen.storyboard */,
 				C73E04C8249F9F4A00C6E22C /* Info.plist */,
@@ -134,6 +138,16 @@
 				C73E04DE249F9F4A00C6E22C /* Info.plist */,
 			);
 			path = WoodsUITests;
+			sourceTree = "<group>";
+		};
+		C7E8C79A249FA02B00B5BAF9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C73E04BE249F9F4700C6E22C /* ContentView.swift */,
+				C7B6F0FC249FA16B00454841 /* GeocacheMapView.swift */,
+				C7B6F0FE249FA1B300454841 /* MapView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,7 +281,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7B6F0FD249FA16B00454841 /* GeocacheMapView.swift in Sources */,
 				C73E04BB249F9F4700C6E22C /* AppDelegate.swift in Sources */,
+				C7B6F0FF249FA1B300454841 /* MapView.swift in Sources */,
 				C73E04BD249F9F4700C6E22C /* SceneDelegate.swift in Sources */,
 				C73E04BF249F9F4700C6E22C /* ContentView.swift in Sources */,
 			);
