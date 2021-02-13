@@ -7,9 +7,9 @@
 //
 
 protocol Connector {
-    func signIn(using credentials: Credentials) throws
+    func logIn(using credentials: Credentials) throws
     
-    func signOut() throws
+    func logOut() throws
     
     func geocaches(for query: GeocacheQuery) throws -> [Geocache]
 }

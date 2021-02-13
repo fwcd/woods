@@ -12,11 +12,15 @@ import OSLog
 private let log = Logger(subsystem: "Woods", category: "ViewModel")
 
 class Profile: ObservableObject {
+    // TODO: Log in on didSet events
     @Published var credentials: Credentials? = nil
+    @Published var loggedIn: Bool = false
     
-    init() {
+    init(loadingFromKeychain: Bool = true) {
         do {
-            try loadCredentials()
+            if loadingFromKeychain {
+                try loadCredentials()
+            }
         } catch {
             log.info("Could not load initial credentials from keychain: \(String(describing: error))")
         }

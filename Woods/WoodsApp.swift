@@ -10,9 +10,12 @@ import SwiftUI
 
 @main
 struct WoodsApp: App {
+    @StateObject private var profile = Profile()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(profile)
         }
     }
 }

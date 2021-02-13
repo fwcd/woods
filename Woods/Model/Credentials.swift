@@ -6,7 +6,7 @@
 //  Copyright © 2021 Fredrik. All rights reserved.
 //
 
-struct Credentials {
-    let username: String
-    let password: String
+struct Credentials: Hashable {
+    var username: String = ""
+    var password: String = ""
 }
