@@ -21,6 +21,8 @@
 		C765461C25D87E74004F14E8 /* Connector.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765461B25D87E74004F14E8 /* Connector.swift */; };
 		C765462425D87E9C004F14E8 /* GeocacheQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765462325D87E9C004F14E8 /* GeocacheQuery.swift */; };
 		C765462C25D880D7004F14E8 /* Length.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765462B25D880D7004F14E8 /* Length.swift */; };
+		C765463125D8856C004F14E8 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765463025D8856C004F14E8 /* Credentials.swift */; };
+		C765463625D885B3004F14E8 /* ConnectorError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765463525D885B3004F14E8 /* ConnectorError.swift */; };
 		C7B6F0FD249FA16B00454841 /* GeocacheMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B6F0FC249FA16B00454841 /* GeocacheMapView.swift */; };
 		C7B6F0FF249FA1B300454841 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B6F0FE249FA1B300454841 /* MapView.swift */; };
 /* End PBXBuildFile section */
@@ -63,6 +65,8 @@
 		C765461B25D87E74004F14E8 /* Connector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connector.swift; sourceTree = "<group>"; };
 		C765462325D87E9C004F14E8 /* GeocacheQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocacheQuery.swift; sourceTree = "<group>"; };
 		C765462B25D880D7004F14E8 /* Length.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Length.swift; sourceTree = "<group>"; };
+		C765463025D8856C004F14E8 /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
+		C765463525D885B3004F14E8 /* ConnectorError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectorError.swift; sourceTree = "<group>"; };
 		C7B6F0FC249FA16B00454841 /* GeocacheMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocacheMapView.swift; sourceTree = "<group>"; };
 		C7B6F0FE249FA1B300454841 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -169,6 +173,8 @@
 			isa = PBXGroup;
 			children = (
 				C765461B25D87E74004F14E8 /* Connector.swift */,
+				C765463525D885B3004F14E8 /* ConnectorError.swift */,
+				C765463025D8856C004F14E8 /* Credentials.swift */,
 				C765462325D87E9C004F14E8 /* GeocacheQuery.swift */,
 			);
 			path = Connector;
@@ -316,11 +322,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				C765461C25D87E74004F14E8 /* Connector.swift in Sources */,
+				C765463625D885B3004F14E8 /* ConnectorError.swift in Sources */,
 				C765460925D87BA9004F14E8 /* GeocacheType.swift in Sources */,
 				C7B6F0FD249FA16B00454841 /* GeocacheMapView.swift in Sources */,
 				C73E04BB249F9F4700C6E22C /* WoodsApp.swift in Sources */,
 				C765460125D87B26004F14E8 /* Geocache.swift in Sources */,
 				C765462425D87E9C004F14E8 /* GeocacheQuery.swift in Sources */,
+				C765463125D8856C004F14E8 /* Credentials.swift in Sources */,
 				C7B6F0FF249FA1B300454841 /* MapView.swift in Sources */,
 				C73E04BF249F9F4700C6E22C /* ContentView.swift in Sources */,
 				C765460E25D87C5A004F14E8 /* Coordinates.swift in Sources */,
