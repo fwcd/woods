@@ -23,6 +23,8 @@
 		C765462C25D880D7004F14E8 /* Length.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765462B25D880D7004F14E8 /* Length.swift */; };
 		C765463125D8856C004F14E8 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765463025D8856C004F14E8 /* Credentials.swift */; };
 		C765463625D885B3004F14E8 /* ConnectorError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765463525D885B3004F14E8 /* ConnectorError.swift */; };
+		C765463C25D88AC6004F14E8 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765463B25D88AC6004F14E8 /* Profile.swift */; };
+		C765464125D88B6C004F14E8 /* KeychainError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765464025D88B6C004F14E8 /* KeychainError.swift */; };
 		C7B6F0FD249FA16B00454841 /* GeocacheMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B6F0FC249FA16B00454841 /* GeocacheMapView.swift */; };
 		C7B6F0FF249FA1B300454841 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B6F0FE249FA1B300454841 /* MapView.swift */; };
 /* End PBXBuildFile section */
@@ -67,6 +69,8 @@
 		C765462B25D880D7004F14E8 /* Length.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Length.swift; sourceTree = "<group>"; };
 		C765463025D8856C004F14E8 /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		C765463525D885B3004F14E8 /* ConnectorError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectorError.swift; sourceTree = "<group>"; };
+		C765463B25D88AC6004F14E8 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		C765464025D88B6C004F14E8 /* KeychainError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainError.swift; sourceTree = "<group>"; };
 		C7B6F0FC249FA16B00454841 /* GeocacheMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocacheMapView.swift; sourceTree = "<group>"; };
 		C7B6F0FE249FA1B300454841 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -121,6 +125,7 @@
 			children = (
 				C76545FF25D87AE1004F14E8 /* Model */,
 				C765461A25D87E25004F14E8 /* Connector */,
+				C765463A25D88AB5004F14E8 /* ViewModel */,
 				C7E8C79A249FA02B00B5BAF9 /* View */,
 				C73E04BA249F9F4700C6E22C /* WoodsApp.swift */,
 				C73E04C0249F9F4A00C6E22C /* Assets.xcassets */,
@@ -165,6 +170,7 @@
 				C765461225D87CEB004F14E8 /* GeocacheSize.swift */,
 				C765460825D87BA9004F14E8 /* GeocacheType.swift */,
 				C765462B25D880D7004F14E8 /* Length.swift */,
+				C765463025D8856C004F14E8 /* Credentials.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -174,10 +180,18 @@
 			children = (
 				C765461B25D87E74004F14E8 /* Connector.swift */,
 				C765463525D885B3004F14E8 /* ConnectorError.swift */,
-				C765463025D8856C004F14E8 /* Credentials.swift */,
 				C765462325D87E9C004F14E8 /* GeocacheQuery.swift */,
 			);
 			path = Connector;
+			sourceTree = "<group>";
+		};
+		C765463A25D88AB5004F14E8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C765463B25D88AC6004F14E8 /* Profile.swift */,
+				C765464025D88B6C004F14E8 /* KeychainError.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		C7E8C79A249FA02B00B5BAF9 /* View */ = {
@@ -322,8 +336,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C765461C25D87E74004F14E8 /* Connector.swift in Sources */,
+				C765464125D88B6C004F14E8 /* KeychainError.swift in Sources */,
 				C765463625D885B3004F14E8 /* ConnectorError.swift in Sources */,
 				C765460925D87BA9004F14E8 /* GeocacheType.swift in Sources */,
+				C765463C25D88AC6004F14E8 /* Profile.swift in Sources */,
 				C7B6F0FD249FA16B00454841 /* GeocacheMapView.swift in Sources */,
 				C73E04BB249F9F4700C6E22C /* WoodsApp.swift in Sources */,
 				C765460125D87B26004F14E8 /* Geocache.swift in Sources */,
