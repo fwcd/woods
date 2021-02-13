@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C73E04BB249F9F4700C6E22C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73E04BA249F9F4700C6E22C /* AppDelegate.swift */; };
-		C73E04BD249F9F4700C6E22C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73E04BC249F9F4700C6E22C /* SceneDelegate.swift */; };
+		C73E04BB249F9F4700C6E22C /* WoodsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73E04BA249F9F4700C6E22C /* WoodsApp.swift */; };
 		C73E04BF249F9F4700C6E22C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73E04BE249F9F4700C6E22C /* ContentView.swift */; };
 		C73E04C1249F9F4A00C6E22C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C73E04C0249F9F4A00C6E22C /* Assets.xcassets */; };
 		C73E04C4249F9F4A00C6E22C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C73E04C3249F9F4A00C6E22C /* Preview Assets.xcassets */; };
@@ -38,8 +37,7 @@
 
 /* Begin PBXFileReference section */
 		C73E04B7249F9F4700C6E22C /* Woods.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Woods.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		C73E04BA249F9F4700C6E22C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C73E04BC249F9F4700C6E22C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		C73E04BA249F9F4700C6E22C /* WoodsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoodsApp.swift; sourceTree = "<group>"; };
 		C73E04BE249F9F4700C6E22C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C73E04C0249F9F4A00C6E22C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C73E04C3249F9F4A00C6E22C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -104,8 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				C7E8C79A249FA02B00B5BAF9 /* View */,
-				C73E04BA249F9F4700C6E22C /* AppDelegate.swift */,
-				C73E04BC249F9F4700C6E22C /* SceneDelegate.swift */,
+				C73E04BA249F9F4700C6E22C /* WoodsApp.swift */,
 				C73E04C0249F9F4A00C6E22C /* Assets.xcassets */,
 				C73E04C5249F9F4A00C6E22C /* LaunchScreen.storyboard */,
 				C73E04C8249F9F4A00C6E22C /* Info.plist */,
@@ -282,9 +279,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7B6F0FD249FA16B00454841 /* GeocacheMapView.swift in Sources */,
-				C73E04BB249F9F4700C6E22C /* AppDelegate.swift in Sources */,
+				C73E04BB249F9F4700C6E22C /* WoodsApp.swift in Sources */,
 				C7B6F0FF249FA1B300454841 /* MapView.swift in Sources */,
-				C73E04BD249F9F4700C6E22C /* SceneDelegate.swift in Sources */,
 				C73E04BF249F9F4700C6E22C /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -382,7 +378,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -436,7 +432,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
