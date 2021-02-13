@@ -18,16 +18,13 @@ struct ContentView: View {
                         Text("Geocache Map")
                     }
                 }
-                .tag(0)
-            Text("Second View")
-                .font(.title)
+            ProfileView()
                 .tabItem {
                     VStack {
-                        Image(systemName: "list.bullet")
-                        Text("Geocache List")
+                        Image(systemName: "person.circle.fill")
+                        Text("Profile")
                     }
                 }
-                .tag(1)
         }
     }
 }
