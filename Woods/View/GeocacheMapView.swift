@@ -11,6 +11,7 @@ import SwiftUI
 public struct GeocacheMapView: View {
     public var body: some View {
         MapView()
+            .edgesIgnoringSafeArea(.all)
     }
 }
 
