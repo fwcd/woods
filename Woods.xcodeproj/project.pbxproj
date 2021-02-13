@@ -14,6 +14,10 @@
 		C73E04C7249F9F4A00C6E22C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C73E04C5249F9F4A00C6E22C /* LaunchScreen.storyboard */; };
 		C73E04D2249F9F4A00C6E22C /* WoodsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73E04D1249F9F4A00C6E22C /* WoodsTests.swift */; };
 		C73E04DD249F9F4A00C6E22C /* WoodsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73E04DC249F9F4A00C6E22C /* WoodsUITests.swift */; };
+		C765460125D87B26004F14E8 /* Geocache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765460025D87B26004F14E8 /* Geocache.swift */; };
+		C765460925D87BA9004F14E8 /* GeocacheType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765460825D87BA9004F14E8 /* GeocacheType.swift */; };
+		C765460E25D87C5A004F14E8 /* Coordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765460D25D87C5A004F14E8 /* Coordinates.swift */; };
+		C765461325D87CEB004F14E8 /* GeocacheSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765461225D87CEB004F14E8 /* GeocacheSize.swift */; };
 		C7B6F0FD249FA16B00454841 /* GeocacheMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B6F0FC249FA16B00454841 /* GeocacheMapView.swift */; };
 		C7B6F0FF249FA1B300454841 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B6F0FE249FA1B300454841 /* MapView.swift */; };
 /* End PBXBuildFile section */
@@ -49,6 +53,10 @@
 		C73E04D8249F9F4A00C6E22C /* WoodsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WoodsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C73E04DC249F9F4A00C6E22C /* WoodsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoodsUITests.swift; sourceTree = "<group>"; };
 		C73E04DE249F9F4A00C6E22C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C765460025D87B26004F14E8 /* Geocache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geocache.swift; sourceTree = "<group>"; };
+		C765460825D87BA9004F14E8 /* GeocacheType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocacheType.swift; sourceTree = "<group>"; };
+		C765460D25D87C5A004F14E8 /* Coordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinates.swift; sourceTree = "<group>"; };
+		C765461225D87CEB004F14E8 /* GeocacheSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocacheSize.swift; sourceTree = "<group>"; };
 		C7B6F0FC249FA16B00454841 /* GeocacheMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocacheMapView.swift; sourceTree = "<group>"; };
 		C7B6F0FE249FA1B300454841 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -101,6 +109,7 @@
 		C73E04B9249F9F4700C6E22C /* Woods */ = {
 			isa = PBXGroup;
 			children = (
+				C76545FF25D87AE1004F14E8 /* Model */,
 				C7E8C79A249FA02B00B5BAF9 /* View */,
 				C73E04BA249F9F4700C6E22C /* WoodsApp.swift */,
 				C73E04C0249F9F4A00C6E22C /* Assets.xcassets */,
@@ -135,6 +144,17 @@
 				C73E04DE249F9F4A00C6E22C /* Info.plist */,
 			);
 			path = WoodsUITests;
+			sourceTree = "<group>";
+		};
+		C76545FF25D87AE1004F14E8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C765460025D87B26004F14E8 /* Geocache.swift */,
+				C765460D25D87C5A004F14E8 /* Coordinates.swift */,
+				C765461225D87CEB004F14E8 /* GeocacheSize.swift */,
+				C765460825D87BA9004F14E8 /* GeocacheType.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		C7E8C79A249FA02B00B5BAF9 /* View */ = {
@@ -278,10 +298,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C765460925D87BA9004F14E8 /* GeocacheType.swift in Sources */,
 				C7B6F0FD249FA16B00454841 /* GeocacheMapView.swift in Sources */,
 				C73E04BB249F9F4700C6E22C /* WoodsApp.swift in Sources */,
+				C765460125D87B26004F14E8 /* Geocache.swift in Sources */,
 				C7B6F0FF249FA1B300454841 /* MapView.swift in Sources */,
 				C73E04BF249F9F4700C6E22C /* ContentView.swift in Sources */,
+				C765460E25D87C5A004F14E8 /* Coordinates.swift in Sources */,
+				C765461325D87CEB004F14E8 /* GeocacheSize.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
