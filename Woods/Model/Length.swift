@@ -6,8 +6,11 @@
 //  Copyright © 2021 Fredrik. All rights reserved.
 //
 
-struct Length {
+struct Length: AdditiveArithmetic, Hashable, Codable, CustomStringConvertible {
+    static var zero = Length()
+    
     var meters: Double
+    var description: String { "\(meters)m" }
     
     init() {
         self.init(meters: 0)
@@ -23,6 +26,50 @@ struct Length {
     
     func `as`(_ unit: Unit) -> Double {
         meters / unit.rawValue
+    }
+    
+    static func +(lhs: Self, rhs: Self) -> Self {
+        Self(meters: lhs.meters + rhs.meters)
+    }
+    
+    static func -(lhs: Self, rhs: Self) -> Self {
+        Self(meters: lhs.meters - rhs.meters)
+    }
+    
+    static func +=(lhs: inout Self, rhs: Self) {
+        lhs.meters += rhs.meters
+    }
+    
+    static func -=(lhs: inout Self, rhs: Self) {
+        lhs.meters -= rhs.meters
+    }
+    
+    static func *(lhs: Self, factor: Double) -> Self {
+        Self(meters: lhs.meters * factor)
+    }
+    
+    static func *(factor: Double, rhs: Self) -> Self {
+        Self(meters: rhs.meters * factor)
+    }
+    
+    static func /(lhs: Self, divisor: Double) -> Self {
+        Self(meters: lhs.meters / divisor)
+    }
+    
+    static func *=(lhs: inout Self, factor: Double) {
+        lhs.meters *= factor
+    }
+    
+    static func /=(lhs: inout Self, divisor: Double) {
+        lhs.meters /= divisor
+    }
+    
+    static prefix func -(lhs: Self) -> Self {
+        Self(meters: -lhs.meters)
+    }
+    
+    mutating func negate() {
+        meters.negate()
     }
     
     enum Unit: Double {
