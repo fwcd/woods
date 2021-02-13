@@ -10,12 +10,12 @@ import SwiftUI
 
 @main
 struct WoodsApp: App {
-    @StateObject private var profile = Profile()
+    @StateObject private var accounts = Accounts()
     
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(profile)
+                .environmentObject(accounts)
         }
     }
 }

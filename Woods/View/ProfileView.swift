@@ -1,5 +1,5 @@
 //
-//  ProfileView.swift
+//  AccountsView.swift
 //  Woods
 //
 //  Created by Fredrik on 2/13/21.
@@ -8,8 +8,8 @@
 
 import SwiftUI
 
-struct ProfileView: View {
-    @EnvironmentObject private var profile: Profile
+struct AccountsView: View {
+    @EnvironmentObject private var profile: Accounts
     @State private var loginSheetShown = false
     @State private var loginCredentials = Credentials()
     
@@ -32,10 +32,10 @@ struct ProfileView: View {
 }
 
 struct ProfileView_Previews: PreviewProvider {
-    @StateObject static var profile = Profile(loadingFromKeychain: false)
+    @StateObject static var profile = Accounts(loadingFromKeychain: false)
     
     static var previews: some View {
-        ProfileView()
+        AccountsView()
             .environmentObject(profile)
     }
 }

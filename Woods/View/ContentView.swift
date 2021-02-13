@@ -18,11 +18,11 @@ struct ContentView: View {
                         Text("Geocache Map")
                     }
                 }
-            ProfileView()
+            AccountsView()
                 .tabItem {
                     VStack {
                         Image(systemName: "person.circle.fill")
-                        Text("Profile")
+                        Text("Accounts")
                     }
                 }
         }

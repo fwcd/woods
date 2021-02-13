@@ -1,5 +1,5 @@
 //
-//  Profile.swift
+//  Accounts.swift
 //  Woods
 //
 //  Created by Fredrik on 2/13/21.
@@ -11,10 +11,8 @@ import OSLog
 
 private let log = Logger(subsystem: "Woods", category: "ViewModel")
 
-class Profile: ObservableObject {
-    // TODO: Log in on didSet events
-    @Published var credentials: Credentials? = nil
-    @Published var loggedIn: Bool = false
+class Accounts: ObservableObject {
+    @Published var accounts: [Account] = []
     
     init(loadingFromKeychain: Bool = true) {
         do {

@@ -23,10 +23,13 @@
 		C765462C25D880D7004F14E8 /* Length.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765462B25D880D7004F14E8 /* Length.swift */; };
 		C765463125D8856C004F14E8 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765463025D8856C004F14E8 /* Credentials.swift */; };
 		C765463625D885B3004F14E8 /* ConnectorError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765463525D885B3004F14E8 /* ConnectorError.swift */; };
-		C765463C25D88AC6004F14E8 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765463B25D88AC6004F14E8 /* Profile.swift */; };
+		C765463C25D88AC6004F14E8 /* Accounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765463B25D88AC6004F14E8 /* Accounts.swift */; };
 		C765464125D88B6C004F14E8 /* KeychainError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765464025D88B6C004F14E8 /* KeychainError.swift */; };
-		C765464E25D88CEC004F14E8 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765464D25D88CEC004F14E8 /* ProfileView.swift */; };
+		C765464E25D88CEC004F14E8 /* AccountsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765464D25D88CEC004F14E8 /* AccountsView.swift */; };
 		C765465325D88E48004F14E8 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765465225D88E48004F14E8 /* LoginView.swift */; };
+		C765465825D890E1004F14E8 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765465725D890E1004F14E8 /* Account.swift */; };
+		C765465D25D890F6004F14E8 /* AccountType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765465C25D890F6004F14E8 /* AccountType.swift */; };
+		C765466225D89141004F14E8 /* GeocachingComConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765466125D89141004F14E8 /* GeocachingComConnector.swift */; };
 		C7B6F0FD249FA16B00454841 /* GeocacheMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B6F0FC249FA16B00454841 /* GeocacheMapView.swift */; };
 		C7B6F0FF249FA1B300454841 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B6F0FE249FA1B300454841 /* MapView.swift */; };
 /* End PBXBuildFile section */
@@ -71,10 +74,13 @@
 		C765462B25D880D7004F14E8 /* Length.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Length.swift; sourceTree = "<group>"; };
 		C765463025D8856C004F14E8 /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		C765463525D885B3004F14E8 /* ConnectorError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectorError.swift; sourceTree = "<group>"; };
-		C765463B25D88AC6004F14E8 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		C765463B25D88AC6004F14E8 /* Accounts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accounts.swift; sourceTree = "<group>"; };
 		C765464025D88B6C004F14E8 /* KeychainError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainError.swift; sourceTree = "<group>"; };
-		C765464D25D88CEC004F14E8 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		C765464D25D88CEC004F14E8 /* AccountsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsView.swift; sourceTree = "<group>"; };
 		C765465225D88E48004F14E8 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		C765465725D890E1004F14E8 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		C765465C25D890F6004F14E8 /* AccountType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountType.swift; sourceTree = "<group>"; };
+		C765466125D89141004F14E8 /* GeocachingComConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocachingComConnector.swift; sourceTree = "<group>"; };
 		C7B6F0FC249FA16B00454841 /* GeocacheMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocacheMapView.swift; sourceTree = "<group>"; };
 		C7B6F0FE249FA1B300454841 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -185,6 +191,7 @@
 				C765461B25D87E74004F14E8 /* Connector.swift */,
 				C765463525D885B3004F14E8 /* ConnectorError.swift */,
 				C765462325D87E9C004F14E8 /* GeocacheQuery.swift */,
+				C765466125D89141004F14E8 /* GeocachingComConnector.swift */,
 			);
 			path = Connector;
 			sourceTree = "<group>";
@@ -192,7 +199,9 @@
 		C765463A25D88AB5004F14E8 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				C765463B25D88AC6004F14E8 /* Profile.swift */,
+				C765465725D890E1004F14E8 /* Account.swift */,
+				C765465C25D890F6004F14E8 /* AccountType.swift */,
+				C765463B25D88AC6004F14E8 /* Accounts.swift */,
 				C765464025D88B6C004F14E8 /* KeychainError.swift */,
 			);
 			path = ViewModel;
@@ -202,7 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				C73E04BE249F9F4700C6E22C /* ContentView.swift */,
-				C765464D25D88CEC004F14E8 /* ProfileView.swift */,
+				C765464D25D88CEC004F14E8 /* AccountsView.swift */,
 				C765465225D88E48004F14E8 /* LoginView.swift */,
 				C7B6F0FC249FA16B00454841 /* GeocacheMapView.swift */,
 				C7B6F0FE249FA1B300454841 /* MapView.swift */,
@@ -345,11 +354,14 @@
 				C765464125D88B6C004F14E8 /* KeychainError.swift in Sources */,
 				C765463625D885B3004F14E8 /* ConnectorError.swift in Sources */,
 				C765460925D87BA9004F14E8 /* GeocacheType.swift in Sources */,
-				C765463C25D88AC6004F14E8 /* Profile.swift in Sources */,
+				C765463C25D88AC6004F14E8 /* Accounts.swift in Sources */,
+				C765465D25D890F6004F14E8 /* AccountType.swift in Sources */,
+				C765465825D890E1004F14E8 /* Account.swift in Sources */,
 				C7B6F0FD249FA16B00454841 /* GeocacheMapView.swift in Sources */,
 				C73E04BB249F9F4700C6E22C /* WoodsApp.swift in Sources */,
+				C765466225D89141004F14E8 /* GeocachingComConnector.swift in Sources */,
 				C765460125D87B26004F14E8 /* Geocache.swift in Sources */,
-				C765464E25D88CEC004F14E8 /* ProfileView.swift in Sources */,
+				C765464E25D88CEC004F14E8 /* AccountsView.swift in Sources */,
 				C765462425D87E9C004F14E8 /* GeocacheQuery.swift in Sources */,
 				C765465325D88E48004F14E8 /* LoginView.swift in Sources */,
 				C765463125D8856C004F14E8 /* Credentials.swift in Sources */,
