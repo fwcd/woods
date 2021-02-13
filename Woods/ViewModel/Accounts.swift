@@ -12,16 +12,21 @@ import OSLog
 private let log = Logger(subsystem: "Woods", category: "ViewModel")
 
 class Accounts: ObservableObject {
-    @Published var accounts: [Account] = []
+    // TODO: Observe and update log in states
+    @Published var accounts: [Account]
     
-    init(loadingFromKeychain: Bool = true) {
+    init(accounts: [Account] = [], loadFromKeychain: Bool = false) {
+        self.accounts = accounts
+        
         do {
-            if loadingFromKeychain {
+            if loadFromKeychain {
                 try loadCredentials()
             }
         } catch {
             log.info("Could not load initial credentials from keychain: \(String(describing: error))")
         }
+        
+        // TODO: Actually log in
     }
     
     /// Loads the credentials from the user's keychain.

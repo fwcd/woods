@@ -16,7 +16,7 @@ struct AccountsView: View {
     var body: some View {
         NavigationView {
             List(accounts.accounts) { account in
-                VStack {
+                VStack(alignment: .leading) {
                     Text(account.type.description)
                         .font(.headline)
                     Text(account.credentials.username)
@@ -39,9 +39,25 @@ struct AccountsView: View {
     }
 }
 
-struct ProfileView_Previews: PreviewProvider {
-    @StateObject static var accounts = Accounts(loadingFromKeychain: false)
-    
+struct AccountsView_Previews: PreviewProvider {
+    @StateObject static var accounts = Accounts(accounts: [
+        Account(
+            id: UUID(uuidString: "b0819a69-ceef-4323-b752-ff09a70230fd")!,
+            type: .geocachingCom,
+            credentials: Credentials(
+                username: "test",
+                password: "test"
+            )
+        ),
+        Account(
+            id: UUID(uuidString: "ff25ad11-37ad-4d13-a204-e83d4d75476a")!,
+            type: .geocachingCom,
+            credentials: Credentials(
+                username: "demo",
+                password: "demo"
+            )
+        )
+    ])
     static var previews: some View {
         AccountsView()
             .environmentObject(accounts)

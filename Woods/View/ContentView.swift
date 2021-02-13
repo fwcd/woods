@@ -30,7 +30,9 @@ struct ContentView: View {
 }
 
 struct ContentView_Previews: PreviewProvider {
+    @StateObject static var accounts = Accounts()
     static var previews: some View {
         ContentView()
+            .environmentObject(accounts)
     }
 }
