@@ -18,6 +18,20 @@ struct ContentView: View {
                         Text("Geocache Map")
                     }
                 }
+            Text("TODO")
+                .tabItem {
+                    VStack {
+                        Image(systemName: "list.bullet")
+                        Text("Lists")
+                    }
+                }
+            Text("TODO")
+                .tabItem {
+                    VStack {
+                        Image(systemName: "magnifyingglass")
+                        Text("Search")
+                    }
+                }
             AccountsView()
                 .tabItem {
                     VStack {
