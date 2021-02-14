@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>LSSupportsOpeningDocumentsInPlace</key>
+	<true/>
+	<key>UIFileSharingEnabled</key>
+	<true/>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>The app lets you look for and navigate to caches near you using your location.</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
