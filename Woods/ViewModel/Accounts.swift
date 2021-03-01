@@ -145,4 +145,14 @@ class Accounts: ObservableObject {
             guard status == errSecSuccess else { throw KeychainError.couldNotDelete(status) }
         }
     }
+    
+    /// Removes all (woods-related) accounts from the user's keychain.
+    func clearKeychain() throws {
+        let query: [String: Any] = [
+            kSecClass as String: keychainClass,
+            kSecAttrLabel as String: keychainLabel
+        ]
+        let status = SecItemDelete(query as CFDictionary)
+        guard status == errSecSuccess else { throw KeychainError.couldNotDelete(status) }
+    }
 }
