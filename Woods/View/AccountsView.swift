@@ -11,7 +11,6 @@ import SwiftUI
 struct AccountsView: View {
     @EnvironmentObject private var accounts: Accounts
     @State private var loginSheetShown = false
-    @State private var loginCredentials = Credentials()
     
     var body: some View {
         NavigationView {
@@ -32,7 +31,11 @@ struct AccountsView: View {
                 }
             }
             .sheet(isPresented: $loginSheetShown) {
-                LoginView(credentials: $loginCredentials)
+                LoginView { account in
+                    // TODO: Actually log in
+                    accounts.accounts.append(account)
+                    loginSheetShown = false
+                }
             }
         }
         .navigationViewStyle(StackNavigationViewStyle())

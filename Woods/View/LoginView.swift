@@ -9,8 +9,10 @@
 import SwiftUI
 
 struct LoginView: View {
-    @Binding var credentials: Credentials
-    @State var accountType: AccountType = .geocachingCom // TODO
+    let onLogIn: (Account) -> Void
+    
+    @State private var credentials: Credentials = Credentials()
+    @State private var accountType: AccountType = .geocachingCom // TODO
     
     var body: some View {
         Form {
@@ -21,7 +23,9 @@ struct LoginView: View {
                 TextField("Username", text: $credentials.username)
                 SecureField("Password", text: $credentials.password)
             }
-            Button(action: {}) {
+            Button(action: {
+                onLogIn(Account(type: accountType, credentials: credentials))
+            }) {
                 Text("Log in")
             }
         }
@@ -31,6 +35,6 @@ struct LoginView: View {
 struct LoginView_Previews: PreviewProvider {
     @State static var credentials = Credentials()
     static var previews: some View {
-        LoginView(credentials: $credentials)
+        LoginView { _ in }
     }
 }

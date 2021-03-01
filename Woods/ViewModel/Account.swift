@@ -9,7 +9,7 @@
 import Foundation
 
 struct Account: Identifiable {
-    var id: UUID
+    var id: UUID = UUID()
     var type: AccountType
     var credentials: Credentials
     
