@@ -18,6 +18,7 @@ struct GeocacheMapView: View {
         ZStack(alignment: .topLeading) {
             Map(annotations: geocaches.geocaches.map { cache -> MKPointAnnotation in
                 let annotation = MKPointAnnotation()
+                annotation.title = cache.name
                 annotation.coordinate = cache.location.asCLCoordinate
                 return annotation
             }, location: $location)

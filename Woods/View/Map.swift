@@ -38,7 +38,10 @@ struct Map: UIViewRepresentable {
         return mapView
     }
     
-    func updateUIView(_ uiView: MKMapView, context: Context) {}
+    func updateUIView(_ mapView: MKMapView, context: Context) {
+        mapView.removeAnnotations(mapView.annotations)
+        mapView.addAnnotations(annotations)
+    }
     
     class Coordinator: NSObject, CLLocationManagerDelegate {
         @Binding private var location: CLLocation?
