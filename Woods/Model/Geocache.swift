@@ -12,8 +12,8 @@ struct Geocache: Identifiable, Codable, Hashable {
     var id: String // GC-Code or similar
     var name: String
     var location: Coordinates
-    var difficulty: Int? = nil // half stars, between 1 and 10
-    var terrain: Int? = nil // half stars, between 1 and 10
+    var difficulty: Int? = nil // half stars, between 2 and 10
+    var terrain: Int? = nil // half stars, between 2 and 10
     var type: GeocacheType = .other
     var size: GeocacheSize = .other
     var owner: String? = nil
