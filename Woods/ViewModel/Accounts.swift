@@ -64,6 +64,7 @@ class Accounts: ObservableObject {
         
         loginTasks[account.id] = connector
             .logIn(using: account.credentials)
+            .receive(on: RunLoop.main)
             .sink { completion in
                 if case let .failure(error) = completion {
                     log.warning("Could not log in with account \(account): \(String(describing: error))")
@@ -78,6 +79,7 @@ class Accounts: ObservableObject {
         
         logoutTasks[account.id] = connector
             .logOut()
+            .receive(on: RunLoop.main)
             .sink { completion in
                 if case let .failure(error) = completion {
                     log.warning("Could not log out from account \(account): \(String(describing: error))")
