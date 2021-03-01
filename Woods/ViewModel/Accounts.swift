@@ -90,7 +90,7 @@ class Accounts: ObservableObject {
     }
     
     /// Loads all accounts from the user's keychain.
-    func loadFromKeychain() throws -> [Account] {
+    private func loadFromKeychain() throws -> [Account] {
         let query: [String: Any] = [
             kSecClass as String: keychainClass,
             kSecAttrLabel as String: keychainLabel,
@@ -118,7 +118,7 @@ class Accounts: ObservableObject {
     }
     
     /// Stores the given accounts in the user's keychain.
-    func storeInKeychain(accounts: [Account]) throws {
+    private func storeInKeychain(accounts: [Account]) throws {
         for account in accounts {
             let query: [String: Any] = [
                 kSecClass as String: keychainClass,
@@ -133,7 +133,7 @@ class Accounts: ObservableObject {
     }
     
     /// Removes the given accounts in the user's keychain.
-    func removeFromKeychain(accounts: [Account]) throws {
+    private func removeFromKeychain(accounts: [Account]) throws {
         for account in accounts {
             let query: [String: Any] = [
                 kSecClass as String: keychainClass,
@@ -147,7 +147,7 @@ class Accounts: ObservableObject {
     }
     
     /// Removes all (woods-related) accounts from the user's keychain.
-    func clearKeychain() throws {
+    private func clearKeychain() throws {
         let query: [String: Any] = [
             kSecClass as String: keychainClass,
             kSecAttrLabel as String: keychainLabel
