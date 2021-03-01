@@ -46,5 +46,9 @@ struct Map: UIViewRepresentable {
         init(location: Binding<CLLocation?>) {
             _location = location
         }
+        
+        func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+            location = locations.last
+        }
     }
 }
