@@ -54,5 +54,7 @@ struct Map: UIViewRepresentable {
         func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
             region = mapView.region
         }
+        
+        // TODO: Customize annotations
     }
 }
