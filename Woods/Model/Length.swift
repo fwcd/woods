@@ -6,7 +6,7 @@
 //  Copyright © 2021 Fredrik. All rights reserved.
 //
 
-struct Length: AdditiveArithmetic, Hashable, Codable, CustomStringConvertible {
+struct Length: AdditiveArithmetic, Hashable, Comparable, Codable, CustomStringConvertible {
     static var zero = Length()
     
     var meters: Double
@@ -62,6 +62,10 @@ struct Length: AdditiveArithmetic, Hashable, Codable, CustomStringConvertible {
     
     static func /=(lhs: inout Self, divisor: Double) {
         lhs.meters /= divisor
+    }
+    
+    static func <(lhs: Self, rhs: Self) -> Bool {
+        lhs.meters < rhs.meters
     }
     
     static prefix func -(lhs: Self) -> Self {

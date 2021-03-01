@@ -25,6 +25,6 @@ class MockConnector: Connector {
             Geocache(id: "MOCK2", name: "Lake View", location: Coordinates(latitude: 51.30563, longitude: 7.94576)),
             Geocache(id: "MOCK3", name: "Mountain Views", location: Coordinates(latitude: 46.89705, longitude: 7.97048)),
             Geocache(id: "MOCK4", name: "Ferry to Oslo", location: Coordinates(latitude: 54.32851, longitude: 10.15303))
-        ]).weakenError().eraseToAnyPublisher()
+        ].filter { $0.location.distance(to: query.center) <= query.radius }).weakenError().eraseToAnyPublisher()
     }
 }

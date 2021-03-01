@@ -28,4 +28,11 @@ struct Coordinates: Codable, Hashable, CustomStringConvertible {
     var asCLCoordinate: CLLocationCoordinate2D {
         CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     }
+    var asCLLocation: CLLocation {
+        CLLocation(latitude: latitude, longitude: longitude)
+    }
+    
+    func distance(to rhs: Coordinates) -> Length {
+        Length(meters: asCLLocation.distance(from: rhs.asCLLocation).magnitude)
+    }
 }
