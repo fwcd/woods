@@ -9,6 +9,7 @@
 import Foundation
 import Combine
 
+/// A simple connector that outputs some fake caches for testing.
 class MockConnector: Connector {
     func logIn(using credentials: Credentials) -> AnyPublisher<Void, Error> {
         Just(()).weakenError().eraseToAnyPublisher()

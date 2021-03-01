@@ -13,5 +13,5 @@ struct Account: Identifiable, Hashable, CustomStringConvertible {
     var type: AccountType
     var credentials: Credentials
     
-    var description: String { "\(type) Account: \(credentials.username)" }
+    var description: String { "\(type) account: \(credentials.username)" }
 }

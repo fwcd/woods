@@ -56,7 +56,7 @@ struct AccountsView_Previews: PreviewProvider {
     @StateObject static var accounts = Accounts(accounts: [
         Account(
             id: UUID(uuidString: "b0819a69-ceef-4323-b752-ff09a70230fd")!,
-            type: .geocachingCom,
+            type: .mock,
             credentials: Credentials(
                 username: "test",
                 password: "test"
@@ -64,7 +64,7 @@ struct AccountsView_Previews: PreviewProvider {
         ),
         Account(
             id: UUID(uuidString: "ff25ad11-37ad-4d13-a204-e83d4d75476a")!,
-            type: .geocachingCom,
+            type: .mock,
             credentials: Credentials(
                 username: "demo",
                 password: "demo"
