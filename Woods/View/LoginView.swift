@@ -18,6 +18,7 @@ struct LoginView: View {
         Form {
             Section(header: Text("Account Type")) {
                 EnumPicker(selection: $accountType, label: Text("Account Type"))
+                    .pickerStyle(SegmentedPickerStyle())
             }
             Section(header: Text("Credentials")) {
                 TextField("Username", text: $credentials.username)
