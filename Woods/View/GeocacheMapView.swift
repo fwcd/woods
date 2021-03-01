@@ -19,9 +19,36 @@ struct GeocacheMapView: View {
             Map.Annotation(
                 coordinate: cache.location.asCLCoordinate,
                 title: cache.name,
-                color: .blue
+                color: color(for: cache.type)
             )
         }, region: $region)
+    }
+    
+    private func color(for cacheType: GeocacheType) -> Color {
+        switch cacheType {
+        case .traditional:
+            return .green
+        case .multi:
+            return .orange
+        case .mystery:
+            return .blue
+        case .virtual:
+            return .white
+        case .webcam:
+            return .gray
+        case .earth:
+            return .yellow
+        case .letterbox:
+            return .blue
+        case .wherigo:
+            return .blue
+        case .event:
+            return .red
+        case .megaEvent:
+            return .red
+        default:
+            return .black
+        }
     }
 }
 
