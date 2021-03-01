@@ -8,10 +8,12 @@
 
 import Foundation
 
-struct Account: Identifiable {
+struct Account: Identifiable, CustomStringConvertible {
     var id: UUID = UUID()
     var type: AccountType
     var credentials: Credentials
     
     var connector: Connector? = nil
+    
+    var description: String { "\(type) Account: \(credentials.username)" }
 }

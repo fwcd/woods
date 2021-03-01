@@ -7,10 +7,15 @@
 //
 
 import SwiftUI
+import OSLog
+
+private let log = Logger(subsystem: "Woods", category: "View")
 
 struct AccountsView: View {
     @EnvironmentObject private var accounts: Accounts
     @State private var loginSheetShown = false
+    @State private var loginErrorDialogShown = false
+    @State private var loginError: Error? = nil
     
     var body: some View {
         NavigationView {
@@ -33,9 +38,18 @@ struct AccountsView: View {
             .sheet(isPresented: $loginSheetShown) {
                 LoginView { account in
                     // TODO: Actually log in
-                    accounts.accounts.append(account)
+                    do {
+                        try accounts.logInAndStore(account)
+                    } catch {
+                        log.error("Could not log in: \(String(describing: error))")
+                        loginError = error
+                        loginErrorDialogShown = true
+                    }
                     loginSheetShown = false
                 }
+            }
+            .alert(isPresented: $loginErrorDialogShown) {
+                Alert(title: Text("Could not log in: \(String(describing: loginError))"))
             }
         }
         .navigationViewStyle(StackNavigationViewStyle())
