@@ -15,7 +15,7 @@ struct GeocacheMapView: View {
     @State private var location: CLLocation?
     
     var body: some View {
-        ZStack(alignment: .topTrailing) {
+        ZStack(alignment: .topLeading) {
             Map(annotations: geocaches.geocaches.map { cache -> MKPointAnnotation in
                 let annotation = MKPointAnnotation()
                 annotation.coordinate = cache.location.asCLCoordinate
@@ -29,6 +29,7 @@ struct GeocacheMapView: View {
             }) {
                 Image(systemName: "arrow.clockwise.circle.fill")
                     .font(.system(size: 40))
+                    .foregroundColor(.primary)
             }
             .padding(10)
         }
