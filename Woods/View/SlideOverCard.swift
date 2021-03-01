@@ -25,12 +25,12 @@ struct SlideOverCard<Content: View>: View {
                     onDragEnded(drag: drag, geometry: geometry)
                 }
 
-            Group {
+            VStack {
                 Handle()
                 self.content()
                     .frame(maxWidth: .infinity)
             }
-            .background(Color.white)
+            .background(Color(UIColor.systemBackground))
             .cornerRadius(10.0)
             .shadow(color: Color(.sRGBLinear, white: 0, opacity: 0.13), radius: 10.0)
             .offset(y: (geometry.size.height - position.rawValue) + dragState.translation.height)
