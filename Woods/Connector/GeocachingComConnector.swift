@@ -12,7 +12,7 @@ import OSLog
 
 // Adapted from pycaching
 
-private let baseUrl = "http://www.geocaching.com"
+private let baseUrl = "https://www.geocaching.com"
 private let loginPageUrl = URL(string: "\(baseUrl)/account/signin")!
 private let searchUrl = URL(string: "\(baseUrl)/play/search")!
 private let searchMoreUrl = URL(string: "\(baseUrl)/play/search/more-results")!
