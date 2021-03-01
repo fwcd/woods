@@ -16,13 +16,13 @@ class Accounts: ObservableObject {
     
     init(accounts: [Account] = [], loadFromKeychain: Bool = false) {
         for account in accounts {
-            tryLogIn(with: account)
+            tryLogIn(using: account)
         }
         
         do {
             if loadFromKeychain {
                 for account in try loadCredentials() {
-                    tryLogIn(with: account)
+                    tryLogIn(using: account)
                 }
             }
         } catch {
@@ -30,29 +30,29 @@ class Accounts: ObservableObject {
         }
     }
     
-    private func tryLogIn(with account: Account) {
+    private func tryLogIn(using account: Account) {
         do {
-            try logIn(with: account)
+            try logIn(using: account)
         } catch {
             log.warning("Could not log in with account \(account): \(String(describing: error))")
         }
     }
     
     func logInAndStore(_ account: Account) throws {
-        try logIn(with: account)
+        try logIn(using: account)
         // TODO: Store credentials
     }
     
     func logOutAndStore(_ account: Account) throws {
-        try logOut(from: account)
+        try logOut(using: account)
         // TODO: Remove credentials from store
     }
     
-    private func logIn(with account: Account) throws {
+    private func logIn(using account: Account) throws {
         // TODO
     }
     
-    private func logOut(from account: Account) throws {
+    private func logOut(using account: Account) throws {
         // TODO
     }
     
