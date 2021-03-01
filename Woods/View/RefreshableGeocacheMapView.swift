@@ -43,6 +43,13 @@ struct RefreshableGeocacheMapView: View {
                     .foregroundColor(.primary)
             }
             .padding(10)
+            SlideOverCard {
+                VStack {
+                    Text("Test")
+                    Spacer()
+                }
+                .frame(maxWidth: .infinity)
+            }
         }
     }
 }
