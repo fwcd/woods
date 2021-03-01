@@ -39,8 +39,9 @@
 		C765469B25ED25DE004F14E8 /* EnumPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765469A25ED25DE004F14E8 /* EnumPicker.swift */; };
 		C76546B025ED2DB6004F14E8 /* HTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76546AF25ED2DB6004F14E8 /* HTTPRequest.swift */; };
 		C76546B625ED2E07004F14E8 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = C76546B525ED2E07004F14E8 /* SwiftSoup */; };
-		C7B6F0FD249FA16B00454841 /* GeocacheMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B6F0FC249FA16B00454841 /* GeocacheMapView.swift */; };
+		C7B6F0FD249FA16B00454841 /* RefreshableGeocacheMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B6F0FC249FA16B00454841 /* RefreshableGeocacheMapView.swift */; };
 		C7B6F0FF249FA1B300454841 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B6F0FE249FA1B300454841 /* Map.swift */; };
+		C7B74E6C25ED8DA600D5194B /* GeocacheMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74E6B25ED8DA600D5194B /* GeocacheMapView.swift */; };
 		C7E1B88A25ED72F0004575A5 /* MockConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E1B88925ED72F0004575A5 /* MockConnector.swift */; };
 		C7E1B88F25ED73EB004575A5 /* PublisherUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E1B88E25ED73EB004575A5 /* PublisherUtils.swift */; };
 /* End PBXBuildFile section */
@@ -100,8 +101,9 @@
 		C765468D25D8A30F004F14E8 /* PersistenceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceError.swift; sourceTree = "<group>"; };
 		C765469A25ED25DE004F14E8 /* EnumPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnumPicker.swift; sourceTree = "<group>"; };
 		C76546AF25ED2DB6004F14E8 /* HTTPRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPRequest.swift; sourceTree = "<group>"; };
-		C7B6F0FC249FA16B00454841 /* GeocacheMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocacheMapView.swift; sourceTree = "<group>"; };
+		C7B6F0FC249FA16B00454841 /* RefreshableGeocacheMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshableGeocacheMapView.swift; sourceTree = "<group>"; };
 		C7B6F0FE249FA1B300454841 /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
+		C7B74E6B25ED8DA600D5194B /* GeocacheMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocacheMapView.swift; sourceTree = "<group>"; };
 		C7E1B88925ED72F0004575A5 /* MockConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockConnector.swift; sourceTree = "<group>"; };
 		C7E1B88E25ED73EB004575A5 /* PublisherUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublisherUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -252,7 +254,8 @@
 				C73E04BE249F9F4700C6E22C /* ContentView.swift */,
 				C765464D25D88CEC004F14E8 /* AccountsView.swift */,
 				C765465225D88E48004F14E8 /* LoginView.swift */,
-				C7B6F0FC249FA16B00454841 /* GeocacheMapView.swift */,
+				C7B6F0FC249FA16B00454841 /* RefreshableGeocacheMapView.swift */,
+				C7B74E6B25ED8DA600D5194B /* GeocacheMapView.swift */,
 				C7B6F0FE249FA1B300454841 /* Map.swift */,
 				C765469A25ED25DE004F14E8 /* EnumPicker.swift */,
 			);
@@ -405,7 +408,7 @@
 				C765465D25D890F6004F14E8 /* AccountType.swift in Sources */,
 				C76546B025ED2DB6004F14E8 /* HTTPRequest.swift in Sources */,
 				C765465825D890E1004F14E8 /* Account.swift in Sources */,
-				C7B6F0FD249FA16B00454841 /* GeocacheMapView.swift in Sources */,
+				C7B6F0FD249FA16B00454841 /* RefreshableGeocacheMapView.swift in Sources */,
 				C73E04BB249F9F4700C6E22C /* WoodsApp.swift in Sources */,
 				C765466225D89141004F14E8 /* GeocachingComConnector.swift in Sources */,
 				C765468425D8A2A1004F14E8 /* EnvironmentUtils.swift in Sources */,
@@ -413,6 +416,7 @@
 				C765464E25D88CEC004F14E8 /* AccountsView.swift in Sources */,
 				C765468925D8A2C9004F14E8 /* DataUtils.swift in Sources */,
 				C765462425D87E9C004F14E8 /* GeocachesInRadiusQuery.swift in Sources */,
+				C7B74E6C25ED8DA600D5194B /* GeocacheMapView.swift in Sources */,
 				C765467F25D8A280004F14E8 /* JSONUtils.swift in Sources */,
 				C765467725D8A23C004F14E8 /* PersistenceUtils.swift in Sources */,
 				C7E1B88F25ED73EB004575A5 /* PublisherUtils.swift in Sources */,

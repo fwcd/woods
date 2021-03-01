@@ -11,51 +11,22 @@ import MapKit
 import CoreLocation
 
 struct GeocacheMapView: View {
-    @EnvironmentObject private var geocaches: Geocaches
-    @State private var region: MKCoordinateRegion? = nil
+    let geocaches: [Geocache]
+    @Binding var region: MKCoordinateRegion?
     
     var body: some View {
-        ZStack(alignment: .topLeading) {
-            Map(annotations: geocaches.geocaches.map { cache -> MKPointAnnotation in
-                let annotation = MKPointAnnotation()
-                annotation.title = cache.name
-                annotation.coordinate = cache.location.asCLCoordinate
-                return annotation
-            }, region: $region)
-            .edgesIgnoringSafeArea(.all)
-            Button(action: {
-                if let region = region {
-                    let center = region.center
-                    let span = region.span
-                    let topLeft = CLLocation(
-                        latitude: center.latitude - (span.latitudeDelta / 2),
-                        longitude: center.longitude - (span.longitudeDelta / 2)
-                    )
-                    let bottomRight = CLLocation(
-                        latitude: center.latitude + (span.latitudeDelta / 2),
-                        longitude: center.longitude + (span.longitudeDelta / 2)
-                    )
-                    let diameter = topLeft.distance(from: bottomRight).magnitude
-                    let query = GeocachesInRadiusQuery(
-                        center: Coordinates(from: center),
-                        radius: Length(meters: diameter / 2)
-                    )
-                    geocaches.refresh(with: query)
-                }
-            }) {
-                Image(systemName: "arrow.clockwise.circle.fill")
-                    .font(.system(size: 40))
-                    .foregroundColor(.primary)
-            }
-            .padding(10)
-        }
+        Map(annotations: geocaches.map { cache -> MKPointAnnotation in
+            let annotation = MKPointAnnotation()
+            annotation.title = cache.name
+            annotation.coordinate = cache.location.asCLCoordinate
+            return annotation
+        }, region: $region)
     }
 }
 
 struct GeocacheMapView_Previews: PreviewProvider {
-    @StateObject static var geocaches = Geocaches(accounts: Accounts(testMode: true))
+    @State static var region: MKCoordinateRegion? = nil
     static var previews: some View {
-        GeocacheMapView()
-            .environmentObject(geocaches)
+        GeocacheMapView(geocaches: [], region: $region)
     }
 }

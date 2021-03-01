@@ -11,7 +11,7 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         TabView {
-            GeocacheMapView()
+            RefreshableGeocacheMapView()
                 .tabItem {
                     VStack {
                         Image(systemName: "map.fill")
