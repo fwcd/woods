@@ -19,7 +19,8 @@ struct GeocacheMapView: View {
             Map.Annotation(
                 coordinate: cache.location.asCLCoordinate,
                 title: cache.name,
-                color: color(for: cache.type)
+                color: color(for: cache.type),
+                iconName: "archivebox.fill"
             )
         }, region: $region)
     }

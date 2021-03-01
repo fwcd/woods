@@ -51,12 +51,14 @@ struct Map: UIViewRepresentable {
         let title: String?
         let subtitle: String?
         let color: Color?
+        let iconName: String?
         
-        init(coordinate: CLLocationCoordinate2D, title: String? = nil, subtitle: String? = nil, color: Color? = nil) {
+        init(coordinate: CLLocationCoordinate2D, title: String? = nil, subtitle: String? = nil, color: Color? = nil, iconName: String? = nil) {
             self.coordinate = coordinate
             self.title = title
             self.subtitle = subtitle
             self.color = color
+            self.iconName = iconName
         }
     }
     
@@ -76,7 +78,14 @@ struct Map: UIViewRepresentable {
                   let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: NSStringFromClass(MKMarkerAnnotationView.self)) as? MKMarkerAnnotationView else { return nil }
             
             annotationView.annotation = annotation
-            annotationView.markerTintColor = UIColor(annotation.color ?? .red)
+            
+            if let color = annotation.color {
+                annotationView.markerTintColor = UIColor(color)
+            }
+            
+            if let iconName = annotation.iconName {
+                annotationView.glyphImage = UIImage(systemName: iconName)
+            }
             
             return annotationView
         }
