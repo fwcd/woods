@@ -22,7 +22,12 @@ private let apiSearchUrl = URL(string: "\(baseUrl)/api/proxy/web/search")!
 private let log = Logger(subsystem: "Woods", category: "Connector")
 
 class GeocachingComConnector: Connector {
+    @Published private var state: ConnectorState = .disconnected
+    
+    var statePublisher: AnyPublisher<ConnectorState, Never> { $state.eraseToAnyPublisher() }
+    
     func logIn(using credentials: Credentials) -> AnyPublisher<Void, Error> {
+        state = .connecting
         let tokenFieldName = "__RequestVerificationToken"
         
         return Result.Publisher(Result { try HTTPRequest(url: loginPageUrl) })

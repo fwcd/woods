@@ -8,7 +8,7 @@
 
 import Combine
 
-protocol Connector {
+protocol Connector: AnyObject {
     func logIn(using credentials: Credentials) -> AnyPublisher<Void, Error>
     
     func logOut() -> AnyPublisher<Void, Error>

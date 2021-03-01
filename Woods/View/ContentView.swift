@@ -44,7 +44,7 @@ struct ContentView: View {
 }
 
 struct ContentView_Previews: PreviewProvider {
-    @StateObject static var accounts = Accounts()
+    @StateObject static var accounts = Accounts(testMode: true)
     static var previews: some View {
         ContentView()
             .environmentObject(accounts)

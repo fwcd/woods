@@ -14,12 +14,10 @@ private let log = Logger(subsystem: "Woods", category: "View")
 struct AccountsView: View {
     @EnvironmentObject private var accounts: Accounts
     @State private var loginSheetShown = false
-    @State private var loginErrorDialogShown = false
-    @State private var loginError: Error? = nil
     
     var body: some View {
         NavigationView {
-            List(accounts.accounts) { account in
+            List(accounts.accounts.values.sorted { $0.credentials.username < $1.credentials.username }) { account in
                 VStack(alignment: .leading) {
                     Text(account.type.description)
                         .font(.headline)
@@ -37,19 +35,8 @@ struct AccountsView: View {
             }
             .sheet(isPresented: $loginSheetShown) {
                 LoginView { account in
-                    // TODO: Actually log in
-                    do {
-                        try accounts.logInAndStore(account)
-                    } catch {
-                        log.error("Could not log in: \(String(describing: error))")
-                        loginError = error
-                        loginErrorDialogShown = true
-                    }
-                    loginSheetShown = false
+                    accounts.logInAndStore(account)
                 }
-            }
-            .alert(isPresented: $loginErrorDialogShown) {
-                Alert(title: Text("Could not log in: \(String(describing: loginError))"))
             }
         }
         .navigationViewStyle(StackNavigationViewStyle())
@@ -74,7 +61,7 @@ struct AccountsView_Previews: PreviewProvider {
                 password: "demo"
             )
         )
-    ])
+    ], testMode: true)
     static var previews: some View {
         AccountsView()
             .environmentObject(accounts)

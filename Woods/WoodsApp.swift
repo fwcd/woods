@@ -10,7 +10,7 @@ import SwiftUI
 
 @main
 struct WoodsApp: App {
-    @StateObject private var accounts = Accounts(loadFromKeychain: true)
+    @StateObject private var accounts = Accounts()
     
     var body: some Scene {
         WindowGroup {
