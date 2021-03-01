@@ -7,7 +7,7 @@
 //
 
 enum AccountType: String, CustomStringConvertible, CaseIterable, Hashable {
-    case geocachingCom = "Geocaching.com"
+    case geocachingCom = "geocaching.com"
     
     var description: String { rawValue }
     

@@ -7,9 +7,12 @@
 //
 
 import Combine
+import Security
 import OSLog
 
 private let log = Logger(subsystem: "Woods", category: "ViewModel")
+private let keychainLabel = "fwcd.woods.accounts"
+private let keychainClass: Any = kSecClassInternetPassword
 
 class Accounts: ObservableObject {
     @Published private(set) var accounts: [UUID: Account] = [:]
@@ -86,17 +89,55 @@ class Accounts: ObservableObject {
     
     /// Loads all accounts from the user's keychain.
     func loadFromKeychain() throws -> [Account] {
-        // TODO
-        []
+        let query: [String: Any] = [
+            kSecClass as String: keychainClass,
+            kSecAttrLabel as String: keychainLabel,
+            kSecMatchLimit as String: kSecMatchLimitAll,
+            kSecReturnAttributes as String: true,
+            kSecReturnData as String: true
+        ]
+        var rawItems: CFTypeRef?
+        let status = SecItemCopyMatching(query as CFDictionary, &rawItems)
+        guard status != errSecItemNotFound else { return [] }
+        guard status == errSecSuccess else { throw KeychainError.couldNotLookUp(status) }
+        guard let items = rawItems as? [[String: Any]] else { throw KeychainError.unexpectedItemsData }
+        
+        return try items.map { item in
+            guard let server = item[kSecAttrServer as String] as? String,
+                  let accountType = AccountType(rawValue: server),
+                  let username = item[kSecAttrAccount as String] as? String,
+                  let passwordData = item[kSecValueData as String] as? Data,
+                  let password = String(data: passwordData, encoding: .utf8) else { throw KeychainError.unexpectedItemData }
+            return Account(type: accountType, credentials: Credentials(username: username, password: password))
+        }
     }
     
     /// Stores the given accounts in the user's keychain.
     func storeInKeychain(accounts: [Account]) throws {
-        // TODO
+        for account in accounts {
+            let query: [String: Any] = [
+                kSecClass as String: keychainClass,
+                kSecAttrAccount as String: account.credentials.username,
+                kSecAttrServer as String: account.type.rawValue,
+                kSecValueData as String: account.credentials.password.data(using: .utf8)!,
+                kSecAttrLabel as String: keychainLabel
+            ]
+            let status = SecItemAdd(query as CFDictionary, nil)
+            guard status == errSecSuccess else { throw KeychainError.couldNotAdd(status) }
+        }
     }
     
     /// Removes the given accounts in the user's keychain.
     func removeFromKeychain(accounts: [Account]) throws {
-        // TODO
+        for account in accounts {
+            let query: [String: Any] = [
+                kSecClass as String: keychainClass,
+                kSecAttrLabel as String: keychainLabel,
+                kSecAttrServer as String: account.type.rawValue,
+                kSecAttrAccount as String: account.credentials.username
+            ]
+            let status = SecItemDelete(query as CFDictionary)
+            guard status == errSecSuccess else { throw KeychainError.couldNotDelete(status) }
+        }
     }
 }

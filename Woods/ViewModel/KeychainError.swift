@@ -9,7 +9,9 @@
 import Foundation
 
 enum KeychainError: Error {
-    case noPassword
-    case unexpectedPasswordData
-    case unhandledError(OSStatus)
+    case unexpectedItemsData
+    case unexpectedItemData
+    case couldNotAdd(OSStatus)
+    case couldNotDelete(OSStatus)
+    case couldNotLookUp(OSStatus)
 }
