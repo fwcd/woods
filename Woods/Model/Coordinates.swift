@@ -6,7 +6,14 @@
 //  Copyright © 2021 Fredrik. All rights reserved.
 //
 
+import CoreLocation
+
+/// A pair of geographical coordinates on Earth.
 struct Coordinates: Codable, Hashable {
     let latitude: Double
     let longitude: Double
+    
+    var toCoreLocation: CLLocationCoordinate2D {
+        CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+    }
 }
