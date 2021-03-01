@@ -10,21 +10,23 @@ import SwiftUI
 import UIKit
 import MapKit
 
-public struct MapView: UIViewRepresentable {
-    private var locationManager = CLLocationManager()
+struct Map: UIViewRepresentable {
+    let annotations: [MKPointAnnotation]
+    let locationManager = CLLocationManager()
     
-    public func setupLocationManager() {
+    func setupLocationManager() {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestAlwaysAuthorization()
     }
     
-    public func makeUIView(context: Context) -> MKMapView {
+    func makeUIView(context: Context) -> MKMapView {
         setupLocationManager()
         let mapView = MKMapView()
+        mapView.addAnnotations(annotations)
         mapView.showsUserLocation = true
         mapView.userTrackingMode = .follow
         return mapView
     }
     
-    public func updateUIView(_ uiView: MKMapView, context: Context) {}
+    func updateUIView(_ uiView: MKMapView, context: Context) {}
 }

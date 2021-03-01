@@ -7,12 +7,23 @@
 //
 
 import SwiftUI
+import MapKit
 
-public struct GeocacheMapView: View {
-    public var body: some View {
-        MapView()
-            .edgesIgnoringSafeArea(.all)
+struct GeocacheMapView: View {
+    let geocaches: [Geocache]
+    
+    var body: some View {
+        Map(annotations: geocaches.map { cache -> MKPointAnnotation in
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = cache.location.usingCoreLocation
+            return annotation
+        })
+        .edgesIgnoringSafeArea(.all)
     }
 }
 
-
+struct GeocacheMapView_Previews: PreviewProvider {
+    static var previews: some View {
+        GeocacheMapView(geocaches: [])
+    }
+}

@@ -8,14 +8,16 @@
 
 import SwiftUI
 
+private let accounts = Accounts()
+private let geocaches = Geocaches()
+
 @main
 struct WoodsApp: App {
-    @StateObject private var accounts = Accounts()
-    
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .environmentObject(accounts)
+                .environmentObject(geocaches)
         }
     }
 }
