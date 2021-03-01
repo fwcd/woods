@@ -15,11 +15,12 @@ struct GeocacheMapView: View {
     @Binding var region: MKCoordinateRegion?
     
     var body: some View {
-        Map(annotations: geocaches.map { cache -> MKPointAnnotation in
-            let annotation = MKPointAnnotation()
-            annotation.title = cache.name
-            annotation.coordinate = cache.location.asCLCoordinate
-            return annotation
+        Map(annotations: geocaches.map { cache in
+            Map.Annotation(
+                coordinate: cache.location.asCLCoordinate,
+                title: cache.name,
+                color: .blue
+            )
         }, region: $region)
     }
 }
