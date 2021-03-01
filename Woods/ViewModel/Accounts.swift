@@ -105,10 +105,13 @@ class Accounts: ObservableObject {
         return try items.map { item in
             guard let server = item[kSecAttrServer as String] as? String,
                   let accountType = AccountType(rawValue: server),
-                  let username = item[kSecAttrAccount as String] as? String,
+                  let short = (item[kSecAttrAccount as String] as? String)?.split(separator: ":", maxSplits: 1),
+                  let rawId = short.first.map(String.init),
+                  let username = short.last.map(String.init),
+                  let id = UUID(uuidString: rawId),
                   let passwordData = item[kSecValueData as String] as? Data,
                   let password = String(data: passwordData, encoding: .utf8) else { throw KeychainError.unexpectedItemData }
-            return Account(type: accountType, credentials: Credentials(username: username, password: password))
+            return Account(id: id, type: accountType, credentials: Credentials(username: username, password: password))
         }
     }
     
@@ -117,7 +120,7 @@ class Accounts: ObservableObject {
         for account in accounts {
             let query: [String: Any] = [
                 kSecClass as String: keychainClass,
-                kSecAttrAccount as String: account.credentials.username,
+                kSecAttrAccount as String: "\(account.id):\(account.credentials.username)",
                 kSecAttrServer as String: account.type.rawValue,
                 kSecValueData as String: account.credentials.password.data(using: .utf8)!,
                 kSecAttrLabel as String: keychainLabel
@@ -134,7 +137,7 @@ class Accounts: ObservableObject {
                 kSecClass as String: keychainClass,
                 kSecAttrLabel as String: keychainLabel,
                 kSecAttrServer as String: account.type.rawValue,
-                kSecAttrAccount as String: account.credentials.username
+                kSecAttrAccount as String: "\(account.id):\(account.credentials.username)"
             ]
             let status = SecItemDelete(query as CFDictionary)
             guard status == errSecSuccess else { throw KeychainError.couldNotDelete(status) }
