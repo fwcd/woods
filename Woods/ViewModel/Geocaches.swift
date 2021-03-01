@@ -23,7 +23,7 @@ class Geocaches: ObservableObject {
     }
     
     func refresh(with query: GeocachesInRadiusQuery) {
-        log.info("Refreshing geocaches")
+        log.info("Refreshing geocaches in a radius of \(query.radius) around \(query.center)")
         runningQueryTask = Publishers.MergeMany(accounts.connectors.values.map { $0.geocaches(for: query) })
             .collect()
             .receive(on: RunLoop.main)

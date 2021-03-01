@@ -9,9 +9,11 @@
 import CoreLocation
 
 /// A pair of geographical coordinates on Earth.
-struct Coordinates: Codable, Hashable {
+struct Coordinates: Codable, Hashable, CustomStringConvertible {
     let latitude: Double
     let longitude: Double
+    
+    var description: String { "(\(latitude), \(longitude))" }
     
     init(latitude: Double, longitude: Double) {
         self.latitude = latitude

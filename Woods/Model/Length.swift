@@ -10,7 +10,7 @@ struct Length: AdditiveArithmetic, Hashable, Codable, CustomStringConvertible {
     static var zero = Length()
     
     var meters: Double
-    var description: String { "\(meters)m" }
+    var description: String { String(format: "%.2f m", meters) }
     
     init() {
         self.init(meters: 0)

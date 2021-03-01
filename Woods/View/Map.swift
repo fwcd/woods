@@ -12,7 +12,7 @@ import MapKit
 
 struct Map: UIViewRepresentable {
     let annotations: [MKPointAnnotation]
-    @Binding var location: CLLocation?
+    @Binding var region: MKCoordinateRegion?
     
     let locationManager = CLLocationManager()
     
@@ -26,7 +26,7 @@ struct Map: UIViewRepresentable {
     }
     
     func makeCoordinator() -> Coordinator {
-        Coordinator(location: $location)
+        Coordinator(region: $region)
     }
     
     func makeUIView(context: Context) -> MKMapView {
@@ -35,6 +35,7 @@ struct Map: UIViewRepresentable {
         mapView.addAnnotations(annotations)
         mapView.showsUserLocation = true
         mapView.userTrackingMode = .follow
+        mapView.delegate = context.coordinator
         return mapView
     }
     
@@ -43,15 +44,15 @@ struct Map: UIViewRepresentable {
         mapView.addAnnotations(annotations)
     }
     
-    class Coordinator: NSObject, CLLocationManagerDelegate {
-        @Binding private var location: CLLocation?
+    class Coordinator: NSObject, CLLocationManagerDelegate, MKMapViewDelegate {
+        @Binding private var region: MKCoordinateRegion?
         
-        init(location: Binding<CLLocation?>) {
-            _location = location
+        init(region: Binding<MKCoordinateRegion?>) {
+            _region = region
         }
         
-        func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-            location = locations.last
+        func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
+            region = mapView.region
         }
     }
 }

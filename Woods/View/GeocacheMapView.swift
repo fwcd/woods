@@ -12,7 +12,7 @@ import CoreLocation
 
 struct GeocacheMapView: View {
     @EnvironmentObject private var geocaches: Geocaches
-    @State private var location: CLLocation?
+    @State private var region: MKCoordinateRegion? = nil
     
     var body: some View {
         ZStack(alignment: .topLeading) {
@@ -21,11 +21,26 @@ struct GeocacheMapView: View {
                 annotation.title = cache.name
                 annotation.coordinate = cache.location.asCLCoordinate
                 return annotation
-            }, location: $location)
+            }, region: $region)
             .edgesIgnoringSafeArea(.all)
             Button(action: {
-                if let location = location {
-                    geocaches.refresh(with: GeocachesInRadiusQuery(center: Coordinates(from: location.coordinate), radius: Length(meters: 10_000)))
+                if let region = region {
+                    let center = region.center
+                    let span = region.span
+                    let topLeft = CLLocation(
+                        latitude: center.latitude - (span.latitudeDelta / 2),
+                        longitude: center.longitude - (span.longitudeDelta / 2)
+                    )
+                    let bottomRight = CLLocation(
+                        latitude: center.latitude + (span.latitudeDelta / 2),
+                        longitude: center.longitude + (span.longitudeDelta / 2)
+                    )
+                    let diameter = topLeft.distance(from: bottomRight).magnitude
+                    let query = GeocachesInRadiusQuery(
+                        center: Coordinates(from: center),
+                        radius: Length(meters: diameter / 2)
+                    )
+                    geocaches.refresh(with: query)
                 }
             }) {
                 Image(systemName: "arrow.clockwise.circle.fill")
