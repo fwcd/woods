@@ -9,11 +9,9 @@
 import SwiftUI
 
 struct ContentView: View {
-    @EnvironmentObject private var geocaches: Geocaches
-    
     var body: some View {
         TabView {
-            GeocacheMapView(geocaches: geocaches.geocaches)
+            GeocacheMapView()
                 .tabItem {
                     VStack {
                         Image(systemName: "map.fill")

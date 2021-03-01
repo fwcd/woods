@@ -13,7 +13,17 @@ struct Coordinates: Codable, Hashable {
     let latitude: Double
     let longitude: Double
     
-    var usingCoreLocation: CLLocationCoordinate2D {
+    init(latitude: Double, longitude: Double) {
+        self.latitude = latitude
+        self.longitude = longitude
+    }
+    
+    init(from clCoordinate: CLLocationCoordinate2D) {
+        latitude = clCoordinate.latitude
+        longitude = clCoordinate.longitude
+    }
+    
+    var asCLCoordinate: CLLocationCoordinate2D {
         CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     }
 }

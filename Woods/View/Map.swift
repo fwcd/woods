@@ -12,15 +12,25 @@ import MapKit
 
 struct Map: UIViewRepresentable {
     let annotations: [MKPointAnnotation]
+    @Binding var location: CLLocation?
+    
     let locationManager = CLLocationManager()
     
-    func setupLocationManager() {
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestAlwaysAuthorization()
+    func setupLocationManager(coordinator: Coordinator) {
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.delegate = coordinator
+            locationManager.requestAlwaysAuthorization()
+            locationManager.startUpdatingLocation()
+        }
+    }
+    
+    func makeCoordinator() -> Coordinator {
+        Coordinator(location: $location)
     }
     
     func makeUIView(context: Context) -> MKMapView {
-        setupLocationManager()
+        setupLocationManager(coordinator: context.coordinator)
         let mapView = MKMapView()
         mapView.addAnnotations(annotations)
         mapView.showsUserLocation = true
@@ -29,4 +39,12 @@ struct Map: UIViewRepresentable {
     }
     
     func updateUIView(_ uiView: MKMapView, context: Context) {}
+    
+    class Coordinator: NSObject, CLLocationManagerDelegate {
+        @Binding private var location: CLLocation?
+        
+        init(location: Binding<CLLocation?>) {
+            _location = location
+        }
+    }
 }

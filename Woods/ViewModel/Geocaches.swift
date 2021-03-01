@@ -23,6 +23,7 @@ class Geocaches: ObservableObject {
     }
     
     func refresh(with query: GeocachesInRadiusQuery) {
+        log.info("Refreshing geocaches")
         runningQueryTask = Publishers.MergeMany(accounts.connectors.values.map { $0.geocaches(for: query) })
             .collect()
             .receive(on: RunLoop.main)
@@ -32,6 +33,7 @@ class Geocaches: ObservableObject {
                 }
             } receiveValue: { [self] in
                 geocaches = $0.flatMap { $0 }
+                log.info("Found \(geocaches.count) geocache(s)")
             }
     }
 }
