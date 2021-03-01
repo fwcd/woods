@@ -105,14 +105,14 @@ class Accounts: ObservableObject {
         guard let items = rawItems as? [[String: Any]] else { throw KeychainError.unexpectedItemsData }
         
         return try items.map { item in
-            guard let server = item[kSecAttrServer as String] as? String,
-                  let accountType = AccountType(rawValue: server),
-                  let short = (item[kSecAttrAccount as String] as? String)?.split(separator: ":", maxSplits: 1),
-                  let rawId = short.first.map(String.init),
+            guard let server = item[kSecAttrServer as String] as? String else { throw KeychainError.noServer }
+            guard let accountType = AccountType(rawValue: server) else { throw KeychainError.invalidServer(server) }
+            guard let short = (item[kSecAttrAccount as String] as? String)?.split(separator: ":", maxSplits: 1) else { throw KeychainError.noAccount }
+            guard let rawId = short.first.map(String.init),
                   let username = short.last.map(String.init),
-                  let id = UUID(uuidString: rawId),
-                  let passwordData = item[kSecValueData as String] as? Data,
-                  let password = String(data: passwordData, encoding: .utf8) else { throw KeychainError.unexpectedItemData }
+                  let id = UUID(uuidString: rawId) else { throw KeychainError.invalidAccount(short.joined(separator: ":")) }
+            guard let passwordData = item[kSecValueData as String] as? Data,
+                  let password = String(data: passwordData, encoding: .utf8) else { throw KeychainError.noPassword }
             return Account(id: id, type: accountType, credentials: Credentials(username: username, password: password))
         }
     }

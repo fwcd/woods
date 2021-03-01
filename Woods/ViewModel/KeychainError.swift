@@ -10,7 +10,11 @@ import Foundation
 
 enum KeychainError: Error {
     case unexpectedItemsData
-    case unexpectedItemData
+    case noServer
+    case noPassword
+    case noAccount
+    case invalidServer(String)
+    case invalidAccount(String)
     case couldNotAdd(OSStatus)
     case couldNotDelete(OSStatus)
     case couldNotLookUp(OSStatus)
