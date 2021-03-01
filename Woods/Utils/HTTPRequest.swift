@@ -4,9 +4,44 @@ import SwiftSoup
 
 public struct HTTPRequest {
     private var request: URLRequest
+    
+    public init(
+        url: URL,
+        method: String = "GET",
+        query: [String: String] = [:],
+        headers: [String: String] = [:],
+        body customBody: String? = nil
+    ) throws {
+        let isPost = method == "POST"
 
-    public init(url: URL) {
+        guard var components = URLComponents(url: url, resolvingAgainstBaseURL: false) else { throw URLError(.badURL) }
+        components.queryItems = query.map { URLQueryItem(name: $0.key, value: $0.value) }
+
+        let body: Data
+
+        if isPost && !query.isEmpty {
+            body = components.percentEncodedQuery?.data(using: .utf8) ?? .init()
+            components.queryItems = []
+        } else {
+            body = customBody?.data(using: .utf8) ?? .init()
+        }
+
+        guard let url = components.url else { throw URLError(.badURL) }
+
         request = URLRequest(url: url)
+        request.httpMethod = method
+
+        if isPost {
+            if !query.isEmpty {
+                request.setValue("application/x-www-form-urlencoded;charset=UTF-8", forHTTPHeaderField: "Content-Type")
+            }
+            request.setValue("\(body.count)", forHTTPHeaderField: "Content-Length")
+            request.httpBody = body
+        }
+
+        for (key, value) in headers {
+            request.setValue(value, forHTTPHeaderField: key)
+        }
     }
 
     public init(

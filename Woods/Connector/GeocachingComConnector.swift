@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import Combine
+import OSLog
 
 // Adapted from pycaching
 
@@ -17,16 +19,39 @@ private let searchMoreUrl = URL(string: "\(baseUrl)/play/search/more-results")!
 private let myLogsUrl = URL(string: "\(baseUrl)/my/logs.aspx")!
 private let apiSearchUrl = URL(string: "\(baseUrl)/api/proxy/web/search")!
 
+private let log = Logger(subsystem: "Woods", category: "Connector")
+
 class GeocachingComConnector: Connector {
-    func logIn(using credentials: Credentials) throws {
+    func logIn(using credentials: Credentials) -> AnyPublisher<Void, Error> {
+        let tokenFieldName = "__RequestVerificationToken"
+        
+        return Result.Publisher(Result { try HTTPRequest(url: loginPageUrl) })
+            .flatMap { $0.fetchHTMLAsync() }
+            .tryMap { document -> HTTPRequest in
+                log.info("Parsing login page")
+                guard let tokenField = try document.select("input[name=\(tokenFieldName)]").first() else {
+                    throw ConnectorError.logInFailed("Could not parse login page")
+                }
+                let tokenValue = try tokenField.attr("value")
+                return try HTTPRequest(url: loginPageUrl, method: "POST", query: [
+                    "UsernameOrEmail": credentials.username,
+                    "Password": credentials.password,
+                    tokenFieldName: tokenValue
+                ])
+            }
+            .flatMap { request -> Publishers.TryMap<URLSession.DataTaskPublisher, Data> in
+                log.info("Submitting login request")
+                return request.runAsync()
+            }
+            .map { _ in }
+            .eraseToAnyPublisher()
+    }
+    
+    func logOut() -> AnyPublisher<Void, Error> {
         fatalError("TODO")
     }
     
-    func logOut() throws {
-        fatalError("TODO")
-    }
-    
-    func geocaches(for query: GeocacheQuery) throws -> [Geocache] {
+    func geocaches(for query: GeocacheQuery) -> AnyPublisher<[Geocache], Error> {
         fatalError("TODO")
     }
 }

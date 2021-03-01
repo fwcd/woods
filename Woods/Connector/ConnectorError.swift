@@ -7,6 +7,7 @@
 //
 
 enum ConnectorError: Error {
-    case authenticationFailed(String)
+    case logInFailed(String)
+    case logOutFailed(String)
     case geocacheQueryFailed(String)
 }

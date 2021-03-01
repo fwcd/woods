@@ -6,10 +6,12 @@
 //  Copyright © 2021 Fredrik. All rights reserved.
 //
 
+import Combine
+
 protocol Connector {
-    func logIn(using credentials: Credentials) throws
+    func logIn(using credentials: Credentials) -> AnyPublisher<Void, Error>
     
-    func logOut() throws
+    func logOut() -> AnyPublisher<Void, Error>
     
-    func geocaches(for query: GeocacheQuery) throws -> [Geocache]
+    func geocaches(for query: GeocacheQuery) -> AnyPublisher<[Geocache], Error>
 }
