@@ -44,6 +44,7 @@
 		C7B74E6C25ED8DA600D5194B /* GeocacheMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74E6B25ED8DA600D5194B /* GeocacheMapView.swift */; };
 		C7B74E8825EDADC100D5194B /* SlideOverCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74E8725EDADC100D5194B /* SlideOverCard.swift */; };
 		C7B74E8D25EDAEA400D5194B /* Handle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74E8C25EDAEA400D5194B /* Handle.swift */; };
+		C7B74E9225EDB61400D5194B /* VisualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74E9125EDB61400D5194B /* VisualEffectView.swift */; };
 		C7E1B88A25ED72F0004575A5 /* MockConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E1B88925ED72F0004575A5 /* MockConnector.swift */; };
 		C7E1B88F25ED73EB004575A5 /* PublisherUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E1B88E25ED73EB004575A5 /* PublisherUtils.swift */; };
 /* End PBXBuildFile section */
@@ -108,6 +109,7 @@
 		C7B74E6B25ED8DA600D5194B /* GeocacheMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocacheMapView.swift; sourceTree = "<group>"; };
 		C7B74E8725EDADC100D5194B /* SlideOverCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideOverCard.swift; sourceTree = "<group>"; };
 		C7B74E8C25EDAEA400D5194B /* Handle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Handle.swift; sourceTree = "<group>"; };
+		C7B74E9125EDB61400D5194B /* VisualEffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualEffectView.swift; sourceTree = "<group>"; };
 		C7E1B88925ED72F0004575A5 /* MockConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockConnector.swift; sourceTree = "<group>"; };
 		C7E1B88E25ED73EB004575A5 /* PublisherUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublisherUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -264,6 +266,7 @@
 				C765469A25ED25DE004F14E8 /* EnumPicker.swift */,
 				C7B74E8725EDADC100D5194B /* SlideOverCard.swift */,
 				C7B74E8C25EDAEA400D5194B /* Handle.swift */,
+				C7B74E9125EDB61400D5194B /* VisualEffectView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -420,6 +423,7 @@
 				C765468425D8A2A1004F14E8 /* EnvironmentUtils.swift in Sources */,
 				C765460125D87B26004F14E8 /* Geocache.swift in Sources */,
 				C7B74E8D25EDAEA400D5194B /* Handle.swift in Sources */,
+				C7B74E9225EDB61400D5194B /* VisualEffectView.swift in Sources */,
 				C765464E25D88CEC004F14E8 /* AccountsView.swift in Sources */,
 				C765468925D8A2C9004F14E8 /* DataUtils.swift in Sources */,
 				C765462425D87E9C004F14E8 /* GeocachesInRadiusQuery.swift in Sources */,
