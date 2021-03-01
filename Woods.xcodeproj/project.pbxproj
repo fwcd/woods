@@ -40,6 +40,8 @@
 		C76546B625ED2E07004F14E8 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = C76546B525ED2E07004F14E8 /* SwiftSoup */; };
 		C7B6F0FD249FA16B00454841 /* GeocacheMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B6F0FC249FA16B00454841 /* GeocacheMapView.swift */; };
 		C7B6F0FF249FA1B300454841 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B6F0FE249FA1B300454841 /* MapView.swift */; };
+		C7E1B88A25ED72F0004575A5 /* MockConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E1B88925ED72F0004575A5 /* MockConnector.swift */; };
+		C7E1B88F25ED73EB004575A5 /* PublisherUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E1B88E25ED73EB004575A5 /* PublisherUtils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +100,8 @@
 		C76546AF25ED2DB6004F14E8 /* HTTPRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPRequest.swift; sourceTree = "<group>"; };
 		C7B6F0FC249FA16B00454841 /* GeocacheMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocacheMapView.swift; sourceTree = "<group>"; };
 		C7B6F0FE249FA1B300454841 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		C7E1B88925ED72F0004575A5 /* MockConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockConnector.swift; sourceTree = "<group>"; };
+		C7E1B88E25ED73EB004575A5 /* PublisherUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublisherUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +213,7 @@
 				C765463525D885B3004F14E8 /* ConnectorError.swift */,
 				C765462325D87E9C004F14E8 /* GeocacheQuery.swift */,
 				C765466125D89141004F14E8 /* GeocachingComConnector.swift */,
+				C7E1B88925ED72F0004575A5 /* MockConnector.swift */,
 			);
 			path = Connector;
 			sourceTree = "<group>";
@@ -233,6 +238,7 @@
 				C765468325D8A2A1004F14E8 /* EnvironmentUtils.swift */,
 				C765467E25D8A280004F14E8 /* JSONUtils.swift */,
 				C76546AF25ED2DB6004F14E8 /* HTTPRequest.swift */,
+				C7E1B88E25ED73EB004575A5 /* PublisherUtils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -405,7 +411,9 @@
 				C765462425D87E9C004F14E8 /* GeocacheQuery.swift in Sources */,
 				C765467F25D8A280004F14E8 /* JSONUtils.swift in Sources */,
 				C765467725D8A23C004F14E8 /* PersistenceUtils.swift in Sources */,
+				C7E1B88F25ED73EB004575A5 /* PublisherUtils.swift in Sources */,
 				C765465325D88E48004F14E8 /* LoginView.swift in Sources */,
+				C7E1B88A25ED72F0004575A5 /* MockConnector.swift in Sources */,
 				C765468E25D8A30F004F14E8 /* PersistenceError.swift in Sources */,
 				C765463125D8856C004F14E8 /* Credentials.swift in Sources */,
 				C7B6F0FF249FA1B300454841 /* MapView.swift in Sources */,

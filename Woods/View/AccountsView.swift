@@ -36,6 +36,7 @@ struct AccountsView: View {
             .sheet(isPresented: $loginSheetShown) {
                 LoginView { account in
                     accounts.logInAndStore(account)
+                    loginSheetShown = false
                 }
             }
         }

@@ -8,6 +8,7 @@
 
 enum AccountType: String, CustomStringConvertible, CaseIterable, Hashable {
     case geocachingCom = "geocaching.com"
+    case mock
     
     var description: String { rawValue }
     
@@ -15,6 +16,8 @@ enum AccountType: String, CustomStringConvertible, CaseIterable, Hashable {
         switch self {
         case .geocachingCom:
             return GeocachingComConnector()
+        case .mock:
+            return MockConnector()
         }
     }
 }
