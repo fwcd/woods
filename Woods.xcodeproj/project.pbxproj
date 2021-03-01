@@ -35,6 +35,7 @@
 		C765468425D8A2A1004F14E8 /* EnvironmentUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765468325D8A2A1004F14E8 /* EnvironmentUtils.swift */; };
 		C765468925D8A2C9004F14E8 /* DataUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765468825D8A2C9004F14E8 /* DataUtils.swift */; };
 		C765468E25D8A30F004F14E8 /* PersistenceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765468D25D8A30F004F14E8 /* PersistenceError.swift */; };
+		C765469B25ED25DE004F14E8 /* EnumPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765469A25ED25DE004F14E8 /* EnumPicker.swift */; };
 		C7B6F0FD249FA16B00454841 /* GeocacheMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B6F0FC249FA16B00454841 /* GeocacheMapView.swift */; };
 		C7B6F0FF249FA1B300454841 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B6F0FE249FA1B300454841 /* MapView.swift */; };
 /* End PBXBuildFile section */
@@ -91,6 +92,7 @@
 		C765468325D8A2A1004F14E8 /* EnvironmentUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentUtils.swift; sourceTree = "<group>"; };
 		C765468825D8A2C9004F14E8 /* DataUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataUtils.swift; sourceTree = "<group>"; };
 		C765468D25D8A30F004F14E8 /* PersistenceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceError.swift; sourceTree = "<group>"; };
+		C765469A25ED25DE004F14E8 /* EnumPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnumPicker.swift; sourceTree = "<group>"; };
 		C7B6F0FC249FA16B00454841 /* GeocacheMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocacheMapView.swift; sourceTree = "<group>"; };
 		C7B6F0FE249FA1B300454841 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -238,6 +240,7 @@
 				C765465225D88E48004F14E8 /* LoginView.swift */,
 				C7B6F0FC249FA16B00454841 /* GeocacheMapView.swift */,
 				C7B6F0FE249FA1B300454841 /* MapView.swift */,
+				C765469A25ED25DE004F14E8 /* EnumPicker.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -397,6 +400,7 @@
 				C73E04BF249F9F4700C6E22C /* ContentView.swift in Sources */,
 				C765460E25D87C5A004F14E8 /* Coordinates.swift in Sources */,
 				C765461325D87CEB004F14E8 /* GeocacheSize.swift in Sources */,
+				C765469B25ED25DE004F14E8 /* EnumPicker.swift in Sources */,
 				C765462C25D880D7004F14E8 /* Length.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

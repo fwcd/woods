@@ -10,11 +10,20 @@ import SwiftUI
 
 struct LoginView: View {
     @Binding var credentials: Credentials
+    @State var accountType: AccountType = .geocachingCom // TODO
     
     var body: some View {
-        VStack {
-            TextField("Username", text: $credentials.username)
-            SecureField("Password", text: $credentials.password)
+        Form {
+            Section(header: Text("Account Type")) {
+                EnumPicker(selection: $accountType, label: Text("Account Type"))
+            }
+            Section(header: Text("Credentials")) {
+                TextField("Username", text: $credentials.username)
+                SecureField("Password", text: $credentials.password)
+            }
+            Button(action: {}) {
+                Text("Log in")
+            }
         }
     }
 }

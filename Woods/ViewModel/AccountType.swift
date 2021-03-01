@@ -6,7 +6,7 @@
 //  Copyright © 2021 Fredrik. All rights reserved.
 //
 
-enum AccountType: String, CustomStringConvertible {
+enum AccountType: String, CustomStringConvertible, CaseIterable, Hashable {
     case geocachingCom = "Geocaching.com"
     
     var description: String { rawValue }
