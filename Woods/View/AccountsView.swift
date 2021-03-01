@@ -17,12 +17,20 @@ struct AccountsView: View {
     
     var body: some View {
         NavigationView {
-            List(accounts.accounts.values.sorted { $0.credentials.username < $1.credentials.username }) { account in
-                VStack(alignment: .leading) {
-                    Text(account.type.description)
-                        .font(.headline)
-                    Text(account.credentials.username)
-                        .font(.subheadline)
+            List {
+                let accountList = accounts.accounts.values.sorted { $0.credentials.username < $1.credentials.username }
+                ForEach(accountList) { account in
+                    VStack(alignment: .leading) {
+                        Text(account.type.description)
+                            .font(.headline)
+                        Text(account.credentials.username)
+                            .font(.subheadline)
+                    }
+                }
+                .onDelete { indexSet in
+                    for i in indexSet where i < accountList.count && i >= 0 {
+                        accounts.logOutAndStore(accountList[i])
+                    }
                 }
             }
             .navigationTitle("Accounts")

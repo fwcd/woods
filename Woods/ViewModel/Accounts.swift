@@ -62,6 +62,7 @@ class Accounts: ObservableObject {
     private func logIn(using account: Account) {
         let connector = account.type.makeConnector()
         
+        connectors[account.id] = connector
         loginTasks[account.id] = connector
             .logIn(using: account.credentials)
             .receive(on: RunLoop.main)
