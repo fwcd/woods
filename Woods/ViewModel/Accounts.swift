@@ -16,8 +16,8 @@ private let keychainClass: Any = kSecClassInternetPassword
 
 class Accounts: ObservableObject {
     @Published private(set) var accounts: [UUID: Account] = [:]
+    private(set) var connectors = [UUID: Connector]()
     
-    private var connectors = [UUID: Connector]()
     private var loginTasks = [UUID: AnyCancellable]()
     private var logoutTasks = [UUID: AnyCancellable]()
     

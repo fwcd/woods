@@ -19,7 +19,7 @@ class MockConnector: Connector {
         Just(()).weakenError().eraseToAnyPublisher()
     }
     
-    func geocaches(for query: GeocacheQuery) -> AnyPublisher<[Geocache], Error> {
+    func geocaches(for query: GeocachesInRadiusQuery) -> AnyPublisher<[Geocache], Error> {
         Just([
             Geocache(id: "MOCK1", name: "Test Cache", location: Coordinates(latitude: 52.50733, longitude: 13.42806)),
             Geocache(id: "MOCK2", name: "Lake View", location: Coordinates(latitude: 51.30563, longitude: 7.94576)),
