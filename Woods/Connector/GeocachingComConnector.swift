@@ -19,7 +19,7 @@ private let searchMoreUrl = URL(string: "\(baseUrl)/play/search/more-results")!
 private let myLogsUrl = URL(string: "\(baseUrl)/my/logs.aspx")!
 private let apiSearchUrl = URL(string: "\(baseUrl)/api/proxy/web/search")!
 
-private let log = Logger(subsystem: "Woods", category: "Connector")
+private let log = Logger(subsystem: "Woods", category: "GeocachingComConnector")
 
 class GeocachingComConnector: Connector {
     func logIn(using credentials: Credentials) -> AnyPublisher<Void, Error> {

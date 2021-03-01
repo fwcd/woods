@@ -9,7 +9,7 @@
 import SwiftUI
 import OSLog
 
-private let log = Logger(subsystem: "Woods", category: "View")
+private let log = Logger(subsystem: "Woods", category: "AccountsView")
 
 struct AccountsView: View {
     @EnvironmentObject private var accounts: Accounts

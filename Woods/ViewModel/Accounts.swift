@@ -10,7 +10,7 @@ import Combine
 import Security
 import OSLog
 
-private let log = Logger(subsystem: "Woods", category: "ViewModel")
+private let log = Logger(subsystem: "Woods", category: "Accounts")
 private let keychainLabel = "fwcd.woods.accounts"
 private let keychainClass: Any = kSecClassInternetPassword
 
@@ -35,7 +35,7 @@ class Accounts: ObservableObject {
         if testMode {
             self.accounts = Dictionary(uniqueKeysWithValues: accounts.map { ($0.id, $0) })
         } else {
-            for account in accounts {
+            for account in initialAccounts {
                 logIn(using: account)
             }
         }
@@ -60,6 +60,7 @@ class Accounts: ObservableObject {
     }
     
     private func logIn(using account: Account) {
+        log.info("Logging in using \(account)")
         let connector = account.type.makeConnector()
         
         connectors[account.id] = connector
@@ -76,6 +77,7 @@ class Accounts: ObservableObject {
     }
     
     private func logOut(using account: Account) throws {
+        log.info("Logging out using \(account)")
         guard let connector = connectors[account.id] else { throw ConnectorError.noConnector }
         
         logoutTasks[account.id] = connector
@@ -92,6 +94,7 @@ class Accounts: ObservableObject {
     
     /// Loads all accounts from the user's keychain.
     private func loadFromKeychain() throws -> [Account] {
+        log.info("Loading accounts from keychain")
         let query: [String: Any] = [
             kSecClass as String: keychainClass,
             kSecAttrLabel as String: keychainLabel,
@@ -101,11 +104,14 @@ class Accounts: ObservableObject {
         ]
         var rawItems: CFTypeRef?
         let status = SecItemCopyMatching(query as CFDictionary, &rawItems)
-        guard status != errSecItemNotFound else { return [] }
+        guard status != errSecItemNotFound else {
+            log.info("Found no accounts!")
+            return []
+        }
         guard status == errSecSuccess else { throw KeychainError.couldNotLookUp(status) }
         guard let items = rawItems as? [[String: Any]] else { throw KeychainError.unexpectedItemsData }
         
-        return try items.map { item in
+        let accounts = try items.map { item -> Account in
             guard let server = item[kSecAttrServer as String] as? String else { throw KeychainError.noServer }
             guard let accountType = AccountType(rawValue: server) else { throw KeychainError.invalidServer(server) }
             guard let short = (item[kSecAttrAccount as String] as? String)?.split(separator: ":", maxSplits: 1) else { throw KeychainError.noAccount }
@@ -116,10 +122,15 @@ class Accounts: ObservableObject {
                   let password = String(data: passwordData, encoding: .utf8) else { throw KeychainError.noPassword }
             return Account(id: id, type: accountType, credentials: Credentials(username: username, password: password))
         }
+        
+        log.info("Found \(accounts.count) account(s)")
+        
+        return accounts
     }
     
     /// Stores the given accounts in the user's keychain.
     private func storeInKeychain(accounts: [Account]) throws {
+        log.info("Storing \(accounts.count) account(s) in keychain")
         for account in accounts {
             let query: [String: Any] = [
                 kSecClass as String: keychainClass,
@@ -135,6 +146,7 @@ class Accounts: ObservableObject {
     
     /// Removes the given accounts in the user's keychain.
     private func removeFromKeychain(accounts: [Account]) throws {
+        log.info("Removing \(accounts.count) account(s) from keychain")
         for account in accounts {
             let query: [String: Any] = [
                 kSecClass as String: keychainClass,
@@ -149,6 +161,7 @@ class Accounts: ObservableObject {
     
     /// Removes all (woods-related) accounts from the user's keychain.
     private func clearKeychain() throws {
+        log.info("Clearing keychain")
         let query: [String: Any] = [
             kSecClass as String: keychainClass,
             kSecAttrLabel as String: keychainLabel
