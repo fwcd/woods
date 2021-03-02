@@ -55,6 +55,7 @@
 		C7B74EE325EDDD8C00D5194B /* Degrees.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74EE225EDDD8C00D5194B /* Degrees.swift */; };
 		C7B74EEE25EDE3D900D5194B /* DegreesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74EED25EDE3D900D5194B /* DegreesTests.swift */; };
 		C7B74EFC25EDE7E900D5194B /* CardinalDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74EFB25EDE7E900D5194B /* CardinalDirection.swift */; };
+		C7B74F0425EE9BED00D5194B /* GeocacheSnippetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74F0325EE9BED00D5194B /* GeocacheSnippetView.swift */; };
 		C7E1B88A25ED72F0004575A5 /* MockConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E1B88925ED72F0004575A5 /* MockConnector.swift */; };
 		C7E1B88F25ED73EB004575A5 /* PublisherUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E1B88E25ED73EB004575A5 /* PublisherUtils.swift */; };
 /* End PBXBuildFile section */
@@ -130,6 +131,7 @@
 		C7B74EE225EDDD8C00D5194B /* Degrees.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Degrees.swift; sourceTree = "<group>"; };
 		C7B74EED25EDE3D900D5194B /* DegreesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DegreesTests.swift; sourceTree = "<group>"; };
 		C7B74EFB25EDE7E900D5194B /* CardinalDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardinalDirection.swift; sourceTree = "<group>"; };
+		C7B74F0325EE9BED00D5194B /* GeocacheSnippetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocacheSnippetView.swift; sourceTree = "<group>"; };
 		C7E1B88925ED72F0004575A5 /* MockConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockConnector.swift; sourceTree = "<group>"; };
 		C7E1B88E25ED73EB004575A5 /* PublisherUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublisherUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -288,6 +290,7 @@
 				C7B6F0FC249FA16B00454841 /* RichGeocacheMapView.swift */,
 				C7B74E6B25ED8DA600D5194B /* GeocacheMapView.swift */,
 				C7B74EA425EDC46F00D5194B /* GeocacheDetailView.swift */,
+				C7B74F0325EE9BED00D5194B /* GeocacheSnippetView.swift */,
 				C7B74ED525EDD60000D5194B /* GeocacheLogView.swift */,
 				C7B74EBB25EDCA5E00D5194B /* GeocacheType+Color.swift */,
 				C7B74EB625EDC5C200D5194B /* StarsView.swift */,
@@ -470,6 +473,7 @@
 				C765465325D88E48004F14E8 /* LoginView.swift in Sources */,
 				C7E1B88A25ED72F0004575A5 /* MockConnector.swift in Sources */,
 				C765468E25D8A30F004F14E8 /* PersistenceError.swift in Sources */,
+				C7B74F0425EE9BED00D5194B /* GeocacheSnippetView.swift in Sources */,
 				C765463125D8856C004F14E8 /* Credentials.swift in Sources */,
 				C7B6F0FF249FA1B300454841 /* Map.swift in Sources */,
 				C73E04BF249F9F4700C6E22C /* ContentView.swift in Sources */,

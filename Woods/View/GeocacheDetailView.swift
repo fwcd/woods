@@ -13,20 +13,8 @@ struct GeocacheDetailView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            HStack {
-                Image(systemName: "archivebox.fill")
-                    .foregroundColor(geocache.type.color)
-                    .font(.title)
-                VStack(alignment: .leading) {
-                    Text(geocache.id)
-                        .font(.headline)
-                    Text(geocache.name)
-                        .font(.title)
-                        .fontWeight(.bold)
-                        .multilineTextAlignment(/*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/)
-                }
-            }
-            .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
+            GeocacheSnippetView(geocache: geocache)
+                .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
             Form {
                 Section(header: Text("Info")) {
                     Text(geocache.location.description)
