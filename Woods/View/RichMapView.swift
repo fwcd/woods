@@ -16,6 +16,7 @@ struct RichMapView: View {
     @State private var region: MKCoordinateRegion? = nil
     @State private var userTrackingMode: MKUserTrackingMode = .none
     @State private var useSatelliteView: Bool = false
+    @State private var listPickerSheetShown: Bool = false
     @State private var searchText: String = ""
     
     var body: some View {
@@ -51,10 +52,21 @@ struct RichMapView: View {
                 }) {
                     Image(systemName: "location.circle.fill")
                 }
+                Button(action: {
+                    listPickerSheetShown = true
+                }) {
+                    Image(systemName: "plus.circle.fill")
+                }
             }
             .foregroundColor(.primary)
             .font(.system(size: 40))
             .padding(10)
+            .sheet(isPresented: $listPickerSheetShown) {
+                WaypointListPickerView { id in
+                    waypoints.listTree[id]?.waypoints += waypoints.currentWaypoints.values.sorted { $0.name < $1.name }
+                    listPickerSheetShown = false
+                }
+            }
             SlideOverCard {
                 VStack {
                     if let id = selectedWaypointId, let waypoint = waypoints[id] {
