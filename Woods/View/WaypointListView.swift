@@ -16,8 +16,8 @@ struct WaypointListView: View {
     @State private var newWaypointSheetShown: Bool = false
     @EnvironmentObject private var waypoints: Waypoints
     
-    var list: WaypointList {
-        waypoints.listTree[listId]!
+    var list: WaypointList? {
+        waypoints.listTree[listId]
     }
     
     var body: some View {
@@ -45,7 +45,7 @@ struct WaypointListView: View {
                 }
             }
             Section(header: Text("Items")) {
-                ForEach(list.childs, id: \.self) { childId in
+                ForEach(list?.childs ?? [], id: \.self) { childId in
                     if let child = waypoints.listTree[childId] {
                         NavigationLink(destination: WaypointListView(listId: childId, largeTitle: false)) {
                             WaypointListSnippetView(list: child)
@@ -53,9 +53,14 @@ struct WaypointListView: View {
                     }
                 }
                 .onDelete { indexSet in
+                    let removedChildIds = indexSet.map { waypoints.listTree[listId]!.childs[$0] }
                     waypoints.listTree[listId]!.childs.remove(atOffsets: indexSet)
+                    
+                    for childId in removedChildIds {
+                        waypoints.listTree[childId] = nil
+                    }
                 }
-                ForEach(list.waypoints) { waypoint in
+                ForEach(list?.waypoints ?? []) { waypoint in
                     NavigationLink(destination: WaypointDetailView(waypoint: waypoint)) {
                         WaypointSmallSnippetView(waypoint: waypoint)
                     }
@@ -65,7 +70,7 @@ struct WaypointListView: View {
                 }
             }
         }
-        .navigationTitle(list.name)
+        .navigationTitle(list?.name ?? "")
         .navigationBarTitleDisplayMode(largeTitle ? .large : .inline)
     }
 }
