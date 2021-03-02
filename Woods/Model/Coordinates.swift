@@ -10,26 +10,29 @@ import CoreLocation
 
 /// A pair of geographical coordinates on Earth.
 struct Coordinates: Codable, Hashable, CustomStringConvertible {
-    let latitude: Double
-    let longitude: Double
+    let latitude: Degrees
+    let longitude: Degrees
     
     var description: String { "(\(latitude), \(longitude))" }
     
     var asCLCoordinate: CLLocationCoordinate2D {
-        CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        CLLocationCoordinate2D(latitude: latitude.totalDegrees, longitude: longitude.totalDegrees)
     }
     var asCLLocation: CLLocation {
-        CLLocation(latitude: latitude, longitude: longitude)
+        CLLocation(latitude: latitude.totalDegrees, longitude: longitude.totalDegrees)
     }
     
-    init(latitude: Double, longitude: Double) {
+    init(latitude: Degrees, longitude: Degrees) {
         self.latitude = latitude
         self.longitude = longitude
     }
     
+    init(latitude: Double, longitude: Double) {
+        self.init(latitude: Degrees(degrees: latitude), longitude: Degrees(degrees: longitude))
+    }
+    
     init(from clCoordinate: CLLocationCoordinate2D) {
-        latitude = clCoordinate.latitude
-        longitude = clCoordinate.longitude
+        self.init(latitude: clCoordinate.latitude, longitude: clCoordinate.longitude)
     }
     
     func distance(to rhs: Coordinates) -> Length {
