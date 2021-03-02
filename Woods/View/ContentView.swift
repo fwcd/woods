@@ -11,11 +11,11 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         TabView {
-            RichGeocacheMapView()
+            RichMapView()
                 .tabItem {
                     VStack {
                         Image(systemName: "map.fill")
-                        Text("Geocache Map")
+                        Text("Map")
                     }
                 }
             Text("TODO")
@@ -45,7 +45,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     @StateObject static var accounts = Accounts(testMode: true)
-    @StateObject static var geocaches = Geocaches(accounts: accounts)
+    @StateObject static var geocaches = Waypoints(accounts: accounts)
     static var previews: some View {
         ContentView()
             .environmentObject(accounts)

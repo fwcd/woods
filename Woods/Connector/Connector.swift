@@ -13,5 +13,5 @@ protocol Connector: AnyObject {
     
     func logOut() -> AnyPublisher<Void, Error>
     
-    func geocaches(for query: GeocachesInRadiusQuery) -> AnyPublisher<[Geocache], Error>
+    func waypoints(for query: WaypointsInRadiusQuery) -> AnyPublisher<[Waypoint], Error>
 }

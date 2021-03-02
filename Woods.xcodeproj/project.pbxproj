@@ -7,19 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C70B379D25ED7CC100553597 /* Geocaches.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70B379C25ED7CC100553597 /* Geocaches.swift */; };
+		C70B379D25ED7CC100553597 /* Waypoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70B379C25ED7CC100553597 /* Waypoints.swift */; };
 		C73E04BB249F9F4700C6E22C /* WoodsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73E04BA249F9F4700C6E22C /* WoodsApp.swift */; };
 		C73E04BF249F9F4700C6E22C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73E04BE249F9F4700C6E22C /* ContentView.swift */; };
 		C73E04C1249F9F4A00C6E22C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C73E04C0249F9F4A00C6E22C /* Assets.xcassets */; };
 		C73E04C4249F9F4A00C6E22C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C73E04C3249F9F4A00C6E22C /* Preview Assets.xcassets */; };
 		C73E04C7249F9F4A00C6E22C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C73E04C5249F9F4A00C6E22C /* LaunchScreen.storyboard */; };
 		C73E04DD249F9F4A00C6E22C /* WoodsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73E04DC249F9F4A00C6E22C /* WoodsUITests.swift */; };
-		C765460125D87B26004F14E8 /* Geocache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765460025D87B26004F14E8 /* Geocache.swift */; };
+		C748C2A725EEA16B00661BEE /* Waypoint+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = C748C2A625EEA16B00661BEE /* Waypoint+Color.swift */; };
+		C748C2AC25EEA19300661BEE /* Waypoint+Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C748C2AB25EEA19300661BEE /* Waypoint+Icon.swift */; };
+		C765460125D87B26004F14E8 /* Waypoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765460025D87B26004F14E8 /* Waypoint.swift */; };
 		C765460925D87BA9004F14E8 /* GeocacheType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765460825D87BA9004F14E8 /* GeocacheType.swift */; };
 		C765460E25D87C5A004F14E8 /* Coordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765460D25D87C5A004F14E8 /* Coordinates.swift */; };
 		C765461325D87CEB004F14E8 /* GeocacheSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765461225D87CEB004F14E8 /* GeocacheSize.swift */; };
 		C765461C25D87E74004F14E8 /* Connector.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765461B25D87E74004F14E8 /* Connector.swift */; };
-		C765462425D87E9C004F14E8 /* GeocachesInRadiusQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765462325D87E9C004F14E8 /* GeocachesInRadiusQuery.swift */; };
+		C765462425D87E9C004F14E8 /* WaypointsInRadiusQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765462325D87E9C004F14E8 /* WaypointsInRadiusQuery.swift */; };
 		C765462C25D880D7004F14E8 /* Length.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765462B25D880D7004F14E8 /* Length.swift */; };
 		C765463125D8856C004F14E8 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765463025D8856C004F14E8 /* Credentials.swift */; };
 		C765463625D885B3004F14E8 /* ConnectorError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765463525D885B3004F14E8 /* ConnectorError.swift */; };
@@ -38,24 +40,24 @@
 		C765469B25ED25DE004F14E8 /* EnumPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765469A25ED25DE004F14E8 /* EnumPicker.swift */; };
 		C76546B025ED2DB6004F14E8 /* HTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76546AF25ED2DB6004F14E8 /* HTTPRequest.swift */; };
 		C76546B625ED2E07004F14E8 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = C76546B525ED2E07004F14E8 /* SwiftSoup */; };
-		C7B6F0FD249FA16B00454841 /* RichGeocacheMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B6F0FC249FA16B00454841 /* RichGeocacheMapView.swift */; };
+		C7B6F0FD249FA16B00454841 /* RichMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B6F0FC249FA16B00454841 /* RichMapView.swift */; };
 		C7B6F0FF249FA1B300454841 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B6F0FE249FA1B300454841 /* Map.swift */; };
-		C7B74E6C25ED8DA600D5194B /* GeocacheMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74E6B25ED8DA600D5194B /* GeocacheMapView.swift */; };
+		C7B74E6C25ED8DA600D5194B /* WaypointMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74E6B25ED8DA600D5194B /* WaypointMapView.swift */; };
 		C7B74E8825EDADC100D5194B /* SlideOverCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74E8725EDADC100D5194B /* SlideOverCard.swift */; };
 		C7B74E8D25EDAEA400D5194B /* Handle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74E8C25EDAEA400D5194B /* Handle.swift */; };
 		C7B74E9225EDB61400D5194B /* VisualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74E9125EDB61400D5194B /* VisualEffectView.swift */; };
-		C7B74EA525EDC46F00D5194B /* GeocacheDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74EA425EDC46F00D5194B /* GeocacheDetailView.swift */; };
+		C7B74EA525EDC46F00D5194B /* WaypointDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74EA425EDC46F00D5194B /* WaypointDetailView.swift */; };
 		C7B74EAA25EDC4A600D5194B /* MockGeocaches.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74EA925EDC4A600D5194B /* MockGeocaches.swift */; };
 		C7B74EB725EDC5C200D5194B /* StarsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74EB625EDC5C200D5194B /* StarsView.swift */; };
 		C7B74EBC25EDCA5E00D5194B /* GeocacheType+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74EBB25EDCA5E00D5194B /* GeocacheType+Color.swift */; };
 		C7B74EC425EDCF8800D5194B /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74EC325EDCF8800D5194B /* SearchBar.swift */; };
-		C7B74EC925EDD32F00D5194B /* GeocacheLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74EC825EDD32F00D5194B /* GeocacheLog.swift */; };
-		C7B74ECE25EDD35400D5194B /* GeocacheLogType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74ECD25EDD35400D5194B /* GeocacheLogType.swift */; };
-		C7B74ED625EDD60000D5194B /* GeocacheLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74ED525EDD60000D5194B /* GeocacheLogView.swift */; };
+		C7B74EC925EDD32F00D5194B /* WaypointLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74EC825EDD32F00D5194B /* WaypointLog.swift */; };
+		C7B74ECE25EDD35400D5194B /* WaypointLogType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74ECD25EDD35400D5194B /* WaypointLogType.swift */; };
+		C7B74ED625EDD60000D5194B /* WaypointLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74ED525EDD60000D5194B /* WaypointLogView.swift */; };
 		C7B74EE325EDDD8C00D5194B /* Degrees.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74EE225EDDD8C00D5194B /* Degrees.swift */; };
 		C7B74EEE25EDE3D900D5194B /* DegreesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74EED25EDE3D900D5194B /* DegreesTests.swift */; };
 		C7B74EFC25EDE7E900D5194B /* CardinalDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74EFB25EDE7E900D5194B /* CardinalDirection.swift */; };
-		C7B74F0425EE9BED00D5194B /* GeocacheSnippetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74F0325EE9BED00D5194B /* GeocacheSnippetView.swift */; };
+		C7B74F0425EE9BED00D5194B /* WaypointSnippetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74F0325EE9BED00D5194B /* WaypointSnippetView.swift */; };
 		C7E1B88A25ED72F0004575A5 /* MockConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E1B88925ED72F0004575A5 /* MockConnector.swift */; };
 		C7E1B88F25ED73EB004575A5 /* PublisherUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E1B88E25ED73EB004575A5 /* PublisherUtils.swift */; };
 /* End PBXBuildFile section */
@@ -78,7 +80,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		C70B379C25ED7CC100553597 /* Geocaches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geocaches.swift; sourceTree = "<group>"; };
+		C70B379C25ED7CC100553597 /* Waypoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Waypoints.swift; sourceTree = "<group>"; };
 		C73E04B7249F9F4700C6E22C /* Woods.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Woods.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C73E04BA249F9F4700C6E22C /* WoodsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoodsApp.swift; sourceTree = "<group>"; };
 		C73E04BE249F9F4700C6E22C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -91,12 +93,14 @@
 		C73E04D8249F9F4A00C6E22C /* WoodsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WoodsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C73E04DC249F9F4A00C6E22C /* WoodsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoodsUITests.swift; sourceTree = "<group>"; };
 		C73E04DE249F9F4A00C6E22C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C765460025D87B26004F14E8 /* Geocache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geocache.swift; sourceTree = "<group>"; };
+		C748C2A625EEA16B00661BEE /* Waypoint+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Waypoint+Color.swift"; sourceTree = "<group>"; };
+		C748C2AB25EEA19300661BEE /* Waypoint+Icon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Waypoint+Icon.swift"; sourceTree = "<group>"; };
+		C765460025D87B26004F14E8 /* Waypoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Waypoint.swift; sourceTree = "<group>"; };
 		C765460825D87BA9004F14E8 /* GeocacheType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocacheType.swift; sourceTree = "<group>"; };
 		C765460D25D87C5A004F14E8 /* Coordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinates.swift; sourceTree = "<group>"; };
 		C765461225D87CEB004F14E8 /* GeocacheSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocacheSize.swift; sourceTree = "<group>"; };
 		C765461B25D87E74004F14E8 /* Connector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connector.swift; sourceTree = "<group>"; };
-		C765462325D87E9C004F14E8 /* GeocachesInRadiusQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocachesInRadiusQuery.swift; sourceTree = "<group>"; };
+		C765462325D87E9C004F14E8 /* WaypointsInRadiusQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointsInRadiusQuery.swift; sourceTree = "<group>"; };
 		C765462B25D880D7004F14E8 /* Length.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Length.swift; sourceTree = "<group>"; };
 		C765463025D8856C004F14E8 /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		C765463525D885B3004F14E8 /* ConnectorError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectorError.swift; sourceTree = "<group>"; };
@@ -114,24 +118,24 @@
 		C765468D25D8A30F004F14E8 /* PersistenceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceError.swift; sourceTree = "<group>"; };
 		C765469A25ED25DE004F14E8 /* EnumPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnumPicker.swift; sourceTree = "<group>"; };
 		C76546AF25ED2DB6004F14E8 /* HTTPRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPRequest.swift; sourceTree = "<group>"; };
-		C7B6F0FC249FA16B00454841 /* RichGeocacheMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RichGeocacheMapView.swift; sourceTree = "<group>"; };
+		C7B6F0FC249FA16B00454841 /* RichMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RichMapView.swift; sourceTree = "<group>"; };
 		C7B6F0FE249FA1B300454841 /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
-		C7B74E6B25ED8DA600D5194B /* GeocacheMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocacheMapView.swift; sourceTree = "<group>"; };
+		C7B74E6B25ED8DA600D5194B /* WaypointMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointMapView.swift; sourceTree = "<group>"; };
 		C7B74E8725EDADC100D5194B /* SlideOverCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideOverCard.swift; sourceTree = "<group>"; };
 		C7B74E8C25EDAEA400D5194B /* Handle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Handle.swift; sourceTree = "<group>"; };
 		C7B74E9125EDB61400D5194B /* VisualEffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualEffectView.swift; sourceTree = "<group>"; };
-		C7B74EA425EDC46F00D5194B /* GeocacheDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocacheDetailView.swift; sourceTree = "<group>"; };
+		C7B74EA425EDC46F00D5194B /* WaypointDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointDetailView.swift; sourceTree = "<group>"; };
 		C7B74EA925EDC4A600D5194B /* MockGeocaches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockGeocaches.swift; sourceTree = "<group>"; };
 		C7B74EB625EDC5C200D5194B /* StarsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarsView.swift; sourceTree = "<group>"; };
 		C7B74EBB25EDCA5E00D5194B /* GeocacheType+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GeocacheType+Color.swift"; sourceTree = "<group>"; };
 		C7B74EC325EDCF8800D5194B /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
-		C7B74EC825EDD32F00D5194B /* GeocacheLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocacheLog.swift; sourceTree = "<group>"; };
-		C7B74ECD25EDD35400D5194B /* GeocacheLogType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocacheLogType.swift; sourceTree = "<group>"; };
-		C7B74ED525EDD60000D5194B /* GeocacheLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocacheLogView.swift; sourceTree = "<group>"; };
+		C7B74EC825EDD32F00D5194B /* WaypointLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointLog.swift; sourceTree = "<group>"; };
+		C7B74ECD25EDD35400D5194B /* WaypointLogType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointLogType.swift; sourceTree = "<group>"; };
+		C7B74ED525EDD60000D5194B /* WaypointLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointLogView.swift; sourceTree = "<group>"; };
 		C7B74EE225EDDD8C00D5194B /* Degrees.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Degrees.swift; sourceTree = "<group>"; };
 		C7B74EED25EDE3D900D5194B /* DegreesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DegreesTests.swift; sourceTree = "<group>"; };
 		C7B74EFB25EDE7E900D5194B /* CardinalDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardinalDirection.swift; sourceTree = "<group>"; };
-		C7B74F0325EE9BED00D5194B /* GeocacheSnippetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocacheSnippetView.swift; sourceTree = "<group>"; };
+		C7B74F0325EE9BED00D5194B /* WaypointSnippetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointSnippetView.swift; sourceTree = "<group>"; };
 		C7E1B88925ED72F0004575A5 /* MockConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockConnector.swift; sourceTree = "<group>"; };
 		C7E1B88E25ED73EB004575A5 /* PublisherUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublisherUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -228,14 +232,14 @@
 		C76545FF25D87AE1004F14E8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				C765460025D87B26004F14E8 /* Geocache.swift */,
+				C765460025D87B26004F14E8 /* Waypoint.swift */,
 				C7B74EA925EDC4A600D5194B /* MockGeocaches.swift */,
 				C765460D25D87C5A004F14E8 /* Coordinates.swift */,
 				C7B74EFB25EDE7E900D5194B /* CardinalDirection.swift */,
 				C765461225D87CEB004F14E8 /* GeocacheSize.swift */,
 				C765460825D87BA9004F14E8 /* GeocacheType.swift */,
-				C7B74EC825EDD32F00D5194B /* GeocacheLog.swift */,
-				C7B74ECD25EDD35400D5194B /* GeocacheLogType.swift */,
+				C7B74EC825EDD32F00D5194B /* WaypointLog.swift */,
+				C7B74ECD25EDD35400D5194B /* WaypointLogType.swift */,
 				C765462B25D880D7004F14E8 /* Length.swift */,
 				C7B74EE225EDDD8C00D5194B /* Degrees.swift */,
 				C765463025D8856C004F14E8 /* Credentials.swift */,
@@ -248,7 +252,7 @@
 			children = (
 				C765461B25D87E74004F14E8 /* Connector.swift */,
 				C765463525D885B3004F14E8 /* ConnectorError.swift */,
-				C765462325D87E9C004F14E8 /* GeocachesInRadiusQuery.swift */,
+				C765462325D87E9C004F14E8 /* WaypointsInRadiusQuery.swift */,
 				C765466125D89141004F14E8 /* GeocachingComConnector.swift */,
 				C7E1B88925ED72F0004575A5 /* MockConnector.swift */,
 			);
@@ -262,7 +266,7 @@
 				C765465C25D890F6004F14E8 /* AccountType.swift */,
 				C765463B25D88AC6004F14E8 /* Accounts.swift */,
 				C765464025D88B6C004F14E8 /* KeychainError.swift */,
-				C70B379C25ED7CC100553597 /* Geocaches.swift */,
+				C70B379C25ED7CC100553597 /* Waypoints.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -287,12 +291,14 @@
 				C73E04BE249F9F4700C6E22C /* ContentView.swift */,
 				C765464D25D88CEC004F14E8 /* AccountsView.swift */,
 				C765465225D88E48004F14E8 /* LoginView.swift */,
-				C7B6F0FC249FA16B00454841 /* RichGeocacheMapView.swift */,
-				C7B74E6B25ED8DA600D5194B /* GeocacheMapView.swift */,
-				C7B74EA425EDC46F00D5194B /* GeocacheDetailView.swift */,
-				C7B74F0325EE9BED00D5194B /* GeocacheSnippetView.swift */,
-				C7B74ED525EDD60000D5194B /* GeocacheLogView.swift */,
+				C7B6F0FC249FA16B00454841 /* RichMapView.swift */,
+				C7B74E6B25ED8DA600D5194B /* WaypointMapView.swift */,
+				C7B74EA425EDC46F00D5194B /* WaypointDetailView.swift */,
+				C7B74F0325EE9BED00D5194B /* WaypointSnippetView.swift */,
+				C7B74ED525EDD60000D5194B /* WaypointLogView.swift */,
 				C7B74EBB25EDCA5E00D5194B /* GeocacheType+Color.swift */,
+				C748C2A625EEA16B00661BEE /* Waypoint+Color.swift */,
+				C748C2AB25EEA19300661BEE /* Waypoint+Icon.swift */,
 				C7B74EB625EDC5C200D5194B /* StarsView.swift */,
 				C7B74EC325EDCF8800D5194B /* SearchBar.swift */,
 				C7B6F0FE249FA1B300454841 /* Map.swift */,
@@ -441,7 +447,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C70B379D25ED7CC100553597 /* Geocaches.swift in Sources */,
+				C70B379D25ED7CC100553597 /* Waypoints.swift in Sources */,
 				C765461C25D87E74004F14E8 /* Connector.swift in Sources */,
 				C765464125D88B6C004F14E8 /* KeychainError.swift in Sources */,
 				C765463625D885B3004F14E8 /* ConnectorError.swift in Sources */,
@@ -450,21 +456,22 @@
 				C765465D25D890F6004F14E8 /* AccountType.swift in Sources */,
 				C76546B025ED2DB6004F14E8 /* HTTPRequest.swift in Sources */,
 				C765465825D890E1004F14E8 /* Account.swift in Sources */,
-				C7B6F0FD249FA16B00454841 /* RichGeocacheMapView.swift in Sources */,
+				C7B6F0FD249FA16B00454841 /* RichMapView.swift in Sources */,
 				C73E04BB249F9F4700C6E22C /* WoodsApp.swift in Sources */,
 				C765466225D89141004F14E8 /* GeocachingComConnector.swift in Sources */,
 				C765468425D8A2A1004F14E8 /* EnvironmentUtils.swift in Sources */,
-				C7B74EA525EDC46F00D5194B /* GeocacheDetailView.swift in Sources */,
-				C765460125D87B26004F14E8 /* Geocache.swift in Sources */,
-				C7B74ECE25EDD35400D5194B /* GeocacheLogType.swift in Sources */,
+				C7B74EA525EDC46F00D5194B /* WaypointDetailView.swift in Sources */,
+				C765460125D87B26004F14E8 /* Waypoint.swift in Sources */,
+				C7B74ECE25EDD35400D5194B /* WaypointLogType.swift in Sources */,
 				C7B74E8D25EDAEA400D5194B /* Handle.swift in Sources */,
 				C7B74E9225EDB61400D5194B /* VisualEffectView.swift in Sources */,
 				C765464E25D88CEC004F14E8 /* AccountsView.swift in Sources */,
 				C7B74EB725EDC5C200D5194B /* StarsView.swift in Sources */,
 				C765468925D8A2C9004F14E8 /* DataUtils.swift in Sources */,
-				C765462425D87E9C004F14E8 /* GeocachesInRadiusQuery.swift in Sources */,
-				C7B74E6C25ED8DA600D5194B /* GeocacheMapView.swift in Sources */,
+				C765462425D87E9C004F14E8 /* WaypointsInRadiusQuery.swift in Sources */,
+				C7B74E6C25ED8DA600D5194B /* WaypointMapView.swift in Sources */,
 				C765467F25D8A280004F14E8 /* JSONUtils.swift in Sources */,
+				C748C2AC25EEA19300661BEE /* Waypoint+Icon.swift in Sources */,
 				C7B74EE325EDDD8C00D5194B /* Degrees.swift in Sources */,
 				C765467725D8A23C004F14E8 /* PersistenceUtils.swift in Sources */,
 				C7E1B88F25ED73EB004575A5 /* PublisherUtils.swift in Sources */,
@@ -473,18 +480,19 @@
 				C765465325D88E48004F14E8 /* LoginView.swift in Sources */,
 				C7E1B88A25ED72F0004575A5 /* MockConnector.swift in Sources */,
 				C765468E25D8A30F004F14E8 /* PersistenceError.swift in Sources */,
-				C7B74F0425EE9BED00D5194B /* GeocacheSnippetView.swift in Sources */,
+				C7B74F0425EE9BED00D5194B /* WaypointSnippetView.swift in Sources */,
 				C765463125D8856C004F14E8 /* Credentials.swift in Sources */,
 				C7B6F0FF249FA1B300454841 /* Map.swift in Sources */,
 				C73E04BF249F9F4700C6E22C /* ContentView.swift in Sources */,
 				C7B74EBC25EDCA5E00D5194B /* GeocacheType+Color.swift in Sources */,
 				C765460E25D87C5A004F14E8 /* Coordinates.swift in Sources */,
+				C748C2A725EEA16B00661BEE /* Waypoint+Color.swift in Sources */,
 				C7B74EFC25EDE7E900D5194B /* CardinalDirection.swift in Sources */,
 				C765461325D87CEB004F14E8 /* GeocacheSize.swift in Sources */,
 				C765469B25ED25DE004F14E8 /* EnumPicker.swift in Sources */,
-				C7B74EC925EDD32F00D5194B /* GeocacheLog.swift in Sources */,
+				C7B74EC925EDD32F00D5194B /* WaypointLog.swift in Sources */,
 				C7B74EAA25EDC4A600D5194B /* MockGeocaches.swift in Sources */,
-				C7B74ED625EDD60000D5194B /* GeocacheLogView.swift in Sources */,
+				C7B74ED625EDD60000D5194B /* WaypointLogView.swift in Sources */,
 				C765462C25D880D7004F14E8 /* Length.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

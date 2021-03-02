@@ -10,14 +10,14 @@ import SwiftUI
 
 private class AppState {
     let accounts: Accounts
-    let geocaches: Geocaches
+    let waypoints: Waypoints
     
     init() {
         let accounts = Accounts()
-        let geocaches = Geocaches(accounts: accounts)
+        let waypoints = Waypoints(accounts: accounts)
         
         self.accounts = accounts
-        self.geocaches = geocaches
+        self.waypoints = waypoints
         
         UITableView.appearance().backgroundColor = .clear // applies to Form backgrounds too
         UIScrollView.appearance().keyboardDismissMode = .interactive
@@ -32,7 +32,7 @@ struct WoodsApp: App {
         WindowGroup {
             ContentView()
                 .environmentObject(state.accounts)
-                .environmentObject(state.geocaches)
+                .environmentObject(state.waypoints)
         }
     }
 }

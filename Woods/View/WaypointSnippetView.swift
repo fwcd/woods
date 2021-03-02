@@ -1,5 +1,5 @@
 //
-//  GeocacheSnippetView.swift
+//  WaypointSnippetView.swift
 //  Woods
 //
 //  Created by Fredrik on 3/2/21.
@@ -8,18 +8,18 @@
 
 import SwiftUI
 
-struct GeocacheSnippetView: View {
-    let geocache: Geocache
+struct WaypointSnippetView: View {
+    let waypoint: Waypoint
     
     var body: some View {
         HStack {
-            Image(systemName: "archivebox.fill")
-                .foregroundColor(geocache.type.color)
+            Image(systemName: waypoint.iconName)
+                .foregroundColor(waypoint.color)
                 .font(.title)
             VStack(alignment: .leading) {
-                Text(geocache.id)
+                Text(waypoint.id)
                     .font(.headline)
-                Text(geocache.name)
+                Text(waypoint.name)
                     .font(.title)
                     .fontWeight(.bold)
                     .multilineTextAlignment(/*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/)
@@ -28,8 +28,8 @@ struct GeocacheSnippetView: View {
     }
 }
 
-struct GeocacheSnippetView_Previews: PreviewProvider {
+struct WaypointSnippetView_Previews: PreviewProvider {
     static var previews: some View {
-        GeocacheSnippetView(geocache: mockGeocaches().first!)
+        WaypointSnippetView(waypoint: mockGeocaches().first!)
     }
 }

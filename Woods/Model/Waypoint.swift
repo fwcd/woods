@@ -1,5 +1,5 @@
 //
-//  Geocache.swift
+//  Waypoint.swift
 //  Woods
 //
 //  Created by Fredrik on 2/13/21.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Geocache: Identifiable, Codable, Hashable {
+struct Waypoint: Identifiable, Codable, Hashable {
     static let ratings: ClosedRange<Int> = 2...10
     
     var id: String // GC-Code or similar
@@ -16,7 +16,7 @@ struct Geocache: Identifiable, Codable, Hashable {
     var location: Coordinates
     var difficulty: Int? = nil // half stars, between 2 and 10 (see maxRating)
     var terrain: Int? = nil    // half stars, between 2 and 10 (see maxRating)
-    var type: GeocacheType = .other
+    var geocacheType: GeocacheType? = nil
     var size: GeocacheSize = .other
     var owner: String? = nil
     var placedAt: Date? = nil
@@ -28,5 +28,5 @@ struct Geocache: Identifiable, Codable, Hashable {
     var summary: String? = nil
     var description: String? = nil
     var hint: String? = nil
-    var logs: [GeocacheLog] = []
+    var logs: [WaypointLog] = []
 }

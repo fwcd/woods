@@ -6,47 +6,47 @@
 //  Copyright © 2021 Fredrik. All rights reserved.
 //
 
-func mockGeocaches() -> [Geocache] {
+func mockGeocaches() -> [Waypoint] {
     [
         // TODO: Use fixed dates and uuids for logs
-        Geocache(
+        Waypoint(
             id: "MOCK1",
             name: "Test Cache",
             location: Coordinates(latitude: 52.50733, longitude: 13.42806),
             difficulty: 2,
             terrain: 3,
-            type: .traditional,
+            geocacheType: .traditional,
             logs: [
-                GeocacheLog(type: .found, username: "Alice", content: "Very nice cache, thanks!"),
-                GeocacheLog(type: .didNotFind, username: "Bob", content: "Long search, no find. :("),
-                GeocacheLog(type: .found, username: "Charles", content: "TFTC"),
-                GeocacheLog(type: .ownerMaintenance, username: "Dave", content: "Thanks for the note!"),
-                GeocacheLog(type: .needsMaintenance, username: "Erik", content: "The logbook should probably be replaced."),
+                WaypointLog(type: .found, username: "Alice", content: "Very nice cache, thanks!"),
+                WaypointLog(type: .didNotFind, username: "Bob", content: "Long search, no find. :("),
+                WaypointLog(type: .found, username: "Charles", content: "TFTC"),
+                WaypointLog(type: .ownerMaintenance, username: "Dave", content: "Thanks for the note!"),
+                WaypointLog(type: .needsMaintenance, username: "Erik", content: "The logbook should probably be replaced."),
             ]
         ),
-        Geocache(
+        Waypoint(
             id: "MOCK2",
             name: "Lake View",
             location: Coordinates(latitude: 51.30563, longitude: 7.94576),
             difficulty: 2,
             terrain: 4,
-            type: .multi
+            geocacheType: .multi
         ),
-        Geocache(
+        Waypoint(
             id: "MOCK3",
             name: "Mountain Views",
             location: Coordinates(latitude: 46.89705, longitude: 7.97048),
             difficulty: 10,
             terrain: 10,
-            type: .earth
+            geocacheType: .earth
         ),
-        Geocache(
+        Waypoint(
             id: "MOCK4",
             name: "Ferry to Oslo",
             location: Coordinates(latitude: 54.32851, longitude: 10.15303),
             difficulty: 5,
             terrain: 10,
-            type: .mystery
+            geocacheType: .mystery
         ),
     ]
 }

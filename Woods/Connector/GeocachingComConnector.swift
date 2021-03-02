@@ -51,7 +51,7 @@ class GeocachingComConnector: Connector {
         fatalError("TODO")
     }
     
-    func geocaches(for query: GeocachesInRadiusQuery) -> AnyPublisher<[Geocache], Error> {
+    func waypoints(for query: WaypointsInRadiusQuery) -> AnyPublisher<[Waypoint], Error> {
         fatalError("TODO")
     }
 }

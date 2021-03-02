@@ -1,5 +1,5 @@
 //
-//  GeocacheMapView.swift
+//  WaypointMapView.swift
 //  Woods
 //
 //  Created by Fredrik on 6/21/20.
@@ -10,39 +10,39 @@ import SwiftUI
 import MapKit
 import CoreLocation
 
-struct GeocacheMapView: View {
-    let geocaches: [Geocache]
-    @Binding var selectedGeocacheId: String?
+struct WaypointMapView: View {
+    let waypoints: [Waypoint]
+    @Binding var selectedWaypointId: String?
     @Binding var region: MKCoordinateRegion?
     @Binding var useSatelliteView: Bool
     
     var body: some View {
-        Map(annotations: geocaches.map { cache in
+        Map(annotations: waypoints.map { cache in
             Map.Annotation(
                 tag: cache.id,
                 coordinate: cache.location.asCLCoordinate,
                 title: cache.name,
-                color: cache.type.color,
+                color: cache.geocacheType?.color,
                 iconName: "archivebox.fill"
             )
-        }, selection: $selectedGeocacheId, region: $region, useSatelliteView: $useSatelliteView)
+        }, selection: $selectedWaypointId, region: $region, useSatelliteView: $useSatelliteView)
     }
     
     init(
-        geocaches: [Geocache],
-        selectedGeocacheId: Binding<String?>? = nil,
+        waypoints: [Waypoint],
+        selectedWaypointId: Binding<String?>? = nil,
         region: Binding<MKCoordinateRegion?>? = nil,
         useSatelliteView: Binding<Bool>? = nil
     ) {
-        self.geocaches = geocaches
-        _selectedGeocacheId = selectedGeocacheId ?? .constant(nil)
+        self.waypoints = waypoints
+        _selectedWaypointId = selectedWaypointId ?? .constant(nil)
         _region = region ?? .constant(nil)
         _useSatelliteView = useSatelliteView ?? .constant(false)
     }
 }
 
-struct GeocacheMapView_Previews: PreviewProvider {
+struct WaypointMapView_Previews: PreviewProvider {
     static var previews: some View {
-        GeocacheMapView(geocaches: [])
+        WaypointMapView(waypoints: [])
     }
 }

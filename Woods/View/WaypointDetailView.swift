@@ -8,41 +8,41 @@
 
 import SwiftUI
 
-struct GeocacheDetailView: View {
-    let geocache: Geocache
+struct WaypointDetailView: View {
+    let waypoint: Waypoint
     
     var body: some View {
         VStack(alignment: .leading) {
-            GeocacheSnippetView(geocache: geocache)
+            WaypointSnippetView(waypoint: waypoint)
                 .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
             Form {
                 Section(header: Text("Info")) {
-                    Text(geocache.location.description)
+                    Text(waypoint.location.description)
                     HStack {
                         Image(systemName: "chart.bar.fill")
                         StarsView(
-                            rating: geocache.difficulty ?? 0,
-                            maxRating: Geocache.ratings.upperBound,
+                            rating: waypoint.difficulty ?? 0,
+                            maxRating: Waypoint.ratings.upperBound,
                             step: 2
                         )
                         Divider()
                         Image(systemName: "leaf.fill")
                         StarsView(
-                            rating: geocache.terrain ?? 0,
-                            maxRating: Geocache.ratings.upperBound,
+                            rating: waypoint.terrain ?? 0,
+                            maxRating: Waypoint.ratings.upperBound,
                             step: 2
                         )
                     }
                 }
                 Section(header: Text("Description")) {
-                    Text(geocache.description ?? "no description provided")
+                    Text(waypoint.description ?? "no description provided")
                 }
                 Section(header: Text("Hint")) {
-                    Text(geocache.hint ?? "no hint provided")
+                    Text(waypoint.hint ?? "no hint provided")
                 }
                 Section(header: Text("Logs")) {
-                    List(geocache.logs) { log in
-                        GeocacheLogView(geocacheLog: log)
+                    List(waypoint.logs) { log in
+                        WaypointLogView(waypointLog: log)
                     }
                 }
             }
@@ -52,6 +52,6 @@ struct GeocacheDetailView: View {
 
 struct GeocacheDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        GeocacheDetailView(geocache: mockGeocaches().first!)
+        WaypointDetailView(waypoint: mockGeocaches().first!)
     }
 }

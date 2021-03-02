@@ -19,7 +19,7 @@ class MockConnector: Connector {
         Just(()).weakenError().eraseToAnyPublisher()
     }
     
-    func geocaches(for query: GeocachesInRadiusQuery) -> AnyPublisher<[Geocache], Error> {
+    func waypoints(for query: WaypointsInRadiusQuery) -> AnyPublisher<[Waypoint], Error> {
         Just(mockGeocaches().filter { $0.location.distance(to: query.center) <= query.radius }).weakenError().eraseToAnyPublisher()
     }
 }

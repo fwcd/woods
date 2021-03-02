@@ -1,5 +1,5 @@
 //
-//  RichGeocacheMapView.swift
+//  RichMapView.swift
 //  Woods
 //
 //  Created by Fredrik on 6/21/20.
@@ -10,21 +10,21 @@ import SwiftUI
 import MapKit
 import CoreLocation
 
-struct RichGeocacheMapView: View {
-    @EnvironmentObject private var geocaches: Geocaches
-    @State private var selectedGeocacheId: String? = nil
+struct RichMapView: View {
+    @EnvironmentObject private var waypoints: Waypoints
+    @State private var selectedWaypointId: String? = nil
     @State private var region: MKCoordinateRegion? = nil
     @State private var useSatelliteView: Bool = false
     @State private var searchText: String = ""
     
     var body: some View {
         ZStack(alignment: .topLeading) {
-            GeocacheMapView(geocaches: geocaches.geocaches.values.sorted { $0.id < $1.id }, selectedGeocacheId: $selectedGeocacheId, region: $region, useSatelliteView: $useSatelliteView)
+            WaypointMapView(waypoints: waypoints.waypoints.values.sorted { $0.id < $1.id }, selectedWaypointId: $selectedWaypointId, region: $region, useSatelliteView: $useSatelliteView)
                 .edgesIgnoringSafeArea(.all)
             VStack(spacing: 10) {
                 Button(action: {
                     if let region = region {
-                        geocaches.refresh(with: query(from: region))
+                        waypoints.refresh(with: query(from: region))
                     }
                 }) {
                     Image(systemName: "arrow.clockwise.circle.fill")
@@ -40,10 +40,10 @@ struct RichGeocacheMapView: View {
             .padding(10)
             SlideOverCard {
                 VStack {
-                    if let id = selectedGeocacheId, let geocache = geocaches[id] {
-                        GeocacheDetailView(geocache: geocache)
+                    if let id = selectedWaypointId, let waypoint = waypoints[id] {
+                        WaypointDetailView(waypoint: waypoint)
                     } else {
-                        SearchBar(placeholder: "Search for Geocaches...", text: $searchText)
+                        SearchBar(placeholder: "Search for waypoints...", text: $searchText)
                             .padding(EdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 15))
                     }
                     Spacer()
@@ -53,7 +53,7 @@ struct RichGeocacheMapView: View {
         }
     }
     
-    private func query(from region: MKCoordinateRegion) -> GeocachesInRadiusQuery {
+    private func query(from region: MKCoordinateRegion) -> WaypointsInRadiusQuery {
         let center = region.center
         let span = region.span
         let topLeft = CLLocation(
@@ -65,7 +65,7 @@ struct RichGeocacheMapView: View {
             longitude: center.longitude + (span.longitudeDelta / 2)
         )
         let diameter = topLeft.distance(from: bottomRight).magnitude
-        let query = GeocachesInRadiusQuery(
+        let query = WaypointsInRadiusQuery(
             center: Coordinates(from: center),
             radius: Length(meters: diameter / 2)
         )
@@ -73,10 +73,10 @@ struct RichGeocacheMapView: View {
     }
 }
 
-struct RefreshableGeocacheMapView_Previews: PreviewProvider {
-    @StateObject static var geocaches = Geocaches(accounts: Accounts(testMode: true))
+struct RichMapView_Previews: PreviewProvider {
+    @StateObject static var waypoints = Waypoints(accounts: Accounts(testMode: true))
     static var previews: some View {
-        RichGeocacheMapView()
-            .environmentObject(geocaches)
+        RichMapView()
+            .environmentObject(waypoints)
     }
 }
