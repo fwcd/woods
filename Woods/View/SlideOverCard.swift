@@ -13,8 +13,8 @@ import UIKit
 struct SlideOverCard<Content: View>: View {
     let content: () -> Content
     
-    @GestureState private var dragState = DragState.inactive
-    @State var position = CardPosition.top
+    @GestureState private var dragState: DragState = .inactive
+    @State var position: CardPosition = .bottom
     
     var body: some View {
         GeometryReader { geometry in
