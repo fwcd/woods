@@ -14,7 +14,7 @@ struct RichMapView: View {
     @EnvironmentObject private var waypoints: Waypoints
     @State private var selectedWaypointId: String? = nil
     @State private var region: MKCoordinateRegion? = nil
-    @State private var userTrackingMode: MKUserTrackingMode = .follow
+    @State private var userTrackingMode: MKUserTrackingMode = .none
     @State private var useSatelliteView: Bool = false
     @State private var searchText: String = ""
     
