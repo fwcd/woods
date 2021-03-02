@@ -28,5 +28,5 @@ struct Geocache: Identifiable, Codable, Hashable {
     var summary: String? = nil
     var description: String? = nil
     var hint: String? = nil
-    var log: [GeocacheLog] = []
+    var logs: [GeocacheLog] = []
 }

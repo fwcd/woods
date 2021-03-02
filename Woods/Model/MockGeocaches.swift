@@ -8,13 +8,21 @@
 
 func mockGeocaches() -> [Geocache] {
     [
+        // TODO: Use fixed dates and uuids for logs
         Geocache(
             id: "MOCK1",
             name: "Test Cache",
             location: Coordinates(latitude: 52.50733, longitude: 13.42806),
             difficulty: 2,
             terrain: 3,
-            type: .traditional
+            type: .traditional,
+            logs: [
+                GeocacheLog(type: .found, username: "Alice", content: "Very nice cache, thanks!"),
+                GeocacheLog(type: .didNotFind, username: "Bob", content: "Long search, no find. :("),
+                GeocacheLog(type: .found, username: "Charles", content: "TFTC"),
+                GeocacheLog(type: .ownerMaintenance, username: "Dave", content: "Thanks for the note!"),
+                GeocacheLog(type: .needsMaintenance, username: "Erik", content: "The logbook should probably be replaced."),
+            ]
         ),
         Geocache(
             id: "MOCK2",

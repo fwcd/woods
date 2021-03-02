@@ -9,8 +9,9 @@
 import Foundation
 
 struct GeocacheLog: Identifiable, Hashable, Codable {
-    let id: UUID // on Geocaching.com this should match the LUID
-    let type: GeocacheLogType
-    let username: String // TODO: More detailed user info
-    let content: String
+    var id: UUID = UUID() // on Geocaching.com this should match the LUID
+    var timestamp: Date = Date()
+    var type: GeocacheLogType
+    var username: String // TODO: More detailed user info
+    var content: String
 }
