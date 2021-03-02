@@ -44,7 +44,7 @@ struct RichGeocacheMapView: View {
                         GeocacheDetailView(geocache: geocache)
                     } else {
                         SearchBar(placeholder: "Search for Geocaches...", text: $searchText)
-                            .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
+                            .padding(EdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 15))
                     }
                     Spacer()
                 }

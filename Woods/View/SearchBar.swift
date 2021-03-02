@@ -19,7 +19,7 @@ struct SearchBar: View {
         }
         .padding(8)
         .foregroundColor(.secondary)
-        .background(Color(UIColor.secondarySystemBackground))
+        .background(Color.secondary.opacity(0.2))
         .cornerRadius(10)
     }
 }
