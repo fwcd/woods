@@ -13,7 +13,7 @@ struct WaypointListSnippetView: View {
     
     var body: some View {
         HStack {
-            Image(systemName: "folder.fill")
+            Image(systemName: "list.bullet")
             VStack {
                 Text(list.name)
                     .font(.headline)

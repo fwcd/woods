@@ -11,6 +11,6 @@ import Foundation
 struct WaypointList: Identifiable, Codable {
     var id: UUID = UUID()
     var name: String
-    var childs: [WaypointList] = []
+    var childs: [UUID] = []
     var waypoints: [Waypoint] = []
 }

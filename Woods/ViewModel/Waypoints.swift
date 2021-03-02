@@ -14,13 +14,20 @@ private let log = Logger(subsystem: "Woods", category: "Waypoints")
 
 class Waypoints: ObservableObject {
     @Published private(set) var waypoints: [String: Waypoint] = [:] // by id (aka. GC code)
-    @Published var rootList = WaypointList(name: "Lists")
+    @Published var lists: [UUID: WaypointList] = [:]
+    let rootListId: UUID
     
     private let accounts: Accounts
     private var runningQueryTask: AnyCancellable?
     
-    init(accounts: Accounts) {
+    init(accounts: Accounts, lists initialLists: [WaypointList] = []) {
         self.accounts = accounts
+        lists = Dictionary(uniqueKeysWithValues: initialLists.map { ($0.id, $0) })
+        
+        var rootList = WaypointList(name: "Lists")
+        rootList.childs = initialLists.map(\.id)
+        rootListId = rootList.id
+        lists[rootList.id] = rootList
     }
     
     subscript(id: String) -> Waypoint? {
