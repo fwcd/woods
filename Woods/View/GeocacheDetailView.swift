@@ -51,6 +51,11 @@ struct GeocacheDetailView: View {
                 Section(header: Text("Hint")) {
                     Text(geocache.hint ?? "no hint provided")
                 }
+                Section(header: Text("Logs")) {
+                    List(geocache.logs) { log in
+                        GeocacheLogView(geocacheLog: log)
+                    }
+                }
             }
         }
     }
