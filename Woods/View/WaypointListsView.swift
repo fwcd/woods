@@ -10,11 +10,34 @@ import SwiftUI
 
 struct WaypointListsView: View {
     @EnvironmentObject private var waypoints: Waypoints
+    @State private var newItemSheetShown: Bool = false
     
     var body: some View {
         NavigationView {
             WaypointListView(list: waypoints.rootList)
-                .navigationTitle("Lists")
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button(action: { newItemSheetShown = true }) {
+                            Image(systemName: "plus")
+                        }
+                    }
+                }
+        }
+        .actionSheet(isPresented: $newItemSheetShown) {
+            ActionSheet(
+                title: Text("New Item"),
+                buttons: [
+                    .default(Text("New Waypoint")) {
+                        // TODO
+                    },
+                    .default(Text("New List")) {
+                        // TODO
+                    },
+                    .cancel {
+                        newItemSheetShown = false
+                    }
+                ]
+            )
         }
     }
 }

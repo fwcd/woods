@@ -25,6 +25,7 @@ struct WaypointListView: View {
                 }
             }
         }
+        .navigationTitle(list.name)
         .navigationBarTitleDisplayMode(largeTitle ? .large : .inline)
     }
 }
