@@ -13,7 +13,7 @@ struct WaypointListsView: View {
     
     var body: some View {
         NavigationView {
-            WaypointListView(listId: waypoints.rootListId)
+            WaypointListView(listId: waypoints.listTree.rootId)
         }
     }
 }

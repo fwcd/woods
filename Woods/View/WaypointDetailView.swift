@@ -63,7 +63,7 @@ struct WaypointDetailView: View {
                     }
                     .sheet(isPresented: $listPickerSheetShown) {
                         WaypointListPickerView { id in
-                            waypoints.lists[id]?.waypoints.append(waypoint)
+                            waypoints.listTree[id]?.waypoints.append(waypoint)
                             listPickerSheetShown = false
                         }
                     }

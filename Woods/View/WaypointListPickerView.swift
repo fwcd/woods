@@ -14,7 +14,7 @@ struct WaypointListPickerView: View {
     @EnvironmentObject private var waypoints: Waypoints
     
     var body: some View {
-        List(waypoints.preOrderTraversedLists()) { list in
+        List(waypoints.listTree.preOrderTraversed()) { list in
             Button(action: { onPick(list.id) }) {
                 WaypointListSnippetView(list: list)
             }

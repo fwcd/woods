@@ -17,7 +17,7 @@ struct WaypointListView: View {
     @EnvironmentObject private var waypoints: Waypoints
     
     var list: WaypointList {
-        waypoints.lists[listId]!
+        waypoints.listTree[listId]!
     }
     
     var body: some View {
@@ -31,8 +31,8 @@ struct WaypointListView: View {
                 }
                 .sheet(isPresented: $newListSheetShown) {
                     NewWaypointListView { child in
-                        waypoints.lists[child.id] = child
-                        waypoints.lists[listId]!.childs.append(child.id)
+                        waypoints.listTree[child.id] = child
+                        waypoints.listTree[listId]!.childs.append(child.id)
                         newListSheetShown = false
                     }
                     .padding(20)
@@ -46,14 +46,14 @@ struct WaypointListView: View {
             }
             Section(header: Text("Items")) {
                 ForEach(list.childs, id: \.self) { childId in
-                    if let child = waypoints.lists[childId] {
+                    if let child = waypoints.listTree[childId] {
                         NavigationLink(destination: WaypointListView(listId: childId, largeTitle: false)) {
                             WaypointListSnippetView(list: child)
                         }
                     }
                 }
                 .onDelete { indexSet in
-                    waypoints.lists[listId]!.childs.remove(atOffsets: indexSet)
+                    waypoints.listTree[listId]!.childs.remove(atOffsets: indexSet)
                 }
                 ForEach(list.waypoints) { waypoint in
                     NavigationLink(destination: WaypointDetailView(waypoint: waypoint)) {
@@ -61,7 +61,7 @@ struct WaypointListView: View {
                     }
                 }
                 .onDelete { indexSet in
-                    waypoints.lists[listId]!.waypoints.remove(atOffsets: indexSet)
+                    waypoints.listTree[listId]!.waypoints.remove(atOffsets: indexSet)
                 }
             }
         }
@@ -77,7 +77,7 @@ struct WaypointListView_Previews: PreviewProvider {
     ])
     static var previews: some View {
         NavigationView {
-            WaypointListView(listId: waypoints.rootListId)
+            WaypointListView(listId: waypoints.listTree.rootId)
                 .environmentObject(waypoints)
         }
     }

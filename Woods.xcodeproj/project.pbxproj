@@ -70,6 +70,7 @@
 		C7ECBD9C25EEE197005933C0 /* AutoFocusTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBD9B25EEE197005933C0 /* AutoFocusTextField.swift */; };
 		C7ECBDA625EEE271005933C0 /* NewWaypointListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBDA525EEE271005933C0 /* NewWaypointListView.swift */; };
 		C7ECBDAE25EEF2E9005933C0 /* WaypointListPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBDAD25EEF2E9005933C0 /* WaypointListPickerView.swift */; };
+		C7ECBDB325EEF77A005933C0 /* WaypointListTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBDB225EEF77A005933C0 /* WaypointListTree.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -158,6 +159,7 @@
 		C7ECBD9B25EEE197005933C0 /* AutoFocusTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoFocusTextField.swift; sourceTree = "<group>"; };
 		C7ECBDA525EEE271005933C0 /* NewWaypointListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWaypointListView.swift; sourceTree = "<group>"; };
 		C7ECBDAD25EEF2E9005933C0 /* WaypointListPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointListPickerView.swift; sourceTree = "<group>"; };
+		C7ECBDB225EEF77A005933C0 /* WaypointListTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointListTree.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -254,6 +256,7 @@
 			children = (
 				C765460025D87B26004F14E8 /* Waypoint.swift */,
 				C7ECBD7925EECF7B005933C0 /* WaypointList.swift */,
+				C7ECBDB225EEF77A005933C0 /* WaypointListTree.swift */,
 				C7B74EA925EDC4A600D5194B /* MockGeocaches.swift */,
 				C765460D25D87C5A004F14E8 /* Coordinates.swift */,
 				C7B74EFB25EDE7E900D5194B /* CardinalDirection.swift */,
@@ -529,6 +532,7 @@
 				C7B74EFC25EDE7E900D5194B /* CardinalDirection.swift in Sources */,
 				C765461325D87CEB004F14E8 /* GeocacheSize.swift in Sources */,
 				C765469B25ED25DE004F14E8 /* EnumPicker.swift in Sources */,
+				C7ECBDB325EEF77A005933C0 /* WaypointListTree.swift in Sources */,
 				C7B74EC925EDD32F00D5194B /* WaypointLog.swift in Sources */,
 				C7B74EAA25EDC4A600D5194B /* MockGeocaches.swift in Sources */,
 				C7B74ED625EDD60000D5194B /* WaypointLogView.swift in Sources */,

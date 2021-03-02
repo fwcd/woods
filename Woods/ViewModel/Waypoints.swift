@@ -13,37 +13,24 @@ import Combine
 private let log = Logger(subsystem: "Woods", category: "Waypoints")
 
 class Waypoints: ObservableObject {
-    @Published private(set) var waypoints: [String: Waypoint] = [:] // by id (aka. GC code)
-    @Published var lists: [UUID: WaypointList] = [:]
-    let rootListId: UUID
+    /// The currently presented (e.g. by a map or list) waypoints by id (aka. GC code)
+    @Published private(set) var currentWaypoints: [String: Waypoint] = [:]
+    @Published(persistingTo: "Waypoints/listTree.json") var listTree = WaypointListTree()
     
     private let accounts: Accounts
     private var runningQueryTask: AnyCancellable?
     
-    init(accounts: Accounts, lists initialLists: [WaypointList] = []) {
+    init(accounts: Accounts, lists: [WaypointList] = []) {
         self.accounts = accounts
-        lists = Dictionary(uniqueKeysWithValues: initialLists.map { ($0.id, $0) })
         
-        var rootList = WaypointList(name: "Lists")
-        rootList.childs = initialLists.map(\.id)
-        rootListId = rootList.id
-        lists[rootList.id] = rootList
-    }
-    
-    subscript(id: String) -> Waypoint? {
-        waypoints[id]
-    }
-    
-    func preOrderTraversedLists(listId: UUID) -> [WaypointList] {
-        if let list = lists[listId] {
-            return [list] + list.childs.flatMap(preOrderTraversedLists(listId:))
-        } else {
-            return []
+        for list in lists {
+            listTree[list.id] = list
+            listTree[listTree.rootId]!.childs.append(list.id)
         }
     }
     
-    func preOrderTraversedLists() -> [WaypointList] {
-        preOrderTraversedLists(listId: rootListId)
+    subscript(id: String) -> Waypoint? {
+        currentWaypoints[id]
     }
     
     func refresh(with query: WaypointsInRadiusQuery) {
@@ -57,7 +44,7 @@ class Waypoints: ObservableObject {
                 }
             } receiveValue: { [self] in
                 let foundWaypoints = $0.flatMap { $0 }
-                waypoints = Dictionary(uniqueKeysWithValues: foundWaypoints.map { ($0.id, $0) })
+                currentWaypoints = Dictionary(uniqueKeysWithValues: foundWaypoints.map { ($0.id, $0) })
                 log.info("Found \(foundWaypoints.count) waypoint(s)")
             }
     }

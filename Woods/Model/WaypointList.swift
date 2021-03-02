@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct WaypointList: Identifiable, Codable {
+struct WaypointList: Identifiable, Codable, Hashable {
     var id: UUID = UUID()
     var name: String
     var childs: [UUID] = []

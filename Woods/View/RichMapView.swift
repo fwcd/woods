@@ -21,7 +21,7 @@ struct RichMapView: View {
     var body: some View {
         ZStack(alignment: .topLeading) {
             WaypointMapView(
-                waypoints: waypoints.waypoints.values.sorted { $0.id < $1.id },
+                waypoints: waypoints.currentWaypoints.values.sorted { $0.id < $1.id },
                 selectedWaypointId: $selectedWaypointId,
                 region: $region,
                 userTrackingMode: $userTrackingMode,
