@@ -10,25 +10,22 @@ import SwiftUI
 
 struct WaypointListView: View {
     let list: WaypointList
-    var hasNavigationTitle: Bool = true
+    var largeTitle: Bool = true
     
     var body: some View {
-        Group {
-            let view = List {
-                ForEach(list.childs) { child in
+        List {
+            ForEach(list.childs) { child in
+                NavigationLink(destination: WaypointListView(list: child)) {
                     WaypointListSnippetView(list: child)
                 }
-                ForEach(list.waypoints) { waypoint in
+            }
+            ForEach(list.waypoints) { waypoint in
+                NavigationLink(destination: WaypointDetailView(waypoint: waypoint)) {
                     WaypointSmallSnippetView(waypoint: waypoint)
                 }
             }
-            
-            if hasNavigationTitle {
-                view.navigationTitle(list.name)
-            } else {
-                view
-            }
         }
+        .navigationBarTitleDisplayMode(largeTitle ? .large : .inline)
     }
 }
 
