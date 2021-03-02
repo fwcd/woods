@@ -18,6 +18,8 @@ private class AppState {
         
         self.accounts = accounts
         self.geocaches = geocaches
+        
+        UIScrollView.appearance().keyboardDismissMode = .interactive
     }
 }
 
