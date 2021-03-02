@@ -11,13 +11,16 @@ import SwiftUI
 private class AppState {
     let accounts: Accounts
     let waypoints: Waypoints
+    let locationManager: LocationManager
     
     init() {
         let accounts = Accounts()
         let waypoints = Waypoints(accounts: accounts)
+        let locationManager = LocationManager()
         
         self.accounts = accounts
         self.waypoints = waypoints
+        self.locationManager = locationManager
         
         UITableView.appearance().backgroundColor = .clear // applies to Form backgrounds too
         UIScrollView.appearance().keyboardDismissMode = .interactive
@@ -33,6 +36,7 @@ struct WoodsApp: App {
             ContentView()
                 .environmentObject(state.accounts)
                 .environmentObject(state.waypoints)
+                .environmentObject(state.locationManager)
         }
     }
 }

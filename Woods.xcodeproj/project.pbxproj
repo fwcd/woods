@@ -60,6 +60,7 @@
 		C7B74F0425EE9BED00D5194B /* WaypointSnippetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74F0325EE9BED00D5194B /* WaypointSnippetView.swift */; };
 		C7E1B88A25ED72F0004575A5 /* MockConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E1B88925ED72F0004575A5 /* MockConnector.swift */; };
 		C7E1B88F25ED73EB004575A5 /* PublisherUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E1B88E25ED73EB004575A5 /* PublisherUtils.swift */; };
+		C7ECBD7025EEAB38005933C0 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBD6F25EEAB38005933C0 /* LocationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -138,6 +139,7 @@
 		C7B74F0325EE9BED00D5194B /* WaypointSnippetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointSnippetView.swift; sourceTree = "<group>"; };
 		C7E1B88925ED72F0004575A5 /* MockConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockConnector.swift; sourceTree = "<group>"; };
 		C7E1B88E25ED73EB004575A5 /* PublisherUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublisherUtils.swift; sourceTree = "<group>"; };
+		C7ECBD6F25EEAB38005933C0 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -267,6 +269,7 @@
 				C765463B25D88AC6004F14E8 /* Accounts.swift */,
 				C765464025D88B6C004F14E8 /* KeychainError.swift */,
 				C70B379C25ED7CC100553597 /* Waypoints.swift */,
+				C7ECBD6F25EEAB38005933C0 /* LocationManager.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -467,6 +470,7 @@
 				C7B74E9225EDB61400D5194B /* VisualEffectView.swift in Sources */,
 				C765464E25D88CEC004F14E8 /* AccountsView.swift in Sources */,
 				C7B74EB725EDC5C200D5194B /* StarsView.swift in Sources */,
+				C7ECBD7025EEAB38005933C0 /* LocationManager.swift in Sources */,
 				C765468925D8A2C9004F14E8 /* DataUtils.swift in Sources */,
 				C765462425D87E9C004F14E8 /* WaypointsInRadiusQuery.swift in Sources */,
 				C7B74E6C25ED8DA600D5194B /* WaypointMapView.swift in Sources */,

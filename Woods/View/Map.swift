@@ -18,23 +18,11 @@ struct Map<T>: UIViewRepresentable where T: Hashable {
     @Binding var region: MKCoordinateRegion?
     @Binding var useSatelliteView: Bool
     
-    private let locationManager = CLLocationManager()
-    
-    func setupLocationManager(coordinator: Coordinator) {
-        if CLLocationManager.locationServicesEnabled() {
-            locationManager.desiredAccuracy = kCLLocationAccuracyBest
-            locationManager.delegate = coordinator
-            locationManager.requestAlwaysAuthorization()
-            locationManager.startUpdatingLocation()
-        }
-    }
-    
     func makeCoordinator() -> Coordinator {
         Coordinator(selection: $selection, region: $region)
     }
     
     func makeUIView(context: Context) -> MKMapView {
-        setupLocationManager(coordinator: context.coordinator)
         let mapView = MKMapView()
         mapView.register(MKMarkerAnnotationView.self, forAnnotationViewWithReuseIdentifier: NSStringFromClass(MKMarkerAnnotationView.self))
         mapView.addAnnotations(annotations)
@@ -73,7 +61,7 @@ struct Map<T>: UIViewRepresentable where T: Hashable {
         }
     }
     
-    class Coordinator: NSObject, CLLocationManagerDelegate, MKMapViewDelegate {
+    class Coordinator: NSObject, MKMapViewDelegate {
         @Binding private var selection: T?
         @Binding private var region: MKCoordinateRegion?
         
