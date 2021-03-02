@@ -11,6 +11,8 @@ import SwiftUI
 struct WaypointListsView: View {
     @EnvironmentObject private var waypoints: Waypoints
     @State private var newItemSheetShown: Bool = false
+    @State private var newListSheetShown: Bool = false
+    @State private var newWaypointSheetShown: Bool = false
     
     var body: some View {
         NavigationView {
@@ -28,16 +30,21 @@ struct WaypointListsView: View {
                 title: Text("New Item"),
                 buttons: [
                     .default(Text("New Waypoint")) {
-                        // TODO
+                        newWaypointSheetShown = true
                     },
                     .default(Text("New List")) {
-                        // TODO
+                        newListSheetShown = true
                     },
-                    .cancel {
-                        newItemSheetShown = false
-                    }
+                    .cancel()
                 ]
             )
+        }
+        .sheet(isPresented: $newListSheetShown) {
+            NewWaypointListView { list in
+                waypoints.rootList.childs.append(list)
+                newListSheetShown = false
+            }
+            .padding(20)
         }
     }
 }
