@@ -21,28 +21,28 @@ struct WaypointListsView: View {
                 newItemParentListId = id
                 newItemSheetShown = true
             }
-            .actionSheet(isPresented: $newItemSheetShown) {
-                ActionSheet(
-                    title: Text("New Item"),
-                    buttons: [
-                        .default(Text("New Waypoint")) {
-                            newWaypointSheetShown = true
-                        },
-                        .default(Text("New List")) {
-                            newListSheetShown = true
-                        },
-                        .cancel()
-                    ]
-                )
+        }
+        .actionSheet(isPresented: $newItemSheetShown) {
+            ActionSheet(
+                title: Text("New Item"),
+                buttons: [
+                    .default(Text("New Waypoint")) {
+                        newWaypointSheetShown = true
+                    },
+                    .default(Text("New List")) {
+                        newListSheetShown = true
+                    },
+                    .cancel()
+                ]
+            )
+        }
+        .sheet(isPresented: $newListSheetShown) {
+            NewWaypointListView { child in
+                waypoints.lists[child.id] = child
+                waypoints.lists[newItemParentListId!]!.childs.append(child.id)
+                newListSheetShown = false
             }
-            .sheet(isPresented: $newListSheetShown) {
-                NewWaypointListView { child in
-                    waypoints.lists[child.id] = child
-                    waypoints.lists[newItemParentListId!]!.childs.append(child.id)
-                    newListSheetShown = false
-                }
-                .padding(20)
-            }
+            .padding(20)
         }
     }
 }
