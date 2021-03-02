@@ -34,15 +34,21 @@ struct WaypointDetailView: View {
                         )
                     }
                 }
-                Section(header: Text("Description")) {
-                    Text(waypoint.description ?? "no description provided")
+                if let description = waypoint.description {
+                    Section(header: Text("Description")) {
+                        Text(description)
+                    }
                 }
-                Section(header: Text("Hint")) {
-                    Text(waypoint.hint ?? "no hint provided")
+                if let hint = waypoint.hint {
+                    Section(header: Text("Hint")) {
+                        Text(hint)
+                    }
                 }
-                Section(header: Text("Logs")) {
-                    List(waypoint.logs) { log in
-                        WaypointLogView(waypointLog: log)
+                if !waypoint.logs.isEmpty {
+                    Section(header: Text("Logs")) {
+                        List(waypoint.logs) { log in
+                            WaypointLogView(waypointLog: log)
+                        }
                     }
                 }
             }
