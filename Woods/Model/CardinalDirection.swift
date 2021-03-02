@@ -6,9 +6,11 @@
 //  Copyright © 2021 Fredrik. All rights reserved.
 //
 
-enum CardinalDirection {
-    case north
-    case west
-    case south
-    case east
+enum CardinalDirection: String, Codable, Hashable, CustomStringConvertible {
+    case north = "N"
+    case west = "W"
+    case south = "S"
+    case east = "E"
+    
+    var description: String { rawValue }
 }
