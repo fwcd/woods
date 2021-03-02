@@ -80,7 +80,7 @@ struct SlideOverCard<Content: View>: View {
         case .middle:
             return height * 0.5
         case .bottom:
-            return height * 0.9
+            return height * 0.87
         }
     }
 
