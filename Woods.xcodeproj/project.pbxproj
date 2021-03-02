@@ -48,6 +48,7 @@
 		C7B74EA525EDC46F00D5194B /* GeocacheDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74EA425EDC46F00D5194B /* GeocacheDetailView.swift */; };
 		C7B74EAA25EDC4A600D5194B /* MockGeocaches.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74EA925EDC4A600D5194B /* MockGeocaches.swift */; };
 		C7B74EB725EDC5C200D5194B /* StarsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74EB625EDC5C200D5194B /* StarsView.swift */; };
+		C7B74EBC25EDCA5E00D5194B /* GeocacheType+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74EBB25EDCA5E00D5194B /* GeocacheType+Color.swift */; };
 		C7E1B88A25ED72F0004575A5 /* MockConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E1B88925ED72F0004575A5 /* MockConnector.swift */; };
 		C7E1B88F25ED73EB004575A5 /* PublisherUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E1B88E25ED73EB004575A5 /* PublisherUtils.swift */; };
 /* End PBXBuildFile section */
@@ -116,6 +117,7 @@
 		C7B74EA425EDC46F00D5194B /* GeocacheDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocacheDetailView.swift; sourceTree = "<group>"; };
 		C7B74EA925EDC4A600D5194B /* MockGeocaches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockGeocaches.swift; sourceTree = "<group>"; };
 		C7B74EB625EDC5C200D5194B /* StarsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarsView.swift; sourceTree = "<group>"; };
+		C7B74EBB25EDCA5E00D5194B /* GeocacheType+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GeocacheType+Color.swift"; sourceTree = "<group>"; };
 		C7E1B88925ED72F0004575A5 /* MockConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockConnector.swift; sourceTree = "<group>"; };
 		C7E1B88E25ED73EB004575A5 /* PublisherUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublisherUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -270,6 +272,7 @@
 				C7B6F0FC249FA16B00454841 /* RichGeocacheMapView.swift */,
 				C7B74E6B25ED8DA600D5194B /* GeocacheMapView.swift */,
 				C7B74EA425EDC46F00D5194B /* GeocacheDetailView.swift */,
+				C7B74EBB25EDCA5E00D5194B /* GeocacheType+Color.swift */,
 				C7B74EB625EDC5C200D5194B /* StarsView.swift */,
 				C7B6F0FE249FA1B300454841 /* Map.swift */,
 				C765469A25ED25DE004F14E8 /* EnumPicker.swift */,
@@ -449,6 +452,7 @@
 				C765463125D8856C004F14E8 /* Credentials.swift in Sources */,
 				C7B6F0FF249FA1B300454841 /* Map.swift in Sources */,
 				C73E04BF249F9F4700C6E22C /* ContentView.swift in Sources */,
+				C7B74EBC25EDCA5E00D5194B /* GeocacheType+Color.swift in Sources */,
 				C765460E25D87C5A004F14E8 /* Coordinates.swift in Sources */,
 				C765461325D87CEB004F14E8 /* GeocacheSize.swift in Sources */,
 				C765469B25ED25DE004F14E8 /* EnumPicker.swift in Sources */,

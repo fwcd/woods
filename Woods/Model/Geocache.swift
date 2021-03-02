@@ -9,11 +9,13 @@
 import Foundation
 
 struct Geocache: Identifiable, Codable, Hashable {
+    static let ratings: ClosedRange<Int> = 2...10
+    
     var id: String // GC-Code or similar
     var name: String
     var location: Coordinates
-    var difficulty: Int? = nil // half stars, between 2 and 10
-    var terrain: Int? = nil // half stars, between 2 and 10
+    var difficulty: Int? = nil // half stars, between 2 and 10 (see maxRating)
+    var terrain: Int? = nil    // half stars, between 2 and 10 (see maxRating)
     var type: GeocacheType = .other
     var size: GeocacheSize = .other
     var owner: String? = nil

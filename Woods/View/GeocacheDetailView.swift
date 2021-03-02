@@ -13,10 +13,44 @@ struct GeocacheDetailView: View {
     
     var body: some View {
         VStack {
-            Text(geocache.name)
-                .font(.title)
-                .multilineTextAlignment(/*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/)
-            
+            HStack {
+                Image(systemName: "archivebox.fill")
+                    .foregroundColor(geocache.type.color)
+                    .font(.title)
+                VStack(alignment: .leading) {
+                    Text(geocache.id)
+                        .font(.headline)
+                    Text(geocache.name)
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .multilineTextAlignment(/*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/)
+                }
+            }
+            Form {
+                Section(header: Text("Info")) {
+                    HStack {
+                        Image(systemName: "chart.bar.fill")
+                        StarsView(
+                            rating: geocache.difficulty ?? 0,
+                            maxRating: Geocache.ratings.upperBound,
+                            step: 2
+                        )
+                        Divider()
+                        Image(systemName: "leaf.fill")
+                        StarsView(
+                            rating: geocache.terrain ?? 0,
+                            maxRating: Geocache.ratings.upperBound,
+                            step: 2
+                        )
+                    }
+                }
+                Section(header: Text("Description")) {
+                    Text(geocache.description ?? "no description provided")
+                }
+                Section(header: Text("Hint")) {
+                    Text(geocache.hint ?? "no hint provided")
+                }
+            }
         }
     }
 }
