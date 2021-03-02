@@ -92,8 +92,10 @@ struct RichMapView: View {
 
 struct RichMapView_Previews: PreviewProvider {
     @StateObject static var waypoints = Waypoints(accounts: Accounts(testMode: true))
+    @StateObject static var locationManager = LocationManager()
     static var previews: some View {
         RichMapView()
             .environmentObject(waypoints)
+            .environmentObject(locationManager)
     }
 }

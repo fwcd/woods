@@ -46,9 +46,11 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     @StateObject static var accounts = Accounts(testMode: true)
     @StateObject static var geocaches = Waypoints(accounts: accounts)
+    @StateObject static var locationManager = LocationManager()
     static var previews: some View {
         ContentView()
             .environmentObject(accounts)
             .environmentObject(geocaches)
+            .environmentObject(locationManager)
     }
 }

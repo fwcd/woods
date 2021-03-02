@@ -61,6 +61,7 @@
 		C7E1B88A25ED72F0004575A5 /* MockConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E1B88925ED72F0004575A5 /* MockConnector.swift */; };
 		C7E1B88F25ED73EB004575A5 /* PublisherUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E1B88E25ED73EB004575A5 /* PublisherUtils.swift */; };
 		C7ECBD7025EEAB38005933C0 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBD6F25EEAB38005933C0 /* LocationManager.swift */; };
+		C7ECBD7525EEB23B005933C0 /* WaypointDistanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBD7425EEB23B005933C0 /* WaypointDistanceView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -140,6 +141,7 @@
 		C7E1B88925ED72F0004575A5 /* MockConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockConnector.swift; sourceTree = "<group>"; };
 		C7E1B88E25ED73EB004575A5 /* PublisherUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublisherUtils.swift; sourceTree = "<group>"; };
 		C7ECBD6F25EEAB38005933C0 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		C7ECBD7425EEB23B005933C0 /* WaypointDistanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointDistanceView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -297,6 +299,7 @@
 				C7B6F0FC249FA16B00454841 /* RichMapView.swift */,
 				C7B74E6B25ED8DA600D5194B /* WaypointMapView.swift */,
 				C7B74EA425EDC46F00D5194B /* WaypointDetailView.swift */,
+				C7ECBD7425EEB23B005933C0 /* WaypointDistanceView.swift */,
 				C7B74F0325EE9BED00D5194B /* WaypointSnippetView.swift */,
 				C7B74ED525EDD60000D5194B /* WaypointLogView.swift */,
 				C7B74EBB25EDCA5E00D5194B /* GeocacheType+Color.swift */,
@@ -463,6 +466,7 @@
 				C73E04BB249F9F4700C6E22C /* WoodsApp.swift in Sources */,
 				C765466225D89141004F14E8 /* GeocachingComConnector.swift in Sources */,
 				C765468425D8A2A1004F14E8 /* EnvironmentUtils.swift in Sources */,
+				C7ECBD7525EEB23B005933C0 /* WaypointDistanceView.swift in Sources */,
 				C7B74EA525EDC46F00D5194B /* WaypointDetailView.swift in Sources */,
 				C765460125D87B26004F14E8 /* Waypoint.swift in Sources */,
 				C7B74ECE25EDD35400D5194B /* WaypointLogType.swift in Sources */,
