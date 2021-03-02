@@ -30,7 +30,11 @@ func mockGeocaches() -> [Waypoint] {
             location: Coordinates(latitude: 51.30563, longitude: 7.94576),
             difficulty: 2,
             terrain: 4,
-            geocacheType: .multi
+            geocacheType: .multi,
+            additionalWaypoints: [
+                Waypoint(id: "WP1", name: "A nice café", location: Coordinates(latitude: 51.306723, longitude: 7.941415)),
+                Waypoint(id: "WP2", name: "Trail", location: Coordinates(latitude: 51.306120, longitude: 7.949290)),
+            ]
         ),
         Waypoint(
             id: "MOCK3",
