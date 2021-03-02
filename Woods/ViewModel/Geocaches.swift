@@ -13,13 +13,17 @@ import Combine
 private let log = Logger(subsystem: "Woods", category: "Geocaches")
 
 class Geocaches: ObservableObject {
-    @Published var geocaches: [Geocache] = []
+    @Published private(set) var geocaches: [String: Geocache] = [:] // by id (aka. GC code)
     
     private let accounts: Accounts
     private var runningQueryTask: AnyCancellable?
     
     init(accounts: Accounts) {
         self.accounts = accounts
+    }
+    
+    subscript(id: String) -> Geocache? {
+        geocaches[id]
     }
     
     func refresh(with query: GeocachesInRadiusQuery) {
@@ -32,8 +36,9 @@ class Geocaches: ObservableObject {
                     log.warning("Could not query geocaches: \(String(describing: error))")
                 }
             } receiveValue: { [self] in
-                geocaches = $0.flatMap { $0 }
-                log.info("Found \(geocaches.count) geocache(s)")
+                let foundCaches = $0.flatMap { $0 }
+                geocaches = Dictionary(uniqueKeysWithValues: foundCaches.map { ($0.id, $0) })
+                log.info("Found \(foundCaches.count) geocache(s)")
             }
     }
 }

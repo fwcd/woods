@@ -41,6 +41,10 @@ class Accounts: ObservableObject {
         }
     }
     
+    subscript(id: UUID) -> Account? {
+        accounts[id]
+    }
+    
     func logInAndStore(_ account: Account) {
         do {
             logIn(using: account)

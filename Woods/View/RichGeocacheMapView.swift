@@ -18,7 +18,7 @@ struct RichGeocacheMapView: View {
     
     var body: some View {
         ZStack(alignment: .topLeading) {
-            GeocacheMapView(geocaches: geocaches.geocaches, selectedGeocacheId: $selectedGeocacheId, region: $region, useSatelliteView: $useSatelliteView)
+            GeocacheMapView(geocaches: geocaches.geocaches.values.sorted { $0.id < $1.id }, selectedGeocacheId: $selectedGeocacheId, region: $region, useSatelliteView: $useSatelliteView)
                 .edgesIgnoringSafeArea(.all)
             VStack(spacing: 10) {
                 Button(action: {
@@ -39,7 +39,9 @@ struct RichGeocacheMapView: View {
             .padding(10)
             SlideOverCard {
                 VStack {
-                    Text("Selected: \(String(describing: selectedGeocacheId))")
+                    if let id = selectedGeocacheId, let geocache = geocaches[id] {
+                        GeocacheDetailView(geocache: geocache)
+                    }
                     Spacer()
                 }
                 .frame(maxWidth: .infinity)
