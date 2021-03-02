@@ -17,20 +17,23 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published private(set) var heading: CLHeading? = nil
     private let manager = CLLocationManager()
     
-    var updatingLocation: Bool = false {
-        didSet {
-            if updatingLocation {
+    // Location and heading use a reference count to track whether
+    // they are needed.
+    
+    private var locationDependents: Int = 0 {
+        willSet {
+            if newValue > 0 && locationDependents <= 0 {
                 manager.startUpdatingLocation()
-            } else {
+            } else if newValue <= 0 && locationDependents > 0 {
                 manager.stopUpdatingLocation()
             }
         }
     }
-    var updatingHeading: Bool = false {
-        didSet {
-            if updatingHeading {
+    private var headingDependents: Int = 0 {
+        willSet {
+            if newValue > 0 && headingDependents <= 0 {
                 manager.startUpdatingHeading()
-            } else {
+            } else if newValue <= 0 && headingDependents > 0 {
                 manager.stopUpdatingHeading()
             }
         }
@@ -52,5 +55,21 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
         heading = newHeading
+    }
+    
+    func dependOnLocation() {
+        locationDependents += 1
+    }
+    
+    func dependOnHeading() {
+        headingDependents += 1
+    }
+    
+    func undependOnLocation() {
+        locationDependents -= 1
+    }
+    
+    func undependOnHeading() {
+        headingDependents -= 1
     }
 }
