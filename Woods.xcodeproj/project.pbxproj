@@ -54,6 +54,7 @@
 		C7B74ED625EDD60000D5194B /* GeocacheLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74ED525EDD60000D5194B /* GeocacheLogView.swift */; };
 		C7B74EE325EDDD8C00D5194B /* Degrees.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74EE225EDDD8C00D5194B /* Degrees.swift */; };
 		C7B74EEE25EDE3D900D5194B /* DegreesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74EED25EDE3D900D5194B /* DegreesTests.swift */; };
+		C7B74EFC25EDE7E900D5194B /* CardinalDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74EFB25EDE7E900D5194B /* CardinalDirection.swift */; };
 		C7E1B88A25ED72F0004575A5 /* MockConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E1B88925ED72F0004575A5 /* MockConnector.swift */; };
 		C7E1B88F25ED73EB004575A5 /* PublisherUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E1B88E25ED73EB004575A5 /* PublisherUtils.swift */; };
 /* End PBXBuildFile section */
@@ -128,6 +129,7 @@
 		C7B74ED525EDD60000D5194B /* GeocacheLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocacheLogView.swift; sourceTree = "<group>"; };
 		C7B74EE225EDDD8C00D5194B /* Degrees.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Degrees.swift; sourceTree = "<group>"; };
 		C7B74EED25EDE3D900D5194B /* DegreesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DegreesTests.swift; sourceTree = "<group>"; };
+		C7B74EFB25EDE7E900D5194B /* CardinalDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardinalDirection.swift; sourceTree = "<group>"; };
 		C7E1B88925ED72F0004575A5 /* MockConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockConnector.swift; sourceTree = "<group>"; };
 		C7E1B88E25ED73EB004575A5 /* PublisherUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublisherUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -227,6 +229,7 @@
 				C765460025D87B26004F14E8 /* Geocache.swift */,
 				C7B74EA925EDC4A600D5194B /* MockGeocaches.swift */,
 				C765460D25D87C5A004F14E8 /* Coordinates.swift */,
+				C7B74EFB25EDE7E900D5194B /* CardinalDirection.swift */,
 				C765461225D87CEB004F14E8 /* GeocacheSize.swift */,
 				C765460825D87BA9004F14E8 /* GeocacheType.swift */,
 				C7B74EC825EDD32F00D5194B /* GeocacheLog.swift */,
@@ -472,6 +475,7 @@
 				C73E04BF249F9F4700C6E22C /* ContentView.swift in Sources */,
 				C7B74EBC25EDCA5E00D5194B /* GeocacheType+Color.swift in Sources */,
 				C765460E25D87C5A004F14E8 /* Coordinates.swift in Sources */,
+				C7B74EFC25EDE7E900D5194B /* CardinalDirection.swift in Sources */,
 				C765461325D87CEB004F14E8 /* GeocacheSize.swift in Sources */,
 				C765469B25ED25DE004F14E8 /* EnumPicker.swift in Sources */,
 				C7B74EC925EDD32F00D5194B /* GeocacheLog.swift in Sources */,

@@ -10,8 +10,35 @@ import CoreLocation
 
 /// A pair of geographical coordinates on Earth.
 struct Coordinates: Codable, Hashable, CustomStringConvertible {
-    let latitude: Degrees
-    let longitude: Degrees
+    var latitude: Degrees
+    var longitude: Degrees
+    
+    var northSouth: CardinalDirection {
+        get { latitude.totalDegrees.sign == .plus ? .north : .south }
+        set {
+            switch newValue {
+            case .north:
+                latitude.totalDegrees = abs(latitude.totalDegrees)
+            case .south:
+                latitude.totalDegrees = -abs(latitude.totalDegrees)
+            default:
+                fatalError("Invalid direction for north/south: \(newValue)")
+            }
+        }
+    }
+    var eastWest: CardinalDirection {
+        get { longitude.totalDegrees.sign == .plus ? .east : .west }
+        set {
+            switch newValue {
+            case .east:
+                longitude.totalDegrees = abs(longitude.totalDegrees)
+            case .west:
+                longitude.totalDegrees = -abs(longitude.totalDegrees)
+            default:
+                fatalError("Invalid direction for east/west: \(newValue)")
+            }
+        }
+    }
     
     var description: String { "(\(latitude), \(longitude))" }
     
