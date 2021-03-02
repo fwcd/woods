@@ -40,7 +40,7 @@ struct Coordinates: Codable, Hashable, CustomStringConvertible {
         }
     }
     
-    var description: String { "\(latitude) \(northSouth), \(longitude) \(eastWest)" }
+    var description: String { "\(northSouth) \(latitude.magnitude), \(eastWest) \(longitude.magnitude)" }
     
     var asCLCoordinate: CLLocationCoordinate2D {
         CLLocationCoordinate2D(latitude: latitude.totalDegrees, longitude: longitude.totalDegrees)

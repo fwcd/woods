@@ -29,6 +29,7 @@ struct GeocacheDetailView: View {
             .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
             Form {
                 Section(header: Text("Info")) {
+                    Text(geocache.location.description)
                     HStack {
                         Image(systemName: "chart.bar.fill")
                         StarsView(

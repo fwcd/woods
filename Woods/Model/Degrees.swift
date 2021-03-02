@@ -13,7 +13,7 @@ struct Degrees: AdditiveArithmetic, Hashable, Comparable, Codable, CustomStringC
     // Decimal degrees (internal representation)
     var totalDegrees: Double
     
-    // Degrees and decimal minutes
+    /// Degrees and decimal minutes
     var dm: (degrees: Int, minutes: Double) {
         get {
             let totalMinutes = totalDegrees * 60
@@ -26,7 +26,7 @@ struct Degrees: AdditiveArithmetic, Hashable, Comparable, Codable, CustomStringC
         }
     }
     
-    // Degrees, minutes and decimal seconds
+    /// Degrees, minutes and decimal seconds
     var dms: (degrees: Int, minutes: Int, seconds: Double) {
         get {
             let (degrees, remTotalMinutes) = dm
@@ -39,6 +39,9 @@ struct Degrees: AdditiveArithmetic, Hashable, Comparable, Codable, CustomStringC
             totalDegrees = Double(newValue.degrees) + (Double(newValue.minutes) / 60) + (newValue.seconds / 3600)
         }
     }
+    
+    /// The absolute value
+    var magnitude: Degrees { Degrees(degrees: abs(totalDegrees)) }
     
     var description: String { String(format: "%d° %.3f'", dm.degrees, dm.minutes) }
     
