@@ -23,8 +23,10 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     private var locationDependents: Int = 0 {
         willSet {
             if newValue > 0 && locationDependents <= 0 {
+                log.info("Starting location updates")
                 manager.startUpdatingLocation()
             } else if newValue <= 0 && locationDependents > 0 {
+                log.info("Stopping location updates")
                 manager.stopUpdatingLocation()
             }
         }
@@ -32,8 +34,10 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     private var headingDependents: Int = 0 {
         willSet {
             if newValue > 0 && headingDependents <= 0 {
+                log.info("Starting heading updates")
                 manager.startUpdatingHeading()
             } else if newValue <= 0 && headingDependents > 0 {
+                log.info("Stopping heading updates")
                 manager.stopUpdatingHeading()
             }
         }
