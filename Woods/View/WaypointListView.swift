@@ -21,37 +21,41 @@ struct WaypointListView: View {
     }
     
     var body: some View {
-        List {
-            Button(action: { newListSheetShown = true }) {
-                HStack {
-                    Image(systemName: "plus")
-                    Text("New List")
+        Form {
+            Section {
+                Button(action: { newListSheetShown = true }) {
+                    HStack {
+                        Image(systemName: "plus")
+                        Text("New List")
+                    }
                 }
-            }
-            .sheet(isPresented: $newListSheetShown) {
-                NewWaypointListView { child in
-                    waypoints.lists[child.id] = child
-                    waypoints.lists[listId]!.childs.append(child.id)
-                    newListSheetShown = false
+                .sheet(isPresented: $newListSheetShown) {
+                    NewWaypointListView { child in
+                        waypoints.lists[child.id] = child
+                        waypoints.lists[listId]!.childs.append(child.id)
+                        newListSheetShown = false
+                    }
+                    .padding(20)
                 }
-                .padding(20)
-            }
-            Button(action: { newWaypointSheetShown = true }) {
-                HStack {
-                    Image(systemName: "plus")
-                    Text("New Waypoint")
-                }
-            }
-            ForEach(list.childs, id: \.self) { childId in
-                if let child = waypoints.lists[childId] {
-                    NavigationLink(destination: WaypointListView(listId: childId, largeTitle: false)) {
-                        WaypointListSnippetView(list: child)
+                Button(action: { newWaypointSheetShown = true }) {
+                    HStack {
+                        Image(systemName: "plus")
+                        Text("New Waypoint")
                     }
                 }
             }
-            ForEach(list.waypoints) { waypoint in
-                NavigationLink(destination: WaypointDetailView(waypoint: waypoint)) {
-                    WaypointSmallSnippetView(waypoint: waypoint)
+            Section(header: Text("Items")) {
+                ForEach(list.childs, id: \.self) { childId in
+                    if let child = waypoints.lists[childId] {
+                        NavigationLink(destination: WaypointListView(listId: childId, largeTitle: false)) {
+                            WaypointListSnippetView(list: child)
+                        }
+                    }
+                }
+                ForEach(list.waypoints) { waypoint in
+                    NavigationLink(destination: WaypointDetailView(waypoint: waypoint)) {
+                        WaypointSmallSnippetView(waypoint: waypoint)
+                    }
                 }
             }
         }
