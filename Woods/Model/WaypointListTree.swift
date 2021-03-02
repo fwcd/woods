@@ -9,8 +9,8 @@
 import Foundation
 
 struct WaypointListTree: Codable, Hashable {
-    var lists: [UUID: WaypointList]
-    var rootId: UUID
+    private(set) var lists: [UUID: WaypointList]
+    private(set) var rootId: UUID
     
     init() {
         rootId = UUID()
@@ -32,5 +32,29 @@ struct WaypointListTree: Codable, Hashable {
     
     func preOrderTraversed() -> [WaypointList] {
         preOrderTraversed(from: rootId)
+    }
+    
+    /// Inserts a new child list under the given list id.
+    mutating func insert(under listId: UUID, child: WaypointList) {
+        lists[child.id] = child
+        lists[listId]!.childs.append(child.id)
+    }
+    
+    /// Inserts a new list under the root.
+    mutating func insert(child: WaypointList) {
+        insert(under: rootId, child: child)
+    }
+    
+    /// Safely removes a list and all of its references.
+    mutating func remove(_ listId: UUID) {
+        for childId in lists[listId]?.childs ?? [] {
+            remove(childId)
+        }
+        
+        lists[listId] = nil
+        
+        for otherId in lists.keys {
+            lists[otherId]?.childs.removeAll { $0 == listId }
+        }
     }
 }

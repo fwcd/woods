@@ -24,8 +24,7 @@ class Waypoints: ObservableObject {
         self.accounts = accounts
         
         for list in lists {
-            listTree[list.id] = list
-            listTree[listTree.rootId]!.childs.append(list.id)
+            listTree.insert(child: list)
         }
     }
     

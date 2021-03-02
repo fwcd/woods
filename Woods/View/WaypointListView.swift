@@ -32,8 +32,7 @@ struct WaypointListView: View {
                 }
                 .sheet(isPresented: $newListSheetShown) {
                     NewWaypointListView { child in
-                        waypoints.listTree[child.id] = child
-                        waypoints.listTree[listId]!.childs.append(child.id)
+                        waypoints.listTree.insert(under: listId, child: child)
                         newListSheetShown = false
                     }
                     .padding(20)
@@ -55,14 +54,11 @@ struct WaypointListView: View {
                         title: Text("Are you sure?"),
                         buttons: [
                             .destructive(Text("Clear \(list?.name ?? "List")")) {
-                                let removedChildIds = waypoints.listTree[listId]?.childs ?? []
-                                
-                                waypoints.listTree[listId]?.childs = []
-                                waypoints.listTree[listId]?.clearWaypoints()
-                                
-                                for childId in removedChildIds {
-                                    waypoints.listTree[childId] = nil
+                                for childId in waypoints.listTree[listId]?.childs ?? [] {
+                                    waypoints.listTree.remove(childId)
                                 }
+                                
+                                waypoints.listTree[listId]?.clearWaypoints()
                             },
                             .cancel()
                         ]
@@ -78,11 +74,8 @@ struct WaypointListView: View {
                     }
                 }
                 .onDelete { indexSet in
-                    let removedChildIds = indexSet.map { waypoints.listTree[listId]!.childs[$0] }
-                    waypoints.listTree[listId]!.childs.remove(atOffsets: indexSet)
-                    
-                    for childId in removedChildIds {
-                        waypoints.listTree[childId] = nil
+                    for childId in indexSet.map({ waypoints.listTree[listId]!.childs[$0] }) {
+                        waypoints.listTree.remove(childId)
                     }
                 }
                 ForEach(list?.waypoints ?? []) { waypoint in
