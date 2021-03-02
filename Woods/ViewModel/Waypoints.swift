@@ -14,6 +14,7 @@ private let log = Logger(subsystem: "Woods", category: "Waypoints")
 
 class Waypoints: ObservableObject {
     @Published private(set) var waypoints: [String: Waypoint] = [:] // by id (aka. GC code)
+    @Published var rootList = WaypointList(name: "Root")
     
     private let accounts: Accounts
     private var runningQueryTask: AnyCancellable?

@@ -47,12 +47,7 @@ struct WaypointDetailView: View {
                 if !waypoint.additionalWaypoints.isEmpty {
                     Section(header: Text("Additional Waypoints")) {
                         List(waypoint.additionalWaypoints) { waypoint in
-                            VStack(alignment: .leading) {
-                                Text(waypoint.name)
-                                    .font(.headline)
-                                Text(waypoint.location.description)
-                                    .font(.subheadline)
-                            }
+                            WaypointSmallSnippetView(waypoint: waypoint)
                         }
                     }
                 }
