@@ -15,6 +15,7 @@ struct RichGeocacheMapView: View {
     @State private var selectedGeocacheId: String? = nil
     @State private var region: MKCoordinateRegion? = nil
     @State private var useSatelliteView: Bool = false
+    @State private var searchText: String = ""
     
     var body: some View {
         ZStack(alignment: .topLeading) {
@@ -41,6 +42,9 @@ struct RichGeocacheMapView: View {
                 VStack {
                     if let id = selectedGeocacheId, let geocache = geocaches[id] {
                         GeocacheDetailView(geocache: geocache)
+                    } else {
+                        SearchBar(placeholder: "Search for Geocaches...", text: $searchText)
+                            .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
                     }
                     Spacer()
                 }
