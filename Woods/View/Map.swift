@@ -11,8 +11,10 @@ import SwiftUI
 import UIKit
 import MapKit
 
-struct Map: UIViewRepresentable {
+/// A map with custom annotations.
+struct Map<T>: UIViewRepresentable where T: Hashable {
     let annotations: [Annotation]
+    @Binding var selection: T?
     @Binding var region: MKCoordinateRegion?
     
     private let locationManager = CLLocationManager()
@@ -27,7 +29,7 @@ struct Map: UIViewRepresentable {
     }
     
     func makeCoordinator() -> Coordinator {
-        Coordinator(region: $region)
+        Coordinator(selection: $selection, region: $region)
     }
     
     func makeUIView(context: Context) -> MKMapView {
@@ -42,18 +44,24 @@ struct Map: UIViewRepresentable {
     }
     
     func updateUIView(_ mapView: MKMapView, context: Context) {
-        mapView.removeAnnotations(mapView.annotations)
-        mapView.addAnnotations(annotations)
+        let current = Dictionary(uniqueKeysWithValues: mapView.annotations.compactMap { $0 as? Annotation }.map { ($0.tag, $0) })
+        let new = Dictionary(uniqueKeysWithValues: annotations.map { ($0.tag, $0) })
+        let toBeRemoved = Set(current.keys).subtracting(new.keys).compactMap { current[$0] }
+        let toBeAdded = Set(new.keys).subtracting(current.keys).compactMap { new[$0] }
+        mapView.removeAnnotations(toBeRemoved)
+        mapView.addAnnotations(toBeAdded)
     }
     
     class Annotation: NSObject, MKAnnotation {
+        let tag: T
         let coordinate: CLLocationCoordinate2D
         let title: String?
         let subtitle: String?
         let color: Color?
         let iconName: String?
         
-        init(coordinate: CLLocationCoordinate2D, title: String? = nil, subtitle: String? = nil, color: Color? = nil, iconName: String? = nil) {
+        init(tag: T, coordinate: CLLocationCoordinate2D, title: String? = nil, subtitle: String? = nil, color: Color? = nil, iconName: String? = nil) {
+            self.tag = tag
             self.coordinate = coordinate
             self.title = title
             self.subtitle = subtitle
@@ -63,9 +71,11 @@ struct Map: UIViewRepresentable {
     }
     
     class Coordinator: NSObject, CLLocationManagerDelegate, MKMapViewDelegate {
+        @Binding private var selection: T?
         @Binding private var region: MKCoordinateRegion?
         
-        init(region: Binding<MKCoordinateRegion?>) {
+        init(selection: Binding<T?>, region: Binding<MKCoordinateRegion?>) {
+            _selection = selection
             _region = region
         }
         
@@ -89,10 +99,19 @@ struct Map: UIViewRepresentable {
             
             return annotationView
         }
+        
+        func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+            selection = (view.annotation as? Annotation)?.tag
+        }
+        
+        func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
+            selection = nil
+        }
     }
     
-    init(annotations: [Annotation], region: Binding<MKCoordinateRegion?>) {
+    init(annotations: [Annotation], selection: Binding<T?>, region: Binding<MKCoordinateRegion?>) {
         self.annotations = annotations
+        _selection = selection
         _region = region
     }
 }

@@ -10,13 +10,16 @@ import SwiftUI
 import MapKit
 import CoreLocation
 
+// TODO: Find a better name
+
 struct RefreshableGeocacheMapView: View {
     @EnvironmentObject private var geocaches: Geocaches
+    @State private var selectedGeocacheId: String? = nil
     @State private var region: MKCoordinateRegion? = nil
     
     var body: some View {
         ZStack(alignment: .topLeading) {
-            GeocacheMapView(geocaches: geocaches.geocaches, region: $region)
+            GeocacheMapView(geocaches: geocaches.geocaches, selectedGeocacheId: $selectedGeocacheId, region: $region)
                 .edgesIgnoringSafeArea(.all)
             Button(action: {
                 if let region = region {
@@ -45,7 +48,7 @@ struct RefreshableGeocacheMapView: View {
             .padding(10)
             SlideOverCard {
                 VStack {
-                    Text("Test")
+                    Text("Selected: \(String(describing: selectedGeocacheId))")
                     Spacer()
                 }
                 .frame(maxWidth: .infinity)

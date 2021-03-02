@@ -12,17 +12,19 @@ import CoreLocation
 
 struct GeocacheMapView: View {
     let geocaches: [Geocache]
+    @Binding var selectedGeocacheId: String?
     @Binding var region: MKCoordinateRegion?
     
     var body: some View {
         Map(annotations: geocaches.map { cache in
             Map.Annotation(
+                tag: cache.id,
                 coordinate: cache.location.asCLCoordinate,
                 title: cache.name,
                 color: color(for: cache.type),
                 iconName: "archivebox.fill"
             )
-        }, region: $region)
+        }, selection: $selectedGeocacheId, region: $region)
     }
     
     private func color(for cacheType: GeocacheType) -> Color {
@@ -54,8 +56,9 @@ struct GeocacheMapView: View {
 }
 
 struct GeocacheMapView_Previews: PreviewProvider {
+    @State static var selectedGeocacheId: String? = nil
     @State static var region: MKCoordinateRegion? = nil
     static var previews: some View {
-        GeocacheMapView(geocaches: [], region: $region)
+        GeocacheMapView(geocaches: [], selectedGeocacheId: $selectedGeocacheId, region: $region)
     }
 }
