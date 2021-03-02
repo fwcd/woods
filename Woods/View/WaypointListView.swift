@@ -52,10 +52,16 @@ struct WaypointListView: View {
                         }
                     }
                 }
+                .onDelete { indexSet in
+                    waypoints.lists[listId]!.childs.remove(atOffsets: indexSet)
+                }
                 ForEach(list.waypoints) { waypoint in
                     NavigationLink(destination: WaypointDetailView(waypoint: waypoint)) {
                         WaypointSmallSnippetView(waypoint: waypoint)
                     }
+                }
+                .onDelete { indexSet in
+                    waypoints.lists[listId]!.waypoints.remove(atOffsets: indexSet)
                 }
             }
         }
