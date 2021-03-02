@@ -11,6 +11,9 @@ import SwiftUI
 struct WaypointDetailView: View {
     let waypoint: Waypoint
     
+    @State private var listPickerSheetShown: Bool = false
+    @EnvironmentObject private var waypoints: Waypoints
+    
     var body: some View {
         VStack(alignment: .leading) {
             WaypointSnippetView(waypoint: waypoint)
@@ -51,6 +54,21 @@ struct WaypointDetailView: View {
                         }
                     }
                 }
+                Section(header: Text("Actions")) {
+                    Button(action: { listPickerSheetShown = true }) {
+                        HStack {
+                            Image(systemName: "plus")
+                            Text("Add To List")
+                        }
+                    }
+                    .sheet(isPresented: $listPickerSheetShown) {
+                        WaypointListPickerView { id in
+                            waypoints.lists[id]?.waypoints.append(waypoint)
+                            listPickerSheetShown = false
+                        }
+                    }
+                    // TODO: Share sheet using GPX
+                }
                 if !waypoint.logs.isEmpty {
                     Section(header: Text("Logs")) {
                         List(waypoint.logs) { log in
@@ -65,8 +83,10 @@ struct WaypointDetailView: View {
 
 struct GeocacheDetailView_Previews: PreviewProvider {
     @StateObject static var locationManager = LocationManager()
+    @StateObject static var waypoints = Waypoints(accounts: Accounts(testMode: true))
     static var previews: some View {
         WaypointDetailView(waypoint: mockGeocaches().first!)
             .environmentObject(locationManager)
+            .environmentObject(waypoints)
     }
 }

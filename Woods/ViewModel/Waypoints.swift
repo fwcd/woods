@@ -34,6 +34,18 @@ class Waypoints: ObservableObject {
         waypoints[id]
     }
     
+    func preOrderTraversedLists(listId: UUID) -> [WaypointList] {
+        if let list = lists[listId] {
+            return [list] + list.childs.flatMap(preOrderTraversedLists(listId:))
+        } else {
+            return []
+        }
+    }
+    
+    func preOrderTraversedLists() -> [WaypointList] {
+        preOrderTraversedLists(listId: rootListId)
+    }
+    
     func refresh(with query: WaypointsInRadiusQuery) {
         log.info("Refreshing waypoints in a radius of \(query.radius) around \(query.center)")
         runningQueryTask = Publishers.MergeMany(accounts.connectors.values.map { $0.waypoints(for: query) })

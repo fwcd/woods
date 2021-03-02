@@ -69,6 +69,7 @@
 		C7ECBD9425EED91E005933C0 /* WaypointListSnippetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBD9325EED91E005933C0 /* WaypointListSnippetView.swift */; };
 		C7ECBD9C25EEE197005933C0 /* AutoFocusTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBD9B25EEE197005933C0 /* AutoFocusTextField.swift */; };
 		C7ECBDA625EEE271005933C0 /* NewWaypointListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBDA525EEE271005933C0 /* NewWaypointListView.swift */; };
+		C7ECBDAE25EEF2E9005933C0 /* WaypointListPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBDAD25EEF2E9005933C0 /* WaypointListPickerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -156,6 +157,7 @@
 		C7ECBD9325EED91E005933C0 /* WaypointListSnippetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointListSnippetView.swift; sourceTree = "<group>"; };
 		C7ECBD9B25EEE197005933C0 /* AutoFocusTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoFocusTextField.swift; sourceTree = "<group>"; };
 		C7ECBDA525EEE271005933C0 /* NewWaypointListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWaypointListView.swift; sourceTree = "<group>"; };
+		C7ECBDAD25EEF2E9005933C0 /* WaypointListPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointListPickerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -314,6 +316,7 @@
 				C7B6F0FC249FA16B00454841 /* RichMapView.swift */,
 				C7B74E6B25ED8DA600D5194B /* WaypointMapView.swift */,
 				C7B74EA425EDC46F00D5194B /* WaypointDetailView.swift */,
+				C7ECBDAD25EEF2E9005933C0 /* WaypointListPickerView.swift */,
 				C7ECBD7425EEB23B005933C0 /* WaypointDistanceView.swift */,
 				C7B74F0325EE9BED00D5194B /* WaypointSnippetView.swift */,
 				C7ECBD8E25EED8AF005933C0 /* WaypointSmallSnippetView.swift */,
@@ -508,6 +511,7 @@
 				C765467725D8A23C004F14E8 /* PersistenceUtils.swift in Sources */,
 				C7E1B88F25ED73EB004575A5 /* PublisherUtils.swift in Sources */,
 				C7B74E8825EDADC100D5194B /* SlideOverCard.swift in Sources */,
+				C7ECBDAE25EEF2E9005933C0 /* WaypointListPickerView.swift in Sources */,
 				C7B74EC425EDCF8800D5194B /* SearchBar.swift in Sources */,
 				C7ECBD9425EED91E005933C0 /* WaypointListSnippetView.swift in Sources */,
 				C765465325D88E48004F14E8 /* LoginView.swift in Sources */,
