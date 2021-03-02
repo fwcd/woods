@@ -29,7 +29,7 @@ struct RichGeocacheMapView: View {
                     Image(systemName: "arrow.clockwise.circle.fill")
                 }
                 Button(action: {
-                    
+                    useSatelliteView = !useSatelliteView
                 }) {
                     Image(systemName: "building.2.crop.circle.fill")
                 }

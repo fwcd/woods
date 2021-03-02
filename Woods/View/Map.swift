@@ -41,6 +41,7 @@ struct Map<T>: UIViewRepresentable where T: Hashable {
         mapView.showsUserLocation = true
         mapView.userTrackingMode = .follow
         mapView.delegate = context.coordinator
+        mapView.mapType = useSatelliteView ? .hybrid : .standard
         return mapView
     }
     
@@ -51,6 +52,7 @@ struct Map<T>: UIViewRepresentable where T: Hashable {
         let toBeAdded = Set(new.keys).subtracting(current.keys).compactMap { new[$0] }
         mapView.removeAnnotations(toBeRemoved)
         mapView.addAnnotations(toBeAdded)
+        mapView.mapType = useSatelliteView ? .hybrid : .standard
     }
     
     class Annotation: NSObject, MKAnnotation {
