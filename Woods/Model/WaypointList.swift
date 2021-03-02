@@ -22,4 +22,8 @@ struct WaypointList: Identifiable, Codable, Hashable {
     mutating func removeWaypoints(atOffsets offsets: IndexSet) {
         waypoints.remove(atOffsets: offsets)
     }
+    
+    mutating func clearWaypoints() {
+        waypoints = []
+    }
 }

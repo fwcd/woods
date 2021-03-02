@@ -14,6 +14,7 @@ struct WaypointListView: View {
     
     @State private var newListSheetShown: Bool = false
     @State private var newWaypointSheetShown: Bool = false
+    @State private var clearConfirmationShown: Bool = false
     @EnvironmentObject private var waypoints: Waypoints
     
     var list: WaypointList? {
@@ -42,6 +43,30 @@ struct WaypointListView: View {
                         Image(systemName: "plus")
                         Text("New Waypoint")
                     }
+                }
+                Button(action: { clearConfirmationShown = true }) {
+                    HStack {
+                        Image(systemName: "trash")
+                        Text("Clear List")
+                    }
+                }
+                .actionSheet(isPresented: $clearConfirmationShown) {
+                    ActionSheet(
+                        title: Text("Are you sure?"),
+                        buttons: [
+                            .destructive(Text("Clear \(list?.name ?? "List")")) {
+                                let removedChildIds = waypoints.listTree[listId]?.childs ?? []
+                                
+                                waypoints.listTree[listId]?.childs = []
+                                waypoints.listTree[listId]?.clearWaypoints()
+                                
+                                for childId in removedChildIds {
+                                    waypoints.listTree[childId] = nil
+                                }
+                            },
+                            .cancel()
+                        ]
+                    )
                 }
             }
             Section(header: Text("Items")) {
