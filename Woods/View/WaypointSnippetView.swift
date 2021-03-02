@@ -11,6 +11,8 @@ import SwiftUI
 struct WaypointSnippetView: View {
     let waypoint: Waypoint
     
+    @EnvironmentObject private var locationManager: LocationManager
+    
     var body: some View {
         HStack {
             Image(systemName: waypoint.iconName)
@@ -24,12 +26,24 @@ struct WaypointSnippetView: View {
                     .fontWeight(.bold)
                     .multilineTextAlignment(/*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/)
             }
+            Spacer()
+            if let location = locationManager.location {
+                WaypointDistanceView(start: Coordinates(from: location.coordinate), target: waypoint.location)
+            }
+        }
+        .onAppear {
+            locationManager.dependOnLocation()
+        }
+        .onDisappear {
+            locationManager.undependOnLocation()
         }
     }
 }
 
 struct WaypointSnippetView_Previews: PreviewProvider {
+    @StateObject static var locationManager = LocationManager()
     static var previews: some View {
         WaypointSnippetView(waypoint: mockGeocaches().first!)
+            .environmentObject(locationManager)
     }
 }

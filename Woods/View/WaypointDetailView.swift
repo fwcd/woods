@@ -11,8 +11,6 @@ import SwiftUI
 struct WaypointDetailView: View {
     let waypoint: Waypoint
     
-    @EnvironmentObject private var locationManager: LocationManager
-    
     var body: some View {
         VStack(alignment: .leading) {
             WaypointSnippetView(waypoint: waypoint)
