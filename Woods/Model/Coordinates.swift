@@ -15,6 +15,13 @@ struct Coordinates: Codable, Hashable, CustomStringConvertible {
     
     var description: String { "(\(latitude), \(longitude))" }
     
+    var asCLCoordinate: CLLocationCoordinate2D {
+        CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+    }
+    var asCLLocation: CLLocation {
+        CLLocation(latitude: latitude, longitude: longitude)
+    }
+    
     init(latitude: Double, longitude: Double) {
         self.latitude = latitude
         self.longitude = longitude
@@ -23,13 +30,6 @@ struct Coordinates: Codable, Hashable, CustomStringConvertible {
     init(from clCoordinate: CLLocationCoordinate2D) {
         latitude = clCoordinate.latitude
         longitude = clCoordinate.longitude
-    }
-    
-    var asCLCoordinate: CLLocationCoordinate2D {
-        CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-    }
-    var asCLLocation: CLLocation {
-        CLLocation(latitude: latitude, longitude: longitude)
     }
     
     func distance(to rhs: Coordinates) -> Length {
