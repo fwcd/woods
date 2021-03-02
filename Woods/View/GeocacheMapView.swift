@@ -14,6 +14,7 @@ struct GeocacheMapView: View {
     let geocaches: [Geocache]
     @Binding var selectedGeocacheId: String?
     @Binding var region: MKCoordinateRegion?
+    @Binding var useSatelliteView: Bool
     
     var body: some View {
         Map(annotations: geocaches.map { cache in
@@ -24,7 +25,19 @@ struct GeocacheMapView: View {
                 color: color(for: cache.type),
                 iconName: "archivebox.fill"
             )
-        }, selection: $selectedGeocacheId, region: $region)
+        }, selection: $selectedGeocacheId, region: $region, useSatelliteView: $useSatelliteView)
+    }
+    
+    init(
+        geocaches: [Geocache],
+        selectedGeocacheId: Binding<String?>? = nil,
+        region: Binding<MKCoordinateRegion?>? = nil,
+        useSatelliteView: Binding<Bool>? = nil
+    ) {
+        self.geocaches = geocaches
+        _selectedGeocacheId = selectedGeocacheId ?? .constant(nil)
+        _region = region ?? .constant(nil)
+        _useSatelliteView = useSatelliteView ?? .constant(false)
     }
     
     private func color(for cacheType: GeocacheType) -> Color {
@@ -56,9 +69,7 @@ struct GeocacheMapView: View {
 }
 
 struct GeocacheMapView_Previews: PreviewProvider {
-    @State static var selectedGeocacheId: String? = nil
-    @State static var region: MKCoordinateRegion? = nil
     static var previews: some View {
-        GeocacheMapView(geocaches: [], selectedGeocacheId: $selectedGeocacheId, region: $region)
+        GeocacheMapView(geocaches: [])
     }
 }

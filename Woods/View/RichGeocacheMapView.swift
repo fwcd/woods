@@ -14,20 +14,28 @@ struct RichGeocacheMapView: View {
     @EnvironmentObject private var geocaches: Geocaches
     @State private var selectedGeocacheId: String? = nil
     @State private var region: MKCoordinateRegion? = nil
+    @State private var useSatelliteView: Bool = false
     
     var body: some View {
         ZStack(alignment: .topLeading) {
-            GeocacheMapView(geocaches: geocaches.geocaches, selectedGeocacheId: $selectedGeocacheId, region: $region)
+            GeocacheMapView(geocaches: geocaches.geocaches, selectedGeocacheId: $selectedGeocacheId, region: $region, useSatelliteView: $useSatelliteView)
                 .edgesIgnoringSafeArea(.all)
-            Button(action: {
-                if let region = region {
-                    geocaches.refresh(with: query(from: region))
+            VStack(spacing: 10) {
+                Button(action: {
+                    if let region = region {
+                        geocaches.refresh(with: query(from: region))
+                    }
+                }) {
+                    Image(systemName: "arrow.clockwise.circle.fill")
                 }
-            }) {
-                Image(systemName: "arrow.clockwise.circle.fill")
-                    .font(.system(size: 40))
-                    .foregroundColor(.primary)
+                Button(action: {
+                    
+                }) {
+                    Image(systemName: "building.2.crop.circle.fill")
+                }
             }
+            .foregroundColor(.primary)
+            .font(.system(size: 40))
             .padding(10)
             SlideOverCard {
                 VStack {

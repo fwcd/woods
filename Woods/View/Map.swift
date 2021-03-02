@@ -16,6 +16,7 @@ struct Map<T>: UIViewRepresentable where T: Hashable {
     let annotations: [Annotation]
     @Binding var selection: T?
     @Binding var region: MKCoordinateRegion?
+    @Binding var useSatelliteView: Bool
     
     private let locationManager = CLLocationManager()
     
@@ -109,9 +110,10 @@ struct Map<T>: UIViewRepresentable where T: Hashable {
         }
     }
     
-    init(annotations: [Annotation], selection: Binding<T?>, region: Binding<MKCoordinateRegion?>) {
+    init(annotations: [Annotation], selection: Binding<T?>? = nil, region: Binding<MKCoordinateRegion?>? = nil, useSatelliteView: Binding<Bool>? = nil) {
         self.annotations = annotations
-        _selection = selection
-        _region = region
+        _selection = selection ?? .constant(nil)
+        _region = region ?? .constant(nil)
+        _useSatelliteView = useSatelliteView ?? .constant(false)
     }
 }
