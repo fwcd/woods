@@ -19,6 +19,7 @@ private class AppState {
         self.accounts = accounts
         self.geocaches = geocaches
         
+        UITableView.appearance().backgroundColor = .clear // applies to Form backgrounds too
         UIScrollView.appearance().keyboardDismissMode = .interactive
     }
 }
