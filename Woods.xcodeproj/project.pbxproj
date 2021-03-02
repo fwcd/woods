@@ -13,7 +13,6 @@
 		C73E04C1249F9F4A00C6E22C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C73E04C0249F9F4A00C6E22C /* Assets.xcassets */; };
 		C73E04C4249F9F4A00C6E22C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C73E04C3249F9F4A00C6E22C /* Preview Assets.xcassets */; };
 		C73E04C7249F9F4A00C6E22C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C73E04C5249F9F4A00C6E22C /* LaunchScreen.storyboard */; };
-		C73E04D2249F9F4A00C6E22C /* WoodsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73E04D1249F9F4A00C6E22C /* WoodsTests.swift */; };
 		C73E04DD249F9F4A00C6E22C /* WoodsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73E04DC249F9F4A00C6E22C /* WoodsUITests.swift */; };
 		C765460125D87B26004F14E8 /* Geocache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765460025D87B26004F14E8 /* Geocache.swift */; };
 		C765460925D87BA9004F14E8 /* GeocacheType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765460825D87BA9004F14E8 /* GeocacheType.swift */; };
@@ -54,6 +53,7 @@
 		C7B74ECE25EDD35400D5194B /* GeocacheLogType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74ECD25EDD35400D5194B /* GeocacheLogType.swift */; };
 		C7B74ED625EDD60000D5194B /* GeocacheLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74ED525EDD60000D5194B /* GeocacheLogView.swift */; };
 		C7B74EE325EDDD8C00D5194B /* Degrees.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74EE225EDDD8C00D5194B /* Degrees.swift */; };
+		C7B74EEE25EDE3D900D5194B /* DegreesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74EED25EDE3D900D5194B /* DegreesTests.swift */; };
 		C7E1B88A25ED72F0004575A5 /* MockConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E1B88925ED72F0004575A5 /* MockConnector.swift */; };
 		C7E1B88F25ED73EB004575A5 /* PublisherUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E1B88E25ED73EB004575A5 /* PublisherUtils.swift */; };
 /* End PBXBuildFile section */
@@ -85,7 +85,6 @@
 		C73E04C6249F9F4A00C6E22C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C73E04C8249F9F4A00C6E22C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C73E04CD249F9F4A00C6E22C /* WoodsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WoodsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C73E04D1249F9F4A00C6E22C /* WoodsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoodsTests.swift; sourceTree = "<group>"; };
 		C73E04D3249F9F4A00C6E22C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C73E04D8249F9F4A00C6E22C /* WoodsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WoodsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C73E04DC249F9F4A00C6E22C /* WoodsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoodsUITests.swift; sourceTree = "<group>"; };
@@ -128,6 +127,7 @@
 		C7B74ECD25EDD35400D5194B /* GeocacheLogType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocacheLogType.swift; sourceTree = "<group>"; };
 		C7B74ED525EDD60000D5194B /* GeocacheLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocacheLogView.swift; sourceTree = "<group>"; };
 		C7B74EE225EDDD8C00D5194B /* Degrees.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Degrees.swift; sourceTree = "<group>"; };
+		C7B74EED25EDE3D900D5194B /* DegreesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DegreesTests.swift; sourceTree = "<group>"; };
 		C7E1B88925ED72F0004575A5 /* MockConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockConnector.swift; sourceTree = "<group>"; };
 		C7E1B88E25ED73EB004575A5 /* PublisherUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublisherUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -206,7 +206,7 @@
 		C73E04D0249F9F4A00C6E22C /* WoodsTests */ = {
 			isa = PBXGroup;
 			children = (
-				C73E04D1249F9F4A00C6E22C /* WoodsTests.swift */,
+				C7B74EED25EDE3D900D5194B /* DegreesTests.swift */,
 				C73E04D3249F9F4A00C6E22C /* Info.plist */,
 			);
 			path = WoodsTests;
@@ -485,7 +485,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C73E04D2249F9F4A00C6E22C /* WoodsTests.swift in Sources */,
+				C7B74EEE25EDE3D900D5194B /* DegreesTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -686,7 +686,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SS8V8UGLY8;
 				INFOPLIST_FILE = WoodsTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -708,7 +707,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SS8V8UGLY8;
 				INFOPLIST_FILE = WoodsTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
