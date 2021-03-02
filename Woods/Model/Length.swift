@@ -10,7 +10,17 @@ struct Length: AdditiveArithmetic, Hashable, Comparable, Codable, CustomStringCo
     static var zero = Length()
     
     var meters: Double
-    var description: String { String(format: "%.2f m", meters) }
+    var description: String {
+        if meters < 0.01 {
+            return String(format: "%d mm", Int(self.as(.millimeters)))
+        } else if meters < 1 {
+            return String(format: "%d cm", Int(self.as(.centimeters)))
+        } else if meters < 1000 {
+            return String(format: "%d m", Int(meters))
+        } else {
+            return String(format: "%.1f km", self.as(.kilometers))
+        }
+    }
     
     init() {
         self.init(meters: 0)
