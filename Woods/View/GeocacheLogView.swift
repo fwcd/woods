@@ -12,18 +12,18 @@ struct GeocacheLogView: View {
     let geocacheLog: GeocacheLog
     
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 10) {
             HStack {
                 Text(geocacheLog.type.emoji)
-                    .font(.title)
+                    .font(.title2)
                 VStack(alignment: .leading) {
                     Text(geocacheLog.username)
                         .font(.headline)
                     Text("\(geocacheLog.type.displayName) on \(format(date: geocacheLog.timestamp))")
                         .font(.subheadline)
+                        .foregroundColor(.secondary)
                 }
             }
-            Divider()
             Text(geocacheLog.content)
         }
     }
