@@ -23,7 +23,7 @@ struct SlideOverCard<Content: View>: View {
                     state = .dragging(translation: drag.translation)
                 }
                 .onEnded { drag in
-                    onDragEnded(drag: drag, geometry: geometry)
+                    onDragEnded(drag, in: geometry)
                 }
 
             ZStack {
@@ -36,20 +36,20 @@ struct SlideOverCard<Content: View>: View {
             }
             .cornerRadius(10.0)
             .shadow(color: Color(.sRGBLinear, white: 0, opacity: 0.13), radius: 10.0)
-            .offset(y: (geometry.size.height - position.rawValue) + dragState.translation.height)
+            .offset(y: offset(for: position, in: geometry) + dragState.translation.height)
             .animation(dragState.isDragging ? nil : .interpolatingSpring(stiffness: 300.0, damping: 30.0, initialVelocity: 10.0))
             .gesture(drag)
         }
     }
 
-    private func onDragEnded(drag: DragGesture.Value, geometry: GeometryProxy) {
+    private func onDragEnded(_ drag: DragGesture.Value, in geometry: GeometryProxy) {
         let verticalDirection = drag.predictedEndLocation.y - drag.location.y
-        let cardTopEdgeLocation = (geometry.size.height - position.rawValue) + drag.translation.height
+        let cardTopEdgeLocation = offset(for: position, in: geometry) + drag.translation.height
         let positionAbove: CardPosition
         let positionBelow: CardPosition
         let closestPosition: CardPosition
 
-        if cardTopEdgeLocation <= CardPosition.middle.rawValue {
+        if cardTopEdgeLocation <= offset(for: .middle, in: geometry) {
             positionAbove = .top
             positionBelow = .middle
         } else {
@@ -57,7 +57,7 @@ struct SlideOverCard<Content: View>: View {
             positionBelow = .bottom
         }
 
-        if (cardTopEdgeLocation - positionAbove.rawValue) < (positionBelow.rawValue - cardTopEdgeLocation) {
+        if (cardTopEdgeLocation - offset(for: positionAbove, in: geometry)) < (offset(for: positionBelow, in: geometry) - cardTopEdgeLocation) {
             closestPosition = positionAbove
         } else {
             closestPosition = positionBelow
@@ -71,11 +71,23 @@ struct SlideOverCard<Content: View>: View {
             position = closestPosition
         }
     }
+    
+    private func offset(for position: CardPosition, in geometry: GeometryProxy) -> CGFloat {
+        let height = geometry.size.height
+        switch position {
+        case .top:
+            return height * 0.1
+        case .middle:
+            return height * 0.5
+        case .bottom:
+            return height * 0.9
+        }
+    }
 
-    enum CardPosition: CGFloat {
-        case top = 700
-        case middle = 500
-        case bottom = 100
+    enum CardPosition {
+        case top
+        case middle
+        case bottom
     }
 
     enum DragState {
