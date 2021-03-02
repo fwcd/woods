@@ -21,22 +21,7 @@ struct RichGeocacheMapView: View {
                 .edgesIgnoringSafeArea(.all)
             Button(action: {
                 if let region = region {
-                    let center = region.center
-                    let span = region.span
-                    let topLeft = CLLocation(
-                        latitude: center.latitude - (span.latitudeDelta / 2),
-                        longitude: center.longitude - (span.longitudeDelta / 2)
-                    )
-                    let bottomRight = CLLocation(
-                        latitude: center.latitude + (span.latitudeDelta / 2),
-                        longitude: center.longitude + (span.longitudeDelta / 2)
-                    )
-                    let diameter = topLeft.distance(from: bottomRight).magnitude
-                    let query = GeocachesInRadiusQuery(
-                        center: Coordinates(from: center),
-                        radius: Length(meters: diameter / 2)
-                    )
-                    geocaches.refresh(with: query)
+                    geocaches.refresh(with: query(from: region))
                 }
             }) {
                 Image(systemName: "arrow.clockwise.circle.fill")
@@ -52,6 +37,25 @@ struct RichGeocacheMapView: View {
                 .frame(maxWidth: .infinity)
             }
         }
+    }
+    
+    private func query(from region: MKCoordinateRegion) -> GeocachesInRadiusQuery {
+        let center = region.center
+        let span = region.span
+        let topLeft = CLLocation(
+            latitude: center.latitude - (span.latitudeDelta / 2),
+            longitude: center.longitude - (span.longitudeDelta / 2)
+        )
+        let bottomRight = CLLocation(
+            latitude: center.latitude + (span.latitudeDelta / 2),
+            longitude: center.longitude + (span.longitudeDelta / 2)
+        )
+        let diameter = topLeft.distance(from: bottomRight).magnitude
+        let query = GeocachesInRadiusQuery(
+            center: Coordinates(from: center),
+            radius: Length(meters: diameter / 2)
+        )
+        return query
     }
 }
 
