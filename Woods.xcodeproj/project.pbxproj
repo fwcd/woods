@@ -50,6 +50,8 @@
 		C7B74EB725EDC5C200D5194B /* StarsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74EB625EDC5C200D5194B /* StarsView.swift */; };
 		C7B74EBC25EDCA5E00D5194B /* GeocacheType+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74EBB25EDCA5E00D5194B /* GeocacheType+Color.swift */; };
 		C7B74EC425EDCF8800D5194B /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74EC325EDCF8800D5194B /* SearchBar.swift */; };
+		C7B74EC925EDD32F00D5194B /* GeocacheLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74EC825EDD32F00D5194B /* GeocacheLog.swift */; };
+		C7B74ECE25EDD35400D5194B /* GeocacheLogType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74ECD25EDD35400D5194B /* GeocacheLogType.swift */; };
 		C7E1B88A25ED72F0004575A5 /* MockConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E1B88925ED72F0004575A5 /* MockConnector.swift */; };
 		C7E1B88F25ED73EB004575A5 /* PublisherUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E1B88E25ED73EB004575A5 /* PublisherUtils.swift */; };
 /* End PBXBuildFile section */
@@ -120,6 +122,8 @@
 		C7B74EB625EDC5C200D5194B /* StarsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarsView.swift; sourceTree = "<group>"; };
 		C7B74EBB25EDCA5E00D5194B /* GeocacheType+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GeocacheType+Color.swift"; sourceTree = "<group>"; };
 		C7B74EC325EDCF8800D5194B /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		C7B74EC825EDD32F00D5194B /* GeocacheLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocacheLog.swift; sourceTree = "<group>"; };
+		C7B74ECD25EDD35400D5194B /* GeocacheLogType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocacheLogType.swift; sourceTree = "<group>"; };
 		C7E1B88925ED72F0004575A5 /* MockConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockConnector.swift; sourceTree = "<group>"; };
 		C7E1B88E25ED73EB004575A5 /* PublisherUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublisherUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -221,6 +225,8 @@
 				C765460D25D87C5A004F14E8 /* Coordinates.swift */,
 				C765461225D87CEB004F14E8 /* GeocacheSize.swift */,
 				C765460825D87BA9004F14E8 /* GeocacheType.swift */,
+				C7B74EC825EDD32F00D5194B /* GeocacheLog.swift */,
+				C7B74ECD25EDD35400D5194B /* GeocacheLogType.swift */,
 				C765462B25D880D7004F14E8 /* Length.swift */,
 				C765463025D8856C004F14E8 /* Credentials.swift */,
 			);
@@ -438,6 +444,7 @@
 				C765468425D8A2A1004F14E8 /* EnvironmentUtils.swift in Sources */,
 				C7B74EA525EDC46F00D5194B /* GeocacheDetailView.swift in Sources */,
 				C765460125D87B26004F14E8 /* Geocache.swift in Sources */,
+				C7B74ECE25EDD35400D5194B /* GeocacheLogType.swift in Sources */,
 				C7B74E8D25EDAEA400D5194B /* Handle.swift in Sources */,
 				C7B74E9225EDB61400D5194B /* VisualEffectView.swift in Sources */,
 				C765464E25D88CEC004F14E8 /* AccountsView.swift in Sources */,
@@ -460,6 +467,7 @@
 				C765460E25D87C5A004F14E8 /* Coordinates.swift in Sources */,
 				C765461325D87CEB004F14E8 /* GeocacheSize.swift in Sources */,
 				C765469B25ED25DE004F14E8 /* EnumPicker.swift in Sources */,
+				C7B74EC925EDD32F00D5194B /* GeocacheLog.swift in Sources */,
 				C7B74EAA25EDC4A600D5194B /* MockGeocaches.swift in Sources */,
 				C765462C25D880D7004F14E8 /* Length.swift in Sources */,
 			);
