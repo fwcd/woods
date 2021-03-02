@@ -12,7 +12,7 @@ struct GeocacheDetailView: View {
     let geocache: Geocache
     
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             HStack {
                 Image(systemName: "archivebox.fill")
                     .foregroundColor(geocache.type.color)
@@ -26,6 +26,7 @@ struct GeocacheDetailView: View {
                         .multilineTextAlignment(/*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/)
                 }
             }
+            .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
             Form {
                 Section(header: Text("Info")) {
                     HStack {
