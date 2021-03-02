@@ -1,5 +1,5 @@
 //
-//  RefreshableGeocacheMapView.swift
+//  RichGeocacheMapView.swift
 //  Woods
 //
 //  Created by Fredrik on 6/21/20.
@@ -10,9 +10,7 @@ import SwiftUI
 import MapKit
 import CoreLocation
 
-// TODO: Find a better name
-
-struct RefreshableGeocacheMapView: View {
+struct RichGeocacheMapView: View {
     @EnvironmentObject private var geocaches: Geocaches
     @State private var selectedGeocacheId: String? = nil
     @State private var region: MKCoordinateRegion? = nil
@@ -60,7 +58,7 @@ struct RefreshableGeocacheMapView: View {
 struct RefreshableGeocacheMapView_Previews: PreviewProvider {
     @StateObject static var geocaches = Geocaches(accounts: Accounts(testMode: true))
     static var previews: some View {
-        RefreshableGeocacheMapView()
+        RichGeocacheMapView()
             .environmentObject(geocaches)
     }
 }
