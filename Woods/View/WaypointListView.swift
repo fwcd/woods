@@ -66,7 +66,7 @@ struct WaypointListView: View {
                     }
                 }
                 .onDelete { indexSet in
-                    waypoints.listTree[listId]!.waypoints.remove(atOffsets: indexSet)
+                    waypoints.listTree[listId]!.removeWaypoints(atOffsets: indexSet)
                 }
             }
         }

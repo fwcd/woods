@@ -63,7 +63,7 @@ struct RichMapView: View {
             .padding(10)
             .sheet(isPresented: $listPickerSheetShown) {
                 WaypointListPickerView { id in
-                    waypoints.listTree[id]?.waypoints += waypoints.currentWaypoints.values.sorted { $0.name < $1.name }
+                    waypoints.listTree[id]?.add(waypoints: waypoints.currentWaypoints.values.sorted { $0.name < $1.name })
                     listPickerSheetShown = false
                 }
             }

@@ -12,5 +12,14 @@ struct WaypointList: Identifiable, Codable, Hashable {
     var id: UUID = UUID()
     var name: String
     var childs: [UUID] = []
-    var waypoints: [Waypoint] = []
+    private(set) var waypoints: [Waypoint] = []
+    
+    mutating func add(waypoints newWaypoints: [Waypoint]) {
+        let existingIds = Set(waypoints.map(\.id))
+        waypoints += newWaypoints.filter { !existingIds.contains($0.id) }
+    }
+    
+    mutating func removeWaypoints(atOffsets offsets: IndexSet) {
+        waypoints.remove(atOffsets: offsets)
+    }
 }
