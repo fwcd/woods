@@ -14,6 +14,7 @@ struct WaypointMapView: View {
     let waypoints: [Waypoint]
     @Binding var selectedWaypointId: String?
     @Binding var region: MKCoordinateRegion?
+    @Binding var userTrackingMode: MKUserTrackingMode
     @Binding var useSatelliteView: Bool
     
     var body: some View {
@@ -25,18 +26,20 @@ struct WaypointMapView: View {
                 color: cache.geocacheType?.color,
                 iconName: "archivebox.fill"
             )
-        }, selection: $selectedWaypointId, region: $region, useSatelliteView: $useSatelliteView)
+        }, selection: $selectedWaypointId, region: $region, userTrackingMode: $userTrackingMode, useSatelliteView: $useSatelliteView)
     }
     
     init(
         waypoints: [Waypoint],
         selectedWaypointId: Binding<String?>? = nil,
         region: Binding<MKCoordinateRegion?>? = nil,
+        userTrackingMode: Binding<MKUserTrackingMode>? = nil,
         useSatelliteView: Binding<Bool>? = nil
     ) {
         self.waypoints = waypoints
         _selectedWaypointId = selectedWaypointId ?? .constant(nil)
         _region = region ?? .constant(nil)
+        _userTrackingMode = userTrackingMode ?? .constant(.none)
         _useSatelliteView = useSatelliteView ?? .constant(false)
     }
 }

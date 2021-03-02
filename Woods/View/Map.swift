@@ -16,6 +16,7 @@ struct Map<T>: UIViewRepresentable where T: Hashable {
     let annotations: [Annotation]
     @Binding var selection: T?
     @Binding var region: MKCoordinateRegion?
+    @Binding var userTrackingMode: MKUserTrackingMode
     @Binding var useSatelliteView: Bool
     
     func makeCoordinator() -> Coordinator {
@@ -34,13 +35,16 @@ struct Map<T>: UIViewRepresentable where T: Hashable {
     }
     
     func updateUIView(_ mapView: MKMapView, context: Context) {
+        mapView.userTrackingMode = userTrackingMode
+        mapView.mapType = useSatelliteView ? .hybrid : .standard
+        
+        // Update annotations
         let current = Dictionary(uniqueKeysWithValues: mapView.annotations.compactMap { $0 as? Annotation }.map { ($0.tag, $0) })
         let new = Dictionary(uniqueKeysWithValues: annotations.map { ($0.tag, $0) })
         let toBeRemoved = Set(current.keys).subtracting(new.keys).compactMap { current[$0] }
         let toBeAdded = Set(new.keys).subtracting(current.keys).compactMap { new[$0] }
         mapView.removeAnnotations(toBeRemoved)
         mapView.addAnnotations(toBeAdded)
-        mapView.mapType = useSatelliteView ? .hybrid : .standard
     }
     
     class Annotation: NSObject, MKAnnotation {
@@ -100,10 +104,17 @@ struct Map<T>: UIViewRepresentable where T: Hashable {
         }
     }
     
-    init(annotations: [Annotation], selection: Binding<T?>? = nil, region: Binding<MKCoordinateRegion?>? = nil, useSatelliteView: Binding<Bool>? = nil) {
+    init(
+        annotations: [Annotation] = [],
+        selection: Binding<T?>? = nil,
+        region: Binding<MKCoordinateRegion?>? = nil,
+        userTrackingMode: Binding<MKUserTrackingMode>? = nil,
+        useSatelliteView: Binding<Bool>? = nil
+    ) {
         self.annotations = annotations
         _selection = selection ?? .constant(nil)
         _region = region ?? .constant(nil)
+        _userTrackingMode = userTrackingMode ?? .constant(.none)
         _useSatelliteView = useSatelliteView ?? .constant(false)
     }
 }

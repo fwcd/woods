@@ -14,13 +14,20 @@ struct RichMapView: View {
     @EnvironmentObject private var waypoints: Waypoints
     @State private var selectedWaypointId: String? = nil
     @State private var region: MKCoordinateRegion? = nil
+    @State private var userTrackingMode: MKUserTrackingMode = .follow
     @State private var useSatelliteView: Bool = false
     @State private var searchText: String = ""
     
     var body: some View {
         ZStack(alignment: .topLeading) {
-            WaypointMapView(waypoints: waypoints.waypoints.values.sorted { $0.id < $1.id }, selectedWaypointId: $selectedWaypointId, region: $region, useSatelliteView: $useSatelliteView)
-                .edgesIgnoringSafeArea(.all)
+            WaypointMapView(
+                waypoints: waypoints.waypoints.values.sorted { $0.id < $1.id },
+                selectedWaypointId: $selectedWaypointId,
+                region: $region,
+                userTrackingMode: $userTrackingMode,
+                useSatelliteView: $useSatelliteView
+            )
+            .edgesIgnoringSafeArea(.all)
             VStack(spacing: 10) {
                 Button(action: {
                     if let region = region {
@@ -33,6 +40,16 @@ struct RichMapView: View {
                     useSatelliteView = !useSatelliteView
                 }) {
                     Image(systemName: "building.2.crop.circle.fill")
+                }
+                Button(action: {
+                    switch userTrackingMode {
+                    case .none: userTrackingMode = .follow
+                    case .follow: userTrackingMode = .followWithHeading
+                    case .followWithHeading: userTrackingMode = .none
+                    @unknown default: userTrackingMode = .follow
+                    }
+                }) {
+                    Image(systemName: "location.circle.fill")
                 }
             }
             .foregroundColor(.primary)
