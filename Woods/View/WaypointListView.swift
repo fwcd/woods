@@ -12,7 +12,6 @@ struct WaypointListView: View {
     let listId: UUID
     var largeTitle: Bool = true
     
-    @State private var newItemSheetShown: Bool = false
     @State private var newListSheetShown: Bool = false
     @State private var newWaypointSheetShown: Bool = false
     @EnvironmentObject private var waypoints: Waypoints
@@ -23,6 +22,26 @@ struct WaypointListView: View {
     
     var body: some View {
         List {
+            Button(action: { newListSheetShown = true }) {
+                HStack {
+                    Image(systemName: "plus")
+                    Text("New List")
+                }
+            }
+            .sheet(isPresented: $newListSheetShown) {
+                NewWaypointListView { child in
+                    waypoints.lists[child.id] = child
+                    waypoints.lists[listId]!.childs.append(child.id)
+                    newListSheetShown = false
+                }
+                .padding(20)
+            }
+            Button(action: { newWaypointSheetShown = true }) {
+                HStack {
+                    Image(systemName: "plus")
+                    Text("New Waypoint")
+                }
+            }
             ForEach(list.childs, id: \.self) { childId in
                 if let child = waypoints.lists[childId] {
                     NavigationLink(destination: WaypointListView(listId: childId, largeTitle: false)) {
@@ -38,35 +57,6 @@ struct WaypointListView: View {
         }
         .navigationTitle(list.name)
         .navigationBarTitleDisplayMode(largeTitle ? .large : .inline)
-        .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Button(action: { newItemSheetShown = true }) {
-                    Image(systemName: "plus")
-                }
-            }
-        }
-        .actionSheet(isPresented: $newItemSheetShown) {
-            ActionSheet(
-                title: Text("New Item"),
-                buttons: [
-                    .default(Text("New Waypoint")) {
-                        newWaypointSheetShown = true
-                    },
-                    .default(Text("New List")) {
-                        newListSheetShown = true
-                    },
-                    .cancel()
-                ]
-            )
-        }
-        .sheet(isPresented: $newListSheetShown) {
-            NewWaypointListView { child in
-                waypoints.lists[child.id] = child
-                waypoints.lists[listId]!.childs.append(child.id)
-                newListSheetShown = false
-            }
-            .padding(20)
-        }
     }
 }
 
