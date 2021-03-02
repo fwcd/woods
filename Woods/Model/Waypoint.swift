@@ -29,4 +29,5 @@ struct Waypoint: Identifiable, Codable, Hashable {
     var description: String? = nil
     var hint: String? = nil
     var logs: [WaypointLog] = []
+    var additionalWaypoints: [Waypoint] = []
 }
