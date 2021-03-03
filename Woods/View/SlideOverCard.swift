@@ -10,7 +10,7 @@ import UIKit
 
 // Source: https://www.mozzafiller.com/posts/swiftui-slide-over-card-like-maps-stocks
 
-struct SlideOverCard<Content: View>: View {
+struct SlideOverCard<Content>: View where Content: View {
     let content: () -> Content
     
     @GestureState private var dragState: DragState = .inactive
