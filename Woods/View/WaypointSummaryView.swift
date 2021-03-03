@@ -12,6 +12,8 @@ struct WaypointSummaryView: View {
     let waypoint: Waypoint
     
     @State private var detailSheetShown: Bool = false
+    @EnvironmentObject private var waypoints: Waypoints
+    @EnvironmentObject private var locationManager: LocationManager
     
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
@@ -52,6 +54,8 @@ struct WaypointSummaryView: View {
                 WaypointDetailView(waypoint: waypoint)
             }
             .padding([.top], 15)
+            .environmentObject(waypoints)
+            .environmentObject(locationManager)
         }
     }
     

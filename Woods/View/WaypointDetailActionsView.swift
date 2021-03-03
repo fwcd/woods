@@ -36,6 +36,7 @@ struct WaypointDetailActionsView: View {
                     .navigationTitle("Add To List")
                     .navigationBarTitleDisplayMode(.inline)
                 }
+                .environmentObject(waypoints)
             }
             if let url = waypoint.webUrl {
                 Button(action: {

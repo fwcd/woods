@@ -34,6 +34,11 @@ class Waypoints: ObservableObject {
         currentWaypoints[id]
     }
     
+    func update(currentWaypoints: [Waypoint]) {
+        self.currentWaypoints = Dictionary(uniqueKeysWithValues: currentWaypoints.map { ($0.id, $0) })
+        originatingAccountIds = [:]
+    }
+    
     func refresh(with query: WaypointsInRegionQuery) {
         log.info("Refreshing waypoints in the region around \(query.region.center) (diameter: \(query.region.diameter)")
         

@@ -17,7 +17,13 @@ struct RichMapView: View {
     @State private var userTrackingMode: MKUserTrackingMode = .none
     @State private var useSatelliteView: Bool = false
     @State private var listPickerSheetShown: Bool = false
+    @State private var listPickerMode: ListPickerMode = .save
     @State private var searchText: String = ""
+    
+    private enum ListPickerMode {
+        case open
+        case save
+    }
     
     var body: some View {
         ZStack(alignment: .topLeading) {
@@ -54,8 +60,15 @@ struct RichMapView: View {
                 }
                 Button(action: {
                     listPickerSheetShown = true
+                    listPickerMode = .save
                 }) {
                     Image(systemName: "plus.circle.fill")
+                }
+                Button(action: {
+                    listPickerSheetShown = true
+                    listPickerMode = .open
+                }) {
+                    Image(systemName: "folder.circle.fill")
                 }
             }
             .foregroundColor(.primary)
@@ -67,10 +80,24 @@ struct RichMapView: View {
                 }
             }
             .sheet(isPresented: $listPickerSheetShown) {
-                WaypointListPickerView { id in
-                    waypoints.listTree[id]?.add(waypoints: waypoints.currentWaypoints.values.sorted { $0.name < $1.name })
-                    listPickerSheetShown = false
+                NavigationView {
+                    Form {
+                        WaypointListPickerView { id in
+                            switch listPickerMode {
+                            case .save:
+                                waypoints.listTree[id]?.add(waypoints: waypoints.currentWaypoints.values.sorted { $0.name < $1.name })
+                            case .open:
+                                if let list = waypoints.listTree[id] {
+                                    waypoints.update(currentWaypoints: list.waypoints)
+                                }
+                            }
+                            listPickerSheetShown = false
+                        }
+                    }
+                    .navigationTitle("Pick List")
+                    .navigationBarTitleDisplayMode(.inline)
                 }
+                .environmentObject(waypoints)
             }
             SlideOverCard {
                 VStack {
