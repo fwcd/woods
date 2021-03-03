@@ -58,7 +58,8 @@ class GeocachingComConnector: Connector {
     }
     
     func waypoint(id: String) -> AnyPublisher<Waypoint, Error> {
-        Result.Publisher(Result { () -> HTTPRequest in
+        log.info("Querying details for \(id)")
+        return Result.Publisher(Result { () -> HTTPRequest in
             guard id.starts(with: "GC") else { throw ConnectorError.invalidWaypoint("Not a Geocaching.com geocache") }
             return try HTTPRequest(url: apiPreviewUrl(gcCode: id))
         })

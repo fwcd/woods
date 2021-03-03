@@ -61,6 +61,11 @@ struct RichMapView: View {
             .foregroundColor(.primary)
             .font(.system(size: 40))
             .padding(10)
+            .onChange(of: selectedWaypointId) {
+                if let id = $0 {
+                    waypoints.queryDetails(for: id)
+                }
+            }
             .sheet(isPresented: $listPickerSheetShown) {
                 WaypointListPickerView { id in
                     waypoints.listTree[id]?.add(waypoints: waypoints.currentWaypoints.values.sorted { $0.name < $1.name })
