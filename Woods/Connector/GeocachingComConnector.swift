@@ -66,6 +66,7 @@ class GeocachingComConnector: Connector {
         origin: Coordinates? = nil,
         accumulated: [Waypoint] = []
     ) -> AnyPublisher<[Waypoint], Error> {
+        log.info("Sending search query...")
         if let total = total {
             guard skip < total else { return Just(accumulated).weakenError().eraseToAnyPublisher() }
         }
@@ -110,6 +111,7 @@ class GeocachingComConnector: Connector {
     }
     
     func waypoints(for query: WaypointsInRegionQuery) -> AnyPublisher<[Waypoint], Error> {
-        search(region: query.region)
+        log.info("Querying waypoints in region around \(query.region.center)")
+        return search(region: query.region)
     }
 }
