@@ -106,7 +106,10 @@ struct GeocachingComApiResults: Codable {
                 favorites: favoritePoints ?? 0,
                 found: userFound ?? false,
                 didNotFind: userDidNotFind ?? false,
-                premiumOnly: premiumOnly ?? false
+                premiumOnly: premiumOnly ?? false,
+                description: description,
+                hint: hint,
+                logs: recentActivities?.compactMap(\.asWaypointLog) ?? []
             )
         }
         
