@@ -42,7 +42,6 @@ struct WaypointDetailView: View {
             if let description = waypoint.description {
                 SimpleSection(header: "Description", iconName: "newspaper.fill") {
                     LightHTMLView(html: description)
-                        .multilineTextAlignment(.leading)
                 }
             }
             if let hint = waypoint.hint {
@@ -116,10 +115,11 @@ struct WaypointDetailView: View {
                             WaypointLogView(waypointLog: log)
                         }
                     }
+                    .frame(maxWidth: .infinity)
                 }
             }
         }
-        .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
+        .padding([.leading, .trailing], 20)
     }
     
     private func makeDateFormatter() -> DateFormatter {

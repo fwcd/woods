@@ -25,7 +25,6 @@ struct WaypointLogView: View {
                 }
             }
             LightHTMLView(html: waypointLog.content)
-                .multilineTextAlignment(.leading)
         }
     }
     

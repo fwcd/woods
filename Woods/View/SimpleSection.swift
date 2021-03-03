@@ -18,6 +18,7 @@ struct SimpleSection<Content>: View where Content: View {
             VStack(spacing: 10) {
                 content()
             }
+            .padding([.top], 10)
         }
     }
     
@@ -31,7 +32,7 @@ struct SimpleSection<Content>: View where Content: View {
 struct SimpleSection_Previews: PreviewProvider {
     static var previews: some View {
         SimpleSection(header: "Test", iconName: "ellipsis") {
-            Text("ABC")
+            Text(String(repeating: "ABC ", count: 100))
         }
     }
 }

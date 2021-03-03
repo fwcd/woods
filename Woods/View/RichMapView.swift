@@ -78,7 +78,7 @@ struct RichMapView: View {
                         WaypointDetailView(waypoint: waypoint)
                     } else {
                         SearchBar(placeholder: "Search for waypoints...", text: $searchText)
-                            .padding(EdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 15))
+                            .padding([.leading, .trailing], 15)
                     }
                     Spacer()
                 }
