@@ -75,7 +75,7 @@ struct RichMapView: View {
             SlideOverCard {
                 VStack {
                     if let id = selectedWaypointId, let waypoint = waypoints[id] {
-                        WaypointDetailView(waypoint: waypoint)
+                        WaypointSummaryView(waypoint: waypoint)
                     } else {
                         SearchBar(placeholder: "Search for waypoints...", text: $searchText)
                             .padding([.leading, .trailing], 15)

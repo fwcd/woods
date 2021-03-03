@@ -87,6 +87,7 @@
 		C7ECBE0E25EFFC13005933C0 /* WaypointDetailInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBE0D25EFFC13005933C0 /* WaypointDetailInfoView.swift */; };
 		C7ECBE1625EFFCB7005933C0 /* WaypointDetailActionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBE1525EFFCB7005933C0 /* WaypointDetailActionsView.swift */; };
 		C7ECBE1F25EFFEA6005933C0 /* CoreGPX in Frameworks */ = {isa = PBXBuildFile; productRef = C7ECBE1E25EFFEA6005933C0 /* CoreGPX */; };
+		C7ECBE2D25F006D9005933C0 /* WaypointSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBE2C25F006D8005933C0 /* WaypointSummaryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -191,6 +192,7 @@
 		C7ECBE0525EFF9D9005933C0 /* SizeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeView.swift; sourceTree = "<group>"; };
 		C7ECBE0D25EFFC13005933C0 /* WaypointDetailInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointDetailInfoView.swift; sourceTree = "<group>"; };
 		C7ECBE1525EFFCB7005933C0 /* WaypointDetailActionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointDetailActionsView.swift; sourceTree = "<group>"; };
+		C7ECBE2C25F006D8005933C0 /* WaypointSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointSummaryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -356,6 +358,7 @@
 				C765465225D88E48004F14E8 /* LoginView.swift */,
 				C7B6F0FC249FA16B00454841 /* RichMapView.swift */,
 				C7B74E6B25ED8DA600D5194B /* WaypointMapView.swift */,
+				C7ECBE2C25F006D8005933C0 /* WaypointSummaryView.swift */,
 				C7B74EA425EDC46F00D5194B /* WaypointDetailView.swift */,
 				C7ECBE0D25EFFC13005933C0 /* WaypointDetailInfoView.swift */,
 				C7ECBE1525EFFCB7005933C0 /* WaypointDetailActionsView.swift */,
@@ -571,6 +574,7 @@
 				C765467F25D8A280004F14E8 /* JSONUtils.swift in Sources */,
 				C748C2AC25EEA19300661BEE /* Waypoint+Icon.swift in Sources */,
 				C7B74EE325EDDD8C00D5194B /* Degrees.swift in Sources */,
+				C7ECBE2D25F006D9005933C0 /* WaypointSummaryView.swift in Sources */,
 				C765467725D8A23C004F14E8 /* PersistenceUtils.swift in Sources */,
 				C7E1B88F25ED73EB004575A5 /* PublisherUtils.swift in Sources */,
 				C7B74E8825EDADC100D5194B /* SlideOverCard.swift in Sources */,
