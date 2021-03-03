@@ -15,6 +15,7 @@ struct WaypointDetailActionsView: View {
     let waypoint: Waypoint
     
     @State private var listPickerSheetShown: Bool = false
+    @State private var linkShareSheetShown: Bool = false
     @EnvironmentObject private var waypoints: Waypoints
     
     var body: some View {
@@ -39,20 +40,21 @@ struct WaypointDetailActionsView: View {
                 .environmentObject(waypoints)
             }
             if let url = waypoint.webUrl {
-                Button(action: {
-                    ShareSheet(items: [url]).presentIndependently()
-                }) {
+                Button(action: { linkShareSheetShown = true }) {
                     HStack {
                         Image(systemName: "square.and.arrow.up")
                         Text("Link")
                     }
+                }
+                .sheet(isPresented: $linkShareSheetShown) {
+                    ShareSheet(items: [url])
                 }
             }
             Button(action: {
                 do {
                     let url = persistenceFileURL(path: "GPX/\(waypoint.id).gpx")
                     try waypoint.asGPX.data(using: .utf8)?.smartWrite(to: url)
-                    ShareSheet(items: [url]).presentIndependently()
+                    ShareSheet(items: [url]).presentIndependently() // TODO: Make this a SwiftUI sheet too
                 } catch {
                     log.error("Could not encode write GPX: \(String(describing: error))")
                 }
