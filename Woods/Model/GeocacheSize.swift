@@ -7,10 +7,12 @@
 //
 
 enum GeocacheSize: String, Codable, Hashable {
+    case notChosen
     case nano
     case micro
     case small
     case regular
     case large
+    case virtual
     case other
 }

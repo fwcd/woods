@@ -18,7 +18,7 @@ private let loginPageUrl = URL(string: "\(baseUrl)/account/signin")!
 private let searchUrl = URL(string: "\(baseUrl)/play/search")!
 private let searchMoreUrl = URL(string: "\(baseUrl)/play/search/more-results")!
 private let myLogsUrl = URL(string: "\(baseUrl)/my/logs.aspx")!
-private let apiSearchUrl = URL(string: "\(baseUrl)/api/proxy/web/search")!
+private let apiSearchUrl = URL(string: "\(baseUrl)/api/proxy/web/search/v2")!
 
 private let log = Logger(subsystem: "Woods", category: "GeocachingComConnector")
 
@@ -56,14 +56,41 @@ class GeocachingComConnector: Connector {
         fatalError("TODO")
     }
     
+    /// Searches the given region.
+    private func search(
+        region: Region,
+        takePerQuery: Int = 200,
+        skip: Int = 0,
+        total: Int? = 0,
+        sortOrder: GeocachingComSortOrder = .datelastvisited,
+        origin: Coordinates? = nil
+    ) -> AnyPublisher<[Waypoint], Error> {
+        if let total = total {
+            guard skip < total else { return Just([]).weakenError().eraseToAnyPublisher() }
+        }
+        return Result.Publisher(Result {
+            let region = query.region
+            guard region.diameter <= Length(16, .kilometers) else {
+                throw ConnectorError.regionTooWide
+            }
+            return try HTTPRequest(url: apiSearchUrl, query: [
+                "box": [
+                    region.topLeft.latitude.totalDegrees,
+                    region.topLeft.longitude.totalDegrees,
+                    region.bottomRight.latitude.totalDegrees,
+                    region.bottomRight.longitude.totalDegrees,
+                ].map(String.init).joined(separator: ","),
+                "take": takePerQuery,
+                "asc": true,
+                "skip": skip,
+                "sort": sortOrder.rawValue
+            ] + (sortOrder == .distance ? ["origin": "\(origin?.latitude ?? 0),\(origin?.longitude ?? 0)"] : [:]))
+        })
+        .flatMap { $0.fetchJSONAsync(as: GeocachingComApiResults.self) }
+        .eraseToAnyPublisher()
+    }
+    
     func waypoints(for query: WaypointsInRegionQuery) -> AnyPublisher<[Waypoint], Error> {
-//        Result.Publisher(Result {
-//            let region = query.region
-//            guard region.topLeft.distance(to: region.bottomRight) <= Length(16, .kilometers) else {
-//                throw ConnectorError.regionTooWide
-//            }
-//            return try HTTPRequest(url: )
-//        })
-        fatalError("ERROR")
+        fatalError("TODO")
     }
 }

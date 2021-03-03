@@ -17,7 +17,14 @@ enum GeocacheType: String, Codable, Hashable {
     case wherigo
     case event
     case megaEvent
-    case cito
-    case ape
+    case gigaEvent
+    case lostAndFoundEvent
+    case citoEvent
+    case projectApe
     case other
+    case geocachingHq
+    case gpsAdventuresExhibit
+    case groundspeakBlockParty
+    case hqCelebration
+    case locationless
 }
