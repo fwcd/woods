@@ -81,6 +81,7 @@
 		C7ECBDE725EFE479005933C0 /* LargeButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBDE625EFE479005933C0 /* LargeButtonStyle.swift */; };
 		C7ECBDEC25EFE945005933C0 /* ShareSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBDEB25EFE945005933C0 /* ShareSheet.swift */; };
 		C7ECBDF125EFE971005933C0 /* SimpleUIViewControllerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBDF025EFE971005933C0 /* SimpleUIViewControllerRepresentable.swift */; };
+		C7ECBDF625EFEC27005933C0 /* HTMLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBDF525EFEC27005933C0 /* HTMLView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -180,6 +181,7 @@
 		C7ECBDE625EFE479005933C0 /* LargeButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeButtonStyle.swift; sourceTree = "<group>"; };
 		C7ECBDEB25EFE945005933C0 /* ShareSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSheet.swift; sourceTree = "<group>"; };
 		C7ECBDF025EFE971005933C0 /* SimpleUIViewControllerRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleUIViewControllerRepresentable.swift; sourceTree = "<group>"; };
+		C7ECBDF525EFEC27005933C0 /* HTMLView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -345,6 +347,7 @@
 				C7B6F0FC249FA16B00454841 /* RichMapView.swift */,
 				C7B74E6B25ED8DA600D5194B /* WaypointMapView.swift */,
 				C7B74EA425EDC46F00D5194B /* WaypointDetailView.swift */,
+				C7ECBDF525EFEC27005933C0 /* HTMLView.swift */,
 				C7ECBDE625EFE479005933C0 /* LargeButtonStyle.swift */,
 				C7ECBDE125EFE03F005933C0 /* SimpleSection.swift */,
 				C7ECBDAD25EEF2E9005933C0 /* WaypointListPickerView.swift */,
@@ -534,6 +537,7 @@
 				C7ECBDE225EFE03F005933C0 /* SimpleSection.swift in Sources */,
 				C7ECBD7525EEB23B005933C0 /* WaypointDistanceView.swift in Sources */,
 				C7B74EA525EDC46F00D5194B /* WaypointDetailView.swift in Sources */,
+				C7ECBDF625EFEC27005933C0 /* HTMLView.swift in Sources */,
 				C765460125D87B26004F14E8 /* Waypoint.swift in Sources */,
 				C7B74ECE25EDD35400D5194B /* WaypointLogType.swift in Sources */,
 				C7B74E8D25EDAEA400D5194B /* Handle.swift in Sources */,
