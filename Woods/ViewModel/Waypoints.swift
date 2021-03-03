@@ -17,6 +17,8 @@ class Waypoints: ObservableObject {
     @Published private(set) var currentWaypoints: [String: Waypoint] = [:]
     @Published(persistingTo: "Waypoints/listTree.json") var listTree = WaypointListTree()
     
+    private var originatingAccountIds: [String: UUID] = [:] // Waypoint id to account id
+    
     private let accounts: Accounts
     private var runningQueryTask: AnyCancellable?
     
@@ -34,7 +36,9 @@ class Waypoints: ObservableObject {
     
     func refresh(with query: WaypointsInRegionQuery) {
         log.info("Refreshing waypoints in the region around \(query.region.center) (diameter: \(query.region.diameter)")
-        runningQueryTask = Publishers.MergeMany(accounts.connectors.values.map { $0.waypoints(for: query) })
+        
+        originatingAccountIds = [:]
+        runningQueryTask = Publishers.MergeMany(accounts.connectors.map { (acc, conn) in conn.waypoints(for: query).map { ($0, acc) } })
             .collect()
             .receive(on: RunLoop.main)
             .sink { completion in
@@ -42,9 +46,25 @@ class Waypoints: ObservableObject {
                     log.warning("Could not query waypoints: \(String(describing: error))")
                 }
             } receiveValue: { [self] in
-                let foundWaypoints = $0.flatMap { $0 }
-                currentWaypoints = Dictionary(uniqueKeysWithValues: foundWaypoints.map { ($0.id, $0) })
+                let foundWaypoints = $0.flatMap { (wps, acc) in wps.map { ($0, acc) } }
+                currentWaypoints = Dictionary(uniqueKeysWithValues: foundWaypoints.map { ($0.0.id, $0.0) })
+                originatingAccountIds = Dictionary(uniqueKeysWithValues: foundWaypoints.map { ($0.0.id, $0.1) })
                 log.info("Found \(foundWaypoints.count) waypoint(s)")
             }
+    }
+    
+    func queryDetails(on waypointId: String) {
+        if let connector = originatingAccountIds[waypointId].flatMap({ accounts.connectors[$0] }) {
+            runningQueryTask = connector.waypoint(id: waypointId)
+                .receive(on: RunLoop.main)
+                .sink { completion in
+                    if case let .failure(error) = completion {
+                        log.warning("Could not query details: \(String(describing: error))")
+                    }
+                } receiveValue: { [self] in
+                    currentWaypoints[waypointId] = $0
+                    log.info("Queried details for \(waypointId)")
+                }
+        }
     }
 }

@@ -14,6 +14,7 @@ struct Waypoint: Identifiable, Codable, Hashable {
     var id: String // GC-Code, UUID or similar
     var name: String
     var location: Coordinates
+    var isStub: Bool = false // Whether the data is incomplete
     var difficulty: Int? = nil // half stars, between 2 and 10 (see maxRating)
     var terrain: Int? = nil    // half stars, between 2 and 10 (see maxRating)
     var geocacheType: GeocacheType? = nil

@@ -125,7 +125,12 @@ class GeocachingComConnector: Connector {
                 total: results.total,
                 sortOrder: sortOrder,
                 origin: origin,
-                accumulated: accumulated + results.results.compactMap(\.asWaypoint)
+                accumulated: accumulated + results.results
+                    .compactMap {
+                        var waypoint = $0.asWaypoint
+                        waypoint?.isStub = true
+                        return waypoint
+                    }
             )
         }
         .eraseToAnyPublisher()
