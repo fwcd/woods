@@ -45,6 +45,7 @@ struct Waypoint: Identifiable, Codable, Hashable {
         wp.desc = name
         wp.time = placedAt
         wp.comment = description
+        root.add(waypoint: wp)
         // TODO: Groundspeak attributes
         return root
     }
