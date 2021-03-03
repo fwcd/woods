@@ -63,34 +63,53 @@ class GeocachingComConnector: Connector {
         skip: Int = 0,
         total: Int? = 0,
         sortOrder: GeocachingComSortOrder = .datelastvisited,
-        origin: Coordinates? = nil
+        origin: Coordinates? = nil,
+        accumulated: [Waypoint] = []
     ) -> AnyPublisher<[Waypoint], Error> {
         if let total = total {
-            guard skip < total else { return Just([]).weakenError().eraseToAnyPublisher() }
+            guard skip < total else { return Just(accumulated).weakenError().eraseToAnyPublisher() }
         }
-        return Result.Publisher(Result {
-            let region = query.region
+        return Result.Publisher(Result { () -> HTTPRequest in
             guard region.diameter <= Length(16, .kilometers) else {
                 throw ConnectorError.regionTooWide
             }
-            return try HTTPRequest(url: apiSearchUrl, query: [
+            
+            var query: [String: String] = [
                 "box": [
                     region.topLeft.latitude.totalDegrees,
                     region.topLeft.longitude.totalDegrees,
                     region.bottomRight.latitude.totalDegrees,
                     region.bottomRight.longitude.totalDegrees,
-                ].map(String.init).joined(separator: ","),
-                "take": takePerQuery,
-                "asc": true,
-                "skip": skip,
+                ].map { String($0) }.joined(separator: ","),
+                "take": String(takePerQuery),
+                "asc": "true",
+                "skip": String(skip),
                 "sort": sortOrder.rawValue
-            ] + (sortOrder == .distance ? ["origin": "\(origin?.latitude ?? 0),\(origin?.longitude ?? 0)"] : [:]))
+            ]
+            
+            if sortOrder == .distance, let origin = origin {
+                query["origin"] = "\(origin.latitude),\(origin.longitude)"
+            }
+            
+            return try HTTPRequest(url: apiSearchUrl, query: query)
         })
         .flatMap { $0.fetchJSONAsync(as: GeocachingComApiResults.self) }
+        .flatMap { [self] results in
+            // Search the next 'page'
+            search(
+                region: region,
+                takePerQuery: takePerQuery,
+                skip: skip + takePerQuery,
+                total: results.total,
+                sortOrder: sortOrder,
+                origin: origin,
+                accumulated: accumulated + results.results.map(\.asWaypoint)
+            )
+        }
         .eraseToAnyPublisher()
     }
     
     func waypoints(for query: WaypointsInRegionQuery) -> AnyPublisher<[Waypoint], Error> {
-        fatalError("TODO")
+        search(region: query.region)
     }
 }
