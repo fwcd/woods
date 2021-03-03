@@ -54,14 +54,16 @@ struct Map<T>: UIViewRepresentable where T: Hashable {
         let subtitle: String?
         let color: Color?
         let iconName: String?
+        let required: Bool
         
-        init(tag: T, coordinate: CLLocationCoordinate2D, title: String? = nil, subtitle: String? = nil, color: Color? = nil, iconName: String? = nil) {
+        init(tag: T, coordinate: CLLocationCoordinate2D, title: String? = nil, subtitle: String? = nil, color: Color? = nil, iconName: String? = nil, required: Bool = true) {
             self.tag = tag
             self.coordinate = coordinate
             self.title = title
             self.subtitle = subtitle
             self.color = color
             self.iconName = iconName
+            self.required = required
         }
     }
     
@@ -90,6 +92,10 @@ struct Map<T>: UIViewRepresentable where T: Hashable {
             
             if let iconName = annotation.iconName {
                 annotationView.glyphImage = UIImage(systemName: iconName)
+            }
+            
+            if annotation.required {
+                annotationView.displayPriority = .required
             }
             
             return annotationView

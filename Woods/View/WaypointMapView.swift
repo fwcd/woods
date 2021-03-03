@@ -18,13 +18,14 @@ struct WaypointMapView: View {
     @Binding var useSatelliteView: Bool
     
     var body: some View {
-        Map(annotations: waypoints.map { cache in
+        Map(annotations: waypoints.map { waypoint in
             Map.Annotation(
-                tag: cache.id,
-                coordinate: cache.location.asCLCoordinate,
-                title: cache.name,
-                color: cache.geocacheType?.color,
-                iconName: "archivebox.fill"
+                tag: waypoint.id,
+                coordinate: waypoint.location.asCLCoordinate,
+                // Uncomment to show cache names on map again
+                // title: waypoint.name,
+                color: waypoint.color,
+                iconName: waypoint.iconName
             )
         }, selection: $selectedWaypointId, region: $region, userTrackingMode: $userTrackingMode, useSatelliteView: $useSatelliteView)
     }
