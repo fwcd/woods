@@ -79,7 +79,9 @@ struct WaypointListView: View {
                     }
                 }
                 ForEach(list?.waypoints ?? []) { waypoint in
-                    NavigationLink(destination: WaypointDetailView(waypoint: waypoint)) {
+                    NavigationLink(destination: ScrollView {
+                        WaypointDetailView(waypoint: waypoint)
+                    }) {
                         WaypointSmallSnippetView(waypoint: waypoint)
                     }
                 }
