@@ -82,7 +82,7 @@ struct RichMapView: View {
         }
     }
     
-    private func query(from region: MKCoordinateRegion) -> WaypointsInRadiusQuery {
+    private func query(from region: MKCoordinateRegion) -> WaypointsInRegionQuery {
         let center = region.center
         let span = region.span
         let topLeft = CLLocation(
@@ -93,12 +93,12 @@ struct RichMapView: View {
             latitude: center.latitude + (span.latitudeDelta / 2),
             longitude: center.longitude + (span.longitudeDelta / 2)
         )
-        let diameter = topLeft.distance(from: bottomRight).magnitude
-        let query = WaypointsInRadiusQuery(
-            center: Coordinates(from: center),
-            radius: Length(meters: diameter / 2)
+        return WaypointsInRegionQuery(
+            region: Region(
+                topLeft: Coordinates(from: topLeft.coordinate),
+                bottomRight: Coordinates(from: bottomRight.coordinate)
+            )
         )
-        return query
     }
 }
 
