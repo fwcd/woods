@@ -11,11 +11,14 @@ import SwiftUI
 struct SearchBar: View {
     let placeholder: String
     @Binding var text: String
+    var onCommit: (() -> Void)?
     
     var body: some View {
         HStack {
             Image(systemName: "magnifyingglass")
-            TextField(placeholder, text: $text)
+            TextField(placeholder, text: $text, onCommit: {
+                onCommit?()
+            })
         }
         .padding(8)
         .foregroundColor(.secondary)

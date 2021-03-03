@@ -54,7 +54,7 @@ class Waypoints: ObservableObject {
     }
     
     func queryDetails(for waypointId: String) {
-        if let connector = originatingAccountIds[waypointId].flatMap({ accounts.connectors[$0] }), currentWaypoints[waypointId]?.isStub ?? false {
+        if let connector = originatingAccountIds[waypointId].flatMap({ accounts.connectors[$0] }), (currentWaypoints[waypointId]?.isStub ?? true) {
             runningQueryTask = connector.waypoint(id: waypointId)
                 .receive(on: RunLoop.main)
                 .sink { completion in
