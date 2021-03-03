@@ -79,6 +79,8 @@
 		C7ECBDDD25EF182F005933C0 /* GeocacheStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBDDC25EF182F005933C0 /* GeocacheStatus.swift */; };
 		C7ECBDE225EFE03F005933C0 /* SimpleSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBDE125EFE03F005933C0 /* SimpleSection.swift */; };
 		C7ECBDE725EFE479005933C0 /* LargeButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBDE625EFE479005933C0 /* LargeButtonStyle.swift */; };
+		C7ECBDEC25EFE945005933C0 /* ShareSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBDEB25EFE945005933C0 /* ShareSheet.swift */; };
+		C7ECBDF125EFE971005933C0 /* SimpleUIViewControllerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBDF025EFE971005933C0 /* SimpleUIViewControllerRepresentable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -176,6 +178,8 @@
 		C7ECBDDC25EF182F005933C0 /* GeocacheStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocacheStatus.swift; sourceTree = "<group>"; };
 		C7ECBDE125EFE03F005933C0 /* SimpleSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleSection.swift; sourceTree = "<group>"; };
 		C7ECBDE625EFE479005933C0 /* LargeButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeButtonStyle.swift; sourceTree = "<group>"; };
+		C7ECBDEB25EFE945005933C0 /* ShareSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSheet.swift; sourceTree = "<group>"; };
+		C7ECBDF025EFE971005933C0 /* SimpleUIViewControllerRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleUIViewControllerRepresentable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -362,6 +366,8 @@
 				C7B74E8725EDADC100D5194B /* SlideOverCard.swift */,
 				C7ECBD9B25EEE197005933C0 /* AutoFocusTextField.swift */,
 				C7B74E8C25EDAEA400D5194B /* Handle.swift */,
+				C7ECBDEB25EFE945005933C0 /* ShareSheet.swift */,
+				C7ECBDF025EFE971005933C0 /* SimpleUIViewControllerRepresentable.swift */,
 				C7B74E9125EDB61400D5194B /* VisualEffectView.swift */,
 			);
 			path = View;
@@ -514,6 +520,7 @@
 				C7ECBD8F25EED8AF005933C0 /* WaypointSmallSnippetView.swift in Sources */,
 				C765463C25D88AC6004F14E8 /* Accounts.swift in Sources */,
 				C765465D25D890F6004F14E8 /* AccountType.swift in Sources */,
+				C7ECBDEC25EFE945005933C0 /* ShareSheet.swift in Sources */,
 				C76546B025ED2DB6004F14E8 /* HTTPRequest.swift in Sources */,
 				C765465825D890E1004F14E8 /* Account.swift in Sources */,
 				C7ECBD8225EED022005933C0 /* WaypointListsView.swift in Sources */,
@@ -538,6 +545,7 @@
 				C7ECBDD825EF1389005933C0 /* GeocachingComApiResults.swift in Sources */,
 				C765468925D8A2C9004F14E8 /* DataUtils.swift in Sources */,
 				C765462425D87E9C004F14E8 /* WaypointsInRadiusQuery.swift in Sources */,
+				C7ECBDF125EFE971005933C0 /* SimpleUIViewControllerRepresentable.swift in Sources */,
 				C7B74E6C25ED8DA600D5194B /* WaypointMapView.swift in Sources */,
 				C765467F25D8A280004F14E8 /* JSONUtils.swift in Sources */,
 				C748C2AC25EEA19300661BEE /* Waypoint+Icon.swift in Sources */,
