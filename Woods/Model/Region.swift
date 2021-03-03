@@ -34,7 +34,7 @@ struct Region: Codable, Hashable {
     
     func contains(_ location: Coordinates) -> Bool {
         // TODO: This naive version may fail where coordinates wrap around
-        (topLeft.latitude...bottomRight.latitude).contains(location.latitude)
-            && (topLeft.longitude...bottomRight.longitude).contains(location.longitude)
+        (min(topLeft.latitude, bottomRight.latitude)...max(topLeft.latitude, bottomRight.latitude)).contains(location.latitude)
+            && (min(topLeft.latitude, bottomRight.longitude)...max(topLeft.latitude, bottomRight.longitude)).contains(location.longitude)
     }
 }

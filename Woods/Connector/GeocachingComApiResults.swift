@@ -27,7 +27,7 @@ struct GeocachingComApiResults: Codable {
         let userFound: Bool?
         let userDidNotFind: Bool?
         let cacheStatus: Int?
-        let postedCoordinates: PostedCoordinates
+        let postedCoordinates: PostedCoordinates?
         let detailsUrl: String?
         let hasGeotour: Bool?
         let hasLogDraft: Bool?
@@ -80,13 +80,14 @@ struct GeocachingComApiResults: Codable {
             default: return nil
             }
         }
-        var asWaypoint: Waypoint {
+        var asWaypoint: Waypoint? {
             let formatter = DateFormatter()
             formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+            guard let location = postedCoordinates?.asCoordinates else { return nil }
             return Waypoint(
                 id: code,
                 name: name,
-                location: postedCoordinates.asCoordinates,
+                location: location,
                 difficulty: difficulty.map { Int($0 * 2) },
                 terrain: terrain.map { Int($0 * 2) },
                 geocacheType: parsedGeocacheType,

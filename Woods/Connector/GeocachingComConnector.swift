@@ -61,15 +61,17 @@ class GeocachingComConnector: Connector {
         region: Region,
         takePerQuery: Int = 200,
         skip: Int = 0,
-        total: Int? = 0,
+        total: Int? = nil,
+        maxCaches: Int = 600,
         sortOrder: GeocachingComSortOrder = .datelastvisited,
         origin: Coordinates? = nil,
         accumulated: [Waypoint] = []
     ) -> AnyPublisher<[Waypoint], Error> {
-        log.info("Sending search query...")
+        log.info("Sending search query (\(skip) of \(total.map { String($0) } ?? "?"))...")
         if let total = total {
-            guard skip >= total else { return Just(accumulated).weakenError().eraseToAnyPublisher() }
+            guard skip < total else { return Just(accumulated).weakenError().eraseToAnyPublisher() }
         }
+        guard skip < maxCaches else { return Just(accumulated).weakenError().eraseToAnyPublisher() }
         return Result.Publisher(Result { () -> HTTPRequest in
             guard region.diameter <= Length(16, .kilometers) else {
                 throw ConnectorError.regionTooWide
@@ -95,6 +97,7 @@ class GeocachingComConnector: Connector {
             return try HTTPRequest(url: apiSearchUrl, query: query)
         })
         .flatMap { $0.fetchJSONAsync(as: GeocachingComApiResults.self) }
+        .delay(for: .seconds(0.5), scheduler: RunLoop.main)
         .flatMap { [self] results in
             // Search the next 'page'
             search(
@@ -104,7 +107,7 @@ class GeocachingComConnector: Connector {
                 total: results.total,
                 sortOrder: sortOrder,
                 origin: origin,
-                accumulated: accumulated + results.results.map(\.asWaypoint)
+                accumulated: accumulated + results.results.compactMap(\.asWaypoint)
             )
         }
         .eraseToAnyPublisher()
