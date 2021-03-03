@@ -18,9 +18,13 @@ func mockGeocaches() -> [Waypoint] {
             difficulty: 2,
             terrain: 3,
             geocacheType: .traditional,
+            description: """
+                <p>A small cache for testing purposes!</p>
+                <p><i>Have fun!</i></p>
+                """,
             webUrl: URL(string: "https://example.com"),
             logs: [
-                WaypointLog(type: .found, username: "Alice", content: "Very nice cache, thanks!"),
+                WaypointLog(type: .found, username: "Alice", content: "<p>Very nice cache, thanks!</p><p><strong>TFTC</strong></p>"),
                 WaypointLog(type: .didNotFind, username: "Bob", content: "Long search, no find. :("),
                 WaypointLog(type: .found, username: "Charles", content: "TFTC"),
                 WaypointLog(type: .ownerMaintenance, username: "Dave", content: "Thanks for the note!"),

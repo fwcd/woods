@@ -24,7 +24,8 @@ struct WaypointLogView: View {
                         .foregroundColor(.secondary)
                 }
             }
-            Text(waypointLog.content)
+            LightHTMLView(html: waypointLog.content)
+                .lineLimit(nil)
         }
     }
     

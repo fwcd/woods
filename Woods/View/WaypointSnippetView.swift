@@ -22,7 +22,7 @@ struct WaypointSnippetView: View {
                 Text(waypoint.id)
                     .font(.headline)
                 Text(waypoint.name)
-                    .font(.title)
+                    .font(.title2)
                     .fontWeight(.bold)
                     .multilineTextAlignment(/*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/)
             }

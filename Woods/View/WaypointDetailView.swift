@@ -36,7 +36,8 @@ struct WaypointDetailView: View {
             }
             if let description = waypoint.description {
                 SimpleSection(header: "Description") {
-                    Text(description)
+                    LightHTMLView(html: description)
+                        .lineLimit(nil)
                 }
             }
             if let hint = waypoint.hint {
