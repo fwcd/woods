@@ -68,7 +68,7 @@ class GeocachingComConnector: Connector {
     ) -> AnyPublisher<[Waypoint], Error> {
         log.info("Sending search query...")
         if let total = total {
-            guard skip < total else { return Just(accumulated).weakenError().eraseToAnyPublisher() }
+            guard skip >= total else { return Just(accumulated).weakenError().eraseToAnyPublisher() }
         }
         return Result.Publisher(Result { () -> HTTPRequest in
             guard region.diameter <= Length(16, .kilometers) else {
