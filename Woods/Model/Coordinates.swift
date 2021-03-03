@@ -65,4 +65,14 @@ struct Coordinates: Codable, Hashable, CustomStringConvertible {
     func distance(to rhs: Coordinates) -> Length {
         Length(meters: asCLLocation.distance(from: rhs.asCLLocation).magnitude)
     }
+    
+    func heading(to rhs: Coordinates) -> Degrees {
+        // Source: https://stackoverflow.com/questions/3932502/calculate-angle-between-two-latitude-longitude-points
+        let (lat1, lon1) = (latitude.totalRadians, longitude.totalRadians)
+        let (lat2, lon2) = (rhs.latitude.totalRadians, rhs.longitude.totalRadians)
+        let dLon = lon2 - lon1
+        let y = sin(dLon) * cos(lat2)
+        let x = cos(lat1) * cos(lat2) - sin(lat1) * cos(lat2) * cos(dLon)
+        return Degrees(radians: atan2(y, x))
+    }
 }

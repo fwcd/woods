@@ -59,6 +59,11 @@ struct Degrees: AdditiveArithmetic, Hashable, Comparable, Codable, CustomStringC
         totalDegrees = degrees
     }
     
+    init(radians: Double) {
+        self.init()
+        totalRadians = radians
+    }
+    
     init(degrees: Int, minutes: Double) {
         self.init()
         dm = (degrees: degrees, minutes: minutes)
