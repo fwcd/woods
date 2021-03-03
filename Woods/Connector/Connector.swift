@@ -14,4 +14,6 @@ protocol Connector: AnyObject {
     func logOut() -> AnyPublisher<Void, Error>
     
     func waypoints(for query: WaypointsInRadiusQuery) -> AnyPublisher<[Waypoint], Error>
+    
+    func waypoints(for query: WaypointsInRegionQuery) -> AnyPublisher<[Waypoint], Error>
 }

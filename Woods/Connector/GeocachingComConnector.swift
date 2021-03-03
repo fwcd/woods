@@ -8,6 +8,7 @@
 
 import Foundation
 import Combine
+import SwiftSoup
 import OSLog
 
 // Adapted from pycaching
@@ -51,7 +52,18 @@ class GeocachingComConnector: Connector {
         fatalError("TODO")
     }
     
-    func waypoints(for query: WaypointsInRadiusQuery) -> AnyPublisher<[Waypoint], Error> {
+    func waypoints(for rawQuery: WaypointsInRadiusQuery) -> AnyPublisher<[Waypoint], Error> {
         fatalError("TODO")
+    }
+    
+    func waypoints(for query: WaypointsInRegionQuery) -> AnyPublisher<[Waypoint], Error> {
+//        Result.Publisher(Result {
+//            let region = query.region
+//            guard region.topLeft.distance(to: region.bottomRight) <= Length(16, .kilometers) else {
+//                throw ConnectorError.regionTooWide
+//            }
+//            return try HTTPRequest(url: )
+//        })
+        fatalError("ERROR")
     }
 }
