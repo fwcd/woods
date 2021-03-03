@@ -1,5 +1,5 @@
 //
-//  GeocacheDetailView.swift
+//  WaypointDetailView.swift
 //  Woods
 //
 //  Created by Fredrik on 3/2/21.
@@ -18,26 +18,7 @@ struct WaypointDetailView: View {
         VStack(alignment: .leading, spacing: 20) {
             WaypointSnippetView(waypoint: waypoint)
             SimpleSection(header: "Info", iconName: "paperclip") {
-                Text(waypoint.location.description)
-                HStack(spacing: 20) {
-                    VStack {
-                        StarsView(
-                            rating: waypoint.difficulty ?? 0,
-                            maxRating: Waypoint.ratings.upperBound,
-                            step: 2
-                        )
-                        Text("Difficulty")
-                    }
-                    VStack {
-                        StarsView(
-                            rating: waypoint.terrain ?? 0,
-                            maxRating: Waypoint.ratings.upperBound,
-                            step: 2
-                        )
-                        Text("Terrain")
-                    }
-                }
-                .font(.caption)
+                WaypointDetailInfoView(waypoint: waypoint)
             }
             if let description = waypoint.description {
                 SimpleSection(header: "Description", iconName: "newspaper.fill") {
@@ -129,7 +110,7 @@ struct WaypointDetailView: View {
     }
 }
 
-struct GeocacheDetailView_Previews: PreviewProvider {
+struct WaypointDetailView_Previews: PreviewProvider {
     @StateObject static var locationManager = LocationManager()
     @StateObject static var waypoints = Waypoints(accounts: Accounts(testMode: true))
     static var previews: some View {
