@@ -33,7 +33,7 @@ class Waypoints: ObservableObject {
     }
     
     func refresh(with query: WaypointsInRegionQuery) {
-        log.info("Refreshing waypoints in the region around \(query.region.center)")
+        log.info("Refreshing waypoints in the region around \(query.region.center) (diameter: \(query.region.diameter)")
         runningQueryTask = Publishers.MergeMany(accounts.connectors.values.map { $0.waypoints(for: query) })
             .collect()
             .receive(on: RunLoop.main)
