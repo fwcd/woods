@@ -11,9 +11,6 @@ import SwiftUI
 struct WaypointDetailView: View {
     let waypoint: Waypoint
     
-    @State private var listPickerSheetShown: Bool = false
-    @EnvironmentObject private var waypoints: Waypoints
-    
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
             WaypointSnippetView(waypoint: waypoint)
@@ -49,50 +46,13 @@ struct WaypointDetailView: View {
                 }
             }
             SimpleSection(header: "Actions", iconName: "ellipsis") {
-                HStack {
-                    Button(action: { listPickerSheetShown = true }) {
-                        HStack {
-                            Image(systemName: "plus")
-                            Text("Add To List")
-                        }
-                    }
-                    .sheet(isPresented: $listPickerSheetShown) {
-                        NavigationView {
-                            Form {
-                                WaypointListPickerView { id in
-                                    waypoints.listTree[id]?.add(waypoints: [waypoint])
-                                    listPickerSheetShown = false
-                                }
-                            }
-                            .navigationTitle("Add To List")
-                            .navigationBarTitleDisplayMode(.inline)
-                        }
-                    }
-                    if let url = waypoint.webUrl {
-                        Button(action: {
-                            ShareSheet(items: [url]).presentIndependently()
-                        }) {
-                            HStack {
-                                Image(systemName: "square.and.arrow.up")
-                                Text("Link")
-                            }
-                        }
-                    }
-                    Button(action: {
-                        // TODO
-                    }) {
-                        HStack {
-                            Image(systemName: "square.and.arrow.up")
-                            Text("GPX")
-                        }
-                    }
-                }
-                .buttonStyle(LargeButtonStyle())
+                WaypointDetailActionsView(waypoint: waypoint)
             }
             if !waypoint.logs.isEmpty {
                 SimpleSection(header: "Logs", iconName: "book.closed.fill") {
                     VStack(alignment: .leading, spacing: 10) {
-                        ForEach(waypoint.logs.prefix(4)) { log in
+                        // TODO: Only show some logs and add link to full logs
+                        ForEach(waypoint.logs) { log in
                             WaypointLogView(waypointLog: log)
                         }
                     }
