@@ -19,7 +19,7 @@ struct SizeView: View {
             ForEach(0..<maxRating) { i in
                 Rectangle()
                     .frame(width: width, height: ((CGFloat(i + 1) * height) / CGFloat(maxRating)))
-                    .foregroundColor(i == rating ? .primary : .secondary)
+                    .foregroundColor((i + 1) == rating ? .primary : .secondary)
             }
         }
     }
