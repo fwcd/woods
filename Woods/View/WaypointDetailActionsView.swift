@@ -7,6 +7,9 @@
 //
 
 import SwiftUI
+import OSLog
+
+private let log = Logger(subsystem: "Woods", category: "WaypointDetailActionsView")
 
 struct WaypointDetailActionsView: View {
     let waypoint: Waypoint
@@ -45,7 +48,13 @@ struct WaypointDetailActionsView: View {
                 }
             }
             Button(action: {
-                // TODO
+                do {
+                    let url = persistenceFileURL(path: "GPX/\(waypoint.id).gpx")
+                    try waypoint.asGPX.data(using: .utf8)?.smartWrite(to: url)
+                    ShareSheet(items: [url]).presentIndependently()
+                } catch {
+                    log.error("Could not encode write GPX: \(String(describing: error))")
+                }
             }) {
                 HStack {
                     Image(systemName: "square.and.arrow.up")

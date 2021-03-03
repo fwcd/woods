@@ -6,6 +6,7 @@
 //  Copyright © 2021 Fredrik. All rights reserved.
 //
 
+import CoreGPX
 import Foundation
 
 struct Waypoint: Identifiable, Codable, Hashable {
@@ -36,4 +37,18 @@ struct Waypoint: Identifiable, Codable, Hashable {
     var webUrl: URL? = nil
     var logs: [WaypointLog] = []
     var additionalWaypoints: [Waypoint] = []
+    
+    var asGPXRoot: GPXRoot {
+        let root = GPXRoot(creator: "Woods")
+        let wp = GPXWaypoint(latitude: location.latitude.totalDegrees, longitude: location.longitude.totalDegrees)
+        wp.name = id
+        wp.desc = name
+        wp.time = placedAt
+        wp.comment = description
+        // TODO: Groundspeak attributes
+        return root
+    }
+    var asGPX: String {
+        asGPXRoot.gpx()
+    }
 }
