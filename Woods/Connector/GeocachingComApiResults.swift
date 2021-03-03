@@ -15,7 +15,7 @@ struct GeocachingComApiResults: Codable {
     // TODO: Use details URL to query more details?
     
     struct Geocache: Codable {
-        let id: Int
+        let id: Int?
         let name: String
         let code: String
         let premiumOnly: Bool?
