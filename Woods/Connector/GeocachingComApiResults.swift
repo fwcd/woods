@@ -109,6 +109,7 @@ struct GeocachingComApiResults: Codable {
                 premiumOnly: premiumOnly ?? false,
                 description: description,
                 hint: hint,
+                webUrl: URL(string: "https://coord.info/\(code)"),
                 logs: recentActivities?.compactMap(\.asWaypointLog) ?? []
             )
         }

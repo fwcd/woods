@@ -33,6 +33,7 @@ struct Waypoint: Identifiable, Codable, Hashable {
     var summary: String? = nil
     var description: String? = nil
     var hint: String? = nil
+    var webUrl: URL? = nil
     var logs: [WaypointLog] = []
     var additionalWaypoints: [Waypoint] = []
 }
