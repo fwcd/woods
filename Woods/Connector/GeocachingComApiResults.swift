@@ -35,6 +35,13 @@ struct GeocachingComApiResults: Codable {
         let owner: User?
         let lastFoundDate: String?
         
+        // Details:
+        
+        let description: String?
+        let hint: String?
+        let totalActivities: Int?
+        let recentActivities: [Activity]?
+        
         var parsedGeocacheSize: GeocacheSize? {
             switch containerType {
             case 1?: return .notChosen
@@ -81,8 +88,8 @@ struct GeocachingComApiResults: Codable {
             }
         }
         var asWaypoint: Waypoint? {
-            let formatter = DateFormatter()
-            formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+            let formatter = ISO8601DateFormatter()
+            formatter.formatOptions = [.withInternetDateTime]
             guard let location = postedCoordinates?.asCoordinates else { return nil }
             return Waypoint(
                 id: code,
@@ -113,8 +120,54 @@ struct GeocachingComApiResults: Codable {
         }
         
         struct User: Codable {
-            let code: String
+            let code: String?
             let username: String
+            let avatar: String?
+        }
+        
+        struct Activity: Codable {
+            let activityTypeId: Int?
+            let text: String?
+            let owner: User?
+            let code: String?
+            let dateCreatedUtc: String?
+            let dateLastUpdatedUtc: String?
+            let logDate: String?
+            
+            var parsedWaypointLogType: WaypointLogType? {
+                switch activityTypeId {
+                case 2?: return .found
+                case 3?: return .didNotFind
+                case 4?: return .note
+                case 7?: return .needsArchived
+                case 5?: return .archived
+                case 9?: return .willAttend
+                case 10?: return .attended
+                case 11?: return .webcamPhotoTaken
+                case 12?: return .unarchived
+                case 18?: return .reviewerNote
+                case 22?: return .disabled
+                case 23?: return .enabled
+                case 24?: return .published
+                case 25?: return .retracted
+                case 45?: return .needsMaintenance
+                case 46?: return .ownerMaintenance
+                case 47?: return .updateCoordinates
+                default: return nil
+                }
+            }
+            var asWaypointLog: WaypointLog? {
+                let formatter = ISO8601DateFormatter()
+                formatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+                guard let type = parsedWaypointLogType, let text = text else { return nil }
+                return WaypointLog(
+                    type: type,
+                    createdAt: dateCreatedUtc.flatMap(formatter.date(from:)),
+                    lastEditedAt: dateLastUpdatedUtc.flatMap(formatter.date(from:)),
+                    username: owner?.username ?? "<unknown>",
+                    content: text
+                )
+            }
         }
     }
 }
