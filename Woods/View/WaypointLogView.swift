@@ -19,7 +19,7 @@ struct WaypointLogView: View {
                 VStack(alignment: .leading) {
                     Text(waypointLog.username)
                         .font(.headline)
-                    Text("\(waypointLog.type.displayName) on \(format(date: waypointLog.timestamp))")
+                    Text("\(waypointLog.type.displayName) on \(format(date: waypointLog.createdAt ?? waypointLog.timestamp))")
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                 }
