@@ -13,6 +13,12 @@ struct Degrees: AdditiveArithmetic, Hashable, Comparable, Codable, CustomStringC
     // Decimal degrees (internal representation)
     var totalDegrees: Double
     
+    // Angle in radians
+    var totalRadians: Double {
+        get { totalDegrees * .pi / 180 }
+        set { totalDegrees = newValue / .pi * 180 }
+    }
+    
     /// Degrees and decimal minutes
     var dm: (degrees: Int, minutes: Double) {
         get {
