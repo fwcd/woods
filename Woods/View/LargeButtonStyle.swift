@@ -13,9 +13,9 @@ struct LargeButtonStyle: ButtonStyle {
     
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .padding()
+            .padding(12)
             .foregroundColor(.white)
-            .background(Color.blue)
+            .background(configuration.isPressed ? Color.blue.opacity(0.5) : Color.blue)
             .cornerRadius(radius)
     }
 }
