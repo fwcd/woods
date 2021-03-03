@@ -15,7 +15,7 @@ struct WaypointDetailView: View {
     @EnvironmentObject private var waypoints: Waypoints
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 30) {
+        VStack(alignment: .leading, spacing: 40) {
             WaypointSnippetView(waypoint: waypoint)
             SimpleSection(header: "Info") {
                 Text(waypoint.location.description)
@@ -63,20 +63,37 @@ struct WaypointDetailView: View {
                 }
             }
             SimpleSection(header: "Actions") {
-                Button(action: { listPickerSheetShown = true }) {
-                    HStack {
-                        Image(systemName: "plus")
-                        Text("Add To List")
+                HStack {
+                    Button(action: { listPickerSheetShown = true }) {
+                        HStack {
+                            Image(systemName: "plus")
+                            Text("Add To List")
+                        }
+                    }
+                    .sheet(isPresented: $listPickerSheetShown) {
+                        WaypointListPickerView { id in
+                            waypoints.listTree[id]?.add(waypoints: [waypoint])
+                            listPickerSheetShown = false
+                        }
+                    }
+                    Button(action: {
+                        // TODO
+                    }) {
+                        HStack {
+                            Image(systemName: "square.and.arrow.up")
+                            Text("Link")
+                        }
+                    }
+                    Button(action: {
+                        // TODO
+                    }) {
+                        HStack {
+                            Image(systemName: "square.and.arrow.up")
+                            Text("GPX")
+                        }
                     }
                 }
                 .buttonStyle(LargeButtonStyle())
-                .sheet(isPresented: $listPickerSheetShown) {
-                    WaypointListPickerView { id in
-                        waypoints.listTree[id]?.add(waypoints: [waypoint])
-                        listPickerSheetShown = false
-                    }
-                }
-                // TODO: Share sheet using GPX
             }
             if !waypoint.logs.isEmpty {
                 SimpleSection(header: "Logs") {
