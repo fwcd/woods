@@ -10,7 +10,9 @@ import SwiftUI
 
 extension Waypoint {
     var iconName: String {
-        if geocacheType != nil {
+        if found {
+            return "face.smiling.fill"
+        } else if geocacheType != nil {
             return "archivebox.fill"
         } else {
             return "flag.fill"
