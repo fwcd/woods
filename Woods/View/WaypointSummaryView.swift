@@ -11,6 +11,8 @@ import SwiftUI
 struct WaypointSummaryView: View {
     let waypoint: Waypoint
     
+    @State private var detailSheetShown: Bool = false
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
             WaypointSnippetView(waypoint: waypoint)
@@ -34,12 +36,20 @@ struct WaypointSummaryView: View {
                 }
             }
             Button(action: {
-                // TODO
+                detailSheetShown = true
             }) {
-                Text("Details")
+                HStack {
+                    Spacer()
+                    Text("Show Details")
+                    Spacer()
+                }
             }
             .buttonStyle(LargeButtonStyle())
-            .frame(maxWidth: .infinity)
+            .sheet(isPresented: $detailSheetShown) {
+                ScrollView {
+                    WaypointDetailView(waypoint: waypoint)
+                }
+            }
         }
         .padding([.leading, .trailing], 20)
     }
