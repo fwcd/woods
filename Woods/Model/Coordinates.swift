@@ -72,7 +72,7 @@ struct Coordinates: Codable, Hashable, CustomStringConvertible {
         let (lat2, lon2) = (rhs.latitude.totalRadians, rhs.longitude.totalRadians)
         let dLon = lon2 - lon1
         let y = sin(dLon) * cos(lat2)
-        let x = cos(lat1) * cos(lat2) - sin(lat1) * cos(lat2) * cos(dLon)
+        let x = cos(lat1) * sin(lat2) - sin(lat1) * cos(lat2) * cos(dLon)
         return Degrees(radians: atan2(y, x))
     }
 }
