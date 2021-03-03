@@ -14,6 +14,7 @@ struct WaypointSmallSnippetView: View {
     var body: some View {
         HStack {
             Image(systemName: waypoint.iconName)
+                .foregroundColor(waypoint.color)
             VStack(alignment: .leading) {
                 Text(waypoint.name)
                     .font(.headline)
