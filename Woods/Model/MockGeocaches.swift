@@ -6,6 +6,8 @@
 //  Copyright © 2021 Fredrik. All rights reserved.
 //
 
+import Foundation
+
 func mockGeocaches() -> [Waypoint] {
     [
         // TODO: Use fixed dates and uuids for logs
@@ -16,6 +18,7 @@ func mockGeocaches() -> [Waypoint] {
             difficulty: 2,
             terrain: 3,
             geocacheType: .traditional,
+            webUrl: URL(string: "https://example.com"),
             logs: [
                 WaypointLog(type: .found, username: "Alice", content: "Very nice cache, thanks!"),
                 WaypointLog(type: .didNotFind, username: "Bob", content: "Long search, no find. :("),
