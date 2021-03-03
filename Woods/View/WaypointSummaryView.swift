@@ -47,16 +47,16 @@ struct WaypointSummaryView: View {
                 }
             }
             .buttonStyle(LargeButtonStyle())
+            .sheet(isPresented: $detailSheetShown) {
+                ScrollView {
+                    WaypointDetailView(waypoint: waypoint)
+                }
+                .padding([.top], 15)
+                .environmentObject(waypoints)
+                .environmentObject(locationManager)
+            }
         }
         .padding([.leading, .trailing], 20)
-        .sheet(isPresented: $detailSheetShown) {
-            ScrollView {
-                WaypointDetailView(waypoint: waypoint)
-            }
-            .padding([.top], 15)
-            .environmentObject(waypoints)
-            .environmentObject(locationManager)
-        }
     }
     
     private func makeDateFormatter() -> DateFormatter {

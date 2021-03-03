@@ -17,7 +17,7 @@ struct WaypointNavigatorView: View {
         locationManager.location.map { Coordinates(from: $0.coordinate) }
     }
     private var heading: Degrees? {
-        locationManager.heading.map { Degrees(radians: atan2($0.y, $0.x)) }
+        locationManager.heading.map { Degrees(degrees: $0.trueHeading) }
     }
     private var accuracy: Length? {
         (locationManager.location?.horizontalAccuracy).map { Length(meters: $0) }
@@ -26,7 +26,7 @@ struct WaypointNavigatorView: View {
         location.map { $0.distance(to: target) }
     }
     private var headingToTarget: Degrees? {
-        heading.flatMap { h in location.map { h + $0.heading(to: target) } }
+        heading.flatMap { h in location.map { $0.heading(to: target) - h } }
     }
     private var distance: Length? { Length(10, .kilometers) }
     
