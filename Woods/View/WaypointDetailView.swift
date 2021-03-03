@@ -47,6 +47,17 @@ struct WaypointDetailView: View {
                         Text(hint)
                     }
                 }
+                if waypoint.placedAt != nil || waypoint.lastFoundAt != nil {
+                    let formatter = makeDateFormatter()
+                    Section(header: Text("Dates")) {
+                        if let placedAt = waypoint.placedAt {
+                            Text("Placed: \(formatter.string(from: placedAt))")
+                        }
+                        if let lastFoundAt = waypoint.lastFoundAt {
+                            Text("Last Found: \(formatter.string(from: lastFoundAt))")
+                        }
+                    }
+                }
                 if !waypoint.additionalWaypoints.isEmpty {
                     Section(header: Text("Additional Waypoints")) {
                         List(waypoint.additionalWaypoints) { waypoint in
@@ -78,6 +89,12 @@ struct WaypointDetailView: View {
                 }
             }
         }
+    }
+    
+    private func makeDateFormatter() -> DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd.MM.yyyy"
+        return formatter
     }
 }
 
