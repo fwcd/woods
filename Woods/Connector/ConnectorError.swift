@@ -9,6 +9,7 @@
 enum ConnectorError: Error {
     case logInFailed(String)
     case logOutFailed(String)
+    case invalidWaypoint(String)
     case waypointNotFound(String)
     case waypointQueryFailed(String)
     case regionTooWide

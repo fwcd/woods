@@ -58,7 +58,16 @@ class GeocachingComConnector: Connector {
     }
     
     func waypoint(id: String) -> AnyPublisher<Waypoint, Error> {
-        fatalError("TODO")
+        Result.Publisher(Result { () -> HTTPRequest in
+            guard id.starts(with: "GC") else { throw ConnectorError.invalidWaypoint("Not a Geocaching.com geocache") }
+            return try HTTPRequest(url: apiPreviewUrl(gcCode: id))
+        })
+        .flatMap { $0.fetchJSONAsync(as: GeocachingComApiResults.Geocache.self) }
+        .tryMap {
+            guard let waypoint = $0.asWaypoint else { throw ConnectorError.waypointNotFound(id) }
+            return waypoint
+        }
+        .eraseToAnyPublisher()
     }
     
     func waypoints(for rawQuery: WaypointsInRadiusQuery) -> AnyPublisher<[Waypoint], Error> {
