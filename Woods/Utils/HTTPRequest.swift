@@ -1,6 +1,9 @@
 import Foundation
 import Combine
 import SwiftSoup
+import OSLog
+
+private let log = Logger(subsystem: "Woods", category: "HTTPRequest")
 
 public struct HTTPRequest {
     private var request: URLRequest
@@ -42,6 +45,8 @@ public struct HTTPRequest {
         for (key, value) in headers {
             request.setValue(value, forHTTPHeaderField: key)
         }
+        
+        request.setValue("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.72 Safari/537.36", forHTTPHeaderField: "User-Agent")
     }
 
     public init(
@@ -97,7 +102,11 @@ public struct HTTPRequest {
         URLSession.shared
             .dataTaskPublisher(for: request)
             .tryMap { element -> Data in
-                guard let response = element.response as? HTTPURLResponse, response.statusCode >= 200 && response.statusCode < 400 else {
+                guard let response = element.response as? HTTPURLResponse else {
+                    throw URLError(.badServerResponse)
+                }
+                log.info("Got HTTP \(response.statusCode) for \(request.url?.absoluteString ?? "?")")
+                guard response.statusCode >= 200 && response.statusCode < 400 else {
                     throw URLError(.badServerResponse)
                 }
                 return element.data
