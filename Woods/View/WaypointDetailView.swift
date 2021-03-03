@@ -15,39 +15,44 @@ struct WaypointDetailView: View {
     @EnvironmentObject private var waypoints: Waypoints
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 40) {
+        VStack(alignment: .leading, spacing: 20) {
             WaypointSnippetView(waypoint: waypoint)
-            SimpleSection(header: "Info") {
+            SimpleSection(header: "Info", iconName: "paperclip") {
                 Text(waypoint.location.description)
-                HStack {
-                    Image(systemName: "chart.bar.fill")
-                    StarsView(
-                        rating: waypoint.difficulty ?? 0,
-                        maxRating: Waypoint.ratings.upperBound,
-                        step: 2
-                    )
-                    Image(systemName: "leaf.fill")
-                    StarsView(
-                        rating: waypoint.terrain ?? 0,
-                        maxRating: Waypoint.ratings.upperBound,
-                        step: 2
-                    )
+                HStack(spacing: 20) {
+                    VStack {
+                        StarsView(
+                            rating: waypoint.difficulty ?? 0,
+                            maxRating: Waypoint.ratings.upperBound,
+                            step: 2
+                        )
+                        Text("Difficulty")
+                    }
+                    VStack {
+                        StarsView(
+                            rating: waypoint.terrain ?? 0,
+                            maxRating: Waypoint.ratings.upperBound,
+                            step: 2
+                        )
+                        Text("Terrain")
+                    }
                 }
+                .font(.caption)
             }
             if let description = waypoint.description {
-                SimpleSection(header: "Description") {
+                SimpleSection(header: "Description", iconName: "newspaper.fill") {
                     LightHTMLView(html: description)
-                        .lineLimit(nil)
+                        .multilineTextAlignment(.leading)
                 }
             }
             if let hint = waypoint.hint {
-                SimpleSection(header: "Hint") {
+                SimpleSection(header: "Hint", iconName: "lightbulb.fill") {
                     Text(hint)
                 }
             }
             if waypoint.placedAt != nil || waypoint.lastFoundAt != nil {
                 let formatter = makeDateFormatter()
-                SimpleSection(header: "Dates") {
+                SimpleSection(header: "Dates", iconName: "calendar") {
                     if let placedAt = waypoint.placedAt {
                         Text("Placed: \(formatter.string(from: placedAt))")
                     }
@@ -57,13 +62,13 @@ struct WaypointDetailView: View {
                 }
             }
             if !waypoint.additionalWaypoints.isEmpty {
-                SimpleSection(header: "Additional Waypoints") {
+                SimpleSection(header: "Additional Waypoints", iconName: "mappin.and.ellipse") {
                     List(waypoint.additionalWaypoints) { waypoint in
                         WaypointSmallSnippetView(waypoint: waypoint)
                     }
                 }
             }
-            SimpleSection(header: "Actions") {
+            SimpleSection(header: "Actions", iconName: "ellipsis") {
                 HStack {
                     Button(action: { listPickerSheetShown = true }) {
                         HStack {
@@ -105,7 +110,7 @@ struct WaypointDetailView: View {
                 .buttonStyle(LargeButtonStyle())
             }
             if !waypoint.logs.isEmpty {
-                SimpleSection(header: "Logs") {
+                SimpleSection(header: "Logs", iconName: "book.closed.fill") {
                     VStack(alignment: .leading, spacing: 10) {
                         ForEach(waypoint.logs.prefix(4)) { log in
                             WaypointLogView(waypointLog: log)

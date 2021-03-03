@@ -10,27 +10,27 @@ import SwiftUI
 
 struct SimpleSection<Content>: View where Content: View {
     let header: String
+    let iconName: String
     let content: () -> Content
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 5) {
-            Text(header.uppercased())
-                .foregroundColor(.secondary)
-                .font(.headline)
-                .padding(EdgeInsets(top: 0, leading: 0, bottom: 2, trailing: 0))
-            content()
+        GroupBox(label: Label(header, systemImage: iconName)) {
+            VStack(spacing: 10) {
+                content()
+            }
         }
     }
     
-    init(header: String, @ViewBuilder content: @escaping () -> Content) {
+    init(header: String, iconName: String, @ViewBuilder content: @escaping () -> Content) {
         self.header = header
+        self.iconName = iconName
         self.content = content
     }
 }
 
 struct SimpleSection_Previews: PreviewProvider {
     static var previews: some View {
-        SimpleSection(header: "Test") {
+        SimpleSection(header: "Test", iconName: "ellipsis") {
             Text("ABC")
         }
     }
