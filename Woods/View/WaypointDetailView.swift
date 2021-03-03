@@ -76,12 +76,14 @@ struct WaypointDetailView: View {
                             listPickerSheetShown = false
                         }
                     }
-                    Button(action: {
-                        // TODO
-                    }) {
-                        HStack {
-                            Image(systemName: "square.and.arrow.up")
-                            Text("Link")
+                    if let url = waypoint.webUrl {
+                        Button(action: {
+                            ShareSheet(items: [url]).presentIndependently()
+                        }) {
+                            HStack {
+                                Image(systemName: "square.and.arrow.up")
+                                Text("Link")
+                            }
                         }
                     }
                     Button(action: {
