@@ -30,8 +30,32 @@ struct WaypointDetailInfoView: View {
                 )
                 Text("Terrain")
             }
+            VStack {
+                SizeView(
+                    rating: value(of: waypoint.geocacheSize ?? .notChosen),
+                    maxRating: 4
+                )
+                Text("Size")
+            }
         }
         .font(.caption)
+    }
+    
+    private func value(of size: GeocacheSize) -> Int {
+        switch size {
+        case .nano:
+            return 1
+        case .micro:
+            return 1
+        case .small:
+            return 2
+        case .regular:
+            return 3
+        case .large:
+            return 4
+        default:
+            return 0
+        }
     }
 }
 

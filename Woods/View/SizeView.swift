@@ -11,8 +11,8 @@ import SwiftUI
 struct SizeView: View {
     let rating: Int
     let maxRating: Int
-    let width: CGFloat = 16
-    let height: CGFloat = 16
+    let width: CGFloat = 14
+    let height: CGFloat = 14
     
     var body: some View {
         HStack(alignment: .bottom, spacing: 4) {
