@@ -71,9 +71,15 @@ struct WaypointDetailView: View {
                         }
                     }
                     .sheet(isPresented: $listPickerSheetShown) {
-                        WaypointListPickerView { id in
-                            waypoints.listTree[id]?.add(waypoints: [waypoint])
-                            listPickerSheetShown = false
+                        NavigationView {
+                            Form {
+                                WaypointListPickerView { id in
+                                    waypoints.listTree[id]?.add(waypoints: [waypoint])
+                                    listPickerSheetShown = false
+                                }
+                            }
+                            .navigationTitle("Add To List")
+                            .navigationBarTitleDisplayMode(.inline)
                         }
                     }
                     if let url = waypoint.webUrl {
