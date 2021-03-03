@@ -9,7 +9,8 @@
 enum ConnectorError: Error {
     case logInFailed(String)
     case logOutFailed(String)
-    case geocacheQueryFailed(String)
+    case waypointNotFound(String)
+    case waypointQueryFailed(String)
     case regionTooWide
     case noConnector
 }

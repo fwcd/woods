@@ -20,6 +20,10 @@ private let searchMoreUrl = URL(string: "\(baseUrl)/play/search/more-results")!
 private let myLogsUrl = URL(string: "\(baseUrl)/my/logs.aspx")!
 private let apiSearchUrl = URL(string: "\(baseUrl)/api/proxy/web/search/v2")!
 
+private func apiPreviewUrl(gcCode: String) -> URL {
+    URL(string: "\(baseUrl)/api/proxy/web/search/geocachepreview/\(gcCode)")!
+}
+
 private let log = Logger(subsystem: "Woods", category: "GeocachingComConnector")
 
 class GeocachingComConnector: Connector {
@@ -49,6 +53,11 @@ class GeocachingComConnector: Connector {
     }
     
     func logOut() -> AnyPublisher<Void, Error> {
+        // TODO
+        Just(()).weakenError().eraseToAnyPublisher()
+    }
+    
+    func waypoint(id: String) -> AnyPublisher<Waypoint, Error> {
         fatalError("TODO")
     }
     
