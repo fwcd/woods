@@ -45,13 +45,14 @@ struct WaypointSummaryView: View {
                 }
             }
             .buttonStyle(LargeButtonStyle())
-            .sheet(isPresented: $detailSheetShown) {
-                ScrollView {
-                    WaypointDetailView(waypoint: waypoint)
-                }
-            }
         }
         .padding([.leading, .trailing], 20)
+        .sheet(isPresented: $detailSheetShown) {
+            ScrollView {
+                WaypointDetailView(waypoint: waypoint)
+            }
+            .padding([.top], 15)
+        }
     }
     
     private func makeDateFormatter() -> DateFormatter {
