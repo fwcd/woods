@@ -12,6 +12,7 @@ struct WaypointSnippetView: View {
     let waypoint: Waypoint
     
     @EnvironmentObject private var locationManager: LocationManager
+    @State private var navigatorSheetShown: Bool = false
     
     var body: some View {
         HStack {
@@ -28,7 +29,13 @@ struct WaypointSnippetView: View {
             }
             Spacer()
             if let location = locationManager.location {
-                WaypointDistanceView(start: Coordinates(from: location.coordinate), target: waypoint.location)
+                Button(action: { navigatorSheetShown = true }) {
+                    WaypointDistanceView(start: Coordinates(from: location.coordinate), target: waypoint.location)
+                }
+                .sheet(isPresented: $navigatorSheetShown) {
+                    WaypointNavigatorView(target: waypoint.location)
+                        .environmentObject(locationManager)
+                }
             }
         }
         .onAppear {

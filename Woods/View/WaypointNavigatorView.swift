@@ -46,6 +46,14 @@ struct WaypointNavigatorView: View {
                 }
             }
         }
+        .onAppear {
+            locationManager.dependOnLocation()
+            locationManager.dependOnHeading()
+        }
+        .onDisappear {
+            locationManager.undependOnLocation()
+            locationManager.undependOnHeading()
+        }
     }
 }
 
