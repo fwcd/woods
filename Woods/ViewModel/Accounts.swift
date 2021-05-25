@@ -16,10 +16,17 @@ private let keychainClass: Any = kSecClassInternetPassword
 
 class Accounts: ObservableObject {
     @Published private(set) var accounts: [UUID: Account] = [:]
+    @Published private(set) var loginStates: [UUID: LoginState] = [:]
     private(set) var connectors = [UUID: Connector]()
     
     private var loginTasks = [UUID: AnyCancellable]()
     private var logoutTasks = [UUID: AnyCancellable]()
+    
+    enum LoginState {
+        case loggingIn
+        case loggedIn
+        case couldNotLogIn(String)
+    }
     
     init(accounts: [Account] = [], testMode: Bool = false) {
         var initialAccounts = accounts
@@ -67,16 +74,20 @@ class Accounts: ObservableObject {
         log.info("Logging in using \(account)")
         let connector = account.type.makeConnector()
         
+        accounts[account.id] = account
+        loginStates[account.id] = .loggingIn
         connectors[account.id] = connector
         loginTasks[account.id] = connector
             .logIn(using: account.credentials)
             .receive(on: RunLoop.main)
-            .sink { completion in
+            .sink { [self] completion in
                 if case let .failure(error) = completion {
-                    log.warning("Could not log in with account \(account): \(String(describing: error))")
+                    let errorDescription = String(describing: error)
+                    log.warning("Could not log in with account \(account): \(errorDescription)")
+                    loginStates[account.id] = .couldNotLogIn(errorDescription)
                 }
             } receiveValue: { [self] in
-                accounts[account.id] = account
+                loginStates[account.id] = .loggedIn
             }
     }
     

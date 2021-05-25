@@ -20,11 +20,15 @@ struct AccountsView: View {
             List {
                 let accountList = accounts.accounts.values.sorted { $0.credentials.username < $1.credentials.username }
                 ForEach(accountList) { account in
-                    VStack(alignment: .leading) {
-                        Text(account.type.description)
-                            .font(.headline)
-                        Text(account.credentials.username)
-                            .font(.subheadline)
+                    HStack {
+                        Image(systemName: "circlebadge.fill")
+                            .foregroundColor(colorFor(loginState: accounts.loginStates[account.id]))
+                        VStack(alignment: .leading) {
+                            Text(account.type.description)
+                                .font(.headline)
+                            Text(account.credentials.username)
+                                .font(.subheadline)
+                        }
                     }
                 }
                 .onDelete { indexSet in
@@ -49,6 +53,19 @@ struct AccountsView: View {
             }
         }
         .navigationViewStyle(StackNavigationViewStyle())
+    }
+    
+    private func colorFor(loginState: Accounts.LoginState?) -> Color {
+        switch loginState {
+        case .loggingIn?:
+            return .yellow
+        case .loggedIn?:
+            return .green
+        case .couldNotLogIn(_)?:
+            return .red
+        case nil:
+            return .gray
+        }
     }
 }
 
