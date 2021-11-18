@@ -7,6 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		35126CCE2745CE1E00CF998C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35126CCD2745CE1E00CF998C /* Assets.xcassets */; };
+		35126CD42745CE1E00CF998C /* WatchWoods WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 35126CD32745CE1E00CF998C /* WatchWoods WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		35126CD92745CE1E00CF998C /* WoodsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35126CD82745CE1E00CF998C /* WoodsApp.swift */; };
+		35126CDB2745CE1E00CF998C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35126CDA2745CE1E00CF998C /* ContentView.swift */; };
+		35126CDD2745CE1E00CF998C /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35126CDC2745CE1E00CF998C /* NotificationController.swift */; };
+		35126CDF2745CE1E00CF998C /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35126CDE2745CE1E00CF998C /* NotificationView.swift */; };
+		35126CE12745CE1E00CF998C /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35126CE02745CE1E00CF998C /* ComplicationController.swift */; };
+		35126CE32745CE1E00CF998C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35126CE22745CE1E00CF998C /* Assets.xcassets */; };
+		35126CE62745CE1E00CF998C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35126CE52745CE1E00CF998C /* Preview Assets.xcassets */; };
+		35126CF22745CE1E00CF998C /* WatchWoodsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35126CF12745CE1E00CF998C /* WatchWoodsTests.swift */; };
+		35126CFC2745CE1E00CF998C /* WatchWoodsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35126CFB2745CE1E00CF998C /* WatchWoodsUITests.swift */; };
+		35126CFE2745CE1E00CF998C /* WatchWoodsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35126CFD2745CE1E00CF998C /* WatchWoodsUITestsLaunchTests.swift */; };
+		35126D012745CE1E00CF998C /* Woods.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 35126CCB2745CE1D00CF998C /* Woods.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		C70B379D25ED7CC100553597 /* Waypoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70B379C25ED7CC100553597 /* Waypoints.swift */; };
 		C73E04BB249F9F4700C6E22C /* WoodsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73E04BA249F9F4700C6E22C /* WoodsApp.swift */; };
 		C73E04BF249F9F4700C6E22C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73E04BE249F9F4700C6E22C /* ContentView.swift */; };
@@ -93,6 +106,34 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		35126CD52745CE1E00CF998C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C73E04AF249F9F4700C6E22C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 35126CD22745CE1E00CF998C;
+			remoteInfo = "WatchWoods WatchKit Extension";
+		};
+		35126CEE2745CE1E00CF998C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C73E04AF249F9F4700C6E22C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 35126CD22745CE1E00CF998C;
+			remoteInfo = "WatchWoods WatchKit Extension";
+		};
+		35126CF82745CE1E00CF998C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C73E04AF249F9F4700C6E22C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 35126CCA2745CE1D00CF998C;
+			remoteInfo = WatchWoods;
+		};
+		35126CFF2745CE1E00CF998C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C73E04AF249F9F4700C6E22C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 35126CCA2745CE1D00CF998C;
+			remoteInfo = WatchWoods;
+		};
 		C73E04CE249F9F4A00C6E22C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C73E04AF249F9F4700C6E22C /* Project object */;
@@ -109,7 +150,49 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		35126D022745CE1E00CF998C /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				35126D012745CE1E00CF998C /* Woods.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		35126D052745CE1E00CF998C /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				35126CD42745CE1E00CF998C /* WatchWoods WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		35126CCB2745CE1D00CF998C /* Woods.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Woods.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		35126CCD2745CE1E00CF998C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		35126CD32745CE1E00CF998C /* WatchWoods WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "WatchWoods WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		35126CD82745CE1E00CF998C /* WoodsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoodsApp.swift; sourceTree = "<group>"; };
+		35126CDA2745CE1E00CF998C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		35126CDC2745CE1E00CF998C /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		35126CDE2745CE1E00CF998C /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
+		35126CE02745CE1E00CF998C /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		35126CE22745CE1E00CF998C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		35126CE52745CE1E00CF998C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		35126CE72745CE1E00CF998C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		35126CE82745CE1E00CF998C /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		35126CED2745CE1E00CF998C /* WatchWoodsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WatchWoodsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		35126CF12745CE1E00CF998C /* WatchWoodsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchWoodsTests.swift; sourceTree = "<group>"; };
+		35126CF72745CE1E00CF998C /* WatchWoodsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WatchWoodsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		35126CFB2745CE1E00CF998C /* WatchWoodsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchWoodsUITests.swift; sourceTree = "<group>"; };
+		35126CFD2745CE1E00CF998C /* WatchWoodsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchWoodsUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		C70B379C25ED7CC100553597 /* Waypoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Waypoints.swift; sourceTree = "<group>"; };
 		C73E04B7249F9F4700C6E22C /* Woods.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Woods.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C73E04BA249F9F4700C6E22C /* WoodsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoodsApp.swift; sourceTree = "<group>"; };
@@ -200,6 +283,27 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		35126CD02745CE1E00CF998C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		35126CEA2745CE1E00CF998C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		35126CF42745CE1E00CF998C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C73E04B4249F9F4700C6E22C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -226,12 +330,65 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		35126CCC2745CE1D00CF998C /* WatchWoods */ = {
+			isa = PBXGroup;
+			children = (
+				35126CCD2745CE1E00CF998C /* Assets.xcassets */,
+			);
+			path = WatchWoods;
+			sourceTree = "<group>";
+		};
+		35126CD72745CE1E00CF998C /* WatchWoods WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				35126CD82745CE1E00CF998C /* WoodsApp.swift */,
+				35126CDA2745CE1E00CF998C /* ContentView.swift */,
+				35126CDC2745CE1E00CF998C /* NotificationController.swift */,
+				35126CDE2745CE1E00CF998C /* NotificationView.swift */,
+				35126CE02745CE1E00CF998C /* ComplicationController.swift */,
+				35126CE22745CE1E00CF998C /* Assets.xcassets */,
+				35126CE72745CE1E00CF998C /* Info.plist */,
+				35126CE82745CE1E00CF998C /* PushNotificationPayload.apns */,
+				35126CE42745CE1E00CF998C /* Preview Content */,
+			);
+			path = "WatchWoods WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		35126CE42745CE1E00CF998C /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				35126CE52745CE1E00CF998C /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		35126CF02745CE1E00CF998C /* WatchWoodsTests */ = {
+			isa = PBXGroup;
+			children = (
+				35126CF12745CE1E00CF998C /* WatchWoodsTests.swift */,
+			);
+			path = WatchWoodsTests;
+			sourceTree = "<group>";
+		};
+		35126CFA2745CE1E00CF998C /* WatchWoodsUITests */ = {
+			isa = PBXGroup;
+			children = (
+				35126CFB2745CE1E00CF998C /* WatchWoodsUITests.swift */,
+				35126CFD2745CE1E00CF998C /* WatchWoodsUITestsLaunchTests.swift */,
+			);
+			path = WatchWoodsUITests;
+			sourceTree = "<group>";
+		};
 		C73E04AE249F9F4700C6E22C = {
 			isa = PBXGroup;
 			children = (
 				C73E04B9249F9F4700C6E22C /* Woods */,
 				C73E04D0249F9F4A00C6E22C /* WoodsTests */,
 				C73E04DB249F9F4A00C6E22C /* WoodsUITests */,
+				35126CCC2745CE1D00CF998C /* WatchWoods */,
+				35126CD72745CE1E00CF998C /* WatchWoods WatchKit Extension */,
+				35126CF02745CE1E00CF998C /* WatchWoodsTests */,
+				35126CFA2745CE1E00CF998C /* WatchWoodsUITests */,
 				C73E04B8249F9F4700C6E22C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -242,6 +399,10 @@
 				C73E04B7249F9F4700C6E22C /* Woods.app */,
 				C73E04CD249F9F4A00C6E22C /* WoodsTests.xctest */,
 				C73E04D8249F9F4A00C6E22C /* WoodsUITests.xctest */,
+				35126CCB2745CE1D00CF998C /* Woods.app */,
+				35126CD32745CE1E00CF998C /* WatchWoods WatchKit Extension.appex */,
+				35126CED2745CE1E00CF998C /* WatchWoodsTests.xctest */,
+				35126CF72745CE1E00CF998C /* WatchWoodsUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -402,6 +563,76 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		35126CCA2745CE1D00CF998C /* WatchWoods */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 35126D0D2745CE1E00CF998C /* Build configuration list for PBXNativeTarget "WatchWoods" */;
+			buildPhases = (
+				35126CC92745CE1D00CF998C /* Resources */,
+				35126D052745CE1E00CF998C /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				35126CD62745CE1E00CF998C /* PBXTargetDependency */,
+			);
+			name = WatchWoods;
+			productName = WatchWoods;
+			productReference = 35126CCB2745CE1D00CF998C /* Woods.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		35126CD22745CE1E00CF998C /* WatchWoods WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 35126D0C2745CE1E00CF998C /* Build configuration list for PBXNativeTarget "WatchWoods WatchKit Extension" */;
+			buildPhases = (
+				35126CCF2745CE1E00CF998C /* Sources */,
+				35126CD02745CE1E00CF998C /* Frameworks */,
+				35126CD12745CE1E00CF998C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "WatchWoods WatchKit Extension";
+			productName = "WatchWoods WatchKit Extension";
+			productReference = 35126CD32745CE1E00CF998C /* WatchWoods WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
+		35126CEC2745CE1E00CF998C /* WatchWoodsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 35126D0E2745CE1E00CF998C /* Build configuration list for PBXNativeTarget "WatchWoodsTests" */;
+			buildPhases = (
+				35126CE92745CE1E00CF998C /* Sources */,
+				35126CEA2745CE1E00CF998C /* Frameworks */,
+				35126CEB2745CE1E00CF998C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				35126CEF2745CE1E00CF998C /* PBXTargetDependency */,
+			);
+			name = WatchWoodsTests;
+			productName = WatchWoodsTests;
+			productReference = 35126CED2745CE1E00CF998C /* WatchWoodsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		35126CF62745CE1E00CF998C /* WatchWoodsUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 35126D0F2745CE1E00CF998C /* Build configuration list for PBXNativeTarget "WatchWoodsUITests" */;
+			buildPhases = (
+				35126CF32745CE1E00CF998C /* Sources */,
+				35126CF42745CE1E00CF998C /* Frameworks */,
+				35126CF52745CE1E00CF998C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				35126CF92745CE1E00CF998C /* PBXTargetDependency */,
+			);
+			name = WatchWoodsUITests;
+			productName = WatchWoodsUITests;
+			productReference = 35126CF72745CE1E00CF998C /* WatchWoodsUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		C73E04B6249F9F4700C6E22C /* Woods */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C73E04E1249F9F4A00C6E22C /* Build configuration list for PBXNativeTarget "Woods" */;
@@ -409,10 +640,12 @@
 				C73E04B3249F9F4700C6E22C /* Sources */,
 				C73E04B4249F9F4700C6E22C /* Frameworks */,
 				C73E04B5249F9F4700C6E22C /* Resources */,
+				35126D022745CE1E00CF998C /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				35126D002745CE1E00CF998C /* PBXTargetDependency */,
 			);
 			name = Woods;
 			packageProductDependencies = (
@@ -465,10 +698,24 @@
 		C73E04AF249F9F4700C6E22C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1130;
+				LastSwiftUpdateCheck = 1310;
 				LastUpgradeCheck = 1310;
 				ORGANIZATIONNAME = Fredrik;
 				TargetAttributes = {
+					35126CCA2745CE1D00CF998C = {
+						CreatedOnToolsVersion = 13.1;
+					};
+					35126CD22745CE1E00CF998C = {
+						CreatedOnToolsVersion = 13.1;
+					};
+					35126CEC2745CE1E00CF998C = {
+						CreatedOnToolsVersion = 13.1;
+						TestTargetID = 35126CD22745CE1E00CF998C;
+					};
+					35126CF62745CE1E00CF998C = {
+						CreatedOnToolsVersion = 13.1;
+						TestTargetID = 35126CCA2745CE1D00CF998C;
+					};
 					C73E04B6249F9F4700C6E22C = {
 						CreatedOnToolsVersion = 11.3.1;
 					};
@@ -502,11 +749,46 @@
 				C73E04B6249F9F4700C6E22C /* Woods */,
 				C73E04CC249F9F4A00C6E22C /* WoodsTests */,
 				C73E04D7249F9F4A00C6E22C /* WoodsUITests */,
+				35126CCA2745CE1D00CF998C /* WatchWoods */,
+				35126CD22745CE1E00CF998C /* WatchWoods WatchKit Extension */,
+				35126CEC2745CE1E00CF998C /* WatchWoodsTests */,
+				35126CF62745CE1E00CF998C /* WatchWoodsUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		35126CC92745CE1D00CF998C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				35126CCE2745CE1E00CF998C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		35126CD12745CE1E00CF998C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				35126CE62745CE1E00CF998C /* Preview Assets.xcassets in Resources */,
+				35126CE32745CE1E00CF998C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		35126CEB2745CE1E00CF998C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		35126CF52745CE1E00CF998C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C73E04B5249F9F4700C6E22C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -534,6 +816,35 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		35126CCF2745CE1E00CF998C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				35126CDD2745CE1E00CF998C /* NotificationController.swift in Sources */,
+				35126CDB2745CE1E00CF998C /* ContentView.swift in Sources */,
+				35126CE12745CE1E00CF998C /* ComplicationController.swift in Sources */,
+				35126CD92745CE1E00CF998C /* WoodsApp.swift in Sources */,
+				35126CDF2745CE1E00CF998C /* NotificationView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		35126CE92745CE1E00CF998C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				35126CF22745CE1E00CF998C /* WatchWoodsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		35126CF32745CE1E00CF998C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				35126CFC2745CE1E00CF998C /* WatchWoodsUITests.swift in Sources */,
+				35126CFE2745CE1E00CF998C /* WatchWoodsUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C73E04B3249F9F4700C6E22C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -636,6 +947,26 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		35126CD62745CE1E00CF998C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 35126CD22745CE1E00CF998C /* WatchWoods WatchKit Extension */;
+			targetProxy = 35126CD52745CE1E00CF998C /* PBXContainerItemProxy */;
+		};
+		35126CEF2745CE1E00CF998C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 35126CD22745CE1E00CF998C /* WatchWoods WatchKit Extension */;
+			targetProxy = 35126CEE2745CE1E00CF998C /* PBXContainerItemProxy */;
+		};
+		35126CF92745CE1E00CF998C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 35126CCA2745CE1D00CF998C /* WatchWoods */;
+			targetProxy = 35126CF82745CE1E00CF998C /* PBXContainerItemProxy */;
+		};
+		35126D002745CE1E00CF998C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 35126CCA2745CE1D00CF998C /* WatchWoods */;
+			targetProxy = 35126CFF2745CE1E00CF998C /* PBXContainerItemProxy */;
+		};
 		C73E04CF249F9F4A00C6E22C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = C73E04B6249F9F4700C6E22C /* Woods */;
@@ -660,6 +991,226 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		35126D032745CE1E00CF998C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SS8V8UGLY8;
+				GENERATE_INFOPLIST_FILE = YES;
+				IBSC_MODULE = WatchWoods_WatchKit_Extension;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = fwcd.Woods;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = fwcd.Woods.watchkitapp;
+				PRODUCT_NAME = Woods;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 8.0;
+			};
+			name = Debug;
+		};
+		35126D042745CE1E00CF998C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SS8V8UGLY8;
+				GENERATE_INFOPLIST_FILE = YES;
+				IBSC_MODULE = WatchWoods_WatchKit_Extension;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = fwcd.Woods;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = fwcd.Woods.watchkitapp;
+				PRODUCT_NAME = Woods;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 8.0;
+			};
+			name = Release;
+		};
+		35126D062745CE1E00CF998C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"WatchWoods WatchKit Extension/Preview Content\"";
+				DEVELOPMENT_TEAM = SS8V8UGLY8;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "WatchWoods WatchKit Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "WatchWoods WatchKit Extension";
+				INFOPLIST_KEY_CLKComplicationPrincipalClass = "$(PRODUCT_MODULE_NAME).ComplicationController";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2021 Fredrik. All rights reserved.";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = fwcd.Woods.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 8.0;
+			};
+			name = Debug;
+		};
+		35126D072745CE1E00CF998C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"WatchWoods WatchKit Extension/Preview Content\"";
+				DEVELOPMENT_TEAM = SS8V8UGLY8;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "WatchWoods WatchKit Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "WatchWoods WatchKit Extension";
+				INFOPLIST_KEY_CLKComplicationPrincipalClass = "$(PRODUCT_MODULE_NAME).ComplicationController";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2021 Fredrik. All rights reserved.";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = fwcd.Woods.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 8.0;
+			};
+			name = Release;
+		};
+		35126D082745CE1E00CF998C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SS8V8UGLY8;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = fwcd.Woods.WatchWoodsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WatchWoods WatchKit Extension.appex/WatchWoods WatchKit Extension";
+				WATCHOS_DEPLOYMENT_TARGET = 8.0;
+			};
+			name = Debug;
+		};
+		35126D092745CE1E00CF998C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SS8V8UGLY8;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = fwcd.Woods.WatchWoodsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WatchWoods WatchKit Extension.appex/WatchWoods WatchKit Extension";
+				WATCHOS_DEPLOYMENT_TARGET = 8.0;
+			};
+			name = Release;
+		};
+		35126D0A2745CE1E00CF998C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SS8V8UGLY8;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = fwcd.Woods.WatchWoodsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = WatchWoods;
+				WATCHOS_DEPLOYMENT_TARGET = 8.0;
+			};
+			name = Debug;
+		};
+		35126D0B2745CE1E00CF998C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SS8V8UGLY8;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = fwcd.Woods.WatchWoodsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = WatchWoods;
+				WATCHOS_DEPLOYMENT_TARGET = 8.0;
+			};
+			name = Release;
+		};
 		C73E04DF249F9F4A00C6E22C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -901,6 +1452,42 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		35126D0C2745CE1E00CF998C /* Build configuration list for PBXNativeTarget "WatchWoods WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				35126D062745CE1E00CF998C /* Debug */,
+				35126D072745CE1E00CF998C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		35126D0D2745CE1E00CF998C /* Build configuration list for PBXNativeTarget "WatchWoods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				35126D032745CE1E00CF998C /* Debug */,
+				35126D042745CE1E00CF998C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		35126D0E2745CE1E00CF998C /* Build configuration list for PBXNativeTarget "WatchWoodsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				35126D082745CE1E00CF998C /* Debug */,
+				35126D092745CE1E00CF998C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		35126D0F2745CE1E00CF998C /* Build configuration list for PBXNativeTarget "WatchWoodsUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				35126D0A2745CE1E00CF998C /* Debug */,
+				35126D0B2745CE1E00CF998C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C73E04B2249F9F4700C6E22C /* Build configuration list for PBXProject "Woods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
