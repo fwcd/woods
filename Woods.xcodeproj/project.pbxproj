@@ -19,7 +19,7 @@
 		35126CF22745CE1E00CF998C /* WatchWoodsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35126CF12745CE1E00CF998C /* WatchWoodsTests.swift */; };
 		35126CFC2745CE1E00CF998C /* WatchWoodsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35126CFB2745CE1E00CF998C /* WatchWoodsUITests.swift */; };
 		35126CFE2745CE1E00CF998C /* WatchWoodsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35126CFD2745CE1E00CF998C /* WatchWoodsUITestsLaunchTests.swift */; };
-		35126D012745CE1E00CF998C /* Woods.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 35126CCB2745CE1D00CF998C /* Woods.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		35126D012745CE1E00CF998C /* Woods.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 35126CCB2745CE1D00CF998C /* Woods.app */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		C70B379D25ED7CC100553597 /* Waypoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70B379C25ED7CC100553597 /* Waypoints.swift */; };
 		C73E04BB249F9F4700C6E22C /* WoodsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73E04BA249F9F4700C6E22C /* WoodsApp.swift */; };
 		C73E04BF249F9F4700C6E22C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73E04BE249F9F4700C6E22C /* ContentView.swift */; };
@@ -193,6 +193,7 @@
 		35126CF72745CE1E00CF998C /* WatchWoodsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WatchWoodsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		35126CFB2745CE1E00CF998C /* WatchWoodsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchWoodsUITests.swift; sourceTree = "<group>"; };
 		35126CFD2745CE1E00CF998C /* WatchWoodsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchWoodsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		35353C3A2745D533002ACE14 /* Woods.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Woods.entitlements; sourceTree = "<group>"; };
 		C70B379C25ED7CC100553597 /* Waypoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Waypoints.swift; sourceTree = "<group>"; };
 		C73E04B7249F9F4700C6E22C /* Woods.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Woods.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C73E04BA249F9F4700C6E22C /* WoodsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoodsApp.swift; sourceTree = "<group>"; };
@@ -419,6 +420,7 @@
 				C73E04C0249F9F4A00C6E22C /* Assets.xcassets */,
 				C73E04C5249F9F4A00C6E22C /* LaunchScreen.storyboard */,
 				C73E04C8249F9F4A00C6E22C /* Info.plist */,
+				35353C3A2745D533002ACE14 /* Woods.entitlements */,
 				C73E04C2249F9F4A00C6E22C /* Preview Content */,
 			);
 			path = Woods;
@@ -964,6 +966,7 @@
 		};
 		35126D002745CE1E00CF998C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
+			platformFilter = ios;
 			target = 35126CCA2745CE1D00CF998C /* WatchWoods */;
 			targetProxy = 35126CFF2745CE1E00CF998C /* PBXContainerItemProxy */;
 		};
@@ -1331,6 +1334,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Woods/Woods.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Woods/Preview Content\"";
 				DEVELOPMENT_TEAM = SS8V8UGLY8;
@@ -1342,6 +1346,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = fwcd.Woods;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1351,6 +1356,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Woods/Woods.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Woods/Preview Content\"";
 				DEVELOPMENT_TEAM = SS8V8UGLY8;
@@ -1362,6 +1368,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = fwcd.Woods;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
