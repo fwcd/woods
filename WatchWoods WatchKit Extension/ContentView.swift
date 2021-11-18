@@ -18,5 +18,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .previewDevice("Apple Watch Series 6 - 40mm")
     }
 }
