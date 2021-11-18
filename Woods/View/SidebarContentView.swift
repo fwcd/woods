@@ -9,27 +9,41 @@
 import SwiftUI
 
 struct SidebarContentView: View {
+    private enum SidebarTab: Hashable {
+        case map
+        case lists
+        case search
+        case accounts
+    }
+    
+    @State private var selectedTab: SidebarTab? = .map
+    
     var body: some View {
         NavigationView {
             List {
-                NavigationLink(destination: RichMapView()) {
-                    Image(systemName: "map.fill")
-                    Text("Map")
+                Section(header: Text("Navigation")) {
+                    NavigationLink(destination: RichMapView(), tag: .map, selection: $selectedTab) {
+                        Image(systemName: "map.fill")
+                        Text("Map")
+                    }
+                    NavigationLink(destination: WaypointListsView(), tag: .lists, selection: $selectedTab) {
+                        Image(systemName: "list.bullet")
+                        Text("Lists")
+                    }
+                    NavigationLink(destination: Text("TODO"), tag: .search, selection: $selectedTab) {
+                        Image(systemName: "magnifyingglass")
+                        Text("Search")
+                    }
+                    NavigationLink(destination: AccountsView(), tag: .accounts, selection: $selectedTab) {
+                        Image(systemName: "person.circle.fill")
+                        Text("Accounts")
+                    }
                 }
-                NavigationLink(destination: WaypointListsView()) {
-                    Image(systemName: "list.bullet")
-                    Text("Lists")
-                }
-                NavigationLink(destination: Text("TODO")) {
-                    Image(systemName: "magnifyingglass")
-                    Text("Search")
-                }
-                NavigationLink(destination: AccountsView()) {
-                    Image(systemName: "person.circle.fill")
-                    Text("Accounts")
+                Spacer()
+                Section(header: Text("Lists")) {
+                    Text("TODO")
                 }
             }
-            Text("Test")
         }
     }
 }
