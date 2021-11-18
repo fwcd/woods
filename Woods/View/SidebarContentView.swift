@@ -41,7 +41,7 @@ struct SidebarContentView: View {
                 }
                 Spacer()
                 Section(header: Text("Lists")) {
-                    Text("TODO")
+                    SidebarWaypointListsView()
                 }
             }
         }

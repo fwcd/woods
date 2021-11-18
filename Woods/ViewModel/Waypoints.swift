@@ -22,6 +22,8 @@ class Waypoints: ObservableObject {
     private let accounts: Accounts
     private var runningQueryTask: AnyCancellable?
     
+    var listRootWrapper: WaypointListWrapper { WaypointListWrapper(waypoints: self, id: listTree.rootId) }
+    
     init(accounts: Accounts, lists: [WaypointList] = []) {
         self.accounts = accounts
         

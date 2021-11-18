@@ -21,6 +21,8 @@
 		35126CFE2745CE1E00CF998C /* WatchWoodsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35126CFD2745CE1E00CF998C /* WatchWoodsUITestsLaunchTests.swift */; };
 		35126D012745CE1E00CF998C /* Woods.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 35126CCB2745CE1D00CF998C /* Woods.app */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		35353C3C2745D90F002ACE14 /* SidebarContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35353C3B2745D90F002ACE14 /* SidebarContentView.swift */; };
+		35E5DF44274642D200226EEA /* SidebarWaypointListsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E5DF43274642D200226EEA /* SidebarWaypointListsView.swift */; };
+		35E5DF462746454C00226EEA /* WaypointListWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E5DF452746454C00226EEA /* WaypointListWrapper.swift */; };
 		C70B379D25ED7CC100553597 /* Waypoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70B379C25ED7CC100553597 /* Waypoints.swift */; };
 		C73E04BB249F9F4700C6E22C /* WoodsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73E04BA249F9F4700C6E22C /* WoodsApp.swift */; };
 		C73E04BF249F9F4700C6E22C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73E04BE249F9F4700C6E22C /* ContentView.swift */; };
@@ -196,6 +198,8 @@
 		35126CFD2745CE1E00CF998C /* WatchWoodsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchWoodsUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		35353C3A2745D533002ACE14 /* Woods.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Woods.entitlements; sourceTree = "<group>"; };
 		35353C3B2745D90F002ACE14 /* SidebarContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarContentView.swift; sourceTree = "<group>"; };
+		35E5DF43274642D200226EEA /* SidebarWaypointListsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarWaypointListsView.swift; sourceTree = "<group>"; };
+		35E5DF452746454C00226EEA /* WaypointListWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointListWrapper.swift; sourceTree = "<group>"; };
 		C70B379C25ED7CC100553597 /* Waypoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Waypoints.swift; sourceTree = "<group>"; };
 		C73E04B7249F9F4700C6E22C /* Woods.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Woods.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C73E04BA249F9F4700C6E22C /* WoodsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoodsApp.swift; sourceTree = "<group>"; };
@@ -501,6 +505,7 @@
 				C765463B25D88AC6004F14E8 /* Accounts.swift */,
 				C765464025D88B6C004F14E8 /* KeychainError.swift */,
 				C70B379C25ED7CC100553597 /* Waypoints.swift */,
+				35E5DF452746454C00226EEA /* WaypointListWrapper.swift */,
 				C7ECBD6F25EEAB38005933C0 /* LocationManager.swift */,
 			);
 			path = ViewModel;
@@ -525,6 +530,7 @@
 			children = (
 				C73E04BE249F9F4700C6E22C /* ContentView.swift */,
 				35353C3B2745D90F002ACE14 /* SidebarContentView.swift */,
+				35E5DF43274642D200226EEA /* SidebarWaypointListsView.swift */,
 				C765464D25D88CEC004F14E8 /* AccountsView.swift */,
 				C765465225D88E48004F14E8 /* LoginView.swift */,
 				C7B6F0FC249FA16B00454841 /* RichMapView.swift */,
@@ -896,7 +902,9 @@
 				C7ECBDF125EFE971005933C0 /* SimpleUIViewControllerRepresentable.swift in Sources */,
 				C7B74E6C25ED8DA600D5194B /* WaypointMapView.swift in Sources */,
 				C765467F25D8A280004F14E8 /* JSONUtils.swift in Sources */,
+				35E5DF462746454C00226EEA /* WaypointListWrapper.swift in Sources */,
 				C748C2AC25EEA19300661BEE /* Waypoint+Icon.swift in Sources */,
+				35E5DF44274642D200226EEA /* SidebarWaypointListsView.swift in Sources */,
 				C7B74EE325EDDD8C00D5194B /* Degrees.swift in Sources */,
 				C7ECBE2D25F006D9005933C0 /* WaypointSummaryView.swift in Sources */,
 				C765467725D8A23C004F14E8 /* PersistenceUtils.swift in Sources */,

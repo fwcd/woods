@@ -12,6 +12,8 @@ struct WaypointListTree: Codable, Hashable {
     private(set) var lists: [UUID: WaypointList]
     private(set) var rootId: UUID
     
+    var root: WaypointList { lists[rootId]! }
+    
     init() {
         rootId = UUID()
         lists = [rootId: WaypointList(id: rootId, name: "Lists")]
@@ -47,6 +49,10 @@ struct WaypointListTree: Codable, Hashable {
     
     /// Safely removes a list and all of its references.
     mutating func remove(_ listId: UUID) {
+        guard listId != rootId else {
+            fatalError("Cannot remove root WaypointList")
+        }
+        
         for childId in lists[listId]?.childs ?? [] {
             remove(childId)
         }
