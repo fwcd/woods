@@ -26,7 +26,7 @@ struct WaypointListTree: Codable, Hashable {
     
     func preOrderTraversed(from listId: UUID) -> [WaypointList] {
         if let list = lists[listId] {
-            return [list] + list.childs.flatMap(preOrderTraversed(from:))
+            return [list] + preOrderTraversedChildren(from: listId)
         } else {
             return []
         }
@@ -34,6 +34,14 @@ struct WaypointListTree: Codable, Hashable {
     
     func preOrderTraversed() -> [WaypointList] {
         preOrderTraversed(from: rootId)
+    }
+    
+    func preOrderTraversedChildren(from listId: UUID) -> [WaypointList] {
+        lists[listId].map { $0.childs.flatMap(preOrderTraversed(from:)) } ?? []
+    }
+    
+    func preOrderTraversedChildren() -> [WaypointList] {
+        preOrderTraversedChildren(from: rootId)
     }
     
     /// Inserts a new child list under the given list id.

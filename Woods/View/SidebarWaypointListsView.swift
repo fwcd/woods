@@ -12,10 +12,8 @@ struct SidebarWaypointListsView: View {
     @EnvironmentObject private var waypoints: Waypoints
     
     var body: some View {
-        List(waypoints.listRootWrapper.childs ?? [], children: \.childs) { nodeWrapper in
-            if let list = nodeWrapper.list {
-                Text(list.name)
-            }
+        ForEach(waypoints.listTree.preOrderTraversedChildren()) { list in
+            Text(list.name)
         }
     }
 }
