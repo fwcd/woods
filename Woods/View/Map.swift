@@ -8,7 +8,6 @@
 
 import CoreLocation
 import SwiftUI
-import UIKit
 import MapKit
 
 /// A map with custom annotations.

@@ -35,7 +35,7 @@ struct AccountsView: View {
             }
             .navigationTitle("Accounts")
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
+                ToolbarItem(placement: .navigation) {
                     Button(action: { loginSheetShown = true }) {
                         Image(systemName: "plus")
                     }
@@ -52,7 +52,9 @@ struct AccountsView: View {
                 }
             }
         }
+        #if !os(macOS)
         .navigationViewStyle(StackNavigationViewStyle())
+        #endif
     }
 }
 

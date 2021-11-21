@@ -21,6 +21,86 @@
 		35126CFE2745CE1E00CF998C /* WatchWoodsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35126CFD2745CE1E00CF998C /* WatchWoodsUITestsLaunchTests.swift */; };
 		35126D012745CE1E00CF998C /* Woods.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 35126CCB2745CE1D00CF998C /* Woods.app */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		35222982274A737300090224 /* CollectionUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35222981274A737300090224 /* CollectionUtils.swift */; };
+		3522298E274A756D00090224 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3522298D274A756D00090224 /* Assets.xcassets */; };
+		35222991274A756D00090224 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35222990274A756D00090224 /* Preview Assets.xcassets */; };
+		3522299C274A756D00090224 /* MacWoodsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3522299B274A756D00090224 /* MacWoodsTests.swift */; };
+		352229A6274A756D00090224 /* MacWoodsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352229A5274A756D00090224 /* MacWoodsUITests.swift */; };
+		352229A8274A756D00090224 /* MacWoodsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352229A7274A756D00090224 /* MacWoodsUITestsLaunchTests.swift */; };
+		352229B2274A765300090224 /* WoodsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73E04BA249F9F4700C6E22C /* WoodsApp.swift */; };
+		352229B5274A76AA00090224 /* WaypointSmallSnippetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBD8E25EED8AF005933C0 /* WaypointSmallSnippetView.swift */; };
+		352229B6274A76AA00090224 /* SimpleSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBDE125EFE03F005933C0 /* SimpleSection.swift */; };
+		352229B7274A76AA00090224 /* WaypointListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBD8625EED110005933C0 /* WaypointListView.swift */; };
+		352229B9274A76AA00090224 /* AccountsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765464D25D88CEC004F14E8 /* AccountsView.swift */; };
+		352229BA274A76AA00090224 /* WaypointDetailActionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBE1525EFFCB7005933C0 /* WaypointDetailActionsView.swift */; };
+		352229BB274A76AA00090224 /* WaypointLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74ED525EDD60000D5194B /* WaypointLogView.swift */; };
+		352229BC274A76AA00090224 /* LightHTMLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBDFD25EFEEA1005933C0 /* LightHTMLView.swift */; };
+		352229BE274A76AA00090224 /* WaypointListsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBD8125EED022005933C0 /* WaypointListsView.swift */; };
+		352229BF274A76AA00090224 /* SizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBE0525EFF9D9005933C0 /* SizeView.swift */; };
+		352229C0274A76AA00090224 /* WaypointDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74EA425EDC46F00D5194B /* WaypointDetailView.swift */; };
+		352229C1274A76AA00090224 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74EC325EDCF8800D5194B /* SearchBar.swift */; };
+		352229C2274A76AA00090224 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765465225D88E48004F14E8 /* LoginView.swift */; };
+		352229C3274A76AA00090224 /* GeocacheType+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74EBB25EDCA5E00D5194B /* GeocacheType+Color.swift */; };
+		352229C4274A76AA00090224 /* RichMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B6F0FC249FA16B00454841 /* RichMapView.swift */; };
+		352229C5274A76AA00090224 /* WaypointDetailInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBE0D25EFFC13005933C0 /* WaypointDetailInfoView.swift */; };
+		352229C6274A76AA00090224 /* Waypoint+Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C748C2AB25EEA19300661BEE /* Waypoint+Icon.swift */; };
+		352229C7274A76AA00090224 /* SidebarContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35353C3B2745D90F002ACE14 /* SidebarContentView.swift */; };
+		352229C8274A76AA00090224 /* Waypoint+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = C748C2A625EEA16B00661BEE /* Waypoint+Color.swift */; };
+		352229C9274A76AA00090224 /* StarsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74EB625EDC5C200D5194B /* StarsView.swift */; };
+		352229CA274A76AA00090224 /* WaypointSnippetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74F0325EE9BED00D5194B /* WaypointSnippetView.swift */; };
+		352229CB274A76AA00090224 /* SidebarWaypointListsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E5DF43274642D200226EEA /* SidebarWaypointListsView.swift */; };
+		352229CC274A76AB00090224 /* LargeButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBDE625EFE479005933C0 /* LargeButtonStyle.swift */; };
+		352229CD274A76AB00090224 /* WaypointListPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBDAD25EEF2E9005933C0 /* WaypointListPickerView.swift */; };
+		352229CF274A76AB00090224 /* Handle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74E8C25EDAEA400D5194B /* Handle.swift */; };
+		352229D0274A76AB00090224 /* WaypointNavigatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBE3725F00C75005933C0 /* WaypointNavigatorView.swift */; };
+		352229D1274A76AB00090224 /* WaypointMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74E6B25ED8DA600D5194B /* WaypointMapView.swift */; };
+		352229D2274A76AB00090224 /* WaypointListSnippetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBD9325EED91E005933C0 /* WaypointListSnippetView.swift */; };
+		352229D3274A76AB00090224 /* WaypointSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBE2C25F006D8005933C0 /* WaypointSummaryView.swift */; };
+		352229D4274A76AB00090224 /* SlideOverCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74E8725EDADC100D5194B /* SlideOverCard.swift */; };
+		352229D5274A76AB00090224 /* WaypointDistanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBD7425EEB23B005933C0 /* WaypointDistanceView.swift */; };
+		352229D6274A76AB00090224 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73E04BE249F9F4700C6E22C /* ContentView.swift */; };
+		352229D7274A76AB00090224 /* NewWaypointListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBDA525EEE271005933C0 /* NewWaypointListView.swift */; };
+		352229D9274A76AB00090224 /* EnumPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765469A25ED25DE004F14E8 /* EnumPicker.swift */; };
+		352229DA274A76B400090224 /* KeychainError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765464025D88B6C004F14E8 /* KeychainError.swift */; };
+		352229DB274A76B400090224 /* Waypoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70B379C25ED7CC100553597 /* Waypoints.swift */; };
+		352229DC274A76B400090224 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBD6F25EEAB38005933C0 /* LocationManager.swift */; };
+		352229DD274A76B400090224 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765465725D890E1004F14E8 /* Account.swift */; };
+		352229DE274A76B400090224 /* AccountType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765465C25D890F6004F14E8 /* AccountType.swift */; };
+		352229DF274A76B400090224 /* WaypointListWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E5DF452746454C00226EEA /* WaypointListWrapper.swift */; };
+		352229E0274A76B400090224 /* Accounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765463B25D88AC6004F14E8 /* Accounts.swift */; };
+		352229E1274A76BB00090224 /* ConnectorError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765463525D885B3004F14E8 /* ConnectorError.swift */; };
+		352229E2274A76BB00090224 /* GeocachingComSortOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBDD225EF107E005933C0 /* GeocachingComSortOrder.swift */; };
+		352229E3274A76BB00090224 /* WaypointsInRadiusQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765462325D87E9C004F14E8 /* WaypointsInRadiusQuery.swift */; };
+		352229E4274A76BB00090224 /* GeocachingComConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765466125D89141004F14E8 /* GeocachingComConnector.swift */; };
+		352229E5274A76BB00090224 /* GeocachingComApiResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBDD725EF1389005933C0 /* GeocachingComApiResults.swift */; };
+		352229E6274A76BB00090224 /* MockConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E1B88925ED72F0004575A5 /* MockConnector.swift */; };
+		352229E7274A76BB00090224 /* WaypointsInRegionQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBDC525EF0B90005933C0 /* WaypointsInRegionQuery.swift */; };
+		352229E8274A76BB00090224 /* Connector.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765461B25D87E74004F14E8 /* Connector.swift */; };
+		352229E9274A76C100090224 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765463025D8856C004F14E8 /* Credentials.swift */; };
+		352229EA274A76C100090224 /* Degrees.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74EE225EDDD8C00D5194B /* Degrees.swift */; };
+		352229EB274A76C100090224 /* WaypointList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBD7925EECF7B005933C0 /* WaypointList.swift */; };
+		352229EC274A76C100090224 /* GeocacheAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBDBD25EF02B0005933C0 /* GeocacheAttributes.swift */; };
+		352229ED274A76C100090224 /* Waypoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765460025D87B26004F14E8 /* Waypoint.swift */; };
+		352229EE274A76C100090224 /* MockGeocaches.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74EA925EDC4A600D5194B /* MockGeocaches.swift */; };
+		352229EF274A76C100090224 /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBDCD25EF0C15005933C0 /* Region.swift */; };
+		352229F0274A76C100090224 /* GeocacheSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765461225D87CEB004F14E8 /* GeocacheSize.swift */; };
+		352229F1274A76C100090224 /* WaypointLogType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74ECD25EDD35400D5194B /* WaypointLogType.swift */; };
+		352229F2274A76C100090224 /* WaypointListTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBDB225EEF77A005933C0 /* WaypointListTree.swift */; };
+		352229F3274A76C100090224 /* CardinalDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74EFB25EDE7E900D5194B /* CardinalDirection.swift */; };
+		352229F4274A76C100090224 /* GeocacheStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBDDC25EF182F005933C0 /* GeocacheStatus.swift */; };
+		352229F5274A76C100090224 /* Length.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765462B25D880D7004F14E8 /* Length.swift */; };
+		352229F6274A76C100090224 /* Coordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765460D25D87C5A004F14E8 /* Coordinates.swift */; };
+		352229F7274A76C100090224 /* WaypointLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74EC825EDD32F00D5194B /* WaypointLog.swift */; };
+		352229F8274A76C100090224 /* GeocacheType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765460825D87BA9004F14E8 /* GeocacheType.swift */; };
+		352229F9274A76C600090224 /* JSONUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765467E25D8A280004F14E8 /* JSONUtils.swift */; };
+		352229FA274A76C600090224 /* PersistenceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765468D25D8A30F004F14E8 /* PersistenceError.swift */; };
+		352229FB274A76C600090224 /* DataUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765468825D8A2C9004F14E8 /* DataUtils.swift */; };
+		352229FC274A76C600090224 /* PersistenceUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765467625D8A23C004F14E8 /* PersistenceUtils.swift */; };
+		352229FD274A76C600090224 /* EnvironmentUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765468325D8A2A1004F14E8 /* EnvironmentUtils.swift */; };
+		352229FE274A76C600090224 /* HTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76546AF25ED2DB6004F14E8 /* HTTPRequest.swift */; };
+		352229FF274A76C600090224 /* PublisherUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E1B88E25ED73EB004575A5 /* PublisherUtils.swift */; };
+		35222A00274A76C600090224 /* CollectionUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35222981274A737300090224 /* CollectionUtils.swift */; };
+		35222A03274A773E00090224 /* CoreGPX in Frameworks */ = {isa = PBXBuildFile; productRef = 35222A02274A773E00090224 /* CoreGPX */; };
+		35222A05274A774100090224 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 35222A04274A774100090224 /* SwiftSoup */; };
 		35353C3C2745D90F002ACE14 /* SidebarContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35353C3B2745D90F002ACE14 /* SidebarContentView.swift */; };
 		3567D0122785B5DD00060C37 /* CancelNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3567D0112785B5DD00060C37 /* CancelNavigationView.swift */; };
 		3567D0142785B7DD00060C37 /* WaypointListContextMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3567D0132785B7DD00060C37 /* WaypointListContextMenu.swift */; };
@@ -139,6 +219,20 @@
 			remoteGlobalIDString = 35126CCA2745CE1D00CF998C;
 			remoteInfo = WatchWoods;
 		};
+		35222998274A756D00090224 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C73E04AF249F9F4700C6E22C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 35222986274A756C00090224;
+			remoteInfo = MacWoods;
+		};
+		352229A2274A756D00090224 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C73E04AF249F9F4700C6E22C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 35222986274A756C00090224;
+			remoteInfo = MacWoods;
+		};
 		C73E04CE249F9F4A00C6E22C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C73E04AF249F9F4700C6E22C /* Project object */;
@@ -199,6 +293,15 @@
 		35126CFB2745CE1E00CF998C /* WatchWoodsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchWoodsUITests.swift; sourceTree = "<group>"; };
 		35126CFD2745CE1E00CF998C /* WatchWoodsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchWoodsUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		35222981274A737300090224 /* CollectionUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionUtils.swift; sourceTree = "<group>"; };
+		35222987274A756C00090224 /* MacWoods.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacWoods.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3522298D274A756D00090224 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		35222990274A756D00090224 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		35222992274A756D00090224 /* MacWoods.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MacWoods.entitlements; sourceTree = "<group>"; };
+		35222997274A756D00090224 /* MacWoodsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MacWoodsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3522299B274A756D00090224 /* MacWoodsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacWoodsTests.swift; sourceTree = "<group>"; };
+		352229A1274A756D00090224 /* MacWoodsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MacWoodsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		352229A5274A756D00090224 /* MacWoodsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacWoodsUITests.swift; sourceTree = "<group>"; };
+		352229A7274A756D00090224 /* MacWoodsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacWoodsUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		35353C3A2745D533002ACE14 /* Woods.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Woods.entitlements; sourceTree = "<group>"; };
 		35353C3B2745D90F002ACE14 /* SidebarContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarContentView.swift; sourceTree = "<group>"; };
 		3567D0112785B5DD00060C37 /* CancelNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelNavigationView.swift; sourceTree = "<group>"; };
@@ -315,6 +418,29 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		35222984274A756C00090224 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				35222A03274A773E00090224 /* CoreGPX in Frameworks */,
+				35222A05274A774100090224 /* SwiftSoup in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		35222994274A756D00090224 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3522299E274A756D00090224 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C73E04B4249F9F4700C6E22C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -390,17 +516,63 @@
 			path = WatchWoodsUITests;
 			sourceTree = "<group>";
 		};
+		35222988274A756C00090224 /* MacWoods */ = {
+			isa = PBXGroup;
+			children = (
+				3522298D274A756D00090224 /* Assets.xcassets */,
+				35222992274A756D00090224 /* MacWoods.entitlements */,
+				3522298F274A756D00090224 /* Preview Content */,
+			);
+			path = MacWoods;
+			sourceTree = "<group>";
+		};
+		3522298F274A756D00090224 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				35222990274A756D00090224 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		3522299A274A756D00090224 /* MacWoodsTests */ = {
+			isa = PBXGroup;
+			children = (
+				3522299B274A756D00090224 /* MacWoodsTests.swift */,
+			);
+			path = MacWoodsTests;
+			sourceTree = "<group>";
+		};
+		352229A4274A756D00090224 /* MacWoodsUITests */ = {
+			isa = PBXGroup;
+			children = (
+				352229A5274A756D00090224 /* MacWoodsUITests.swift */,
+				352229A7274A756D00090224 /* MacWoodsUITestsLaunchTests.swift */,
+			);
+			path = MacWoodsUITests;
+			sourceTree = "<group>";
+		};
+		35222A01274A773E00090224 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C73E04AE249F9F4700C6E22C = {
 			isa = PBXGroup;
 			children = (
 				C73E04B9249F9F4700C6E22C /* Woods */,
 				C73E04D0249F9F4A00C6E22C /* WoodsTests */,
+				35222988274A756C00090224 /* MacWoods */,
+				3522299A274A756D00090224 /* MacWoodsTests */,
+				352229A4274A756D00090224 /* MacWoodsUITests */,
 				C73E04DB249F9F4A00C6E22C /* WoodsUITests */,
 				35126CCC2745CE1D00CF998C /* WatchWoods */,
 				35126CD72745CE1E00CF998C /* WatchWoods WatchKit Extension */,
 				35126CF02745CE1E00CF998C /* WatchWoodsTests */,
 				35126CFA2745CE1E00CF998C /* WatchWoodsUITests */,
 				C73E04B8249F9F4700C6E22C /* Products */,
+				35222A01274A773E00090224 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -414,6 +586,9 @@
 				35126CD32745CE1E00CF998C /* WatchWoods WatchKit Extension.appex */,
 				35126CED2745CE1E00CF998C /* WatchWoodsTests.xctest */,
 				35126CF72745CE1E00CF998C /* WatchWoodsUITests.xctest */,
+				35222987274A756C00090224 /* MacWoods.app */,
+				35222997274A756D00090224 /* MacWoodsTests.xctest */,
+				352229A1274A756D00090224 /* MacWoodsUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -650,6 +825,63 @@
 			productReference = 35126CF72745CE1E00CF998C /* WatchWoodsUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		35222986274A756C00090224 /* MacWoods */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 352229A9274A756D00090224 /* Build configuration list for PBXNativeTarget "MacWoods" */;
+			buildPhases = (
+				35222983274A756C00090224 /* Sources */,
+				35222984274A756C00090224 /* Frameworks */,
+				35222985274A756C00090224 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MacWoods;
+			packageProductDependencies = (
+				35222A02274A773E00090224 /* CoreGPX */,
+				35222A04274A774100090224 /* SwiftSoup */,
+			);
+			productName = MacWoods;
+			productReference = 35222987274A756C00090224 /* MacWoods.app */;
+			productType = "com.apple.product-type.application";
+		};
+		35222996274A756D00090224 /* MacWoodsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 352229AC274A756D00090224 /* Build configuration list for PBXNativeTarget "MacWoodsTests" */;
+			buildPhases = (
+				35222993274A756D00090224 /* Sources */,
+				35222994274A756D00090224 /* Frameworks */,
+				35222995274A756D00090224 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				35222999274A756D00090224 /* PBXTargetDependency */,
+			);
+			name = MacWoodsTests;
+			productName = MacWoodsTests;
+			productReference = 35222997274A756D00090224 /* MacWoodsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		352229A0274A756D00090224 /* MacWoodsUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 352229AF274A756D00090224 /* Build configuration list for PBXNativeTarget "MacWoodsUITests" */;
+			buildPhases = (
+				3522299D274A756D00090224 /* Sources */,
+				3522299E274A756D00090224 /* Frameworks */,
+				3522299F274A756D00090224 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				352229A3274A756D00090224 /* PBXTargetDependency */,
+			);
+			name = MacWoodsUITests;
+			productName = MacWoodsUITests;
+			productReference = 352229A1274A756D00090224 /* MacWoodsUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		C73E04B6249F9F4700C6E22C /* Woods */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C73E04E1249F9F4A00C6E22C /* Build configuration list for PBXNativeTarget "Woods" */;
@@ -733,6 +965,17 @@
 						CreatedOnToolsVersion = 13.1;
 						TestTargetID = 35126CCA2745CE1D00CF998C;
 					};
+					35222986274A756C00090224 = {
+						CreatedOnToolsVersion = 13.1;
+					};
+					35222996274A756D00090224 = {
+						CreatedOnToolsVersion = 13.1;
+						TestTargetID = 35222986274A756C00090224;
+					};
+					352229A0274A756D00090224 = {
+						CreatedOnToolsVersion = 13.1;
+						TestTargetID = 35222986274A756C00090224;
+					};
 					C73E04B6249F9F4700C6E22C = {
 						CreatedOnToolsVersion = 11.3.1;
 					};
@@ -770,6 +1013,9 @@
 				35126CD22745CE1E00CF998C /* WatchWoods WatchKit Extension */,
 				35126CEC2745CE1E00CF998C /* WatchWoodsTests */,
 				35126CF62745CE1E00CF998C /* WatchWoodsUITests */,
+				35222986274A756C00090224 /* MacWoods */,
+				35222996274A756D00090224 /* MacWoodsTests */,
+				352229A0274A756D00090224 /* MacWoodsUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -800,6 +1046,29 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		35126CF52745CE1E00CF998C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		35222985274A756C00090224 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				35222991274A756D00090224 /* Preview Assets.xcassets in Resources */,
+				3522298E274A756D00090224 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		35222995274A756D00090224 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3522299F274A756D00090224 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -859,6 +1128,103 @@
 			files = (
 				35126CFC2745CE1E00CF998C /* WatchWoodsUITests.swift in Sources */,
 				35126CFE2745CE1E00CF998C /* WatchWoodsUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		35222983274A756C00090224 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				352229C5274A76AA00090224 /* WaypointDetailInfoView.swift in Sources */,
+				352229EC274A76C100090224 /* GeocacheAttributes.swift in Sources */,
+				352229DD274A76B400090224 /* Account.swift in Sources */,
+				352229EF274A76C100090224 /* Region.swift in Sources */,
+				352229DF274A76B400090224 /* WaypointListWrapper.swift in Sources */,
+				352229CC274A76AB00090224 /* LargeButtonStyle.swift in Sources */,
+				352229D3274A76AB00090224 /* WaypointSummaryView.swift in Sources */,
+				352229F7274A76C100090224 /* WaypointLog.swift in Sources */,
+				352229DC274A76B400090224 /* LocationManager.swift in Sources */,
+				352229E0274A76B400090224 /* Accounts.swift in Sources */,
+				35222A00274A76C600090224 /* CollectionUtils.swift in Sources */,
+				352229ED274A76C100090224 /* Waypoint.swift in Sources */,
+				352229D2274A76AB00090224 /* WaypointListSnippetView.swift in Sources */,
+				352229E7274A76BB00090224 /* WaypointsInRegionQuery.swift in Sources */,
+				352229F9274A76C600090224 /* JSONUtils.swift in Sources */,
+				352229E4274A76BB00090224 /* GeocachingComConnector.swift in Sources */,
+				352229E9274A76C100090224 /* Credentials.swift in Sources */,
+				352229D7274A76AB00090224 /* NewWaypointListView.swift in Sources */,
+				352229F1274A76C100090224 /* WaypointLogType.swift in Sources */,
+				352229C6274A76AA00090224 /* Waypoint+Icon.swift in Sources */,
+				352229F0274A76C100090224 /* GeocacheSize.swift in Sources */,
+				352229C4274A76AA00090224 /* RichMapView.swift in Sources */,
+				352229D1274A76AB00090224 /* WaypointMapView.swift in Sources */,
+				352229BA274A76AA00090224 /* WaypointDetailActionsView.swift in Sources */,
+				352229E5274A76BB00090224 /* GeocachingComApiResults.swift in Sources */,
+				352229B9274A76AA00090224 /* AccountsView.swift in Sources */,
+				352229FA274A76C600090224 /* PersistenceError.swift in Sources */,
+				352229FD274A76C600090224 /* EnvironmentUtils.swift in Sources */,
+				352229C7274A76AA00090224 /* SidebarContentView.swift in Sources */,
+				352229F4274A76C100090224 /* GeocacheStatus.swift in Sources */,
+				352229DB274A76B400090224 /* Waypoints.swift in Sources */,
+				352229BB274A76AA00090224 /* WaypointLogView.swift in Sources */,
+				352229EB274A76C100090224 /* WaypointList.swift in Sources */,
+				352229D6274A76AB00090224 /* ContentView.swift in Sources */,
+				352229BF274A76AA00090224 /* SizeView.swift in Sources */,
+				352229EE274A76C100090224 /* MockGeocaches.swift in Sources */,
+				352229E8274A76BB00090224 /* Connector.swift in Sources */,
+				352229F6274A76C100090224 /* Coordinates.swift in Sources */,
+				352229F5274A76C100090224 /* Length.swift in Sources */,
+				352229B2274A765300090224 /* WoodsApp.swift in Sources */,
+				352229E2274A76BB00090224 /* GeocachingComSortOrder.swift in Sources */,
+				352229C1274A76AA00090224 /* SearchBar.swift in Sources */,
+				352229CD274A76AB00090224 /* WaypointListPickerView.swift in Sources */,
+				352229CA274A76AA00090224 /* WaypointSnippetView.swift in Sources */,
+				352229F3274A76C100090224 /* CardinalDirection.swift in Sources */,
+				352229C9274A76AA00090224 /* StarsView.swift in Sources */,
+				352229E6274A76BB00090224 /* MockConnector.swift in Sources */,
+				352229EA274A76C100090224 /* Degrees.swift in Sources */,
+				352229C0274A76AA00090224 /* WaypointDetailView.swift in Sources */,
+				352229D5274A76AB00090224 /* WaypointDistanceView.swift in Sources */,
+				352229D9274A76AB00090224 /* EnumPicker.swift in Sources */,
+				352229D4274A76AB00090224 /* SlideOverCard.swift in Sources */,
+				352229DA274A76B400090224 /* KeychainError.swift in Sources */,
+				352229BE274A76AA00090224 /* WaypointListsView.swift in Sources */,
+				352229CF274A76AB00090224 /* Handle.swift in Sources */,
+				352229FB274A76C600090224 /* DataUtils.swift in Sources */,
+				352229D0274A76AB00090224 /* WaypointNavigatorView.swift in Sources */,
+				352229FC274A76C600090224 /* PersistenceUtils.swift in Sources */,
+				352229E1274A76BB00090224 /* ConnectorError.swift in Sources */,
+				352229DE274A76B400090224 /* AccountType.swift in Sources */,
+				352229C2274A76AA00090224 /* LoginView.swift in Sources */,
+				352229F8274A76C100090224 /* GeocacheType.swift in Sources */,
+				352229C8274A76AA00090224 /* Waypoint+Color.swift in Sources */,
+				352229CB274A76AA00090224 /* SidebarWaypointListsView.swift in Sources */,
+				352229FE274A76C600090224 /* HTTPRequest.swift in Sources */,
+				352229F2274A76C100090224 /* WaypointListTree.swift in Sources */,
+				352229BC274A76AA00090224 /* LightHTMLView.swift in Sources */,
+				352229B7274A76AA00090224 /* WaypointListView.swift in Sources */,
+				352229C3274A76AA00090224 /* GeocacheType+Color.swift in Sources */,
+				352229E3274A76BB00090224 /* WaypointsInRadiusQuery.swift in Sources */,
+				352229B5274A76AA00090224 /* WaypointSmallSnippetView.swift in Sources */,
+				352229B6274A76AA00090224 /* SimpleSection.swift in Sources */,
+				352229FF274A76C600090224 /* PublisherUtils.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		35222993274A756D00090224 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3522299C274A756D00090224 /* MacWoodsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3522299D274A756D00090224 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				352229A8274A756D00090224 /* MacWoodsUITestsLaunchTests.swift in Sources */,
+				352229A6274A756D00090224 /* MacWoodsUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -989,6 +1355,16 @@
 			platformFilter = ios;
 			target = 35126CCA2745CE1D00CF998C /* WatchWoods */;
 			targetProxy = 35126CFF2745CE1E00CF998C /* PBXContainerItemProxy */;
+		};
+		35222999274A756D00090224 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 35222986274A756C00090224 /* MacWoods */;
+			targetProxy = 35222998274A756D00090224 /* PBXContainerItemProxy */;
+		};
+		352229A3274A756D00090224 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 35222986274A756C00090224 /* MacWoods */;
+			targetProxy = 352229A2274A756D00090224 /* PBXContainerItemProxy */;
 		};
 		C73E04CF249F9F4A00C6E22C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1234,6 +1610,172 @@
 			};
 			name = Release;
 		};
+		352229AA274A756D00090224 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_ENTITLEMENTS = MacWoods/MacWoods.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MacWoods/Preview Content\"";
+				DEVELOPMENT_TEAM = SS8V8UGLY8;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2021 Fredrik. All rights reserved.";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.fwcd.MacWoods;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		352229AB274A756D00090224 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_ENTITLEMENTS = MacWoods/MacWoods.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MacWoods/Preview Content\"";
+				DEVELOPMENT_TEAM = SS8V8UGLY8;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2021 Fredrik. All rights reserved.";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.fwcd.MacWoods;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		352229AD274A756D00090224 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SS8V8UGLY8;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fwcd.MacWoodsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MacWoods.app/Contents/MacOS/MacWoods";
+			};
+			name = Debug;
+		};
+		352229AE274A756D00090224 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SS8V8UGLY8;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fwcd.MacWoodsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MacWoods.app/Contents/MacOS/MacWoods";
+			};
+			name = Release;
+		};
+		352229B0274A756D00090224 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SS8V8UGLY8;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fwcd.MacWoodsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = MacWoods;
+			};
+			name = Debug;
+		};
+		352229B1274A756D00090224 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SS8V8UGLY8;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fwcd.MacWoodsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = MacWoods;
+			};
+			name = Release;
+		};
 		C73E04DF249F9F4A00C6E22C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1366,7 +1908,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = dev.fwcd.Woods;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1388,7 +1930,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = dev.fwcd.Woods;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1515,6 +2057,33 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		352229A9274A756D00090224 /* Build configuration list for PBXNativeTarget "MacWoods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				352229AA274A756D00090224 /* Debug */,
+				352229AB274A756D00090224 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		352229AC274A756D00090224 /* Build configuration list for PBXNativeTarget "MacWoodsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				352229AD274A756D00090224 /* Debug */,
+				352229AE274A756D00090224 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		352229AF274A756D00090224 /* Build configuration list for PBXNativeTarget "MacWoodsUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				352229B0274A756D00090224 /* Debug */,
+				352229B1274A756D00090224 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C73E04B2249F9F4700C6E22C /* Build configuration list for PBXProject "Woods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1573,6 +2142,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		35222A02274A773E00090224 /* CoreGPX */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C7ECBE1D25EFFEA6005933C0 /* XCRemoteSwiftPackageReference "CoreGPX" */;
+			productName = CoreGPX;
+		};
+		35222A04274A774100090224 /* SwiftSoup */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C76546B425ED2E07004F14E8 /* XCRemoteSwiftPackageReference "SwiftSoup" */;
+			productName = SwiftSoup;
+		};
 		C76546B525ED2E07004F14E8 /* SwiftSoup */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C76546B425ED2E07004F14E8 /* XCRemoteSwiftPackageReference "SwiftSoup" */;

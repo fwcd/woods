@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import UIKit
 
 // Source: https://www.mozzafiller.com/posts/swiftui-slide-over-card-like-maps-stocks
 

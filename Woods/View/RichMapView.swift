@@ -49,12 +49,20 @@ struct RichMapView: View {
                     Image(systemName: "building.2.crop.circle.fill")
                 }
                 Button(action: {
+                    #if os(macOS)
+                    switch userTrackingMode {
+                    case .none: userTrackingMode = .follow
+                    case .follow: userTrackingMode = .none
+                    default: userTrackingMode = .follow
+                    }
+                    #else
                     switch userTrackingMode {
                     case .none: userTrackingMode = .follow
                     case .follow: userTrackingMode = .followWithHeading
                     case .followWithHeading: userTrackingMode = .none
                     @unknown default: userTrackingMode = .follow
                     }
+                    #endif
                 }) {
                     Image(systemName: "location.circle.fill")
                 }
@@ -97,7 +105,9 @@ struct RichMapView: View {
                         }
                     }
                     .navigationTitle("Pick List")
+                    #if canImport(UIKit)
                     .navigationBarTitleDisplayMode(.inline)
+                    #endif
                 }
                 .environmentObject(waypoints)
             }

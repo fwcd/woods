@@ -7,7 +7,6 @@
 //
 
 import SwiftUI
-import UIKit
 import OSLog
 
 private let log = Logger(subsystem: "Woods", category: "ShareSheet")
