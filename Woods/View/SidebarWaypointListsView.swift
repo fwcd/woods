@@ -13,12 +13,14 @@ struct SidebarWaypointListsView: View {
     
     var body: some View {
         // TODO: Buttons for adding/deleting lists (or perhaps via context menu?)
-        OutlineGroup(waypoints.listRootWrapper, children: \.childs) { wrapper in
-            NavigationLink(destination: WaypointListView(listId: wrapper.id)) {
-                if let list = wrapper.list {
-                    WaypointListSnippetView(list: list)
-                } else {
-                    Text("Unknown List")
+        ForEach(waypoints.listRootWrapper.childs ?? []) { topLevelWrapper in
+            OutlineGroup(topLevelWrapper, children: \.childs) { wrapper in
+                NavigationLink(destination: WaypointListView(listId: wrapper.id)) {
+                    if let list = wrapper.list {
+                        WaypointListSnippetView(list: list)
+                    } else {
+                        Text("Unknown List")
+                    }
                 }
             }
         }
