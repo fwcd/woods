@@ -13,7 +13,7 @@ struct SidebarWaypointListsView: View {
     
     var body: some View {
         // TODO: Buttons for adding/deleting lists (or perhaps via context menu?)
-        ForEach(waypoints.listTree.preOrderTraversedChildren()) { list in
+        ForEach(waypoints.listTree.root.childs.compactMap { waypoints.listTree[$0] }) { list in
             NavigationLink(destination: WaypointListView(listId: list.id)) {
                 WaypointListSnippetView(list: list)
             }
