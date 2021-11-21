@@ -26,10 +26,6 @@ struct SidebarContentView: View {
                         Image(systemName: "map.fill")
                         Text("Map")
                     }
-                    NavigationLink(destination: WaypointListsView(), tag: .lists, selection: $selectedTab) {
-                        Image(systemName: "list.bullet")
-                        Text("Lists")
-                    }
                     NavigationLink(destination: Text("TODO"), tag: .search, selection: $selectedTab) {
                         Image(systemName: "magnifyingglass")
                         Text("Search")

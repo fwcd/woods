@@ -12,8 +12,11 @@ struct SidebarWaypointListsView: View {
     @EnvironmentObject private var waypoints: Waypoints
     
     var body: some View {
+        // TODO: Buttons for adding/deleting lists (or perhaps via context menu?)
         ForEach(waypoints.listTree.preOrderTraversedChildren()) { list in
-            Text(list.name)
+            NavigationLink(destination: WaypointListView(listId: list.id)) {
+                WaypointListSnippetView(list: list)
+            }
         }
     }
 }
