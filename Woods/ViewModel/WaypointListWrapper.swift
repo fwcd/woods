@@ -13,7 +13,7 @@ struct WaypointListWrapper: Identifiable {
     let id: UUID
     
     var list: WaypointList? { waypoints.listTree[id] }
-    var childs: [WaypointListWrapper]? { list?.childs.map { WaypointListWrapper(waypoints: waypoints, id: $0) } }
+    var childs: [WaypointListWrapper]? { list?.childs.map { WaypointListWrapper(waypoints: waypoints, id: $0) }.nilIfEmpty }
     
     init(waypoints: Waypoints, id: UUID) {
         self.waypoints = waypoints

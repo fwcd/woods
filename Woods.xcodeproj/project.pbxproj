@@ -20,6 +20,7 @@
 		35126CFC2745CE1E00CF998C /* WatchWoodsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35126CFB2745CE1E00CF998C /* WatchWoodsUITests.swift */; };
 		35126CFE2745CE1E00CF998C /* WatchWoodsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35126CFD2745CE1E00CF998C /* WatchWoodsUITestsLaunchTests.swift */; };
 		35126D012745CE1E00CF998C /* Woods.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 35126CCB2745CE1D00CF998C /* Woods.app */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		35222982274A737300090224 /* CollectionUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35222981274A737300090224 /* CollectionUtils.swift */; };
 		35353C3C2745D90F002ACE14 /* SidebarContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35353C3B2745D90F002ACE14 /* SidebarContentView.swift */; };
 		35E5DF44274642D200226EEA /* SidebarWaypointListsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E5DF43274642D200226EEA /* SidebarWaypointListsView.swift */; };
 		35E5DF462746454C00226EEA /* WaypointListWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E5DF452746454C00226EEA /* WaypointListWrapper.swift */; };
@@ -196,6 +197,7 @@
 		35126CF72745CE1E00CF998C /* WatchWoodsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WatchWoodsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		35126CFB2745CE1E00CF998C /* WatchWoodsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchWoodsUITests.swift; sourceTree = "<group>"; };
 		35126CFD2745CE1E00CF998C /* WatchWoodsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchWoodsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		35222981274A737300090224 /* CollectionUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionUtils.swift; sourceTree = "<group>"; };
 		35353C3A2745D533002ACE14 /* Woods.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Woods.entitlements; sourceTree = "<group>"; };
 		35353C3B2745D90F002ACE14 /* SidebarContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarContentView.swift; sourceTree = "<group>"; };
 		35E5DF43274642D200226EEA /* SidebarWaypointListsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarWaypointListsView.swift; sourceTree = "<group>"; };
@@ -516,6 +518,7 @@
 			children = (
 				C765467625D8A23C004F14E8 /* PersistenceUtils.swift */,
 				C765468825D8A2C9004F14E8 /* DataUtils.swift */,
+				35222981274A737300090224 /* CollectionUtils.swift */,
 				C765468D25D8A30F004F14E8 /* PersistenceError.swift */,
 				C765468325D8A2A1004F14E8 /* EnvironmentUtils.swift */,
 				C765467E25D8A280004F14E8 /* JSONUtils.swift */,
@@ -870,6 +873,7 @@
 				C765460925D87BA9004F14E8 /* GeocacheType.swift in Sources */,
 				C7ECBD8F25EED8AF005933C0 /* WaypointSmallSnippetView.swift in Sources */,
 				C765463C25D88AC6004F14E8 /* Accounts.swift in Sources */,
+				35222982274A737300090224 /* CollectionUtils.swift in Sources */,
 				C765465D25D890F6004F14E8 /* AccountType.swift in Sources */,
 				C7ECBDEC25EFE945005933C0 /* ShareSheet.swift in Sources */,
 				C76546B025ED2DB6004F14E8 /* HTTPRequest.swift in Sources */,
