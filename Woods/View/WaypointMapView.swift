@@ -24,22 +24,13 @@ struct WaypointMapView: View {
             userTrackingMode: $userTrackingMode,
             annotationItems: waypoints
         ) { waypoint in
-            MapAnnotation(
-                coordinate: waypoint.location.asCLCoordinate
-            ) {
-                Text(waypoint.name)
-            }
+            MapMarker(
+                coordinate: waypoint.location.asCLCoordinate,
+                tint: waypoint.color
+            )
         }
-//        Map(annotations: waypoints.map { waypoint in
-//            Map.Annotation(
-//                tag: waypoint.id,
-//                coordinate: waypoint.location.asCLCoordinate,
-//                // Uncomment to show cache names on map again
-//                // title: waypoint.name,
-//                color: waypoint.color,
-//                iconName: waypoint.iconName
-//            )
-//        }, selection: $selectedWaypointId, region: $region, userTrackingMode: $userTrackingMode, useSatelliteView: $useSatelliteView)
+        // FIXME: Use selectedWaypointId binding
+        // FIXME: Use useSatelliteView binding
     }
     
     init(
