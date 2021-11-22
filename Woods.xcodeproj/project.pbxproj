@@ -1023,9 +1023,9 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IBSC_MODULE = WatchWoods_WatchKit_Extension;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = fwcd.Woods;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = dev.fwcd.Woods;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = fwcd.Woods.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.fwcd.Woods.watchkitapp;
 				PRODUCT_NAME = Woods;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -1049,9 +1049,9 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IBSC_MODULE = WatchWoods_WatchKit_Extension;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = fwcd.Woods;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = dev.fwcd.Woods;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = fwcd.Woods.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.fwcd.Woods.watchkitapp;
 				PRODUCT_NAME = Woods;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -1075,7 +1075,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "WatchWoods WatchKit Extension/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "WatchWoods WatchKit Extension";
-				INFOPLIST_KEY_CLKComplicationPrincipalClass = "$(PRODUCT_MODULE_NAME).ComplicationController";
+				INFOPLIST_KEY_CLKComplicationPrincipalClass = WatchWoods_WatchKit_Extension.ComplicationController;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2021 Fredrik. All rights reserved.";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1083,7 +1083,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = fwcd.Woods.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.fwcd.Woods.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -1107,7 +1107,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "WatchWoods WatchKit Extension/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "WatchWoods WatchKit Extension";
-				INFOPLIST_KEY_CLKComplicationPrincipalClass = "$(PRODUCT_MODULE_NAME).ComplicationController";
+				INFOPLIST_KEY_CLKComplicationPrincipalClass = WatchWoods_WatchKit_Extension.ComplicationController;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2021 Fredrik. All rights reserved.";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1115,7 +1115,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = fwcd.Woods.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.fwcd.Woods.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -1360,7 +1360,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = fwcd.Woods;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.fwcd.Woods;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
@@ -1382,7 +1382,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = fwcd.Woods;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.fwcd.Woods;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
