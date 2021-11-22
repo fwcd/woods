@@ -13,7 +13,16 @@ import CoreLocation
 struct RichMapView: View {
     @EnvironmentObject private var waypoints: Waypoints
     @State private var selectedWaypointId: String? = nil
-    @State private var region: MKCoordinateRegion = MKCoordinateRegion()
+    @State private var region: MKCoordinateRegion = MKCoordinateRegion(
+        center: CLLocationCoordinate2D(
+            latitude: 50,
+            longitude: 10
+        ),
+        span: MKCoordinateSpan(
+            latitudeDelta: 12,
+            longitudeDelta: 10
+        )
+    )
     @State private var userTrackingMode: MapUserTrackingMode = .none
     @State private var useSatelliteView: Bool = false
     @State private var listPickerSheetShown: Bool = false
