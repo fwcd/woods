@@ -59,6 +59,15 @@ struct WaypointMapView: View {
 
 struct WaypointMapView_Previews: PreviewProvider {
     static var previews: some View {
-        WaypointMapView(waypoints: [])
+        WaypointMapView(waypoints: [
+            Waypoint(
+                id: "test",
+                name: "Test",
+                location: Coordinates(
+                    latitude: 0,
+                    longitude: 0
+                )
+            )
+        ])
     }
 }
