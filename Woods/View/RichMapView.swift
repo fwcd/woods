@@ -13,7 +13,7 @@ import CoreLocation
 struct RichMapView: View {
     @EnvironmentObject private var waypoints: Waypoints
     @State private var selectedWaypointId: String? = nil
-    @State private var region: MKCoordinateRegion? = nil
+    @State private var region: MKCoordinateRegion = MKCoordinateRegion()
     @State private var userTrackingMode: MKUserTrackingMode = .none
     @State private var useSatelliteView: Bool = false
     @State private var listPickerSheetShown: Bool = false
@@ -37,9 +37,7 @@ struct RichMapView: View {
             .edgesIgnoringSafeArea(.all)
             VStack(spacing: 10) {
                 Button(action: {
-                    if let region = region {
-                        waypoints.refresh(with: query(from: region))
-                    }
+                    waypoints.refresh(with: query(from: region))
                 }) {
                     Image(systemName: "arrow.clockwise.circle.fill")
                 }

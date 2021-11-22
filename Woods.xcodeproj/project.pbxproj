@@ -140,7 +140,6 @@
 		C76546B025ED2DB6004F14E8 /* HTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76546AF25ED2DB6004F14E8 /* HTTPRequest.swift */; };
 		C76546B625ED2E07004F14E8 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = C76546B525ED2E07004F14E8 /* SwiftSoup */; };
 		C7B6F0FD249FA16B00454841 /* RichMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B6F0FC249FA16B00454841 /* RichMapView.swift */; };
-		C7B6F0FF249FA1B300454841 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B6F0FE249FA1B300454841 /* Map.swift */; };
 		C7B74E6C25ED8DA600D5194B /* WaypointMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74E6B25ED8DA600D5194B /* WaypointMapView.swift */; };
 		C7B74E8825EDADC100D5194B /* SlideOverCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74E8725EDADC100D5194B /* SlideOverCard.swift */; };
 		C7B74E8D25EDAEA400D5194B /* Handle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74E8C25EDAEA400D5194B /* Handle.swift */; };
@@ -347,7 +346,6 @@
 		C765469A25ED25DE004F14E8 /* EnumPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnumPicker.swift; sourceTree = "<group>"; };
 		C76546AF25ED2DB6004F14E8 /* HTTPRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPRequest.swift; sourceTree = "<group>"; };
 		C7B6F0FC249FA16B00454841 /* RichMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RichMapView.swift; sourceTree = "<group>"; };
-		C7B6F0FE249FA1B300454841 /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
 		C7B74E6B25ED8DA600D5194B /* WaypointMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointMapView.swift; sourceTree = "<group>"; };
 		C7B74E8725EDADC100D5194B /* SlideOverCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideOverCard.swift; sourceTree = "<group>"; };
 		C7B74E8C25EDAEA400D5194B /* Handle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Handle.swift; sourceTree = "<group>"; };
@@ -738,7 +736,6 @@
 				C7B74EB625EDC5C200D5194B /* StarsView.swift */,
 				C7ECBE0525EFF9D9005933C0 /* SizeView.swift */,
 				C7B74EC325EDCF8800D5194B /* SearchBar.swift */,
-				C7B6F0FE249FA1B300454841 /* Map.swift */,
 				C765469A25ED25DE004F14E8 /* EnumPicker.swift */,
 				C7B74E8725EDADC100D5194B /* SlideOverCard.swift */,
 				C7ECBD9B25EEE197005933C0 /* AutoFocusTextField.swift */,
@@ -1295,7 +1292,6 @@
 				C7ECBDFE25EFEEA1005933C0 /* LightHTMLView.swift in Sources */,
 				C7B74F0425EE9BED00D5194B /* WaypointSnippetView.swift in Sources */,
 				C765463125D8856C004F14E8 /* Credentials.swift in Sources */,
-				C7B6F0FF249FA1B300454841 /* Map.swift in Sources */,
 				C73E04BF249F9F4700C6E22C /* ContentView.swift in Sources */,
 				C7B74EBC25EDCA5E00D5194B /* GeocacheType+Color.swift in Sources */,
 				C765460E25D87C5A004F14E8 /* Coordinates.swift in Sources */,
