@@ -14,7 +14,7 @@ struct RichMapView: View {
     @EnvironmentObject private var waypoints: Waypoints
     @State private var selectedWaypointId: String? = nil
     @State private var region: MKCoordinateRegion = MKCoordinateRegion()
-    @State private var userTrackingMode: MKUserTrackingMode = .none
+    @State private var userTrackingMode: MapUserTrackingMode = .none
     @State private var useSatelliteView: Bool = false
     @State private var listPickerSheetShown: Bool = false
     @State private var listPickerMode: ListPickerMode = .save
@@ -47,20 +47,11 @@ struct RichMapView: View {
                     Image(systemName: "building.2.crop.circle.fill")
                 }
                 Button(action: {
-                    #if os(macOS)
                     switch userTrackingMode {
                     case .none: userTrackingMode = .follow
                     case .follow: userTrackingMode = .none
-                    default: userTrackingMode = .follow
-                    }
-                    #else
-                    switch userTrackingMode {
-                    case .none: userTrackingMode = .follow
-                    case .follow: userTrackingMode = .followWithHeading
-                    case .followWithHeading: userTrackingMode = .none
                     @unknown default: userTrackingMode = .follow
                     }
-                    #endif
                 }) {
                     Image(systemName: "location.circle.fill")
                 }

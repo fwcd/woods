@@ -14,11 +14,16 @@ struct WaypointMapView: View {
     let waypoints: [Waypoint]
     @Binding var selectedWaypointId: String?
     @Binding var region: MKCoordinateRegion
-    @Binding var userTrackingMode: MKUserTrackingMode
+    @Binding var userTrackingMode: MapUserTrackingMode
     @Binding var useSatelliteView: Bool
     
     var body: some View {
-        Map(coordinateRegion: $region, annotationItems: waypoints) { waypoint in
+        Map(
+            coordinateRegion: $region,
+            showsUserLocation: true,
+            userTrackingMode: $userTrackingMode,
+            annotationItems: waypoints
+        ) { waypoint in
             MapAnnotation(
                 coordinate: waypoint.location.asCLCoordinate
             ) {
@@ -41,7 +46,7 @@ struct WaypointMapView: View {
         waypoints: [Waypoint],
         selectedWaypointId: Binding<String?>? = nil,
         region: Binding<MKCoordinateRegion>? = nil,
-        userTrackingMode: Binding<MKUserTrackingMode>? = nil,
+        userTrackingMode: Binding<MapUserTrackingMode>? = nil,
         useSatelliteView: Binding<Bool>? = nil
     ) {
         self.waypoints = waypoints
