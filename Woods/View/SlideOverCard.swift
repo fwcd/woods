@@ -35,7 +35,7 @@ struct SlideOverCard<Content>: View where Content: View {
             .cornerRadius(15)
             .shadow(color: Color(.sRGBLinear, white: 0, opacity: 0.13), radius: 10.0)
             .offset(y: offset(for: position, in: geometry) + dragState.translation.height)
-            .animation(dragState.isDragging ? nil : .interpolatingSpring(stiffness: 300, damping: 35, initialVelocity: 40))
+            .animation(dragState.isDragging ? nil : .interpolatingSpring(stiffness: 300, damping: 35, initialVelocity: 40), value: dragState)
             .gesture(drag)
         }
     }
@@ -82,13 +82,13 @@ struct SlideOverCard<Content>: View where Content: View {
         }
     }
 
-    enum CardPosition {
+    enum CardPosition: Hashable {
         case top
         case middle
         case bottom
     }
 
-    enum DragState {
+    enum DragState: Equatable {
         case inactive
         case dragging(translation: CGSize)
 
