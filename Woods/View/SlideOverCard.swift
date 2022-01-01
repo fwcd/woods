@@ -26,14 +26,12 @@ struct SlideOverCard<Content>: View where Content: View {
                     onDragEnded(drag, in: geometry)
                 }
 
-            ZStack {
-                VisualEffectView(effect: UIBlurEffect(style: .systemMaterial))
-                VStack {
-                    Handle()
-                    self.content()
-                        .frame(maxWidth: .infinity)
-                }
+            VStack {
+                Handle()
+                self.content()
+                    .frame(maxWidth: .infinity)
             }
+            .background(.ultraThinMaterial)
             .cornerRadius(15)
             .shadow(color: Color(.sRGBLinear, white: 0, opacity: 0.13), radius: 10.0)
             .offset(y: offset(for: position, in: geometry) + dragState.translation.height)
