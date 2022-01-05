@@ -74,6 +74,9 @@ struct WaypointListView: View {
                     if let child = waypoints.listTree[childId] {
                         NavigationLink(destination: WaypointListView(listId: childId, largeTitle: false)) {
                             WaypointListSnippetView(list: child)
+                                .contextMenu {
+                                    WaypointListContextMenu(list: child)
+                                }
                         }
                     }
                 }

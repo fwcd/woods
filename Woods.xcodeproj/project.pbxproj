@@ -23,6 +23,7 @@
 		35222982274A737300090224 /* CollectionUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35222981274A737300090224 /* CollectionUtils.swift */; };
 		35353C3C2745D90F002ACE14 /* SidebarContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35353C3B2745D90F002ACE14 /* SidebarContentView.swift */; };
 		3567D0122785B5DD00060C37 /* CancelNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3567D0112785B5DD00060C37 /* CancelNavigationView.swift */; };
+		3567D0142785B7DD00060C37 /* WaypointListContextMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3567D0132785B7DD00060C37 /* WaypointListContextMenu.swift */; };
 		35E5DF44274642D200226EEA /* SidebarWaypointListsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E5DF43274642D200226EEA /* SidebarWaypointListsView.swift */; };
 		35E5DF462746454C00226EEA /* WaypointListWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E5DF452746454C00226EEA /* WaypointListWrapper.swift */; };
 		C70B379D25ED7CC100553597 /* Waypoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70B379C25ED7CC100553597 /* Waypoints.swift */; };
@@ -201,6 +202,7 @@
 		35353C3A2745D533002ACE14 /* Woods.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Woods.entitlements; sourceTree = "<group>"; };
 		35353C3B2745D90F002ACE14 /* SidebarContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarContentView.swift; sourceTree = "<group>"; };
 		3567D0112785B5DD00060C37 /* CancelNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelNavigationView.swift; sourceTree = "<group>"; };
+		3567D0132785B7DD00060C37 /* WaypointListContextMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointListContextMenu.swift; sourceTree = "<group>"; };
 		35E5DF43274642D200226EEA /* SidebarWaypointListsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarWaypointListsView.swift; sourceTree = "<group>"; };
 		35E5DF452746454C00226EEA /* WaypointListWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointListWrapper.swift; sourceTree = "<group>"; };
 		C70B379C25ED7CC100553597 /* Waypoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Waypoints.swift; sourceTree = "<group>"; };
@@ -553,6 +555,7 @@
 				C7ECBD8125EED022005933C0 /* WaypointListsView.swift */,
 				C7ECBDA525EEE271005933C0 /* NewWaypointListView.swift */,
 				C7ECBD8625EED110005933C0 /* WaypointListView.swift */,
+				3567D0132785B7DD00060C37 /* WaypointListContextMenu.swift */,
 				C7ECBD9325EED91E005933C0 /* WaypointListSnippetView.swift */,
 				C7B74EBB25EDCA5E00D5194B /* GeocacheType+Color.swift */,
 				C748C2A625EEA16B00661BEE /* Waypoint+Color.swift */,
@@ -936,6 +939,7 @@
 				C765469B25ED25DE004F14E8 /* EnumPicker.swift in Sources */,
 				C7ECBDB325EEF77A005933C0 /* WaypointListTree.swift in Sources */,
 				C7B74EC925EDD32F00D5194B /* WaypointLog.swift in Sources */,
+				3567D0142785B7DD00060C37 /* WaypointListContextMenu.swift in Sources */,
 				C7B74EAA25EDC4A600D5194B /* MockGeocaches.swift in Sources */,
 				C7ECBE0625EFF9D9005933C0 /* SizeView.swift in Sources */,
 				C7ECBDD325EF107E005933C0 /* GeocachingComSortOrder.swift in Sources */,
