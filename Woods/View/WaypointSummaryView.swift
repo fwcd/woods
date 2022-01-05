@@ -48,12 +48,16 @@ struct WaypointSummaryView: View {
             }
             .buttonStyle(LargeButtonStyle())
             .sheet(isPresented: $detailSheetShown) {
-                ScrollView {
-                    WaypointDetailView(waypoint: waypoint)
+                CancelNavigationView(title: "Waypoint Details") {
+                    detailSheetShown = false
+                } inner: {
+                    ScrollView {
+                        WaypointDetailView(waypoint: waypoint)
+                    }
+                    .padding([.top], 15)
+                    .environmentObject(waypoints)
+                    .environmentObject(locationManager)
                 }
-                .padding([.top], 15)
-                .environmentObject(waypoints)
-                .environmentObject(locationManager)
             }
         }
         .padding([.leading, .trailing], 20)

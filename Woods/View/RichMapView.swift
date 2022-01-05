@@ -80,7 +80,9 @@ struct RichMapView: View {
                 }
             }
             .sheet(isPresented: $listPickerSheetShown) {
-                NavigationView {
+                CancelNavigationView(title: "Pick Waypoint List") {
+                    listPickerSheetShown = false
+                } inner: {
                     Form {
                         WaypointListPickerView { id in
                             switch listPickerMode {

@@ -42,9 +42,13 @@ struct AccountsView: View {
                 }
             }
             .sheet(isPresented: $loginSheetShown) {
-                LoginView { account in
-                    accounts.logInAndStore(account)
+                CancelNavigationView(title: "Login") {
                     loginSheetShown = false
+                } inner: {
+                    LoginView { account in
+                        accounts.logInAndStore(account)
+                        loginSheetShown = false
+                    }
                 }
             }
         }

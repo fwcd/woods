@@ -31,11 +31,15 @@ struct WaypointListView: View {
                     }
                 }
                 .sheet(isPresented: $newListSheetShown) {
-                    NewWaypointListView { child in
-                        waypoints.listTree.insert(under: listId, child: child)
+                    CancelNavigationView(title: "New Waypoint List") {
                         newListSheetShown = false
+                    } inner: {
+                        NewWaypointListView { child in
+                            waypoints.listTree.insert(under: listId, child: child)
+                            newListSheetShown = false
+                        }
+                        .padding(20)
                     }
-                    .padding(20)
                 }
                 Button(action: { newWaypointSheetShown = true }) {
                     HStack {

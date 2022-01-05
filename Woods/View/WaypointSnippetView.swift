@@ -33,8 +33,12 @@ struct WaypointSnippetView: View {
                     WaypointDistanceView(start: Coordinates(from: location.coordinate), target: waypoint.location)
                 }
                 .sheet(isPresented: $navigatorSheetShown) {
-                    WaypointNavigatorView(target: waypoint.location)
-                        .environmentObject(locationManager)
+                    CancelNavigationView(title: "Navigator") {
+                        navigatorSheetShown = false
+                    } inner: {
+                        WaypointNavigatorView(target: waypoint.location)
+                            .environmentObject(locationManager)
+                    }
                 }
             }
         }

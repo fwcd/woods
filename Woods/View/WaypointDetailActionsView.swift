@@ -27,7 +27,9 @@ struct WaypointDetailActionsView: View {
                 }
             }
             .sheet(isPresented: $listPickerSheetShown) {
-                NavigationView {
+                CancelNavigationView(title: "Pick Waypoint List") {
+                    listPickerSheetShown = false
+                } inner: {
                     Form {
                         WaypointListPickerView { id in
                             waypoints.listTree[id]?.add(waypoints: [waypoint])
