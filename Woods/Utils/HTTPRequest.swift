@@ -4,6 +4,7 @@ import SwiftSoup
 import OSLog
 
 private let log = Logger(subsystem: "Woods", category: "HTTPRequest")
+private let session = URLSession(configuration: .ephemeral)
 
 public struct HTTPRequest {
     private var request: URLRequest
@@ -99,7 +100,7 @@ public struct HTTPRequest {
     }
 
     public func runAsync() -> Publishers.TryMap<URLSession.DataTaskPublisher, Data> {
-        URLSession.shared
+        session
             .dataTaskPublisher(for: request)
             .tryMap { element -> Data in
                 guard let response = element.response as? HTTPURLResponse else {
