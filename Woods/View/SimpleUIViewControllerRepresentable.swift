@@ -26,6 +26,15 @@ extension SimpleUIViewControllerRepresentable {
     /// Only use this e.g. for static notices, alerts, share sheets or similar.
     func presentIndependently() {
         let viewController = makeUIViewController(coordinator: makeCoordinator())
-        UIApplication.shared.windows.first?.rootViewController?.present(viewController, animated: true, completion: nil)
+        UIApplication
+            .shared
+            .connectedScenes
+            .filter { $0.activationState == .foregroundActive }
+            .compactMap { $0 as? UIWindowScene }
+            .first?
+            .windows
+            .first?
+            .rootViewController?
+            .present(viewController, animated: true, completion: nil)
     }
 }
