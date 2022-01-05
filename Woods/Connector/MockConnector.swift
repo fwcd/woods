@@ -27,10 +27,12 @@ class MockConnector: Connector {
     }
     
     func waypoints(for query: WaypointsInRadiusQuery) -> AnyPublisher<[Waypoint], Error> {
-        Just(mockGeocaches().filter { $0.location.distance(to: query.center) <= query.radius }).weakenError().eraseToAnyPublisher()
+        let caches = mockGeocaches().filter { $0.location.distance(to: query.center) <= query.radius }
+        return Just(caches).weakenError().eraseToAnyPublisher()
     }
     
     func waypoints(for query: WaypointsInRegionQuery) -> AnyPublisher<[Waypoint], Error> {
-        Just(mockGeocaches().filter { query.region.contains($0.location) }).weakenError().eraseToAnyPublisher()
+        let caches = mockGeocaches().filter { query.region.contains($0.location) }
+        return Just(caches).weakenError().eraseToAnyPublisher()
     }
 }
