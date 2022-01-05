@@ -120,11 +120,11 @@ struct RichMapView: View {
         let center = region.center
         let span = region.span
         let topLeft = CLLocation(
-            latitude: center.latitude - (span.latitudeDelta / 2),
+            latitude: center.latitude + (span.latitudeDelta / 2),
             longitude: center.longitude - (span.longitudeDelta / 2)
         )
         let bottomRight = CLLocation(
-            latitude: center.latitude + (span.latitudeDelta / 2),
+            latitude: center.latitude - (span.latitudeDelta / 2),
             longitude: center.longitude + (span.longitudeDelta / 2)
         )
         return WaypointsInRegionQuery(
