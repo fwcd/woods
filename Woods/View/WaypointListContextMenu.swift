@@ -9,14 +9,14 @@
 import SwiftUI
 
 struct WaypointListContextMenu: View {
-    let list: WaypointList
+    let listId: UUID
     
     @EnvironmentObject private var waypoints: Waypoints
     
     var body: some View {
         Group {
             Button {
-                waypoints.listTree.remove(list.id)
+                waypoints.listTree.remove(listId)
             } label: {
                 Text("Delete")
                 Image(systemName: "trash")
@@ -31,7 +31,7 @@ struct WaypointListContextMenu_Previews: PreviewProvider {
     ])
     static var previews: some View {
         VStack {
-            WaypointListContextMenu(list: waypoints.listTree.lists.values.first!)
+            WaypointListContextMenu(listId: waypoints.listTree.lists.values.first!.id)
         }
         .environmentObject(waypoints)
     }

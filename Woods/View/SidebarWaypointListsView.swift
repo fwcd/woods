@@ -18,12 +18,12 @@ struct SidebarWaypointListsView: View {
                 NavigationLink(destination: WaypointListView(listId: wrapper.id)) {
                     if let list = wrapper.list {
                         WaypointListSnippetView(list: list)
-                            .contextMenu {
-                                WaypointListContextMenu(list: list)
-                            }
                     } else {
                         Text("Unknown List")
                     }
+                }
+                .contextMenu {
+                    WaypointListContextMenu(listId: wrapper.id)
                 }
             }
         }

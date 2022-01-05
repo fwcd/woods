@@ -75,7 +75,7 @@ struct WaypointListView: View {
                         NavigationLink(destination: WaypointListView(listId: childId, largeTitle: false)) {
                             WaypointListSnippetView(list: child)
                                 .contextMenu {
-                                    WaypointListContextMenu(list: child)
+                                    WaypointListContextMenu(listId: childId)
                                 }
                         }
                     }
