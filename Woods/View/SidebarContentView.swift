@@ -17,6 +17,8 @@ struct SidebarContentView: View {
     }
     
     @State private var selectedTab: SidebarTab? = .map
+    @State private var newListSheetShown: Bool = false
+    @EnvironmentObject private var waypoints: Waypoints
     
     var body: some View {
         NavigationView {
@@ -38,6 +40,25 @@ struct SidebarContentView: View {
                 Spacer()
                 Section(header: Text("Lists")) {
                     SidebarWaypointListsView()
+                    Button {
+                        newListSheetShown = true
+                    } label: {
+                        HStack {
+                            Image(systemName: "plus")
+                            Text("Add List")
+                        }
+                    }
+                    .sheet(isPresented: $newListSheetShown) {
+                        CancelNavigationView(title: "New Waypoint List") {
+                            newListSheetShown = false
+                        } inner: {
+                            NewWaypointListView { child in
+                                waypoints.listTree.insert(child: child)
+                                newListSheetShown = false
+                            }
+                            .padding(20)
+                        }
+                    }
                 }
             }
         }
