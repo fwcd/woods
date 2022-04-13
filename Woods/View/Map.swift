@@ -11,7 +11,7 @@ import SwiftUI
 import MapKit
 
 /// A map with custom annotations.
-struct Map<T>: UIViewRepresentable where T: Hashable {
+struct Map<T>: UIOrNSViewRepresentable where T: Hashable {
     let annotations: [Annotation]
     @Binding var selection: T?
     @Binding var region: MKCoordinateRegion?
@@ -22,7 +22,19 @@ struct Map<T>: UIViewRepresentable where T: Hashable {
         Coordinator(selection: $selection, region: $region)
     }
     
-    func makeUIView(context: Context) -> MKMapView {
+    #if canImport(UIKit)
+    func makeUIView(context: Context) -> MKMapView { makeView(context: context) }
+    
+    func updateUIView(_ mapView: MKMapView, context: Context) { updateView(mapView, context: context) }
+    #endif
+    
+    #if canImport(AppKit)
+    func makeNSView(context: Context) -> MKMapView { makeView(context: context) }
+    
+    func updateNSView(_ mapView: MKMapView, context: Context) { updateView(mapView, context: context) }
+    #endif
+    
+    func makeView(context: Context) -> MKMapView {
         let mapView = MKMapView()
         mapView.register(MKMarkerAnnotationView.self, forAnnotationViewWithReuseIdentifier: NSStringFromClass(MKMarkerAnnotationView.self))
         mapView.addAnnotations(annotations)
@@ -33,7 +45,7 @@ struct Map<T>: UIViewRepresentable where T: Hashable {
         return mapView
     }
     
-    func updateUIView(_ mapView: MKMapView, context: Context) {
+    func updateView(_ mapView: MKMapView, context: Context) {
         mapView.userTrackingMode = userTrackingMode
         mapView.mapType = useSatelliteView ? .hybrid : .standard
         
@@ -86,11 +98,11 @@ struct Map<T>: UIViewRepresentable where T: Hashable {
             annotationView.annotation = annotation
             
             if let color = annotation.color {
-                annotationView.markerTintColor = UIColor(color)
+                annotationView.markerTintColor = UIOrNSColor(color)
             }
             
             if let iconName = annotation.iconName {
-                annotationView.glyphImage = UIImage(systemName: iconName)
+                annotationView.glyphImage = UIOrNSImage(systemName: iconName)
             }
             
             if annotation.required {

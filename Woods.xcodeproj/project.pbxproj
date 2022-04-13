@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		350C523028078F3800309F5C /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B6F0FE249FA1B300454841 /* Map.swift */; };
+		350C523228078F5C00309F5C /* CompatibilityLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350C523128078F5C00309F5C /* CompatibilityLayer.swift */; };
+		350C523328078F5C00309F5C /* CompatibilityLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350C523128078F5C00309F5C /* CompatibilityLayer.swift */; };
 		351120C42807043C00D5E6B3 /* CancelNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3567D0112785B5DD00060C37 /* CancelNavigationView.swift */; };
 		351120C52807046500D5E6B3 /* WaypointListContextMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3567D0132785B7DD00060C37 /* WaypointListContextMenu.swift */; };
 		35126CCE2745CE1E00CF998C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35126CCD2745CE1E00CF998C /* Assets.xcassets */; };
@@ -251,6 +254,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		350C523128078F5C00309F5C /* CompatibilityLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompatibilityLayer.swift; sourceTree = "<group>"; };
 		351120C6280704A400D5E6B3 /* Woods.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Woods.entitlements; sourceTree = "<group>"; };
 		35126CCB2745CE1D00CF998C /* Woods.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Woods.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35126CCD2745CE1E00CF998C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -669,6 +673,7 @@
 				C7ECBDF525EFEC27005933C0 /* WebHTMLView.swift */,
 				C7ECBDFD25EFEEA1005933C0 /* LightHTMLView.swift */,
 				3567D0112785B5DD00060C37 /* CancelNavigationView.swift */,
+				350C523128078F5C00309F5C /* CompatibilityLayer.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -998,6 +1003,7 @@
 				352229E8274A76BB00090224 /* Connector.swift in Sources */,
 				352229F6274A76C100090224 /* Coordinates.swift in Sources */,
 				352229F5274A76C100090224 /* Length.swift in Sources */,
+				350C523328078F5C00309F5C /* CompatibilityLayer.swift in Sources */,
 				352229B2274A765300090224 /* WoodsApp.swift in Sources */,
 				352229E2274A76BB00090224 /* GeocachingComSortOrder.swift in Sources */,
 				352229C1274A76AA00090224 /* SearchBar.swift in Sources */,
@@ -1023,6 +1029,7 @@
 				352229F8274A76C100090224 /* GeocacheType.swift in Sources */,
 				352229C8274A76AA00090224 /* Waypoint+Color.swift in Sources */,
 				352229CB274A76AA00090224 /* SidebarWaypointListsView.swift in Sources */,
+				350C523028078F3800309F5C /* Map.swift in Sources */,
 				352229FE274A76C600090224 /* HTTPRequest.swift in Sources */,
 				352229F2274A76C100090224 /* WaypointListTree.swift in Sources */,
 				352229BC274A76AA00090224 /* LightHTMLView.swift in Sources */,
@@ -1082,6 +1089,7 @@
 				C765464E25D88CEC004F14E8 /* AccountsView.swift in Sources */,
 				C7B74EB725EDC5C200D5194B /* StarsView.swift in Sources */,
 				C7ECBD7025EEAB38005933C0 /* LocationManager.swift in Sources */,
+				350C523228078F5C00309F5C /* CompatibilityLayer.swift in Sources */,
 				C7ECBDC625EF0B90005933C0 /* WaypointsInRegionQuery.swift in Sources */,
 				C7ECBDD825EF1389005933C0 /* GeocachingComApiResults.swift in Sources */,
 				C765468925D8A2C9004F14E8 /* DataUtils.swift in Sources */,
