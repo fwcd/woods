@@ -1241,7 +1241,7 @@
 				DEVELOPMENT_TEAM = SS8V8UGLY8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "WatchWoods WatchKit Extension/Info.plist";
+				INFOPLIST_FILE = "watchOS (WatchKit Extension)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Woods;
 				INFOPLIST_KEY_CLKComplicationPrincipalClass = WatchWoods_WatchKit_Extension.ComplicationController;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2021 Fredrik. All rights reserved.";
@@ -1273,7 +1273,7 @@
 				DEVELOPMENT_TEAM = SS8V8UGLY8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "WatchWoods WatchKit Extension/Info.plist";
+				INFOPLIST_FILE = "watchOS (WatchKit Extension)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Woods;
 				INFOPLIST_KEY_CLKComplicationPrincipalClass = WatchWoods_WatchKit_Extension.ComplicationController;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2021 Fredrik. All rights reserved.";
