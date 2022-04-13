@@ -1,2 +1,3 @@
 # Woods
-A Geocaching app for iOS.
+
+A GPS navigation and Geocaching app for iOS.
