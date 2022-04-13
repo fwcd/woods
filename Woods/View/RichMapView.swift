@@ -13,7 +13,7 @@ import CoreLocation
 struct RichMapView: View {
     @EnvironmentObject private var waypoints: Waypoints
     @State private var selectedWaypointId: String? = nil
-    @State private var region: MKCoordinateRegion = MKCoordinateRegion(
+    @State private var region: MKCoordinateRegion? = MKCoordinateRegion(
         center: CLLocationCoordinate2D(
             latitude: 50,
             longitude: 10
@@ -23,7 +23,7 @@ struct RichMapView: View {
             longitudeDelta: 10
         )
     )
-    @State private var userTrackingMode: MapUserTrackingMode = .none
+    @State private var userTrackingMode: MKUserTrackingMode = .none
     @State private var useSatelliteView: Bool = false
     @State private var listPickerSheetShown: Bool = false
     @State private var listPickerMode: ListPickerMode = .save
@@ -46,7 +46,9 @@ struct RichMapView: View {
             .edgesIgnoringSafeArea(.all)
             VStack(spacing: 10) {
                 Button(action: {
-                    waypoints.refresh(with: query(from: region))
+                    if let region = region {
+                        waypoints.refresh(with: query(from: region))
+                    }
                 }) {
                     Image(systemName: "arrow.clockwise.circle.fill")
                 }
@@ -59,7 +61,7 @@ struct RichMapView: View {
                     switch userTrackingMode {
                     case .none: userTrackingMode = .follow
                     case .follow: userTrackingMode = .none
-                    @unknown default: userTrackingMode = .follow
+                    default: userTrackingMode = .follow
                     }
                 }) {
                     Image(systemName: "location.circle.fill")

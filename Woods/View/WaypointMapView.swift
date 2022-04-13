@@ -13,36 +13,33 @@ import CoreLocation
 struct WaypointMapView: View {
     let waypoints: [Waypoint]
     @Binding var selectedWaypointId: String?
-    @Binding var region: MKCoordinateRegion
-    @Binding var userTrackingMode: MapUserTrackingMode
+    @Binding var region: MKCoordinateRegion?
+    @Binding var userTrackingMode: MKUserTrackingMode
     @Binding var useSatelliteView: Bool
     
     var body: some View {
-        Map(
-            coordinateRegion: $region,
-            showsUserLocation: true,
-            userTrackingMode: $userTrackingMode,
-            annotationItems: waypoints
-        ) { waypoint in
-            MapMarker(
+        Map(annotations: waypoints.map { waypoint in
+            Map.Annotation(
+                tag: waypoint.id,
                 coordinate: waypoint.location.asCLCoordinate,
-                tint: waypoint.color
+                // Uncomment to show cache names on map again
+                // title: waypoint.name,
+                color: waypoint.color,
+                iconName: waypoint.iconName
             )
-        }
-        // FIXME: Use selectedWaypointId binding
-        // FIXME: Use useSatelliteView binding
+        }, selection: $selectedWaypointId, region: $region, userTrackingMode: $userTrackingMode, useSatelliteView: $useSatelliteView)
     }
     
     init(
         waypoints: [Waypoint],
         selectedWaypointId: Binding<String?>? = nil,
-        region: Binding<MKCoordinateRegion>? = nil,
-        userTrackingMode: Binding<MapUserTrackingMode>? = nil,
+        region: Binding<MKCoordinateRegion?>? = nil,
+        userTrackingMode: Binding<MKUserTrackingMode>? = nil,
         useSatelliteView: Binding<Bool>? = nil
     ) {
         self.waypoints = waypoints
         _selectedWaypointId = selectedWaypointId ?? .constant(nil)
-        _region = region ?? .constant(MKCoordinateRegion())
+        _region = region ?? .constant(nil)
         _userTrackingMode = userTrackingMode ?? .constant(.none)
         _useSatelliteView = useSatelliteView ?? .constant(false)
     }
