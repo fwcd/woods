@@ -29,12 +29,12 @@
      showgrid="false"
      showguides="true"
      inkscape:guide-bbox="true"
-     inkscape:zoom="1.0952297"
-     inkscape:cx="224.61043"
-     inkscape:cy="177.58832"
+     inkscape:zoom="0.42362271"
+     inkscape:cx="-181.76551"
+     inkscape:cy="43.670935"
      inkscape:window-width="1312"
      inkscape:window-height="865"
-     inkscape:window-x="206"
+     inkscape:window-x="200"
      inkscape:window-y="38"
      inkscape:window-maximized="0"
      inkscape:current-layer="layer1" />
@@ -42,26 +42,25 @@
      id="defs2">
     <linearGradient
        inkscape:collect="always"
-       id="linearGradient1086">
+       id="linearGradient1681">
       <stop
-         style="stop-color:#ffbd53;stop-opacity:1"
+         style="stop-color:#002d00;stop-opacity:1"
          offset="0"
-         id="stop1082" />
+         id="stop1677" />
       <stop
-         style="stop-color:#997d4f;stop-opacity:1"
+         style="stop-color:#003400;stop-opacity:1"
          offset="1"
-         id="stop1084" />
+         id="stop1679" />
     </linearGradient>
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient1086"
-       id="linearGradient1088"
-       x1="97.023315"
-       y1="72.631973"
-       x2="97.023315"
-       y2="144.72192"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(1.0600564,0,0,1.0600564,-2.9297136,-3.7109703)" />
+       xlink:href="#linearGradient1681"
+       id="linearGradient1683"
+       x1="101.08511"
+       y1="157.8385"
+       x2="101.08511"
+       y2="66.125565"
+       gradientUnits="userSpaceOnUse" />
   </defs>
   <g
      inkscape:label="Layer 1"
@@ -69,9 +68,9 @@
      id="layer1"
      transform="translate(-48.782673,-61.791382)">
     <rect
-       style="fill:url(#linearGradient1088);fill-opacity:1;stroke:none;stroke-width:5.30027;stroke-linejoin:round;stroke-opacity:0.170901"
+       style="fill:url(#linearGradient1683);fill-opacity:1;stroke:none;stroke-width:5.30027;stroke-linejoin:round;stroke-opacity:0.170901"
        id="rect964"
-       width="99.97728"
+       width="99.976997"
        height="99.97728"
        x="48.782673"
        y="61.791382" />
@@ -79,7 +78,7 @@
        id="g3583"
        transform="translate(-0.93882129,1.7861022)">
       <path
-         style="fill:#492700;fill-opacity:1;stroke:none;stroke-width:0.164652px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="fill:#2eff00;fill-opacity:0.95150113;stroke:none;stroke-width:0.164652px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          d="M 68.602279,141.0128 99.33951,78.975041 130.81799,140.69679 99.55691,129.5977 68.602279,141.0128"
          id="path1594" />
       <path
