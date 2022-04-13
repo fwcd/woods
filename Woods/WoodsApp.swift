@@ -22,8 +22,10 @@ private class AppState {
         self.waypoints = waypoints
         self.locationManager = locationManager
         
+        #if canImport(UIKit)
         UITableView.appearance().backgroundColor = .clear // applies to Form backgrounds too
         UIScrollView.appearance().keyboardDismissMode = .interactive
+        #endif
     }
 }
 
@@ -33,6 +35,12 @@ private let state = AppState()
 struct WoodsApp: App {
     var body: some Scene {
         WindowGroup {
+            #if os(macOS)
+            SidebarContentView()
+                .environmentObject(state.accounts)
+                .environmentObject(state.waypoints)
+                .environmentObject(state.locationManager)
+            #else
             if [.pad, .mac].contains(UIDevice.current.userInterfaceIdiom) {
                 SidebarContentView()
                     .environmentObject(state.accounts)
@@ -44,6 +52,7 @@ struct WoodsApp: App {
                     .environmentObject(state.waypoints)
                     .environmentObject(state.locationManager)
             }
+            #endif
         }
     }
 }

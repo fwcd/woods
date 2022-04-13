@@ -53,20 +53,16 @@ struct WaypointListView: View {
                         Text("Clear List")
                     }
                 }
-                .actionSheet(isPresented: $clearConfirmationShown) {
-                    ActionSheet(
-                        title: Text("Are you sure?"),
-                        buttons: [
-                            .destructive(Text("Clear \(list?.name ?? "List")")) {
-                                for childId in waypoints.listTree[listId]?.childs ?? [] {
-                                    waypoints.listTree.remove(childId)
-                                }
-                                
-                                waypoints.listTree[listId]?.clearWaypoints()
-                            },
-                            .cancel()
-                        ]
-                    )
+                .confirmationDialog("Are you sure?", isPresented: $clearConfirmationShown) {
+                    Button {
+                        for childId in waypoints.listTree[listId]?.childs ?? [] {
+                            waypoints.listTree.remove(childId)
+                        }
+                        waypoints.listTree[listId]?.clearWaypoints()
+                    } label: {
+                        Text("Clear \(list?.name ?? "List")")
+                    }
+                    Button("Clear", role: .cancel) {}
                 }
             }
             Section(header: Text("Items")) {
@@ -98,7 +94,9 @@ struct WaypointListView: View {
             }
         }
         .navigationTitle(list?.name ?? "")
+        #if !os(macOS)
         .navigationBarTitleDisplayMode(largeTitle ? .large : .inline)
+        #endif
     }
 }
 

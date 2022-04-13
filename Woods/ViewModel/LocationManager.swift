@@ -33,6 +33,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     }
     private var headingDependents: Int = 0 {
         willSet {
+            #if !os(macOS)
             if newValue > 0 && headingDependents <= 0 {
                 log.info("Starting heading updates")
                 manager.startUpdatingHeading()
@@ -40,6 +41,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
                 log.info("Stopping heading updates")
                 manager.stopUpdatingHeading()
             }
+            #endif
         }
     }
     

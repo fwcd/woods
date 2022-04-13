@@ -14,10 +14,17 @@ struct NewWaypointListView: View {
     @State private var text: String = ""
     
     var body: some View {
+        #if canImport(UIKit)
         AutoFocusTextField(placeholder: "Name", text: $text) {
             onCommit(WaypointList(name: text))
         }
         .font(.title)
+        #else
+        TextField("Name", text: $text)
+            .onSubmit {
+                onCommit(WaypointList(name: text))
+            }
+        #endif
     }
 }
 

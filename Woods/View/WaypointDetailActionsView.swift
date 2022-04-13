@@ -37,10 +37,13 @@ struct WaypointDetailActionsView: View {
                         }
                     }
                     .navigationTitle("Add To List")
+                    #if !os(macOS)
                     .navigationBarTitleDisplayMode(.inline)
+                    #endif
                 }
                 .environmentObject(waypoints)
             }
+            #if canImport(UIKit)
             if let url = waypoint.webUrl {
                 Button(action: { linkShareSheetShown = true }) {
                     HStack {
@@ -66,6 +69,7 @@ struct WaypointDetailActionsView: View {
                     Text("GPX")
                 }
             }
+            #endif
         }
         .buttonStyle(LargeButtonStyle())
     }
