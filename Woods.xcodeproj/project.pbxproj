@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		351120C42807043C00D5E6B3 /* CancelNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3567D0112785B5DD00060C37 /* CancelNavigationView.swift */; };
+		351120C52807046500D5E6B3 /* WaypointListContextMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3567D0132785B7DD00060C37 /* WaypointListContextMenu.swift */; };
 		35126CCE2745CE1E00CF998C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35126CCD2745CE1E00CF998C /* Assets.xcassets */; };
-		35126CD42745CE1E00CF998C /* WatchWoods WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 35126CD32745CE1E00CF998C /* WatchWoods WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		35126CD42745CE1E00CF998C /* Woods (WatchKit Extension).appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 35126CD32745CE1E00CF998C /* Woods (WatchKit Extension).appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		35126CD92745CE1E00CF998C /* WoodsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35126CD82745CE1E00CF998C /* WoodsApp.swift */; };
 		35126CDB2745CE1E00CF998C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35126CDA2745CE1E00CF998C /* ContentView.swift */; };
 		35126CDD2745CE1E00CF998C /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35126CDC2745CE1E00CF998C /* NotificationController.swift */; };
@@ -17,15 +19,11 @@
 		35126CE32745CE1E00CF998C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35126CE22745CE1E00CF998C /* Assets.xcassets */; };
 		35126CE62745CE1E00CF998C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35126CE52745CE1E00CF998C /* Preview Assets.xcassets */; };
 		35126CF22745CE1E00CF998C /* WatchWoodsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35126CF12745CE1E00CF998C /* WatchWoodsTests.swift */; };
-		35126CFC2745CE1E00CF998C /* WatchWoodsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35126CFB2745CE1E00CF998C /* WatchWoodsUITests.swift */; };
-		35126CFE2745CE1E00CF998C /* WatchWoodsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35126CFD2745CE1E00CF998C /* WatchWoodsUITestsLaunchTests.swift */; };
 		35126D012745CE1E00CF998C /* Woods.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 35126CCB2745CE1D00CF998C /* Woods.app */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		35222982274A737300090224 /* CollectionUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35222981274A737300090224 /* CollectionUtils.swift */; };
 		3522298E274A756D00090224 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3522298D274A756D00090224 /* Assets.xcassets */; };
 		35222991274A756D00090224 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35222990274A756D00090224 /* Preview Assets.xcassets */; };
-		3522299C274A756D00090224 /* MacWoodsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3522299B274A756D00090224 /* MacWoodsTests.swift */; };
-		352229A6274A756D00090224 /* MacWoodsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352229A5274A756D00090224 /* MacWoodsUITests.swift */; };
-		352229A8274A756D00090224 /* MacWoodsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352229A7274A756D00090224 /* MacWoodsUITestsLaunchTests.swift */; };
+		3522299C274A756D00090224 /* WoodsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3522299B274A756D00090224 /* WoodsTests.swift */; };
 		352229B2274A765300090224 /* WoodsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73E04BA249F9F4700C6E22C /* WoodsApp.swift */; };
 		352229B5274A76AA00090224 /* WaypointSmallSnippetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBD8E25EED8AF005933C0 /* WaypointSmallSnippetView.swift */; };
 		352229B6274A76AA00090224 /* SimpleSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBDE125EFE03F005933C0 /* SimpleSection.swift */; };
@@ -112,7 +110,6 @@
 		C73E04C1249F9F4A00C6E22C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C73E04C0249F9F4A00C6E22C /* Assets.xcassets */; };
 		C73E04C4249F9F4A00C6E22C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C73E04C3249F9F4A00C6E22C /* Preview Assets.xcassets */; };
 		C73E04C7249F9F4A00C6E22C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C73E04C5249F9F4A00C6E22C /* LaunchScreen.storyboard */; };
-		C73E04DD249F9F4A00C6E22C /* WoodsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73E04DC249F9F4A00C6E22C /* WoodsUITests.swift */; };
 		C748C2A725EEA16B00661BEE /* Waypoint+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = C748C2A625EEA16B00661BEE /* Waypoint+Color.swift */; };
 		C748C2AC25EEA19300661BEE /* Waypoint+Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C748C2AB25EEA19300661BEE /* Waypoint+Icon.swift */; };
 		C765460125D87B26004F14E8 /* Waypoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765460025D87B26004F14E8 /* Waypoint.swift */; };
@@ -204,13 +201,6 @@
 			remoteGlobalIDString = 35126CD22745CE1E00CF998C;
 			remoteInfo = "WatchWoods WatchKit Extension";
 		};
-		35126CF82745CE1E00CF998C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C73E04AF249F9F4700C6E22C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 35126CCA2745CE1D00CF998C;
-			remoteInfo = WatchWoods;
-		};
 		35126CFF2745CE1E00CF998C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C73E04AF249F9F4700C6E22C /* Project object */;
@@ -225,21 +215,7 @@
 			remoteGlobalIDString = 35222986274A756C00090224;
 			remoteInfo = MacWoods;
 		};
-		352229A2274A756D00090224 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C73E04AF249F9F4700C6E22C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 35222986274A756C00090224;
-			remoteInfo = MacWoods;
-		};
 		C73E04CE249F9F4A00C6E22C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C73E04AF249F9F4700C6E22C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C73E04B6249F9F4700C6E22C;
-			remoteInfo = Woods;
-		};
-		C73E04D9249F9F4A00C6E22C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C73E04AF249F9F4700C6E22C /* Project object */;
 			proxyType = 1;
@@ -266,7 +242,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				35126CD42745CE1E00CF998C /* WatchWoods WatchKit Extension.appex in Embed App Extensions */,
+				35126CD42745CE1E00CF998C /* Woods (WatchKit Extension).appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -274,9 +250,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		351120C6280704A400D5E6B3 /* Woods.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Woods.entitlements; sourceTree = "<group>"; };
 		35126CCB2745CE1D00CF998C /* Woods.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Woods.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35126CCD2745CE1E00CF998C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		35126CD32745CE1E00CF998C /* WatchWoods WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "WatchWoods WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		35126CD32745CE1E00CF998C /* Woods (WatchKit Extension).appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Woods (WatchKit Extension).appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		35126CD82745CE1E00CF998C /* WoodsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoodsApp.swift; sourceTree = "<group>"; };
 		35126CDA2745CE1E00CF998C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		35126CDC2745CE1E00CF998C /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
@@ -286,22 +263,15 @@
 		35126CE52745CE1E00CF998C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		35126CE72745CE1E00CF998C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		35126CE82745CE1E00CF998C /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
-		35126CED2745CE1E00CF998C /* WatchWoodsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WatchWoodsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		35126CED2745CE1E00CF998C /* Tests (watchOS).xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests (watchOS).xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		35126CF12745CE1E00CF998C /* WatchWoodsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchWoodsTests.swift; sourceTree = "<group>"; };
-		35126CF72745CE1E00CF998C /* WatchWoodsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WatchWoodsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		35126CFB2745CE1E00CF998C /* WatchWoodsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchWoodsUITests.swift; sourceTree = "<group>"; };
-		35126CFD2745CE1E00CF998C /* WatchWoodsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchWoodsUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		35222981274A737300090224 /* CollectionUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionUtils.swift; sourceTree = "<group>"; };
-		35222987274A756C00090224 /* MacWoods.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacWoods.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		35222987274A756C00090224 /* Woods.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Woods.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3522298D274A756D00090224 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		35222990274A756D00090224 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		35222992274A756D00090224 /* MacWoods.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MacWoods.entitlements; sourceTree = "<group>"; };
-		35222997274A756D00090224 /* MacWoodsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MacWoodsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3522299B274A756D00090224 /* MacWoodsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacWoodsTests.swift; sourceTree = "<group>"; };
-		352229A1274A756D00090224 /* MacWoodsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MacWoodsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		352229A5274A756D00090224 /* MacWoodsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacWoodsUITests.swift; sourceTree = "<group>"; };
-		352229A7274A756D00090224 /* MacWoodsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacWoodsUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		35353C3A2745D533002ACE14 /* Woods.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Woods.entitlements; sourceTree = "<group>"; };
+		35222992274A756D00090224 /* Woods.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Woods.entitlements; sourceTree = "<group>"; };
+		35222997274A756D00090224 /* Tests (macOS).xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests (macOS).xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3522299B274A756D00090224 /* WoodsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoodsTests.swift; sourceTree = "<group>"; };
 		35353C3B2745D90F002ACE14 /* SidebarContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarContentView.swift; sourceTree = "<group>"; };
 		3567D0112785B5DD00060C37 /* CancelNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelNavigationView.swift; sourceTree = "<group>"; };
 		3567D0132785B7DD00060C37 /* WaypointListContextMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointListContextMenu.swift; sourceTree = "<group>"; };
@@ -315,11 +285,8 @@
 		C73E04C3249F9F4A00C6E22C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C73E04C6249F9F4A00C6E22C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C73E04C8249F9F4A00C6E22C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C73E04CD249F9F4A00C6E22C /* WoodsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WoodsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C73E04CD249F9F4A00C6E22C /* Tests (iOS).xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests (iOS).xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C73E04D3249F9F4A00C6E22C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C73E04D8249F9F4A00C6E22C /* WoodsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WoodsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C73E04DC249F9F4A00C6E22C /* WoodsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoodsUITests.swift; sourceTree = "<group>"; };
-		C73E04DE249F9F4A00C6E22C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C748C2A625EEA16B00661BEE /* Waypoint+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Waypoint+Color.swift"; sourceTree = "<group>"; };
 		C748C2AB25EEA19300661BEE /* Waypoint+Icon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Waypoint+Icon.swift"; sourceTree = "<group>"; };
 		C765460025D87B26004F14E8 /* Waypoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Waypoint.swift; sourceTree = "<group>"; };
@@ -409,13 +376,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		35126CF42745CE1E00CF998C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		35222984274A756C00090224 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -426,13 +386,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		35222994274A756D00090224 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3522299E274A756D00090224 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -455,25 +408,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C73E04D5249F9F4A00C6E22C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		35126CCC2745CE1D00CF998C /* WatchWoods */ = {
+		35126CCC2745CE1D00CF998C /* watchOS */ = {
 			isa = PBXGroup;
 			children = (
 				35126CCD2745CE1E00CF998C /* Assets.xcassets */,
 			);
-			path = WatchWoods;
+			path = watchOS;
 			sourceTree = "<group>";
 		};
-		35126CD72745CE1E00CF998C /* WatchWoods WatchKit Extension */ = {
+		35126CD72745CE1E00CF998C /* watchOS (WatchKit Extension) */ = {
 			isa = PBXGroup;
 			children = (
 				35126CD82745CE1E00CF998C /* WoodsApp.swift */,
@@ -486,7 +432,7 @@
 				35126CE82745CE1E00CF998C /* PushNotificationPayload.apns */,
 				35126CE42745CE1E00CF998C /* Preview Content */,
 			);
-			path = "WatchWoods WatchKit Extension";
+			path = "watchOS (WatchKit Extension)";
 			sourceTree = "<group>";
 		};
 		35126CE42745CE1E00CF998C /* Preview Content */ = {
@@ -497,31 +443,22 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		35126CF02745CE1E00CF998C /* WatchWoodsTests */ = {
+		35126CF02745CE1E00CF998C /* Tests (watchOS) */ = {
 			isa = PBXGroup;
 			children = (
 				35126CF12745CE1E00CF998C /* WatchWoodsTests.swift */,
 			);
-			path = WatchWoodsTests;
+			path = "Tests (watchOS)";
 			sourceTree = "<group>";
 		};
-		35126CFA2745CE1E00CF998C /* WatchWoodsUITests */ = {
-			isa = PBXGroup;
-			children = (
-				35126CFB2745CE1E00CF998C /* WatchWoodsUITests.swift */,
-				35126CFD2745CE1E00CF998C /* WatchWoodsUITestsLaunchTests.swift */,
-			);
-			path = WatchWoodsUITests;
-			sourceTree = "<group>";
-		};
-		35222988274A756C00090224 /* MacWoods */ = {
+		35222988274A756C00090224 /* macOS */ = {
 			isa = PBXGroup;
 			children = (
 				3522298D274A756D00090224 /* Assets.xcassets */,
-				35222992274A756D00090224 /* MacWoods.entitlements */,
+				35222992274A756D00090224 /* Woods.entitlements */,
 				3522298F274A756D00090224 /* Preview Content */,
 			);
-			path = MacWoods;
+			path = macOS;
 			sourceTree = "<group>";
 		};
 		3522298F274A756D00090224 /* Preview Content */ = {
@@ -532,21 +469,12 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		3522299A274A756D00090224 /* MacWoodsTests */ = {
+		3522299A274A756D00090224 /* Tests (macOS) */ = {
 			isa = PBXGroup;
 			children = (
-				3522299B274A756D00090224 /* MacWoodsTests.swift */,
+				3522299B274A756D00090224 /* WoodsTests.swift */,
 			);
-			path = MacWoodsTests;
-			sourceTree = "<group>";
-		};
-		352229A4274A756D00090224 /* MacWoodsUITests */ = {
-			isa = PBXGroup;
-			children = (
-				352229A5274A756D00090224 /* MacWoodsUITests.swift */,
-				352229A7274A756D00090224 /* MacWoodsUITestsLaunchTests.swift */,
-			);
-			path = MacWoodsUITests;
+			path = "Tests (macOS)";
 			sourceTree = "<group>";
 		};
 		35222A01274A773E00090224 /* Frameworks */ = {
@@ -556,19 +484,28 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		358FC03A2807017000217354 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				C73E04C0249F9F4A00C6E22C /* Assets.xcassets */,
+				351120C6280704A400D5E6B3 /* Woods.entitlements */,
+				C73E04C5249F9F4A00C6E22C /* LaunchScreen.storyboard */,
+				C73E04C2249F9F4A00C6E22C /* Preview Content */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
 		C73E04AE249F9F4700C6E22C = {
 			isa = PBXGroup;
 			children = (
 				C73E04B9249F9F4700C6E22C /* Woods */,
-				C73E04D0249F9F4A00C6E22C /* WoodsTests */,
-				35222988274A756C00090224 /* MacWoods */,
-				3522299A274A756D00090224 /* MacWoodsTests */,
-				352229A4274A756D00090224 /* MacWoodsUITests */,
-				C73E04DB249F9F4A00C6E22C /* WoodsUITests */,
-				35126CCC2745CE1D00CF998C /* WatchWoods */,
-				35126CD72745CE1E00CF998C /* WatchWoods WatchKit Extension */,
-				35126CF02745CE1E00CF998C /* WatchWoodsTests */,
-				35126CFA2745CE1E00CF998C /* WatchWoodsUITests */,
+				358FC03A2807017000217354 /* iOS */,
+				35222988274A756C00090224 /* macOS */,
+				35126CCC2745CE1D00CF998C /* watchOS */,
+				35126CD72745CE1E00CF998C /* watchOS (WatchKit Extension) */,
+				C73E04D0249F9F4A00C6E22C /* Tests (iOS) */,
+				3522299A274A756D00090224 /* Tests (macOS) */,
+				35126CF02745CE1E00CF998C /* Tests (watchOS) */,
 				C73E04B8249F9F4700C6E22C /* Products */,
 				35222A01274A773E00090224 /* Frameworks */,
 			);
@@ -578,15 +515,12 @@
 			isa = PBXGroup;
 			children = (
 				C73E04B7249F9F4700C6E22C /* Woods.app */,
-				C73E04CD249F9F4A00C6E22C /* WoodsTests.xctest */,
-				C73E04D8249F9F4A00C6E22C /* WoodsUITests.xctest */,
+				C73E04CD249F9F4A00C6E22C /* Tests (iOS).xctest */,
 				35126CCB2745CE1D00CF998C /* Woods.app */,
-				35126CD32745CE1E00CF998C /* WatchWoods WatchKit Extension.appex */,
-				35126CED2745CE1E00CF998C /* WatchWoodsTests.xctest */,
-				35126CF72745CE1E00CF998C /* WatchWoodsUITests.xctest */,
-				35222987274A756C00090224 /* MacWoods.app */,
-				35222997274A756D00090224 /* MacWoodsTests.xctest */,
-				352229A1274A756D00090224 /* MacWoodsUITests.xctest */,
+				35126CD32745CE1E00CF998C /* Woods (WatchKit Extension).appex */,
+				35126CED2745CE1E00CF998C /* Tests (watchOS).xctest */,
+				35222987274A756C00090224 /* Woods.app */,
+				35222997274A756D00090224 /* Tests (macOS).xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -600,11 +534,7 @@
 				C765463A25D88AB5004F14E8 /* ViewModel */,
 				C7E8C79A249FA02B00B5BAF9 /* View */,
 				C73E04BA249F9F4700C6E22C /* WoodsApp.swift */,
-				C73E04C0249F9F4A00C6E22C /* Assets.xcassets */,
-				C73E04C5249F9F4A00C6E22C /* LaunchScreen.storyboard */,
 				C73E04C8249F9F4A00C6E22C /* Info.plist */,
-				35353C3A2745D533002ACE14 /* Woods.entitlements */,
-				C73E04C2249F9F4A00C6E22C /* Preview Content */,
 			);
 			path = Woods;
 			sourceTree = "<group>";
@@ -617,23 +547,14 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		C73E04D0249F9F4A00C6E22C /* WoodsTests */ = {
+		C73E04D0249F9F4A00C6E22C /* Tests (iOS) */ = {
 			isa = PBXGroup;
 			children = (
 				C7B74EED25EDE3D900D5194B /* DegreesTests.swift */,
 				C7ECBE3C25F030C4005933C0 /* CoordinatesTests.swift */,
 				C73E04D3249F9F4A00C6E22C /* Info.plist */,
 			);
-			path = WoodsTests;
-			sourceTree = "<group>";
-		};
-		C73E04DB249F9F4A00C6E22C /* WoodsUITests */ = {
-			isa = PBXGroup;
-			children = (
-				C73E04DC249F9F4A00C6E22C /* WoodsUITests.swift */,
-				C73E04DE249F9F4A00C6E22C /* Info.plist */,
-			);
-			path = WoodsUITests;
+			path = "Tests (iOS)";
 			sourceTree = "<group>";
 		};
 		C76545FF25D87AE1004F14E8 /* Model */ = {
@@ -752,9 +673,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		35126CCA2745CE1D00CF998C /* WatchWoods */ = {
+		35126CCA2745CE1D00CF998C /* Woods (watchOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 35126D0D2745CE1E00CF998C /* Build configuration list for PBXNativeTarget "WatchWoods" */;
+			buildConfigurationList = 35126D0D2745CE1E00CF998C /* Build configuration list for PBXNativeTarget "Woods (watchOS)" */;
 			buildPhases = (
 				35126CC92745CE1D00CF998C /* Resources */,
 				35126D052745CE1E00CF998C /* Embed App Extensions */,
@@ -764,14 +685,14 @@
 			dependencies = (
 				35126CD62745CE1E00CF998C /* PBXTargetDependency */,
 			);
-			name = WatchWoods;
+			name = "Woods (watchOS)";
 			productName = WatchWoods;
 			productReference = 35126CCB2745CE1D00CF998C /* Woods.app */;
 			productType = "com.apple.product-type.application.watchapp2";
 		};
-		35126CD22745CE1E00CF998C /* WatchWoods WatchKit Extension */ = {
+		35126CD22745CE1E00CF998C /* Woods (WatchKit Extension) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 35126D0C2745CE1E00CF998C /* Build configuration list for PBXNativeTarget "WatchWoods WatchKit Extension" */;
+			buildConfigurationList = 35126D0C2745CE1E00CF998C /* Build configuration list for PBXNativeTarget "Woods (WatchKit Extension)" */;
 			buildPhases = (
 				35126CCF2745CE1E00CF998C /* Sources */,
 				35126CD02745CE1E00CF998C /* Frameworks */,
@@ -781,14 +702,14 @@
 			);
 			dependencies = (
 			);
-			name = "WatchWoods WatchKit Extension";
+			name = "Woods (WatchKit Extension)";
 			productName = "WatchWoods WatchKit Extension";
-			productReference = 35126CD32745CE1E00CF998C /* WatchWoods WatchKit Extension.appex */;
+			productReference = 35126CD32745CE1E00CF998C /* Woods (WatchKit Extension).appex */;
 			productType = "com.apple.product-type.watchkit2-extension";
 		};
-		35126CEC2745CE1E00CF998C /* WatchWoodsTests */ = {
+		35126CEC2745CE1E00CF998C /* Tests (watchOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 35126D0E2745CE1E00CF998C /* Build configuration list for PBXNativeTarget "WatchWoodsTests" */;
+			buildConfigurationList = 35126D0E2745CE1E00CF998C /* Build configuration list for PBXNativeTarget "Tests (watchOS)" */;
 			buildPhases = (
 				35126CE92745CE1E00CF998C /* Sources */,
 				35126CEA2745CE1E00CF998C /* Frameworks */,
@@ -799,32 +720,14 @@
 			dependencies = (
 				35126CEF2745CE1E00CF998C /* PBXTargetDependency */,
 			);
-			name = WatchWoodsTests;
+			name = "Tests (watchOS)";
 			productName = WatchWoodsTests;
-			productReference = 35126CED2745CE1E00CF998C /* WatchWoodsTests.xctest */;
+			productReference = 35126CED2745CE1E00CF998C /* Tests (watchOS).xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		35126CF62745CE1E00CF998C /* WatchWoodsUITests */ = {
+		35222986274A756C00090224 /* Woods (macOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 35126D0F2745CE1E00CF998C /* Build configuration list for PBXNativeTarget "WatchWoodsUITests" */;
-			buildPhases = (
-				35126CF32745CE1E00CF998C /* Sources */,
-				35126CF42745CE1E00CF998C /* Frameworks */,
-				35126CF52745CE1E00CF998C /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				35126CF92745CE1E00CF998C /* PBXTargetDependency */,
-			);
-			name = WatchWoodsUITests;
-			productName = WatchWoodsUITests;
-			productReference = 35126CF72745CE1E00CF998C /* WatchWoodsUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
-		35222986274A756C00090224 /* MacWoods */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 352229A9274A756D00090224 /* Build configuration list for PBXNativeTarget "MacWoods" */;
+			buildConfigurationList = 352229A9274A756D00090224 /* Build configuration list for PBXNativeTarget "Woods (macOS)" */;
 			buildPhases = (
 				35222983274A756C00090224 /* Sources */,
 				35222984274A756C00090224 /* Frameworks */,
@@ -834,18 +737,18 @@
 			);
 			dependencies = (
 			);
-			name = MacWoods;
+			name = "Woods (macOS)";
 			packageProductDependencies = (
 				35222A02274A773E00090224 /* CoreGPX */,
 				35222A04274A774100090224 /* SwiftSoup */,
 			);
 			productName = MacWoods;
-			productReference = 35222987274A756C00090224 /* MacWoods.app */;
+			productReference = 35222987274A756C00090224 /* Woods.app */;
 			productType = "com.apple.product-type.application";
 		};
-		35222996274A756D00090224 /* MacWoodsTests */ = {
+		35222996274A756D00090224 /* Tests (macOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 352229AC274A756D00090224 /* Build configuration list for PBXNativeTarget "MacWoodsTests" */;
+			buildConfigurationList = 352229AC274A756D00090224 /* Build configuration list for PBXNativeTarget "Tests (macOS)" */;
 			buildPhases = (
 				35222993274A756D00090224 /* Sources */,
 				35222994274A756D00090224 /* Frameworks */,
@@ -856,28 +759,10 @@
 			dependencies = (
 				35222999274A756D00090224 /* PBXTargetDependency */,
 			);
-			name = MacWoodsTests;
+			name = "Tests (macOS)";
 			productName = MacWoodsTests;
-			productReference = 35222997274A756D00090224 /* MacWoodsTests.xctest */;
+			productReference = 35222997274A756D00090224 /* Tests (macOS).xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		352229A0274A756D00090224 /* MacWoodsUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 352229AF274A756D00090224 /* Build configuration list for PBXNativeTarget "MacWoodsUITests" */;
-			buildPhases = (
-				3522299D274A756D00090224 /* Sources */,
-				3522299E274A756D00090224 /* Frameworks */,
-				3522299F274A756D00090224 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				352229A3274A756D00090224 /* PBXTargetDependency */,
-			);
-			name = MacWoodsUITests;
-			productName = MacWoodsUITests;
-			productReference = 352229A1274A756D00090224 /* MacWoodsUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 		C73E04B6249F9F4700C6E22C /* Woods (iOS) */ = {
 			isa = PBXNativeTarget;
@@ -902,9 +787,9 @@
 			productReference = C73E04B7249F9F4700C6E22C /* Woods.app */;
 			productType = "com.apple.product-type.application";
 		};
-		C73E04CC249F9F4A00C6E22C /* WoodsTests */ = {
+		C73E04CC249F9F4A00C6E22C /* Tests (iOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C73E04E4249F9F4A00C6E22C /* Build configuration list for PBXNativeTarget "WoodsTests" */;
+			buildConfigurationList = C73E04E4249F9F4A00C6E22C /* Build configuration list for PBXNativeTarget "Tests (iOS)" */;
 			buildPhases = (
 				C73E04C9249F9F4A00C6E22C /* Sources */,
 				C73E04CA249F9F4A00C6E22C /* Frameworks */,
@@ -915,28 +800,10 @@
 			dependencies = (
 				C73E04CF249F9F4A00C6E22C /* PBXTargetDependency */,
 			);
-			name = WoodsTests;
+			name = "Tests (iOS)";
 			productName = WoodsTests;
-			productReference = C73E04CD249F9F4A00C6E22C /* WoodsTests.xctest */;
+			productReference = C73E04CD249F9F4A00C6E22C /* Tests (iOS).xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		C73E04D7249F9F4A00C6E22C /* WoodsUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = C73E04E7249F9F4A00C6E22C /* Build configuration list for PBXNativeTarget "WoodsUITests" */;
-			buildPhases = (
-				C73E04D4249F9F4A00C6E22C /* Sources */,
-				C73E04D5249F9F4A00C6E22C /* Frameworks */,
-				C73E04D6249F9F4A00C6E22C /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				C73E04DA249F9F4A00C6E22C /* PBXTargetDependency */,
-			);
-			name = WoodsUITests;
-			productName = WoodsUITests;
-			productReference = C73E04D8249F9F4A00C6E22C /* WoodsUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
@@ -958,10 +825,6 @@
 						CreatedOnToolsVersion = 13.1;
 						TestTargetID = 35126CD22745CE1E00CF998C;
 					};
-					35126CF62745CE1E00CF998C = {
-						CreatedOnToolsVersion = 13.1;
-						TestTargetID = 35126CCA2745CE1D00CF998C;
-					};
 					35222986274A756C00090224 = {
 						CreatedOnToolsVersion = 13.1;
 					};
@@ -969,18 +832,10 @@
 						CreatedOnToolsVersion = 13.1;
 						TestTargetID = 35222986274A756C00090224;
 					};
-					352229A0274A756D00090224 = {
-						CreatedOnToolsVersion = 13.1;
-						TestTargetID = 35222986274A756C00090224;
-					};
 					C73E04B6249F9F4700C6E22C = {
 						CreatedOnToolsVersion = 11.3.1;
 					};
 					C73E04CC249F9F4A00C6E22C = {
-						CreatedOnToolsVersion = 11.3.1;
-						TestTargetID = C73E04B6249F9F4700C6E22C;
-					};
-					C73E04D7249F9F4A00C6E22C = {
 						CreatedOnToolsVersion = 11.3.1;
 						TestTargetID = C73E04B6249F9F4700C6E22C;
 					};
@@ -1004,15 +859,12 @@
 			projectRoot = "";
 			targets = (
 				C73E04B6249F9F4700C6E22C /* Woods (iOS) */,
-				C73E04CC249F9F4A00C6E22C /* WoodsTests */,
-				C73E04D7249F9F4A00C6E22C /* WoodsUITests */,
-				35126CCA2745CE1D00CF998C /* WatchWoods */,
-				35126CD22745CE1E00CF998C /* WatchWoods WatchKit Extension */,
-				35126CEC2745CE1E00CF998C /* WatchWoodsTests */,
-				35126CF62745CE1E00CF998C /* WatchWoodsUITests */,
-				35222986274A756C00090224 /* MacWoods */,
-				35222996274A756D00090224 /* MacWoodsTests */,
-				352229A0274A756D00090224 /* MacWoodsUITests */,
+				35222986274A756C00090224 /* Woods (macOS) */,
+				35126CCA2745CE1D00CF998C /* Woods (watchOS) */,
+				35126CD22745CE1E00CF998C /* Woods (WatchKit Extension) */,
+				C73E04CC249F9F4A00C6E22C /* Tests (iOS) */,
+				35222996274A756D00090224 /* Tests (macOS) */,
+				35126CEC2745CE1E00CF998C /* Tests (watchOS) */,
 			);
 		};
 /* End PBXProject section */
@@ -1042,13 +894,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		35126CF52745CE1E00CF998C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		35222985274A756C00090224 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1059,13 +904,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		35222995274A756D00090224 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3522299F274A756D00090224 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1083,13 +921,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		C73E04CB249F9F4A00C6E22C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C73E04D6249F9F4A00C6E22C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1119,15 +950,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		35126CF32745CE1E00CF998C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				35126CFC2745CE1E00CF998C /* WatchWoodsUITests.swift in Sources */,
-				35126CFE2745CE1E00CF998C /* WatchWoodsUITestsLaunchTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		35222983274A756C00090224 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1140,6 +962,7 @@
 				352229CC274A76AB00090224 /* LargeButtonStyle.swift in Sources */,
 				352229D3274A76AB00090224 /* WaypointSummaryView.swift in Sources */,
 				352229F7274A76C100090224 /* WaypointLog.swift in Sources */,
+				351120C52807046500D5E6B3 /* WaypointListContextMenu.swift in Sources */,
 				352229DC274A76B400090224 /* LocationManager.swift in Sources */,
 				352229E0274A76B400090224 /* Accounts.swift in Sources */,
 				35222A00274A76C600090224 /* CollectionUtils.swift in Sources */,
@@ -1156,6 +979,7 @@
 				352229C4274A76AA00090224 /* RichMapView.swift in Sources */,
 				352229D1274A76AB00090224 /* WaypointMapView.swift in Sources */,
 				352229BA274A76AA00090224 /* WaypointDetailActionsView.swift in Sources */,
+				351120C42807043C00D5E6B3 /* CancelNavigationView.swift in Sources */,
 				352229E5274A76BB00090224 /* GeocachingComApiResults.swift in Sources */,
 				352229B9274A76AA00090224 /* AccountsView.swift in Sources */,
 				352229FA274A76C600090224 /* PersistenceError.swift in Sources */,
@@ -1212,16 +1036,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3522299C274A756D00090224 /* MacWoodsTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3522299D274A756D00090224 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				352229A8274A756D00090224 /* MacWoodsUITestsLaunchTests.swift in Sources */,
-				352229A6274A756D00090224 /* MacWoodsUITests.swift in Sources */,
+				3522299C274A756D00090224 /* WoodsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1320,57 +1135,34 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C73E04D4249F9F4A00C6E22C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C73E04DD249F9F4A00C6E22C /* WoodsUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
 		35126CD62745CE1E00CF998C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 35126CD22745CE1E00CF998C /* WatchWoods WatchKit Extension */;
+			target = 35126CD22745CE1E00CF998C /* Woods (WatchKit Extension) */;
 			targetProxy = 35126CD52745CE1E00CF998C /* PBXContainerItemProxy */;
 		};
 		35126CEF2745CE1E00CF998C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 35126CD22745CE1E00CF998C /* WatchWoods WatchKit Extension */;
+			target = 35126CD22745CE1E00CF998C /* Woods (WatchKit Extension) */;
 			targetProxy = 35126CEE2745CE1E00CF998C /* PBXContainerItemProxy */;
-		};
-		35126CF92745CE1E00CF998C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 35126CCA2745CE1D00CF998C /* WatchWoods */;
-			targetProxy = 35126CF82745CE1E00CF998C /* PBXContainerItemProxy */;
 		};
 		35126D002745CE1E00CF998C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			platformFilter = ios;
-			target = 35126CCA2745CE1D00CF998C /* WatchWoods */;
+			target = 35126CCA2745CE1D00CF998C /* Woods (watchOS) */;
 			targetProxy = 35126CFF2745CE1E00CF998C /* PBXContainerItemProxy */;
 		};
 		35222999274A756D00090224 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 35222986274A756C00090224 /* MacWoods */;
+			target = 35222986274A756C00090224 /* Woods (macOS) */;
 			targetProxy = 35222998274A756D00090224 /* PBXContainerItemProxy */;
-		};
-		352229A3274A756D00090224 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 35222986274A756C00090224 /* MacWoods */;
-			targetProxy = 352229A2274A756D00090224 /* PBXContainerItemProxy */;
 		};
 		C73E04CF249F9F4A00C6E22C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = C73E04B6249F9F4700C6E22C /* Woods (iOS) */;
 			targetProxy = C73E04CE249F9F4A00C6E22C /* PBXContainerItemProxy */;
-		};
-		C73E04DA249F9F4A00C6E22C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = C73E04B6249F9F4700C6E22C /* Woods (iOS) */;
-			targetProxy = C73E04D9249F9F4A00C6E22C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1445,12 +1237,12 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"WatchWoods WatchKit Extension/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"watchOS (WatchKit Extension)/Preview Content\"";
 				DEVELOPMENT_TEAM = SS8V8UGLY8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "WatchWoods WatchKit Extension/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "WatchWoods WatchKit Extension";
+				INFOPLIST_KEY_CFBundleDisplayName = Woods;
 				INFOPLIST_KEY_CLKComplicationPrincipalClass = WatchWoods_WatchKit_Extension.ComplicationController;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2021 Fredrik. All rights reserved.";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1477,12 +1269,12 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"WatchWoods WatchKit Extension/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"watchOS (WatchKit Extension)/Preview Content\"";
 				DEVELOPMENT_TEAM = SS8V8UGLY8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "WatchWoods WatchKit Extension/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "WatchWoods WatchKit Extension";
+				INFOPLIST_KEY_CFBundleDisplayName = Woods;
 				INFOPLIST_KEY_CLKComplicationPrincipalClass = WatchWoods_WatchKit_Extension.ComplicationController;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2021 Fredrik. All rights reserved.";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1556,67 +1348,17 @@
 			};
 			name = Release;
 		};
-		35126D0A2745CE1E00CF998C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = SS8V8UGLY8;
-				GENERATE_INFOPLIST_FILE = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = fwcd.Woods.WatchWoodsUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				TEST_TARGET_NAME = WatchWoods;
-				WATCHOS_DEPLOYMENT_TARGET = 8.0;
-			};
-			name = Debug;
-		};
-		35126D0B2745CE1E00CF998C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = SS8V8UGLY8;
-				GENERATE_INFOPLIST_FILE = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = fwcd.Woods.WatchWoodsUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				TEST_TARGET_NAME = WatchWoods;
-				WATCHOS_DEPLOYMENT_TARGET = 8.0;
-			};
-			name = Release;
-		};
 		352229AA274A756D00090224 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
-				CODE_SIGN_ENTITLEMENTS = MacWoods/MacWoods.entitlements;
+				CODE_SIGN_ENTITLEMENTS = macOS/Woods.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"MacWoods/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"macOS/Preview Content\"";
 				DEVELOPMENT_TEAM = SS8V8UGLY8;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -1628,8 +1370,8 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.fwcd.MacWoods;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = dev.fwcd.Woods;
+				PRODUCT_NAME = Woods;
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1642,11 +1384,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
-				CODE_SIGN_ENTITLEMENTS = MacWoods/MacWoods.entitlements;
+				CODE_SIGN_ENTITLEMENTS = macOS/Woods.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"MacWoods/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"macOS/Preview Content\"";
 				DEVELOPMENT_TEAM = SS8V8UGLY8;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -1658,8 +1400,8 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.fwcd.MacWoods;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = dev.fwcd.Woods;
+				PRODUCT_NAME = Woods;
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1717,58 +1459,6 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MacWoods.app/Contents/MacOS/MacWoods";
-			};
-			name = Release;
-		};
-		352229B0274A756D00090224 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = SS8V8UGLY8;
-				GENERATE_INFOPLIST_FILE = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.fwcd.MacWoodsUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = MacWoods;
-			};
-			name = Debug;
-		};
-		352229B1274A756D00090224 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = SS8V8UGLY8;
-				GENERATE_INFOPLIST_FILE = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.fwcd.MacWoodsUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = MacWoods;
 			};
 			name = Release;
 		};
@@ -1892,9 +1582,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = Woods/Woods.entitlements;
+				CODE_SIGN_ENTITLEMENTS = iOS/Woods.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"Woods/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"iOS/Preview Content\"";
 				DEVELOPMENT_TEAM = SS8V8UGLY8;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Woods/Info.plist;
@@ -1915,9 +1605,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = Woods/Woods.entitlements;
+				CODE_SIGN_ENTITLEMENTS = iOS/Woods.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"Woods/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"iOS/Preview Content\"";
 				DEVELOPMENT_TEAM = SS8V8UGLY8;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Woods/Info.plist;
@@ -1976,50 +1666,10 @@
 			};
 			name = Release;
 		};
-		C73E04E8249F9F4A00C6E22C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = SS8V8UGLY8;
-				INFOPLIST_FILE = WoodsUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = fwcd.WoodsUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Woods;
-			};
-			name = Debug;
-		};
-		C73E04E9249F9F4A00C6E22C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = SS8V8UGLY8;
-				INFOPLIST_FILE = WoodsUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = fwcd.WoodsUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Woods;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		35126D0C2745CE1E00CF998C /* Build configuration list for PBXNativeTarget "WatchWoods WatchKit Extension" */ = {
+		35126D0C2745CE1E00CF998C /* Build configuration list for PBXNativeTarget "Woods (WatchKit Extension)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				35126D062745CE1E00CF998C /* Debug */,
@@ -2028,7 +1678,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		35126D0D2745CE1E00CF998C /* Build configuration list for PBXNativeTarget "WatchWoods" */ = {
+		35126D0D2745CE1E00CF998C /* Build configuration list for PBXNativeTarget "Woods (watchOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				35126D032745CE1E00CF998C /* Debug */,
@@ -2037,7 +1687,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		35126D0E2745CE1E00CF998C /* Build configuration list for PBXNativeTarget "WatchWoodsTests" */ = {
+		35126D0E2745CE1E00CF998C /* Build configuration list for PBXNativeTarget "Tests (watchOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				35126D082745CE1E00CF998C /* Debug */,
@@ -2046,16 +1696,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		35126D0F2745CE1E00CF998C /* Build configuration list for PBXNativeTarget "WatchWoodsUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				35126D0A2745CE1E00CF998C /* Debug */,
-				35126D0B2745CE1E00CF998C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		352229A9274A756D00090224 /* Build configuration list for PBXNativeTarget "MacWoods" */ = {
+		352229A9274A756D00090224 /* Build configuration list for PBXNativeTarget "Woods (macOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				352229AA274A756D00090224 /* Debug */,
@@ -2064,20 +1705,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		352229AC274A756D00090224 /* Build configuration list for PBXNativeTarget "MacWoodsTests" */ = {
+		352229AC274A756D00090224 /* Build configuration list for PBXNativeTarget "Tests (macOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				352229AD274A756D00090224 /* Debug */,
 				352229AE274A756D00090224 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		352229AF274A756D00090224 /* Build configuration list for PBXNativeTarget "MacWoodsUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				352229B0274A756D00090224 /* Debug */,
-				352229B1274A756D00090224 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -2100,20 +1732,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C73E04E4249F9F4A00C6E22C /* Build configuration list for PBXNativeTarget "WoodsTests" */ = {
+		C73E04E4249F9F4A00C6E22C /* Build configuration list for PBXNativeTarget "Tests (iOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C73E04E5249F9F4A00C6E22C /* Debug */,
 				C73E04E6249F9F4A00C6E22C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		C73E04E7249F9F4A00C6E22C /* Build configuration list for PBXNativeTarget "WoodsUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C73E04E8249F9F4A00C6E22C /* Debug */,
-				C73E04E9249F9F4A00C6E22C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -2134,7 +1757,7 @@
 			repositoryURL = "https://github.com/vincentneo/CoreGPX.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.8.2;
+				minimumVersion = 0.9.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

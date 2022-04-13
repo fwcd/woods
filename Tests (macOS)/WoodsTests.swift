@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import MacWoods
+@testable import Woods
 
 class MacWoodsTests: XCTestCase {
 
