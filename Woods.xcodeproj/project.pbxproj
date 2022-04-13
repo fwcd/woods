@@ -813,7 +813,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1310;
 				LastUpgradeCheck = 1310;
-				ORGANIZATIONNAME = Fredrik;
+				ORGANIZATIONNAME = "";
 				TargetAttributes = {
 					35126CCA2745CE1D00CF998C = {
 						CreatedOnToolsVersion = 13.1;
@@ -1244,7 +1244,6 @@
 				INFOPLIST_FILE = "watchOS (WatchKit Extension)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Woods;
 				INFOPLIST_KEY_CLKComplicationPrincipalClass = WatchWoods_WatchKit_Extension.ComplicationController;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2021 Fredrik. All rights reserved.";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1276,7 +1275,6 @@
 				INFOPLIST_FILE = "watchOS (WatchKit Extension)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Woods;
 				INFOPLIST_KEY_CLKComplicationPrincipalClass = WatchWoods_WatchKit_Extension.ComplicationController;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2021 Fredrik. All rights reserved.";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1363,7 +1361,6 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2021 Fredrik. All rights reserved.";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -1393,7 +1390,6 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2021 Fredrik. All rights reserved.";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",

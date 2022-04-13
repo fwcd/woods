@@ -3,7 +3,7 @@
 //  Woods
 //
 //  Created by Fredrik on 18.11.21.
-//  Copyright © 2021 Fredrik. All rights reserved.
+//  Copyright © 2021 Fredrik.
 //
 
 import SwiftUI

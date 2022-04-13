@@ -3,7 +3,7 @@
 //  Woods
 //
 //  Created by Fredrik on 3/3/21.
-//  Copyright © 2021 Fredrik. All rights reserved.
+//  Copyright © 2021 Fredrik.
 //
 
 enum GeocacheStatus: String, Codable, Hashable {

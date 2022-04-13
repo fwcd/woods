@@ -3,7 +3,7 @@
 //  Woods
 //
 //  Created by Fredrik on 3/2/21.
-//  Copyright © 2021 Fredrik. All rights reserved.
+//  Copyright © 2021 Fredrik.
 //
 
 import SwiftUI
@@ -25,7 +25,7 @@ struct WaypointSnippetView: View {
                 Text(waypoint.name)
                     .font(.title2)
                     .fontWeight(.bold)
-                    .multilineTextAlignment(/*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/)
+                    .multilineTextAlignment(.leading)
             }
             Spacer()
             if let location = locationManager.location {
