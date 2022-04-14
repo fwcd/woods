@@ -19,7 +19,7 @@ struct Map<T>: UIOrNSViewRepresentable where T: Hashable {
     @Binding var useSatelliteView: Bool
     
     func makeCoordinator() -> Coordinator {
-        Coordinator(selection: $selection, region: $region)
+        Coordinator(selection: $selection, region: $region, userTrackingMode: $userTrackingMode)
     }
     
     #if canImport(UIKit)
@@ -39,7 +39,7 @@ struct Map<T>: UIOrNSViewRepresentable where T: Hashable {
         mapView.register(MKMarkerAnnotationView.self, forAnnotationViewWithReuseIdentifier: NSStringFromClass(MKMarkerAnnotationView.self))
         mapView.addAnnotations(annotations)
         mapView.showsUserLocation = true
-        mapView.userTrackingMode = .follow
+        mapView.userTrackingMode = userTrackingMode
         mapView.delegate = context.coordinator
         mapView.mapType = useSatelliteView ? .hybrid : .standard
         
@@ -94,14 +94,20 @@ struct Map<T>: UIOrNSViewRepresentable where T: Hashable {
     class Coordinator: NSObject, MKMapViewDelegate {
         @Binding private var selection: T?
         @Binding private var region: MKCoordinateRegion?
+        @Binding private var userTrackingMode: MKUserTrackingMode
         
-        init(selection: Binding<T?>, region: Binding<MKCoordinateRegion?>) {
+        init(selection: Binding<T?>, region: Binding<MKCoordinateRegion?>, userTrackingMode: Binding<MKUserTrackingMode>) {
             _selection = selection
             _region = region
+            _userTrackingMode = userTrackingMode
         }
         
         func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
             region = mapView.region
+        }
+        
+        func mapView(_ mapView: MKMapView, didChange mode: MKUserTrackingMode, animated: Bool) {
+            userTrackingMode = mode
         }
         
         func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
