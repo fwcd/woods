@@ -75,6 +75,12 @@ struct WaypointDetailActionsView: View {
             .sheet(isPresented: $gpxShareSheetShown) {
                 if let url = gpxUrl {
                     ShareSheet(items: [url])
+                } else {
+                    CancelNavigationView(title: "GPX") {
+                        gpxShareSheetShown = false
+                    } inner: {
+                        Text("GPX could not be generated")
+                    }
                 }
             }
             #endif
