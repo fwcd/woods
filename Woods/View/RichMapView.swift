@@ -125,7 +125,7 @@ struct RichMapView: View {
                 .frame(maxWidth: .infinity)
                 .onTapGesture {
                     if selectedWaypointId != nil {
-                        withAnimation {
+                        withAnimation(.easeInOut(duration: 0.2)) {
                             switch slideOverPosition {
                             case .bottom: slideOverPosition = .middle
                             case .middle: slideOverPosition = .top
