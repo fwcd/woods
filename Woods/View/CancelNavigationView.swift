@@ -19,14 +19,22 @@ struct CancelNavigationView<Inner>: View where Inner: View {
                 .navigationTitle(title)
                 #if !os(macOS)
                 .navigationBarTitleDisplayMode(.inline)
+                #endif
                 .toolbar {
+                    #if os(macOS)
+                    ToolbarItem {
+                        Button("Cancel") {
+                            onCancel()
+                        }
+                    }
+                    #else
                     ToolbarItem(placement: .navigationBarLeading) {
                         Button("Cancel") {
                             onCancel()
                         }
                     }
+                    #endif
                 }
-                #endif
         }
     }
 }
