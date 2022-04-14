@@ -61,7 +61,12 @@ struct RichMapView: View {
                 Button(action: {
                     switch userTrackingMode {
                     case .none: userTrackingMode = .follow
+                    #if os(macOS)
                     case .follow: userTrackingMode = .none
+                    #else
+                    case .follow: userTrackingMode = .followWithHeading
+                    case .followWithHeading: userTrackingMode = .none
+                    #endif
                     default: userTrackingMode = .follow
                     }
                 }) {
