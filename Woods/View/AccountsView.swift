@@ -18,16 +18,15 @@ struct AccountsView: View {
     var body: some View {
         NavigationView {
             List {
-                let accountList = accounts.accountLogins
+                let logins = accounts.accountLogins
                     .values
-                    .map(\.account)
-                    .sorted { $0.credentials.username < $1.credentials.username }
-                ForEach(accountList) { account in
-                    AccountSnippetView(account: account)
+                    .sorted { $0.account.credentials.username < $1.account.credentials.username }
+                ForEach(logins) { login in
+                    AccountLoginSnippetView(login: login)
                 }
                 .onDelete { indexSet in
-                    for i in indexSet where i < accountList.count && i >= 0 {
-                        accounts.logOutAndStore(accountList[i])
+                    for i in indexSet where i < logins.count && i >= 0 {
+                        accounts.logOutAndStore(logins[i].account)
                     }
                 }
             }
