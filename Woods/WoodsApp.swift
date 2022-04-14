@@ -25,6 +25,7 @@ private class AppState {
         #if canImport(UIKit)
         UITableView.appearance().backgroundColor = .clear // applies to Form backgrounds too
         UIScrollView.appearance().keyboardDismissMode = .interactive
+        UITabBar.appearance().scrollEdgeAppearance = UITabBarAppearance()
         #endif
     }
 }
