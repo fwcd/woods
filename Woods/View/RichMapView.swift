@@ -118,15 +118,17 @@ struct RichMapView: View {
                         WaypointSummaryView(waypoint: waypoint)
                     } else {
                         VStack(alignment: .leading, spacing: 5) {
-                            SearchBar(placeholder: "Search for waypoints...", text: $searchText)
+                            SearchBar(placeholder: "Filter waypoints...", text: $searchText)
                                 .padding([.bottom], 15)
                             ForEach(waypoints.sortedWaypoints) { waypoint in
-                                Button {
-                                    selectedWaypointId = waypoint.id
-                                } label: {
-                                    WaypointSmallSnippetView(waypoint: waypoint)
+                                if searchText.isEmpty || waypoint.name.contains(searchText) || waypoint.id.contains(searchText) {
+                                    Button {
+                                        selectedWaypointId = waypoint.id
+                                    } label: {
+                                        WaypointSmallSnippetView(waypoint: waypoint)
+                                    }
+                                    .buttonStyle(.plain)
                                 }
-                                .buttonStyle(.plain)
                             }
                         }
                         .padding([.leading, .trailing], 15)
