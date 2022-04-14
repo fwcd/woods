@@ -46,7 +46,7 @@ class Waypoints: ObservableObject {
         log.info("Refreshing waypoints in the region around \(query.region.center) (diameter: \(query.region.diameter)")
         
         originatingAccountIds = [:]
-        runningQueryTask = Publishers.MergeMany(accounts.connectors.map { (acc, conn) in conn.waypoints(for: query).map { ($0, acc) } })
+        runningQueryTask = Publishers.MergeMany(accounts.accountLogins.compactMap { (acc, login) in login.connector?.waypoints(for: query).map { ($0, acc) } })
             .collect()
             .receive(on: RunLoop.main)
             .sink { completion in
@@ -62,7 +62,7 @@ class Waypoints: ObservableObject {
     }
     
     func queryDetails(for waypointId: String) {
-        if let connector = originatingAccountIds[waypointId].flatMap({ accounts.connectors[$0] }), (currentWaypoints[waypointId]?.isStub ?? true) {
+        if let connector = originatingAccountIds[waypointId].flatMap({ accounts.accountLogins[$0]?.connector }), (currentWaypoints[waypointId]?.isStub ?? true) {
             runningQueryTask = connector.waypoint(id: waypointId)
                 .receive(on: RunLoop.main)
                 .sink { completion in

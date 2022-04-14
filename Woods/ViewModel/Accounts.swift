@@ -15,8 +15,7 @@ private let keychainLabel = "fwcd.woods.accounts"
 private let keychainClass: Any = kSecClassInternetPassword
 
 class Accounts: ObservableObject {
-    @Published private(set) var accounts: [UUID: Account] = [:]
-    private(set) var connectors = [UUID: Connector]()
+    @Published private(set) var accountLogins: [UUID: AccountLogin] = [:]
     
     private var loginTasks = [UUID: AnyCancellable]()
     private var logoutTasks = [UUID: AnyCancellable]()
@@ -33,7 +32,7 @@ class Accounts: ObservableObject {
         }
         
         if testMode {
-            self.accounts = Dictionary(uniqueKeysWithValues: accounts.map { ($0.id, $0) })
+            accountLogins = Dictionary(uniqueKeysWithValues: accounts.map { ($0.id, AccountLogin(account: $0, state: .connected)) })
         } else {
             for account in initialAccounts {
                 logIn(using: account)
@@ -41,8 +40,8 @@ class Accounts: ObservableObject {
         }
     }
     
-    subscript(id: UUID) -> Account? {
-        accounts[id]
+    subscript(id: UUID) -> AccountLogin? {
+        accountLogins[id]
     }
     
     func logInAndStore(_ account: Account) {
@@ -66,23 +65,25 @@ class Accounts: ObservableObject {
     private func logIn(using account: Account) {
         log.info("Logging in using \(account)")
         let connector = account.type.makeConnector()
+        let login = AccountLogin(account: account, connector: connector, state: .connecting)
         
-        connectors[account.id] = connector
+        accountLogins[account.id] = login
         loginTasks[account.id] = connector
             .logIn(using: account.credentials)
             .receive(on: RunLoop.main)
             .sink { completion in
                 if case let .failure(error) = completion {
                     log.warning("Could not log in with account \(account): \(String(describing: error))")
+                    login.state = .failed
                 }
-            } receiveValue: { [self] in
-                accounts[account.id] = account
+            } receiveValue: {
+                login.state = .connected
             }
     }
     
     private func logOut(using account: Account) throws {
         log.info("Logging out using \(account)")
-        guard let connector = connectors[account.id] else { throw ConnectorError.noConnector }
+        guard let connector = accountLogins[account.id]?.connector else { throw ConnectorError.noConnector }
         
         logoutTasks[account.id] = connector
             .logOut()
@@ -92,7 +93,7 @@ class Accounts: ObservableObject {
                     log.warning("Could not log out from account \(account): \(String(describing: error))")
                 }
             } receiveValue: { [self] in
-                accounts[account.id] = nil
+                accountLogins[account.id] = nil
             }
     }
     

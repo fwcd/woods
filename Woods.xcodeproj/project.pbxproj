@@ -104,6 +104,8 @@
 		35222A05274A774100090224 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 35222A04274A774100090224 /* SwiftSoup */; };
 		35245D32280830C200E7B082 /* SlideOverCardPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35245D31280830C200E7B082 /* SlideOverCardPosition.swift */; };
 		35245D33280830C200E7B082 /* SlideOverCardPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35245D31280830C200E7B082 /* SlideOverCardPosition.swift */; };
+		35245D35280841E200E7B082 /* AccountLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35245D34280841E200E7B082 /* AccountLogin.swift */; };
+		35245D36280841E200E7B082 /* AccountLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35245D34280841E200E7B082 /* AccountLogin.swift */; };
 		35353C3C2745D90F002ACE14 /* SidebarContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35353C3B2745D90F002ACE14 /* SidebarContentView.swift */; };
 		3567D0122785B5DD00060C37 /* CancelNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3567D0112785B5DD00060C37 /* CancelNavigationView.swift */; };
 		3567D0142785B7DD00060C37 /* WaypointListContextMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3567D0132785B7DD00060C37 /* WaypointListContextMenu.swift */; };
@@ -280,6 +282,7 @@
 		35222997274A756D00090224 /* Tests (macOS).xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests (macOS).xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3522299B274A756D00090224 /* WoodsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoodsTests.swift; sourceTree = "<group>"; };
 		35245D31280830C200E7B082 /* SlideOverCardPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideOverCardPosition.swift; sourceTree = "<group>"; };
+		35245D34280841E200E7B082 /* AccountLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountLogin.swift; sourceTree = "<group>"; };
 		35353C3B2745D90F002ACE14 /* SidebarContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarContentView.swift; sourceTree = "<group>"; };
 		3567D0112785B5DD00060C37 /* CancelNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelNavigationView.swift; sourceTree = "<group>"; };
 		3567D0132785B7DD00060C37 /* WaypointListContextMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointListContextMenu.swift; sourceTree = "<group>"; };
@@ -609,6 +612,7 @@
 			children = (
 				C765465725D890E1004F14E8 /* Account.swift */,
 				C765465C25D890F6004F14E8 /* AccountType.swift */,
+				35245D34280841E200E7B082 /* AccountLogin.swift */,
 				C765463B25D88AC6004F14E8 /* Accounts.swift */,
 				C765464025D88B6C004F14E8 /* KeychainError.swift */,
 				C70B379C25ED7CC100553597 /* Waypoints.swift */,
@@ -1016,6 +1020,7 @@
 				352229CA274A76AA00090224 /* WaypointSnippetView.swift in Sources */,
 				352229F3274A76C100090224 /* CardinalDirection.swift in Sources */,
 				352229C9274A76AA00090224 /* StarsView.swift in Sources */,
+				35245D36280841E200E7B082 /* AccountLogin.swift in Sources */,
 				352229E6274A76BB00090224 /* MockConnector.swift in Sources */,
 				352229EA274A76C100090224 /* Degrees.swift in Sources */,
 				352229C0274A76AA00090224 /* WaypointDetailView.swift in Sources */,
@@ -1123,6 +1128,7 @@
 				C7ECBDA625EEE271005933C0 /* NewWaypointListView.swift in Sources */,
 				C7ECBDFE25EFEEA1005933C0 /* LightHTMLView.swift in Sources */,
 				C7B74F0425EE9BED00D5194B /* WaypointSnippetView.swift in Sources */,
+				35245D35280841E200E7B082 /* AccountLogin.swift in Sources */,
 				C765463125D8856C004F14E8 /* Credentials.swift in Sources */,
 				C7B6F0FF249FA1B300454841 /* Map.swift in Sources */,
 				C73E04BF249F9F4700C6E22C /* ContentView.swift in Sources */,

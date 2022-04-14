@@ -18,7 +18,10 @@ struct AccountsView: View {
     var body: some View {
         NavigationView {
             List {
-                let accountList = accounts.accounts.values.sorted { $0.credentials.username < $1.credentials.username }
+                let accountList = accounts.accountLogins
+                    .values
+                    .map(\.account)
+                    .sorted { $0.credentials.username < $1.credentials.username }
                 ForEach(accountList) { account in
                     VStack(alignment: .leading) {
                         Text(account.type.description)
