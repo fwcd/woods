@@ -108,6 +108,8 @@
 		35245D36280841E200E7B082 /* AccountLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35245D34280841E200E7B082 /* AccountLogin.swift */; };
 		35245D38280843DB00E7B082 /* AccountSnippetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35245D37280843DB00E7B082 /* AccountSnippetView.swift */; };
 		35245D39280843DB00E7B082 /* AccountSnippetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35245D37280843DB00E7B082 /* AccountSnippetView.swift */; };
+		35245D3B2808443700E7B082 /* AccountLoginSnippetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35245D3A2808443700E7B082 /* AccountLoginSnippetView.swift */; };
+		35245D3C2808443700E7B082 /* AccountLoginSnippetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35245D3A2808443700E7B082 /* AccountLoginSnippetView.swift */; };
 		35353C3C2745D90F002ACE14 /* SidebarContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35353C3B2745D90F002ACE14 /* SidebarContentView.swift */; };
 		3567D0122785B5DD00060C37 /* CancelNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3567D0112785B5DD00060C37 /* CancelNavigationView.swift */; };
 		3567D0142785B7DD00060C37 /* WaypointListContextMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3567D0132785B7DD00060C37 /* WaypointListContextMenu.swift */; };
@@ -286,6 +288,7 @@
 		35245D31280830C200E7B082 /* SlideOverCardPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideOverCardPosition.swift; sourceTree = "<group>"; };
 		35245D34280841E200E7B082 /* AccountLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountLogin.swift; sourceTree = "<group>"; };
 		35245D37280843DB00E7B082 /* AccountSnippetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSnippetView.swift; sourceTree = "<group>"; };
+		35245D3A2808443700E7B082 /* AccountLoginSnippetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountLoginSnippetView.swift; sourceTree = "<group>"; };
 		35353C3B2745D90F002ACE14 /* SidebarContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarContentView.swift; sourceTree = "<group>"; };
 		3567D0112785B5DD00060C37 /* CancelNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelNavigationView.swift; sourceTree = "<group>"; };
 		3567D0132785B7DD00060C37 /* WaypointListContextMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointListContextMenu.swift; sourceTree = "<group>"; };
@@ -647,6 +650,7 @@
 				35353C3B2745D90F002ACE14 /* SidebarContentView.swift */,
 				35E5DF43274642D200226EEA /* SidebarWaypointListsView.swift */,
 				C765464D25D88CEC004F14E8 /* AccountsView.swift */,
+				35245D3A2808443700E7B082 /* AccountLoginSnippetView.swift */,
 				35245D37280843DB00E7B082 /* AccountSnippetView.swift */,
 				C765465225D88E48004F14E8 /* LoginView.swift */,
 				C7B6F0FC249FA16B00454841 /* RichMapView.swift */,
@@ -1010,6 +1014,7 @@
 				352229DB274A76B400090224 /* Waypoints.swift in Sources */,
 				352229BB274A76AA00090224 /* WaypointLogView.swift in Sources */,
 				352229EB274A76C100090224 /* WaypointList.swift in Sources */,
+				35245D3C2808443700E7B082 /* AccountLoginSnippetView.swift in Sources */,
 				352229D6274A76AB00090224 /* ContentView.swift in Sources */,
 				352229BF274A76AA00090224 /* SizeView.swift in Sources */,
 				352229EE274A76C100090224 /* MockGeocaches.swift in Sources */,
@@ -1112,6 +1117,7 @@
 				C765468925D8A2C9004F14E8 /* DataUtils.swift in Sources */,
 				C765462425D87E9C004F14E8 /* WaypointsInRadiusQuery.swift in Sources */,
 				35353C3C2745D90F002ACE14 /* SidebarContentView.swift in Sources */,
+				35245D3B2808443700E7B082 /* AccountLoginSnippetView.swift in Sources */,
 				C7ECBDF125EFE971005933C0 /* SimpleUIViewControllerRepresentable.swift in Sources */,
 				C7B74E6C25ED8DA600D5194B /* WaypointMapView.swift in Sources */,
 				C765467F25D8A280004F14E8 /* JSONUtils.swift in Sources */,
