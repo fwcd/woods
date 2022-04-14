@@ -38,7 +38,7 @@ struct RichMapView: View {
     var body: some View {
         ZStack(alignment: .topLeading) {
             WaypointMapView(
-                waypoints: waypoints.currentWaypoints.values.sorted { $0.id < $1.id },
+                waypoints: waypoints.sortedWaypoints,
                 selectedWaypointId: $selectedWaypointId,
                 region: $region,
                 userTrackingMode: $userTrackingMode,
@@ -119,6 +119,9 @@ struct RichMapView: View {
                     } else {
                         SearchBar(placeholder: "Search for waypoints...", text: $searchText)
                             .padding([.leading, .trailing], 15)
+                        List(waypoints.sortedWaypoints) { waypoint in
+                            WaypointSmallSnippetView(waypoint: waypoint)
+                        }
                     }
                     Spacer()
                 }
