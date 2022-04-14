@@ -102,6 +102,8 @@
 		35222A00274A76C600090224 /* CollectionUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35222981274A737300090224 /* CollectionUtils.swift */; };
 		35222A03274A773E00090224 /* CoreGPX in Frameworks */ = {isa = PBXBuildFile; productRef = 35222A02274A773E00090224 /* CoreGPX */; };
 		35222A05274A774100090224 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 35222A04274A774100090224 /* SwiftSoup */; };
+		35245D32280830C200E7B082 /* SlideOverCardPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35245D31280830C200E7B082 /* SlideOverCardPosition.swift */; };
+		35245D33280830C200E7B082 /* SlideOverCardPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35245D31280830C200E7B082 /* SlideOverCardPosition.swift */; };
 		35353C3C2745D90F002ACE14 /* SidebarContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35353C3B2745D90F002ACE14 /* SidebarContentView.swift */; };
 		3567D0122785B5DD00060C37 /* CancelNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3567D0112785B5DD00060C37 /* CancelNavigationView.swift */; };
 		3567D0142785B7DD00060C37 /* WaypointListContextMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3567D0132785B7DD00060C37 /* WaypointListContextMenu.swift */; };
@@ -277,6 +279,7 @@
 		35222992274A756D00090224 /* Woods.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Woods.entitlements; sourceTree = "<group>"; };
 		35222997274A756D00090224 /* Tests (macOS).xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests (macOS).xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3522299B274A756D00090224 /* WoodsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoodsTests.swift; sourceTree = "<group>"; };
+		35245D31280830C200E7B082 /* SlideOverCardPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideOverCardPosition.swift; sourceTree = "<group>"; };
 		35353C3B2745D90F002ACE14 /* SidebarContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarContentView.swift; sourceTree = "<group>"; };
 		3567D0112785B5DD00060C37 /* CancelNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelNavigationView.swift; sourceTree = "<group>"; };
 		3567D0132785B7DD00060C37 /* WaypointListContextMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointListContextMenu.swift; sourceTree = "<group>"; };
@@ -666,6 +669,7 @@
 				C7B6F0FE249FA1B300454841 /* Map.swift */,
 				C765469A25ED25DE004F14E8 /* EnumPicker.swift */,
 				C7B74E8725EDADC100D5194B /* SlideOverCard.swift */,
+				35245D31280830C200E7B082 /* SlideOverCardPosition.swift */,
 				C7ECBD9B25EEE197005933C0 /* AutoFocusTextField.swift */,
 				C7B74E8C25EDAEA400D5194B /* Handle.swift */,
 				C7ECBDEB25EFE945005933C0 /* ShareSheet.swift */,
@@ -986,6 +990,7 @@
 				352229F0274A76C100090224 /* GeocacheSize.swift in Sources */,
 				352229C4274A76AA00090224 /* RichMapView.swift in Sources */,
 				352229D1274A76AB00090224 /* WaypointMapView.swift in Sources */,
+				35245D33280830C200E7B082 /* SlideOverCardPosition.swift in Sources */,
 				352229BA274A76AA00090224 /* WaypointDetailActionsView.swift in Sources */,
 				351120C42807043C00D5E6B3 /* CancelNavigationView.swift in Sources */,
 				352229E5274A76BB00090224 /* GeocachingComApiResults.swift in Sources */,
@@ -1090,6 +1095,7 @@
 				C7B74EB725EDC5C200D5194B /* StarsView.swift in Sources */,
 				C7ECBD7025EEAB38005933C0 /* LocationManager.swift in Sources */,
 				350C523228078F5C00309F5C /* CompatibilityLayer.swift in Sources */,
+				35245D32280830C200E7B082 /* SlideOverCardPosition.swift in Sources */,
 				C7ECBDC625EF0B90005933C0 /* WaypointsInRegionQuery.swift in Sources */,
 				C7ECBDD825EF1389005933C0 /* GeocachingComApiResults.swift in Sources */,
 				C765468925D8A2C9004F14E8 /* DataUtils.swift in Sources */,

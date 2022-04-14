@@ -10,10 +10,10 @@ import SwiftUI
 // Source: https://www.mozzafiller.com/posts/swiftui-slide-over-card-like-maps-stocks
 
 struct SlideOverCard<Content>: View where Content: View {
-    let content: () -> Content
-    
     @GestureState private var dragState: DragState = .inactive
-    @State var position: CardPosition = .bottom
+    @Binding var position: SlideOverCardPosition
+    
+    @ViewBuilder let content: () -> Content
     
     var body: some View {
         GeometryReader { geometry in
@@ -42,9 +42,9 @@ struct SlideOverCard<Content>: View where Content: View {
     private func onDragEnded(_ drag: DragGesture.Value, in geometry: GeometryProxy) {
         let verticalDirection = drag.predictedEndLocation.y - drag.location.y
         let cardTopEdgeLocation = offset(for: position, in: geometry) + drag.translation.height
-        let positionAbove: CardPosition
-        let positionBelow: CardPosition
-        let closestPosition: CardPosition
+        let positionAbove: SlideOverCardPosition
+        let positionBelow: SlideOverCardPosition
+        let closestPosition: SlideOverCardPosition
 
         if cardTopEdgeLocation <= offset(for: .middle, in: geometry) {
             positionAbove = .top
@@ -69,7 +69,7 @@ struct SlideOverCard<Content>: View where Content: View {
         }
     }
     
-    private func offset(for position: CardPosition, in geometry: GeometryProxy) -> CGFloat {
+    private func offset(for position: SlideOverCardPosition, in geometry: GeometryProxy) -> CGFloat {
         let height = geometry.size.height
         switch position {
         case .top:
@@ -81,11 +81,7 @@ struct SlideOverCard<Content>: View where Content: View {
         }
     }
 
-    enum CardPosition: Hashable {
-        case top
-        case middle
-        case bottom
-    }
+    
 
     enum DragState: Equatable {
         case inactive

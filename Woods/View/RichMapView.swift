@@ -28,6 +28,7 @@ struct RichMapView: View {
     @State private var listPickerSheetShown: Bool = false
     @State private var listPickerMode: ListPickerMode = .save
     @State private var searchText: String = ""
+    @State private var slideOverPosition: SlideOverCardPosition = .bottom
     
     private enum ListPickerMode {
         case open
@@ -111,7 +112,7 @@ struct RichMapView: View {
                 }
                 .environmentObject(waypoints)
             }
-            SlideOverCard {
+            SlideOverCard(position: $slideOverPosition) {
                 VStack {
                     if let id = selectedWaypointId, let waypoint = waypoints[id] {
                         WaypointSummaryView(waypoint: waypoint)
@@ -122,6 +123,17 @@ struct RichMapView: View {
                     Spacer()
                 }
                 .frame(maxWidth: .infinity)
+                .onTapGesture {
+                    if selectedWaypointId != nil {
+                        withAnimation {
+                            switch slideOverPosition {
+                            case .bottom: slideOverPosition = .middle
+                            case .middle: slideOverPosition = .top
+                            default: break
+                            }
+                        }
+                    }
+                }
             }
         }
     }
