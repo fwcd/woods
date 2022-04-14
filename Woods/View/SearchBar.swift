@@ -12,6 +12,7 @@ struct SearchBar: View {
     let placeholder: String
     @Binding var text: String
     var onCommit: (() -> Void)?
+    var onClear: (() -> Void)? = nil
     
     var body: some View {
         HStack {
@@ -19,6 +20,14 @@ struct SearchBar: View {
             TextField(placeholder, text: $text, onCommit: {
                 onCommit?()
             })
+            if !text.isEmpty {
+                Button {
+                    text = ""
+                    onClear?()
+                } label: {
+                    Image(systemName: "x.circle.fill")
+                }
+            }
         }
         .padding(8)
         .foregroundColor(.secondary)
