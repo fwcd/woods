@@ -23,12 +23,7 @@ struct AccountsView: View {
                     .map(\.account)
                     .sorted { $0.credentials.username < $1.credentials.username }
                 ForEach(accountList) { account in
-                    VStack(alignment: .leading) {
-                        Text(account.type.description)
-                            .font(.headline)
-                        Text(account.credentials.username)
-                            .font(.subheadline)
-                    }
+                    AccountSnippetView(account: account)
                 }
                 .onDelete { indexSet in
                     for i in indexSet where i < accountList.count && i >= 0 {
