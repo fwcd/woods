@@ -81,8 +81,6 @@ struct SlideOverCard<Content>: View where Content: View {
         }
     }
 
-    
-
     enum DragState: Equatable {
         case inactive
         case dragging(translation: CGSize)
@@ -102,6 +100,19 @@ struct SlideOverCard<Content>: View where Content: View {
                 return false
             case .dragging:
                 return true
+            }
+        }
+    }
+}
+
+struct SlideOverCard_Previews: PreviewProvider {
+    @State static var position: SlideOverCardPosition = .bottom
+    static var previews: some View {
+        ZStack {
+            Text("Background")
+            SlideOverCard(position: $position) {
+                Text("Card")
+                Spacer()
             }
         }
     }
