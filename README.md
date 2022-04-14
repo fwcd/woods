@@ -4,7 +4,7 @@ A GPS navigation and Geocaching app for iOS.
 
 <div align="center">
 <p>
-<img alt="Logo" src="Images/icon-transparent.svg" width="100">
+<img alt="Logo" src="Images/icon-rounded.svg" width="100">
 </p>
 
 <p>
