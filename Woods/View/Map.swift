@@ -58,6 +58,9 @@ struct Map<T>: UIOrNSViewRepresentable where T: Hashable {
     func updateView(_ mapView: MKMapView, context: Context) {
         mapView.userTrackingMode = userTrackingMode
         mapView.mapType = useSatelliteView ? .hybrid : .standard
+        mapView.selectedAnnotations = selection.flatMap { tag in
+            mapView.annotations.first { ($0 as? Annotation)?.tag == tag }
+        }.map { [$0] } ?? []
         
         // Update annotations
         let current = Dictionary(uniqueKeysWithValues: mapView.annotations.compactMap { $0 as? Annotation }.map { ($0.tag, $0) })
