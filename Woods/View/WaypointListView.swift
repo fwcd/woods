@@ -62,7 +62,7 @@ struct WaypointListView: View {
                     } label: {
                         Text("Clear \(list?.name ?? "List")")
                     }
-                    Button("Clear", role: .cancel) {}
+                    Button("Cancel", role: .cancel) {}
                 }
             }
             Section(header: Text("Items")) {
