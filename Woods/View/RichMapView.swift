@@ -113,15 +113,23 @@ struct RichMapView: View {
                 .environmentObject(waypoints)
             }
             SlideOverCard(position: $slideOverPosition) {
-                VStack {
+                VStack(alignment: .leading) {
                     if let id = selectedWaypointId, let waypoint = waypoints[id] {
                         WaypointSummaryView(waypoint: waypoint)
                     } else {
-                        SearchBar(placeholder: "Search for waypoints...", text: $searchText)
-                            .padding([.leading, .trailing], 15)
-                        List(waypoints.sortedWaypoints) { waypoint in
-                            WaypointSmallSnippetView(waypoint: waypoint)
+                        VStack(alignment: .leading, spacing: 5) {
+                            SearchBar(placeholder: "Search for waypoints...", text: $searchText)
+                                .padding([.bottom], 15)
+                            ForEach(waypoints.sortedWaypoints) { waypoint in
+                                Button {
+                                    selectedWaypointId = waypoint.id
+                                } label: {
+                                    WaypointSmallSnippetView(waypoint: waypoint)
+                                }
+                                .buttonStyle(.plain)
+                            }
                         }
+                        .padding([.leading, .trailing], 15)
                     }
                     Spacer()
                 }
