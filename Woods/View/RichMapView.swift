@@ -121,7 +121,7 @@ struct RichMapView: View {
                             SearchBar(placeholder: "Filter waypoints...", text: $searchText)
                                 .padding([.bottom], 15)
                             ForEach(waypoints.sortedWaypoints) { waypoint in
-                                if searchText.isEmpty || waypoint.name.contains(searchText) || waypoint.id.contains(searchText) {
+                                if searchText.isEmpty || waypoint.matches(searchQuery: searchText) {
                                     Button {
                                         selectedWaypointId = waypoint.id
                                     } label: {
