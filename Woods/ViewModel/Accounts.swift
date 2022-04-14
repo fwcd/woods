@@ -72,13 +72,14 @@ class Accounts: ObservableObject {
             .logIn(using: account.credentials)
             .receive(on: RunLoop.main)
             .sink { completion in
-                if case let .failure(error) = completion {
+                switch completion {
+                case .failure(let error):
                     log.warning("Could not log in with account \(account): \(String(describing: error))")
                     login.state = .failed
+                case .finished:
+                    login.state = .connected
                 }
-            } receiveValue: {
-                login.state = .connected
-            }
+            } receiveValue: {}
     }
     
     private func logOut(using account: Account) throws {
