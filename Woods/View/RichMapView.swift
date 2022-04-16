@@ -135,6 +135,7 @@ struct RichMapView: View {
                                     .buttonStyle(.plain)
                                 }
                             }
+                            .opacity(contentOpacity)
                         }
                         .padding([.leading, .trailing], 15)
                     }
