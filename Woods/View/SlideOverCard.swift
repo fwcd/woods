@@ -13,16 +13,17 @@ struct SlideOverCard<Content>: View where Content: View {
     @State private var translation: CGFloat = 0
     @Binding var position: SlideOverCardPosition
     
-    @ViewBuilder let content: () -> Content
+    @ViewBuilder let content: (CGFloat) -> Content
     
     var body: some View {
         GeometryReader { geometry in
+            let start = offset(for: position, in: geometry)
+            let top = offset(for: .top, in: geometry)
+            let middle = offset(for: .middle, in: geometry)
+            let bottom = offset(for: .bottom, in: geometry)
+            
             let drag = DragGesture()
                 .onChanged { drag in
-                    let start = offset(for: position, in: geometry)
-                    let top = offset(for: .top, in: geometry)
-                    let bottom = offset(for: .bottom, in: geometry)
-                    
                     var dy = drag.translation.height
                     let y = start + dy
                     
@@ -50,8 +51,12 @@ struct SlideOverCard<Content>: View where Content: View {
                 }
 
             VStack {
+                let dy = translation
+                let y = start + dy
+                let contentOpacity = max(0, min(1, (y - bottom) / (middle - bottom)))
+                
                 Handle()
-                self.content()
+                self.content(contentOpacity)
                     .frame(maxWidth: .infinity)
             }
             .background(.ultraThinMaterial)
@@ -110,7 +115,7 @@ struct SlideOverCard_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
             Text("Background")
-            SlideOverCard(position: $position) {
+            SlideOverCard(position: $position) { _ in
                 Text("Card")
                 Spacer()
             }

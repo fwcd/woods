@@ -117,10 +117,10 @@ struct RichMapView: View {
                 }
                 .environmentObject(waypoints)
             }
-            SlideOverCard(position: $slideOverPosition) {
+            SlideOverCard(position: $slideOverPosition) { contentOpacity in
                 VStack(alignment: .leading) {
                     if let id = selectedWaypointId, let waypoint = waypoints[id] {
-                        WaypointSummaryView(waypoint: waypoint)
+                        WaypointSummaryView(waypoint: waypoint, contentOpacity: contentOpacity)
                     } else {
                         VStack(alignment: .leading, spacing: 5) {
                             SearchBar(placeholder: "Filter waypoints...", text: $searchText)
