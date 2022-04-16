@@ -44,8 +44,7 @@ struct SlideOverCard<Content>: View where Content: View {
                     translation = dy
                 }
                 .onEnded { drag in
-                    let dy = drag.translation.height
-                    let y = start + dy
+                    let y = start + translation
                     
                     // Find the closest position to the predicted drag end location
                     let next = nextPosition(for: drag, in: geometry)
