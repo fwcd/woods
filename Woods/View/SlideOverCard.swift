@@ -10,7 +10,7 @@ import SwiftUI
 // Source: https://www.mozzafiller.com/posts/swiftui-slide-over-card-like-maps-stocks
 
 struct SlideOverCard<Content>: View where Content: View {
-    @GestureState private var dragState: DragState = .inactive
+    @State private var translation: CGFloat = 0
     @Binding var position: SlideOverCardPosition
     
     @ViewBuilder let content: () -> Content
@@ -18,11 +18,14 @@ struct SlideOverCard<Content>: View where Content: View {
     var body: some View {
         GeometryReader { geometry in
             let drag = DragGesture()
-                .updating($dragState) { drag, state, transaction in
-                    state = .dragging(translation: drag.translation)
+                .onChanged { drag in
+                    translation = drag.translation.height
                 }
                 .onEnded { drag in
-                    onDragEnded(drag, in: geometry)
+                    withAnimation(.spring()) {
+                        onDragEnded(drag, in: geometry)
+                        translation = 0
+                    }
                 }
 
             VStack {
@@ -33,8 +36,7 @@ struct SlideOverCard<Content>: View where Content: View {
             .background(.ultraThinMaterial)
             .cornerRadius(15)
             .shadow(color: Color(.sRGBLinear, white: 0, opacity: 0.13), radius: 10.0)
-            .offset(y: offset(for: position, in: geometry) + dragState.translation.height)
-            .animation(dragState.isDragging ? nil : .interpolatingSpring(stiffness: 300, damping: 35, initialVelocity: 40), value: dragState)
+            .offset(y: offset(for: position, in: geometry) + translation)
             .gesture(drag)
         }
     }
@@ -78,29 +80,6 @@ struct SlideOverCard<Content>: View where Content: View {
             return height * 0.5
         case .bottom:
             return height * 0.87
-        }
-    }
-
-    enum DragState: Equatable {
-        case inactive
-        case dragging(translation: CGSize)
-
-        var translation: CGSize {
-            switch self {
-            case .inactive:
-                return .zero
-            case .dragging(let translation):
-                return translation
-            }
-        }
-
-        var isDragging: Bool {
-            switch self {
-            case .inactive:
-                return false
-            case .dragging:
-                return true
-            }
         }
     }
 }
