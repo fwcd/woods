@@ -117,14 +117,22 @@ struct RichMapView: View {
                 }
                 .environmentObject(waypoints)
             }
-            SlideOverCard(position: $slideOverPosition) {
+            SlideOverCard(position: $slideOverPosition) { contentOpacity in
                 VStack(alignment: .leading) {
                     if let id = selectedWaypointId, let waypoint = waypoints[id] {
-                        WaypointSummaryView(waypoint: waypoint)
+                        WaypointSummaryView(waypoint: waypoint, contentOpacity: contentOpacity)
                     } else {
                         VStack(alignment: .leading, spacing: 5) {
-                            SearchBar(placeholder: "Filter waypoints...", text: $searchText)
-                                .padding([.bottom], 15)
+                            SearchBar(placeholder: "Filter waypoints...", text: $searchText) {
+                                if slideOverPosition == .bottom {
+                                    slideOverPosition = .middle
+                                }
+                            } onClear: {
+                                if slideOverPosition == .middle {
+                                    slideOverPosition = .bottom
+                                }
+                            }
+                            .padding([.bottom], 15)
                             ForEach(waypoints.sortedWaypoints) { waypoint in
                                 if searchText.isEmpty || waypoint.matches(searchQuery: searchText) {
                                     Button {
@@ -135,6 +143,7 @@ struct RichMapView: View {
                                     .buttonStyle(.plain)
                                 }
                             }
+                            .opacity(contentOpacity)
                         }
                         .padding([.leading, .trailing], 15)
                     }
@@ -143,12 +152,10 @@ struct RichMapView: View {
                 .frame(maxWidth: .infinity)
                 .onTapGesture {
                     if selectedWaypointId != nil {
-                        withAnimation(.easeInOut(duration: 0.2)) {
-                            switch slideOverPosition {
-                            case .bottom: slideOverPosition = .middle
-                            case .middle: slideOverPosition = .top
-                            default: break
-                            }
+                        switch slideOverPosition {
+                        case .bottom: slideOverPosition = .middle
+                        case .middle: slideOverPosition = .top
+                        default: break
                         }
                     }
                 }

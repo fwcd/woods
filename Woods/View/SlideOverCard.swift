@@ -10,31 +10,59 @@ import SwiftUI
 // Source: https://www.mozzafiller.com/posts/swiftui-slide-over-card-like-maps-stocks
 
 struct SlideOverCard<Content>: View where Content: View {
-    @GestureState private var dragState: DragState = .inactive
+    @State private var translation: CGFloat = 0
     @Binding var position: SlideOverCardPosition
     
-    @ViewBuilder let content: () -> Content
+    @ViewBuilder let content: (CGFloat) -> Content
     
     var body: some View {
         GeometryReader { geometry in
+            let start = offset(for: position, in: geometry)
+            let top = offset(for: .top, in: geometry)
+            let middle = offset(for: .middle, in: geometry)
+            let bottom = offset(for: .bottom, in: geometry)
+            
             let drag = DragGesture()
-                .updating($dragState) { drag, state, transaction in
-                    state = .dragging(translation: drag.translation)
+                .onChanged { drag in
+                    var dy = drag.translation.height
+                    let y = start + dy
+                    
+                    func overscroll(_ delta: CGFloat) -> CGFloat {
+                        min(delta, 4 * log(delta * delta))
+                    }
+                    
+                    // Bouncy overscroll at top
+                    dy = y < top
+                        ? top - start - overscroll(top - y)
+                        : dy
+                    
+                    // Bouncy overscroll at bottom
+                    dy = y > bottom
+                        ? bottom - start + overscroll(y - bottom)
+                        : dy
+                    
+                    translation = dy
                 }
                 .onEnded { drag in
                     onDragEnded(drag, in: geometry)
+                    translation = 0
                 }
 
             VStack {
+                let dy = translation
+                let y = start + dy
+                let contentOpacity = max(0, min(1, (y - bottom) / (middle - bottom)))
+                
                 Handle()
-                self.content()
+                self.content(contentOpacity)
                     .frame(maxWidth: .infinity)
             }
             .background(.ultraThinMaterial)
             .cornerRadius(15)
             .shadow(color: Color(.sRGBLinear, white: 0, opacity: 0.13), radius: 10.0)
-            .offset(y: offset(for: position, in: geometry) + dragState.translation.height)
-            .animation(dragState.isDragging ? nil : .interpolatingSpring(stiffness: 300, damping: 35, initialVelocity: 40), value: dragState)
+            .offset(y: offset(for: position, in: geometry) + translation)
+            .animation(.easeInOut(duration: 0.2), value: translation)
+            .animation(.easeInOut(duration: 0.2), value: position)
             .gesture(drag)
         }
     }
@@ -80,29 +108,6 @@ struct SlideOverCard<Content>: View where Content: View {
             return height * 0.87
         }
     }
-
-    enum DragState: Equatable {
-        case inactive
-        case dragging(translation: CGSize)
-
-        var translation: CGSize {
-            switch self {
-            case .inactive:
-                return .zero
-            case .dragging(let translation):
-                return translation
-            }
-        }
-
-        var isDragging: Bool {
-            switch self {
-            case .inactive:
-                return false
-            case .dragging:
-                return true
-            }
-        }
-    }
 }
 
 struct SlideOverCard_Previews: PreviewProvider {
@@ -110,7 +115,7 @@ struct SlideOverCard_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
             Text("Background")
-            SlideOverCard(position: $position) {
+            SlideOverCard(position: $position) { _ in
                 Text("Card")
                 Spacer()
             }

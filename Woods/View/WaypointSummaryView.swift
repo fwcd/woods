@@ -10,6 +10,7 @@ import SwiftUI
 
 struct WaypointSummaryView: View {
     let waypoint: Waypoint
+    var contentOpacity: CGFloat = 1
     
     @State private var detailSheetShown: Bool = false
     @EnvironmentObject private var waypoints: Waypoints
@@ -18,47 +19,50 @@ struct WaypointSummaryView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
             WaypointSnippetView(waypoint: waypoint)
-            SimpleSection(header: "Info", iconName: "paperclip") {
-                WaypointDetailInfoView(waypoint: waypoint)
-            }
-            if let hint = waypoint.hint {
-                SimpleSection(header: "Hint", iconName: "lightbulb.fill") {
-                    Text(hint)
+            Group {
+                SimpleSection(header: "Info", iconName: "paperclip") {
+                    WaypointDetailInfoView(waypoint: waypoint)
                 }
-            }
-            if waypoint.placedAt != nil || waypoint.lastFoundAt != nil {
-                let formatter = makeDateFormatter()
-                SimpleSection(header: "Dates", iconName: "calendar") {
-                    if let placedAt = waypoint.placedAt {
-                        Text("Placed: \(formatter.string(from: placedAt))")
-                    }
-                    if let lastFoundAt = waypoint.lastFoundAt {
-                        Text("Last Found: \(formatter.string(from: lastFoundAt))")
+                if let hint = waypoint.hint {
+                    SimpleSection(header: "Hint", iconName: "lightbulb.fill") {
+                        Text(hint)
                     }
                 }
-            }
-            Button(action: {
-                detailSheetShown = true
-            }) {
-                HStack {
-                    Spacer()
-                    Text("Show Details")
-                    Spacer()
-                }
-            }
-            .buttonStyle(LargeButtonStyle())
-            .sheet(isPresented: $detailSheetShown) {
-                CancelNavigationView(title: "Waypoint Details") {
-                    detailSheetShown = false
-                } inner: {
-                    ScrollView {
-                        WaypointDetailView(waypoint: waypoint)
+                if waypoint.placedAt != nil || waypoint.lastFoundAt != nil {
+                    let formatter = makeDateFormatter()
+                    SimpleSection(header: "Dates", iconName: "calendar") {
+                        if let placedAt = waypoint.placedAt {
+                            Text("Placed: \(formatter.string(from: placedAt))")
+                        }
+                        if let lastFoundAt = waypoint.lastFoundAt {
+                            Text("Last Found: \(formatter.string(from: lastFoundAt))")
+                        }
                     }
-                    .padding([.top], 15)
-                    .environmentObject(waypoints)
-                    .environmentObject(locationManager)
+                }
+                Button(action: {
+                    detailSheetShown = true
+                }) {
+                    HStack {
+                        Spacer()
+                        Text("Show Details")
+                        Spacer()
+                    }
+                }
+                .buttonStyle(LargeButtonStyle())
+                .sheet(isPresented: $detailSheetShown) {
+                    CancelNavigationView(title: "Waypoint Details") {
+                        detailSheetShown = false
+                    } inner: {
+                        ScrollView {
+                            WaypointDetailView(waypoint: waypoint)
+                        }
+                        .padding([.top], 15)
+                        .environmentObject(waypoints)
+                        .environmentObject(locationManager)
+                    }
                 }
             }
+            .opacity(contentOpacity)
         }
         .padding([.leading, .trailing], 20)
     }
