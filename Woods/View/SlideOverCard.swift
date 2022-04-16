@@ -44,9 +44,19 @@ struct SlideOverCard<Content>: View where Content: View {
                     translation = dy
                 }
                 .onEnded { drag in
+                    let dy = drag.translation.height
+                    let y = start + dy
+                    
+                    // Find the closest position to the predicted drag end location
+                    let next = nextPosition(for: drag, in: geometry)
+                    
+                    // To get a smooth animation, we set the translation relative
+                    // to the end position.
+                    translation = y - offset(for: next, in: geometry)
+                    position = next
+                    
                     withAnimation(.easeInOut(duration: 0.2)) {
                         translation = 0
-                        onDragEnded(drag, in: geometry)
                     }
                 }
 
@@ -66,9 +76,9 @@ struct SlideOverCard<Content>: View where Content: View {
             .gesture(drag)
         }
     }
-
-    private func onDragEnded(_ drag: DragGesture.Value, in geometry: GeometryProxy) {
-        position = closestPosition(to: drag.predictedEndLocation.y, in: geometry)
+    
+    private func nextPosition(for drag: DragGesture.Value, in geometry: GeometryProxy) -> SlideOverCardPosition {
+        closestPosition(to: drag.predictedEndLocation.y, in: geometry)
     }
     
     private func closestPosition(to y: CGFloat, in geometry: GeometryProxy) -> SlideOverCardPosition {
