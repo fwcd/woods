@@ -123,8 +123,12 @@ struct RichMapView: View {
                         WaypointSummaryView(waypoint: waypoint, contentOpacity: contentOpacity)
                     } else {
                         VStack(alignment: .leading, spacing: 5) {
-                            SearchBar(placeholder: "Filter waypoints...", text: $searchText)
-                                .padding([.bottom], 15)
+                            SearchBar(placeholder: "Filter waypoints...", text: $searchText, onCommit: {
+                                if slideOverPosition == .bottom {
+                                    slideOverPosition = .middle
+                                }
+                            })
+                            .padding([.bottom], 15)
                             ForEach(waypoints.sortedWaypoints) { waypoint in
                                 if searchText.isEmpty || waypoint.matches(searchQuery: searchText) {
                                     Button {
