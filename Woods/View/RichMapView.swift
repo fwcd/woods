@@ -117,6 +117,7 @@ struct RichMapView: View {
                 }
                 .environmentObject(waypoints)
             }
+            let cardAnimation: Animation = .easeInOut(duration: 0.2)
             SlideOverCard(position: $slideOverPosition) { contentOpacity in
                 VStack(alignment: .leading) {
                     if let id = selectedWaypointId, let waypoint = waypoints[id] {
@@ -125,11 +126,15 @@ struct RichMapView: View {
                         VStack(alignment: .leading, spacing: 5) {
                             SearchBar(placeholder: "Filter waypoints...", text: $searchText) {
                                 if slideOverPosition == .bottom {
-                                    slideOverPosition = .middle
+                                    withAnimation(cardAnimation) {
+                                        slideOverPosition = .middle
+                                    }
                                 }
                             } onClear: {
                                 if slideOverPosition == .middle {
-                                    slideOverPosition = .bottom
+                                    withAnimation(cardAnimation) {
+                                        slideOverPosition = .bottom
+                                    }
                                 }
                             }
                             .padding([.bottom], 15)
@@ -152,10 +157,12 @@ struct RichMapView: View {
                 .frame(maxWidth: .infinity)
                 .onTapGesture {
                     if selectedWaypointId != nil {
-                        switch slideOverPosition {
-                        case .bottom: slideOverPosition = .middle
-                        case .middle: slideOverPosition = .top
-                        default: break
+                        withAnimation(cardAnimation) {
+                            switch slideOverPosition {
+                            case .bottom: slideOverPosition = .middle
+                            case .middle: slideOverPosition = .top
+                            default: break
+                            }
                         }
                     }
                 }

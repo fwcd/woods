@@ -49,7 +49,8 @@ func mockGeocaches() -> [Waypoint] {
             location: Coordinates(latitude: 46.89705, longitude: 7.97048),
             difficulty: 10,
             terrain: 10,
-            geocacheType: .earth
+            geocacheType: .earth,
+            found: true
         ),
         Waypoint(
             id: "MOCK4",
