@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-// Source: https://www.mozzafiller.com/posts/swiftui-slide-over-card-like-maps-stocks
+// Based on https://www.mozzafiller.com/posts/swiftui-slide-over-card-like-maps-stocks
 
 struct SlideOverCard<Content>: View where Content: View {
-    @State private var translation: CGFloat = 0
     @Binding var position: SlideOverCardPosition
-    
     @ViewBuilder let content: (CGFloat) -> Content
+    
+    @State private var translation: CGFloat = 0
     
     var body: some View {
         GeometryReader { geometry in
@@ -68,33 +68,13 @@ struct SlideOverCard<Content>: View where Content: View {
     }
 
     private func onDragEnded(_ drag: DragGesture.Value, in geometry: GeometryProxy) {
-        let verticalDirection = drag.predictedEndLocation.y - drag.location.y
-        let cardTopEdgeLocation = offset(for: position, in: geometry) + drag.translation.height
-        let positionAbove: SlideOverCardPosition
-        let positionBelow: SlideOverCardPosition
-        let closestPosition: SlideOverCardPosition
-
-        if cardTopEdgeLocation <= offset(for: .middle, in: geometry) {
-            positionAbove = .top
-            positionBelow = .middle
-        } else {
-            positionAbove = .middle
-            positionBelow = .bottom
-        }
-
-        if (cardTopEdgeLocation - offset(for: positionAbove, in: geometry)) < (offset(for: positionBelow, in: geometry) - cardTopEdgeLocation) {
-            closestPosition = positionAbove
-        } else {
-            closestPosition = positionBelow
-        }
-
-        if verticalDirection > 0 {
-            position = positionBelow
-        } else if verticalDirection < 0 {
-            position = positionAbove
-        } else {
-            position = closestPosition
-        }
+        position = closestPosition(to: drag.predictedEndLocation.y, in: geometry)
+    }
+    
+    private func closestPosition(to y: CGFloat, in geometry: GeometryProxy) -> SlideOverCardPosition {
+        SlideOverCardPosition.allCases.min(by: ascendingComparator { otherPos in
+            abs(y - offset(for: otherPos, in: geometry))
+        })!
     }
     
     private func offset(for position: SlideOverCardPosition, in geometry: GeometryProxy) -> CGFloat {
