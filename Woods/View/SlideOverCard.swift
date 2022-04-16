@@ -19,10 +19,31 @@ struct SlideOverCard<Content>: View where Content: View {
         GeometryReader { geometry in
             let drag = DragGesture()
                 .onChanged { drag in
-                    translation = drag.translation.height
+                    let start = offset(for: position, in: geometry)
+                    let top = offset(for: .top, in: geometry)
+                    let bottom = offset(for: .bottom, in: geometry)
+                    
+                    var dy = drag.translation.height
+                    let y = start + dy
+                    
+                    func overscroll(_ delta: CGFloat) -> CGFloat {
+                        min(delta, 4 * log(delta * delta))
+                    }
+                    
+                    // Bouncy overscroll at top
+                    dy = y < top
+                        ? top - start - overscroll(top - y)
+                        : dy
+                    
+                    // Bouncy overscroll at bottom
+                    dy = y > bottom
+                        ? bottom - start + overscroll(y - bottom)
+                        : dy
+                    
+                    translation = dy
                 }
                 .onEnded { drag in
-                    withAnimation(.spring()) {
+                    withAnimation(.spring(response: 0.1)) {
                         onDragEnded(drag, in: geometry)
                         translation = 0
                     }
