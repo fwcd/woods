@@ -14,6 +14,7 @@ private let log = Logger(subsystem: "Woods", category: "AccountsView")
 struct AccountsView: View {
     @EnvironmentObject private var accounts: Accounts
     @State private var loginSheetShown = false
+    @State private var logoutConfirmationShown = false
     
     var body: some View {
         NavigationView {
@@ -32,7 +33,22 @@ struct AccountsView: View {
             }
             .navigationTitle("Accounts")
             .toolbar {
-                ToolbarItem(placement: .navigation) {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button {
+                        logoutConfirmationShown = true
+                    } label: {
+                        Text("Log Out All")
+                    }
+                    .confirmationDialog("This will log you out of all accounts. Are you sure?", isPresented: $logoutConfirmationShown) {
+                        Button {
+                            accounts.logOutAll()
+                        } label: {
+                            Text("Log Out All Accounts")
+                        }
+                        Button("Cancel", role: .cancel) {}
+                    }
+                }
+                ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: { loginSheetShown = true }) {
                         Image(systemName: "plus")
                     }

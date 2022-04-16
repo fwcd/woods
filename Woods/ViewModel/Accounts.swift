@@ -49,7 +49,7 @@ class Accounts: ObservableObject {
             logIn(using: account)
             try storeInKeychain(accounts: [account])
         } catch {
-            log.error("Could not log in: \(String(describing: error))")
+            log.error("Could not log into \(account): \(String(describing: error))")
         }
     }
     
@@ -58,8 +58,26 @@ class Accounts: ObservableObject {
             try logOut(using: account)
             try removeFromKeychain(accounts: [account])
         } catch {
-            log.error("Could not log out: \(String(describing: error))")
+            log.error("Could not log out of \(account): \(String(describing: error))")
         }
+    }
+    
+    func logOutAll() {
+        for login in accountLogins.values {
+            let account = login.account
+            do {
+                try logOut(using: account)
+                try removeFromKeychain(accounts: [account])
+            } catch {
+                log.error("Could not log out of \(account): \(String(describing: error))")
+            }
+        }
+        do {
+            try clearKeychain()
+        } catch {
+            log.error("Could not clear keychain: \(String(describing: error))")
+        }
+        accountLogins = [:]
     }
     
     private func logIn(using account: Account) {
