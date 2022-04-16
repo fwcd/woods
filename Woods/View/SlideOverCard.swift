@@ -44,10 +44,8 @@ struct SlideOverCard<Content>: View where Content: View {
                     translation = dy
                 }
                 .onEnded { drag in
-                    withAnimation(.spring(response: 0.1)) {
-                        onDragEnded(drag, in: geometry)
-                        translation = 0
-                    }
+                    onDragEnded(drag, in: geometry)
+                    translation = 0
                 }
 
             VStack {
@@ -63,6 +61,8 @@ struct SlideOverCard<Content>: View where Content: View {
             .cornerRadius(15)
             .shadow(color: Color(.sRGBLinear, white: 0, opacity: 0.13), radius: 10.0)
             .offset(y: offset(for: position, in: geometry) + translation)
+            .animation(.easeInOut(duration: 0.2), value: translation)
+            .animation(.easeInOut(duration: 0.2), value: position)
             .gesture(drag)
         }
     }
