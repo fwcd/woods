@@ -43,15 +43,6 @@ struct Map<T>: UIOrNSViewRepresentable where T: Hashable {
         mapView.delegate = context.coordinator
         mapView.mapType = useSatelliteView ? .hybrid : .standard
         
-        #if canImport(UIKit)
-        // Workaround for slow map annotation selection
-        // See https://stackoverflow.com/questions/35639388/tapping-an-mkannotation-to-select-it-is-really-slow
-        let tapRecognizer = UITapGestureRecognizer(target: context.coordinator, action: #selector(Coordinator.handleTap(_:)))
-        tapRecognizer.numberOfTapsRequired = 1
-        tapRecognizer.numberOfTouchesRequired = 1
-        mapView.addGestureRecognizer(tapRecognizer)
-        #endif
-        
         return mapView
     }
     
@@ -138,19 +129,6 @@ struct Map<T>: UIOrNSViewRepresentable where T: Hashable {
         func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
             selection = nil
         }
-        
-        #if canImport(UIKit)
-        // Workaround for slow map annotation selection
-        // See https://stackoverflow.com/questions/35639388/tapping-an-mkannotation-to-select-it-is-really-slow
-        
-        @objc func handleTap(_ sender: UITapGestureRecognizer? = nil) {
-            guard let view = sender?.view as? MKMapView else { return }
-            view.isZoomEnabled = false
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                view.isZoomEnabled = true
-            }
-        }
-        #endif
     }
     
     init(
