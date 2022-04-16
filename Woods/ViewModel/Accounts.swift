@@ -137,7 +137,7 @@ class Accounts: ObservableObject {
     /// Stores the given accounts in the user's keychain.
     private func storeInKeychain(accounts: [Account]) throws {
         log.info("Storing \(accounts.count) account(s) in keychain")
-        for account in accounts {
+        for account in accounts where !account.credentials.username.isEmpty {
             let query: [String: Any] = [
                 kSecClass as String: keychainClass,
                 kSecAttrAccount as String: "\(account.id):\(account.credentials.username)",
