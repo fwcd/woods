@@ -30,6 +30,12 @@ struct RichMapView: View {
     @State private var searchText: String = ""
     @State private var slideOverPosition: SlideOverCardPosition = .bottom
     
+    private var filteredWaypoints: [Waypoint] {
+        waypoints.sortedWaypoints.filter { waypoint in
+            searchText.isEmpty || waypoint.matches(searchQuery: searchText)
+        }
+    }
+    
     private enum ListPickerMode {
         case open
         case save
@@ -38,7 +44,7 @@ struct RichMapView: View {
     var body: some View {
         ZStack(alignment: .topLeading) {
             WaypointMapView(
-                waypoints: waypoints.sortedWaypoints,
+                waypoints: filteredWaypoints,
                 selectedWaypointId: $selectedWaypointId,
                 region: $region,
                 userTrackingMode: $userTrackingMode,
@@ -138,15 +144,13 @@ struct RichMapView: View {
                                 }
                             }
                             .padding([.bottom], 15)
-                            ForEach(waypoints.sortedWaypoints) { waypoint in
-                                if searchText.isEmpty || waypoint.matches(searchQuery: searchText) {
-                                    Button {
-                                        selectedWaypointId = waypoint.id
-                                    } label: {
-                                        WaypointSmallSnippetView(waypoint: waypoint)
-                                    }
-                                    .buttonStyle(.plain)
+                            ForEach(filteredWaypoints) { waypoint in
+                                Button {
+                                    selectedWaypointId = waypoint.id
+                                } label: {
+                                    WaypointSmallSnippetView(waypoint: waypoint)
                                 }
+                                .buttonStyle(.plain)
                             }
                             .opacity(contentOpacity)
                         }
