@@ -33,7 +33,7 @@ struct AccountsView: View {
             }
             .navigationTitle("Accounts")
             .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
+                ToolbarItem(placement: .cancellationAction) {
                     Button {
                         logoutConfirmationShown = true
                     } label: {
@@ -48,7 +48,7 @@ struct AccountsView: View {
                         Button("Cancel", role: .cancel) {}
                     }
                 }
-                ToolbarItem(placement: .navigationBarTrailing) {
+                ToolbarItem(placement: .primaryAction) {
                     Button(action: { loginSheetShown = true }) {
                         Image(systemName: "plus")
                     }
