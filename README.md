@@ -1,5 +1,7 @@
 # Woods
 
+[![Build](https://github.com/fwcd/woods/actions/workflows/build.yml/badge.svg)](https://github.com/fwcd/woods/actions/workflows/build.yml)
+
 A GPS navigation and Geocaching app for iOS.
 
 <div align="center">
