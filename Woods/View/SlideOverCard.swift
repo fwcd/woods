@@ -77,7 +77,9 @@ struct SlideOverCard<Content>: View where Content: View {
     }
     
     private func nextPosition(for drag: DragGesture.Value, in geometry: GeometryProxy) -> SlideOverCardPosition {
-        closestPosition(to: drag.predictedEndLocation.y, in: geometry)
+        let velocity = drag.predictedEndLocation.y - drag.location.y
+        let y = offset(for: position, in: geometry) + translation + velocity
+        return closestPosition(to: y, in: geometry)
     }
     
     private func closestPosition(to y: CGFloat, in geometry: GeometryProxy) -> SlideOverCardPosition {
