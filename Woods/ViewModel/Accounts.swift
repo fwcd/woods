@@ -17,9 +17,6 @@ private let keychainClass: Any = kSecClassInternetPassword
 class Accounts: ObservableObject {
     @Published private(set) var accountLogins: [UUID: AccountLogin] = [:]
     
-    private var loginTasks = [UUID: AnyCancellable]()
-    private var logoutTasks = [UUID: AnyCancellable]()
-    
     init(accounts: [Account] = [], testMode: Bool = false) {
         var initialAccounts = accounts
         
@@ -34,8 +31,11 @@ class Accounts: ObservableObject {
         if testMode {
             accountLogins = Dictionary(uniqueKeysWithValues: accounts.map { ($0.id, AccountLogin(account: $0, state: .connected)) })
         } else {
-            for account in initialAccounts {
-                logIn(using: account)
+            let initialAccounts = initialAccounts
+            Task {
+                for account in initialAccounts {
+                    await logIn(using: account)
+                }
             }
         }
     }
@@ -44,29 +44,29 @@ class Accounts: ObservableObject {
         accountLogins[id]
     }
     
-    func logInAndStore(_ account: Account) {
+    func logInAndStore(_ account: Account) async {
         do {
-            logIn(using: account)
+            await logIn(using: account)
             try storeInKeychain(accounts: [account])
         } catch {
             log.error("Could not log into \(account): \(String(describing: error))")
         }
     }
     
-    func logOutAndStore(_ account: Account) {
+    func logOutAndStore(_ account: Account) async {
         do {
-            try logOut(using: account)
+            try await logOut(using: account)
             try removeFromKeychain(accounts: [account])
         } catch {
             log.error("Could not log out of \(account): \(String(describing: error))")
         }
     }
     
-    func logOutAll() {
+    func logOutAll() async {
         for login in accountLogins.values {
             let account = login.account
             do {
-                try logOut(using: account)
+                try await logOut(using: account)
                 try removeFromKeychain(accounts: [account])
             } catch {
                 log.error("Could not log out of \(account): \(String(describing: error))")
@@ -80,40 +80,33 @@ class Accounts: ObservableObject {
         accountLogins = [:]
     }
     
-    private func logIn(using account: Account) {
+    // TODO: Do we need to switch to the main actor when updating the login state?
+    
+    private func logIn(using account: Account) async {
         log.info("Logging in using \(account)")
         let connector = account.type.makeConnector()
         let login = AccountLogin(account: account, connector: connector, state: .connecting)
         
         accountLogins[account.id] = login
-        loginTasks[account.id] = connector
-            .logIn(using: account.credentials)
-            .receive(on: RunLoop.main)
-            .sink { completion in
-                switch completion {
-                case .failure(let error):
-                    log.warning("Could not log in with account \(account): \(String(describing: error))")
-                    login.state = .failed
-                case .finished:
-                    login.state = .connected
-                }
-            } receiveValue: {}
+        do {
+            try await connector.logIn(using: account.credentials)
+            login.state = .connected
+        } catch {
+            log.warning("Could not log in with account \(account): \(String(describing: error))")
+            login.state = .failed
+        }
     }
     
-    private func logOut(using account: Account) throws {
+    private func logOut(using account: Account) async throws {
         log.info("Logging out using \(account)")
         guard let connector = accountLogins[account.id]?.connector else { throw ConnectorError.noConnector }
         
-        logoutTasks[account.id] = connector
-            .logOut()
-            .receive(on: RunLoop.main)
-            .sink { completion in
-                if case let .failure(error) = completion {
-                    log.warning("Could not log out from account \(account): \(String(describing: error))")
-                }
-            } receiveValue: { [self] in
-                accountLogins[account.id] = nil
-            }
+        do {
+            try await connector.logOut()
+            accountLogins[account.id] = nil
+        } catch {
+            log.warning("Could not log out from account \(account): \(String(describing: error))")
+        }
     }
     
     /// Loads all accounts from the user's keychain.
