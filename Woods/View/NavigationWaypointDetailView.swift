@@ -25,6 +25,9 @@ struct NavigationWaypointDetailView: View {
             }
         }
         .navigationTitle("Waypoint")
+        #if !os(macOS)
+        .navigationBarTitleDisplayMode(.inline)
+        #endif
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
                 Button {
@@ -46,7 +49,6 @@ struct NavigationWaypointDetailView_Previews: PreviewProvider {
             NavigationWaypointDetailView(waypoint: $waypoint)
                 .environmentObject(locationManager)
                 .environmentObject(waypoints)
-                .navigationBarTitleDisplayMode(.inline)
         }
     }
 }

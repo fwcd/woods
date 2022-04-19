@@ -98,12 +98,15 @@ struct WaypointListView: View {
                         waypoints.listTree.remove(childId)
                     }
                 }
-                ForEach(list?.waypoints ?? []) { waypoint in
+                let listWaypoints = list?.waypoints ?? []
+                ForEach(0..<listWaypoints.count, id: \.self) { i in
                     NavigationLink {
-                        // TODO: Bind the actual waypoint
-                        NavigationWaypointDetailView(waypoint: .constant(waypoint))
+                        NavigationWaypointDetailView(waypoint: Binding(
+                            get: { listWaypoints[i] },
+                            set: { waypoints.listTree[listId]?.waypoints[i] = $0 }
+                        ))
                     } label: {
-                        WaypointSmallSnippetView(waypoint: waypoint)
+                        WaypointSmallSnippetView(waypoint: listWaypoints[i])
                     }
                 }
                 .onDelete { indexSet in
