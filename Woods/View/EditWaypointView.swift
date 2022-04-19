@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// An 'editable' version of WaypointDetailView.
 struct EditWaypointView: View {
     @Binding var waypoint: Waypoint
     var onCommit: (() -> Void)? = nil
@@ -38,6 +39,14 @@ struct EditWaypointView: View {
                 TextField("Longitude", text: stringBinding(for: $waypoint.location.longitude))
             }
             
+            Section("Description") {
+                TextEditor(text: unwrappingBinding(for: $waypoint.description, defaultingTo: ""))
+            }
+            
+            Section("Hint") {
+                TextField("Hint", text: unwrappingBinding(for: $waypoint.hint, defaultingTo: ""))
+            }
+            
             // TODO: Other metadata
             
             if let onCommit = onCommit {
@@ -46,6 +55,16 @@ struct EditWaypointView: View {
                 }
             }
         }
+    }
+    
+    // TODO: Move these utils to a utility module
+    
+    private func unwrappingBinding<T>(for binding: Binding<T?>, defaultingTo defaultValue: T) -> Binding<T> {
+        Binding(
+            get: { binding.wrappedValue ?? defaultValue },
+            // TODO: Should we check for equality with defaultValue and synthesize nil if equal?
+            set: { binding.wrappedValue = $0 }
+        )
     }
     
     private func stringBinding(for binding: Binding<Degrees>) -> Binding<String> {
