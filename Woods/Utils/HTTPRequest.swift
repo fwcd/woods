@@ -99,6 +99,7 @@ public struct HTTPRequest {
         }
     }
 
+    @discardableResult
     public func runAsync() async throws -> Data {
         let (data, response) = try await session.data(for: request)
         guard let response = response as? HTTPURLResponse else {

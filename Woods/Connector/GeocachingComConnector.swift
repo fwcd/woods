@@ -27,48 +27,41 @@ private func apiPreviewUrl(gcCode: String) -> URL {
 private let log = Logger(subsystem: "Woods", category: "GeocachingComConnector")
 
 class GeocachingComConnector: Connector {
-    func logIn(using credentials: Credentials) -> AnyPublisher<Void, Error> {
+    func logIn(using credentials: Credentials) async throws {
         let tokenFieldName = "__RequestVerificationToken"
         
-        return Result.Publisher(Result { try HTTPRequest(url: loginPageUrl) })
-            .flatMap { $0.fetchHTMLAsync() }
-            .tryMap { document -> HTTPRequest in
-                log.info("Parsing login page")
-                guard let tokenField = try document.select("input[name=\(tokenFieldName)]").first() else {
-                    throw ConnectorError.logInFailed("Could not parse login page")
-                }
-                let tokenValue = try tokenField.attr("value")
-                return try HTTPRequest(url: loginPageUrl, method: "POST", query: [
-                    "UsernameOrEmail": credentials.username,
-                    "Password": credentials.password,
-                    tokenFieldName: tokenValue
-                ])
-            }
-            .flatMap { request -> Publishers.TryMap<URLSession.DataTaskPublisher, Data> in
-                log.info("Submitting login request")
-                return request.runAsync()
-            }
-            .map { _ in }
-            .eraseToAnyPublisher()
-    }
-    
-    func logOut() -> AnyPublisher<Void, Error> {
-        // TODO
-        Just(()).weakenError().eraseToAnyPublisher()
-    }
-    
-    func waypoint(id: String) -> AnyPublisher<Waypoint, Error> {
-        log.info("Querying details for \(id)")
-        return Result.Publisher(Result { () -> HTTPRequest in
-            guard id.starts(with: "GC") else { throw ConnectorError.invalidWaypoint("Not a Geocaching.com geocache") }
-            return try HTTPRequest(url: apiPreviewUrl(gcCode: id))
-        })
-        .flatMap { $0.fetchJSONAsync(as: GeocachingComApiResults.Geocache.self) }
-        .tryMap {
-            guard let waypoint = $0.asWaypoint else { throw ConnectorError.waypointNotFound(id) }
-            return waypoint
+        // Fetch the login page
+        let request = try HTTPRequest(url: loginPageUrl)
+        let document = try await request.fetchHTMLAsync()
+        
+        log.info("Parsing login page")
+        guard let tokenField = try document.select("input[name=\(tokenFieldName)]").first() else {
+            throw ConnectorError.logInFailed("Could not parse login page")
         }
-        .eraseToAnyPublisher()
+        let tokenValue = try tokenField.attr("value")
+        
+        // Send the login request
+        let loginRequest = try HTTPRequest(url: loginPageUrl, method: "POST", query: [
+            "UsernameOrEmail": credentials.username,
+            "Password": credentials.password,
+            tokenFieldName: tokenValue
+        ])
+        
+        log.info("Submitting login request")
+        try await loginRequest.runAsync()
+    }
+    
+    func logOut() async {
+        // TODO
+    }
+    
+    func waypoint(id: String) async throws -> Waypoint {
+        log.info("Querying details for \(id)")
+        guard id.starts(with: "GC") else { throw ConnectorError.invalidWaypoint("Not a Geocaching.com geocache") }
+        let request = try HTTPRequest(url: apiPreviewUrl(gcCode: id))
+        let result = try await request.fetchJSONAsync(as: GeocachingComApiResults.Geocache.self)
+        guard let waypoint = result.asWaypoint else { throw ConnectorError.waypointNotFound(id) }
+        return waypoint
     }
     
     func waypoints(for rawQuery: WaypointsInRadiusQuery) -> AnyPublisher<[Waypoint], Error> {
