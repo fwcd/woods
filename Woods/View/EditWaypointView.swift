@@ -20,6 +20,8 @@ struct EditWaypointView: View {
             }
         }
     }
+    @State private var editedAdditionalWaypointIndex: Int = 0
+    @State private var editAdditionalWaypointSheetShown: Bool = false
     
     var body: some View {
         Form {
@@ -81,14 +83,28 @@ struct EditWaypointView: View {
             
             Section("Additional Waypoints") {
                 List {
-                    ForEach(waypoint.additionalWaypoints) { child in
-                        WaypointSmallSnippetView(waypoint: child)
+                    ForEach(0..<waypoint.additionalWaypoints.count, id: \.self) { i in
+                        Button {
+                            editedAdditionalWaypointIndex = i
+                            editAdditionalWaypointSheetShown = true
+                        } label: {
+                            WaypointSmallSnippetView(waypoint: waypoint.additionalWaypoints[i])
+                        }
                     }
                     .onMove { indexSet, offset in
                         waypoint.additionalWaypoints.move(fromOffsets: indexSet, toOffset: offset)
                     }
                     .onDelete { indexSet in
                         waypoint.additionalWaypoints.remove(atOffsets: indexSet)
+                    }
+                    .sheet(isPresented: $editAdditionalWaypointSheetShown) {
+                        CancelNavigationView(title: "Edit Additional Waypoint") {
+                            editAdditionalWaypointSheetShown = false
+                        } inner: {
+                            EditWaypointView(waypoint: $waypoint.additionalWaypoints[editedAdditionalWaypointIndex]) {
+                                editAdditionalWaypointSheetShown = false
+                            }
+                        }
                     }
                     Button {
                         newAdditionalWaypointSheetShown = true
