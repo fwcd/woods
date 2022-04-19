@@ -49,6 +49,10 @@ struct Coordinates: Codable, Hashable, CustomStringConvertible {
         CLLocation(latitude: latitude.totalDegrees, longitude: longitude.totalDegrees)
     }
     
+    init() {
+        self.init(latitude: .zero, longitude: .zero)
+    }
+    
     init(latitude: Degrees, longitude: Degrees) {
         self.latitude = latitude
         self.longitude = longitude

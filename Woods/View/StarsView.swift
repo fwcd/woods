@@ -15,7 +15,7 @@ struct StarsView: View {
     
     var body: some View {
         let stars = HStack(spacing: 0) {
-            ForEach(0..<(maxRating / step)) { _ in
+            ForEach(0..<(maxRating / step), id: \.self) { _ in
                 Image(systemName: "star.fill")
             }
         }

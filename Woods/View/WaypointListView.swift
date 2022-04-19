@@ -12,7 +12,14 @@ struct WaypointListView: View {
     let listId: UUID
     var largeTitle: Bool = true
     
-    @State private var newListSheetShown: Bool = false
+    @State private var newWaypoint = Waypoint()
+    @State private var newListSheetShown: Bool = false {
+        willSet {
+            if newValue != newWaypointSheetShown {
+                newWaypoint = Waypoint()
+            }
+        }
+    }
     @State private var newWaypointSheetShown: Bool = false
     @State private var clearConfirmationShown: Bool = false
     @EnvironmentObject private var waypoints: Waypoints
@@ -45,6 +52,16 @@ struct WaypointListView: View {
                     HStack {
                         Image(systemName: "plus")
                         Text("New Waypoint")
+                    }
+                }
+                .sheet(isPresented: $newWaypointSheetShown) {
+                    CancelNavigationView(title: "New Waypoint") {
+                        newWaypointSheetShown = false
+                    } inner: {
+                        EditWaypointView(waypoint: $newWaypoint) {
+                            waypoints.listTree[listId]?.add(waypoints: [newWaypoint])
+                            newWaypointSheetShown = false
+                        }
                     }
                 }
                 Button(action: { clearConfirmationShown = true }) {
@@ -81,11 +98,15 @@ struct WaypointListView: View {
                         waypoints.listTree.remove(childId)
                     }
                 }
-                ForEach(list?.waypoints ?? []) { waypoint in
-                    NavigationLink(destination: ScrollView {
-                        WaypointDetailView(waypoint: waypoint)
-                    }) {
-                        WaypointSmallSnippetView(waypoint: waypoint)
+                let listWaypoints = list?.waypoints ?? []
+                ForEach(0..<listWaypoints.count, id: \.self) { i in
+                    NavigationLink {
+                        NavigationWaypointDetailView(waypoint: Binding(
+                            get: { listWaypoints[i] },
+                            set: { waypoints.listTree[listId]?.waypoints[i] = $0 }
+                        ))
+                    } label: {
+                        WaypointSmallSnippetView(waypoint: listWaypoints[i])
                     }
                 }
                 .onDelete { indexSet in

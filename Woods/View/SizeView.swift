@@ -16,7 +16,7 @@ struct SizeView: View {
     
     var body: some View {
         HStack(alignment: .bottom, spacing: 4) {
-            ForEach(0..<maxRating) { i in
+            ForEach(0..<maxRating, id: \.self) { i in
                 Rectangle()
                     .frame(width: width, height: ((CGFloat(i + 1) * height) / CGFloat(maxRating)))
                     .foregroundColor((i + 1) == rating ? .primary : .secondary)

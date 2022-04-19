@@ -12,7 +12,7 @@ struct WaypointList: Identifiable, Codable, Hashable {
     var id: UUID = UUID()
     var name: String
     var childs: [UUID] = []
-    private(set) var waypoints: [Waypoint] = []
+    var waypoints: [Waypoint] = []
     
     mutating func add(waypoints newWaypoints: [Waypoint]) {
         let existingIds = Set(waypoints.map(\.id))
