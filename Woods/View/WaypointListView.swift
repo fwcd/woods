@@ -100,7 +100,8 @@ struct WaypointListView: View {
                 }
                 ForEach(list?.waypoints ?? []) { waypoint in
                     NavigationLink {
-                        NavigationWaypointDetailView(waypoint: waypoint)
+                        // TODO: Bind the actual waypoint
+                        NavigationWaypointDetailView(waypoint: .constant(waypoint))
                     } label: {
                         WaypointSmallSnippetView(waypoint: waypoint)
                     }

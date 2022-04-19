@@ -8,13 +8,21 @@
 import SwiftUI
 
 struct NavigationWaypointDetailView: View {
-    let waypoint: Waypoint
+    @Binding var waypoint: Waypoint
     
     @State private var isEditing = false
     
     var body: some View {
-        ScrollView {
-            WaypointDetailView(waypoint: waypoint)
+        Group {
+            if isEditing {
+                EditWaypointView(waypoint: $waypoint) {
+                    isEditing = false
+                }
+            } else {
+                ScrollView {
+                    WaypointDetailView(waypoint: waypoint)
+                }
+            }
         }
         .navigationTitle("Waypoint")
         .toolbar {
@@ -30,11 +38,12 @@ struct NavigationWaypointDetailView: View {
 }
 
 struct NavigationWaypointDetailView_Previews: PreviewProvider {
-    @StateObject static var locationManager = LocationManager()
-    @StateObject static var waypoints = Waypoints(accounts: Accounts(testMode: true))
+    @State private static var waypoint = mockGeocaches().first!
+    @StateObject private static var locationManager = LocationManager()
+    @StateObject private static var waypoints = Waypoints(accounts: Accounts(testMode: true))
     static var previews: some View {
         NavigationView {
-            NavigationWaypointDetailView(waypoint: mockGeocaches().first!)
+            NavigationWaypointDetailView(waypoint: $waypoint)
                 .environmentObject(locationManager)
                 .environmentObject(waypoints)
                 .navigationBarTitleDisplayMode(.inline)
