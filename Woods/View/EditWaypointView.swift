@@ -8,13 +8,8 @@
 import SwiftUI
 
 struct EditWaypointView: View {
-    let onCommit: (Waypoint) -> Void
-    
-    @State private var waypoint = Waypoint(
-        id: "",
-        name: "",
-        location: Coordinates(latitude: 0, longitude: 0)
-    )
+    @Binding var waypoint: Waypoint
+    var onCommit: (() -> Void)? = nil
     
     var body: some View {
         Form {
@@ -34,8 +29,10 @@ struct EditWaypointView: View {
             
             // TODO: Other metadata
             
-            Button("Save Waypoint") {
-                onCommit(waypoint)
+            if let onCommit = onCommit {
+                Button("Save Waypoint") {
+                    onCommit()
+                }
             }
         }
     }
@@ -53,7 +50,8 @@ struct EditWaypointView: View {
 }
 
 struct NewWaypointView_Previews: PreviewProvider {
+    @State private static var waypoint = Waypoint()
     static var previews: some View {
-        EditWaypointView { _ in }
+        EditWaypointView(waypoint: $waypoint)
     }
 }

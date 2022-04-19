@@ -12,9 +12,9 @@ import Foundation
 struct Waypoint: Identifiable, Codable, Hashable {
     static let ratings: ClosedRange<Int> = 2...10
     
-    var id: String // GC-Code, UUID or similar
-    var name: String
-    var location: Coordinates
+    var id: String = "" // GC-Code, UUID or similar
+    var name: String = ""
+    var location: Coordinates = Coordinates()
     var isStub: Bool = false // Whether the data is incomplete
     var difficulty: Int? = nil // half stars, between 2 and 10 (see maxRating)
     var terrain: Int? = nil    // half stars, between 2 and 10 (see maxRating)

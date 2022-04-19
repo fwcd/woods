@@ -12,7 +12,14 @@ struct WaypointListView: View {
     let listId: UUID
     var largeTitle: Bool = true
     
-    @State private var newListSheetShown: Bool = false
+    @State private var newWaypoint = Waypoint()
+    @State private var newListSheetShown: Bool = false {
+        willSet {
+            if newValue && !newWaypointSheetShown {
+                newWaypoint = Waypoint()
+            }
+        }
+    }
     @State private var newWaypointSheetShown: Bool = false
     @State private var clearConfirmationShown: Bool = false
     @EnvironmentObject private var waypoints: Waypoints
@@ -51,8 +58,9 @@ struct WaypointListView: View {
                     CancelNavigationView(title: "New Waypoint") {
                         newWaypointSheetShown = false
                     } inner: {
-                        EditWaypointView { child in
-                            waypoints.listTree[listId]?.add(waypoints: [child])
+                        EditWaypointView(waypoint: $newWaypoint) {
+                            waypoints.listTree[listId]?.add(waypoints: [newWaypoint])
+                            newWaypoint = Waypoint()
                         }
                     }
                 }
