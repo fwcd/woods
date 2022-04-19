@@ -7,17 +7,34 @@
 
 import SwiftUI
 
+private let degreesFormatter: NumberFormatter = NumberFormatter()
+private let minutesFormatter: NumberFormatter = {
+    let f = NumberFormatter()
+    f.minimumIntegerDigits = 2
+    f.minimumFractionDigits = 3
+    return f
+}()
+
 struct CoordinateEditor<CoordinateCardinal>: View
 where CoordinateCardinal: SignedCardinal & Hashable & CaseIterable & CustomStringConvertible,
       CoordinateCardinal.AllCases: RandomAccessCollection,
       CoordinateCardinal.AllCases.Index == Int {
     @Binding var degrees: Degrees
 
+    // TODO: More formats beside decimal minutes (decimal degrees, DMS, ...)?
+    
     var body: some View {
-        EnumPicker(selection: Binding(
-            get: { CoordinateCardinal(sign: degrees.sign) },
-            set: { degrees.sign = $0.sign }
-        ))
+        HStack {
+            EnumPicker(selection: Binding(
+                get: { CoordinateCardinal(sign: degrees.sign) },
+                set: { degrees.sign = $0.sign }
+            ))
+            TextField("0", value: $degrees.dm.degrees, formatter: degreesFormatter)
+                .frame(width: 50)
+                .multilineTextAlignment(.trailing)
+            Text("°")
+            TextField("00.000", value: $degrees.dm.minutes, formatter: minutesFormatter)
+        }
     }
 }
 
