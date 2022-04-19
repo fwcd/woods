@@ -33,6 +33,10 @@ struct NewWaypointView: View {
             }
             
             // TODO: Other metadata
+            
+            Button("Add Waypoint") {
+                onCommit(waypoint)
+            }
         }
     }
     
