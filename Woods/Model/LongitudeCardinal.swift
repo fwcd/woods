@@ -19,6 +19,12 @@ enum LongitudeCardinal: String, Codable, Hashable, CustomStringConvertible {
         case .west: return -1
         }
     }
+    var fpSign: FloatingPointSign {
+        switch self {
+        case .east: return .plus
+        case .west: return .minus
+        }
+    }
     var asCardinal: Cardinal {
         switch self {
         case .east: return .east
@@ -31,6 +37,13 @@ enum LongitudeCardinal: String, Codable, Hashable, CustomStringConvertible {
         case 1: self = .east
         case -1: self = .west
         default: return nil
+        }
+    }
+    
+    init(fpSign: FloatingPointSign) {
+        switch fpSign {
+        case .plus: self = .east
+        case .minus: self = .west
         }
     }
 }

@@ -15,27 +15,13 @@ struct Coordinates: Codable, Hashable, CustomStringConvertible {
     
     /// North or south.
     var latitudeCardinal: LatitudeCardinal {
-        get { latitude.totalDegrees.sign == .plus ? .north : .south }
-        set {
-            switch newValue {
-            case .north:
-                latitude.totalDegrees = abs(latitude.totalDegrees)
-            case .south:
-                latitude.totalDegrees = -abs(latitude.totalDegrees)
-            }
-        }
+        get { LatitudeCardinal(fpSign: latitude.totalDegrees.sign) }
+        set { latitude.totalDegrees = Double(newValue.sign) * abs(latitude.totalDegrees) }
     }
     /// East or west.
     var longitudeCardinal: LongitudeCardinal {
-        get { longitude.totalDegrees.sign == .plus ? .east : .west }
-        set {
-            switch newValue {
-            case .east:
-                longitude.totalDegrees = abs(longitude.totalDegrees)
-            case .west:
-                longitude.totalDegrees = -abs(longitude.totalDegrees)
-            }
-        }
+        get { LongitudeCardinal(fpSign: longitude.totalDegrees.sign) }
+        set { longitude.totalDegrees = Double(newValue.sign) * abs(longitude.totalDegrees) }
     }
     
     var description: String { "\(latitudeCardinal) \(latitude.magnitude), \(longitudeCardinal) \(longitude.magnitude)" }
