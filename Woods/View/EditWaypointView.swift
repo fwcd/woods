@@ -84,6 +84,12 @@ struct EditWaypointView: View {
                     ForEach(waypoint.additionalWaypoints) { child in
                         WaypointSmallSnippetView(waypoint: child)
                     }
+                    .onMove { indexSet, offset in
+                        waypoint.additionalWaypoints.move(fromOffsets: indexSet, toOffset: offset)
+                    }
+                    .onDelete { indexSet in
+                        waypoint.additionalWaypoints.remove(atOffsets: indexSet)
+                    }
                     Button {
                         newAdditionalWaypointSheetShown = true
                     } label: {
