@@ -8,7 +8,7 @@
 import Foundation
 
 /// North or South.
-enum LatitudeCardinal: String, Codable, Hashable, CustomStringConvertible, SignedCardinal {
+enum LatitudeCardinal: String, Codable, Hashable, CaseIterable, CustomStringConvertible, SignedCardinal {
     case north = "N"
     case south = "S"
     

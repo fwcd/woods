@@ -8,7 +8,7 @@
 import Foundation
 
 /// East or West.
-enum LongitudeCardinal: String, Codable, Hashable, CustomStringConvertible, SignedCardinal {
+enum LongitudeCardinal: String, Codable, Hashable, CaseIterable, CustomStringConvertible, SignedCardinal {
     case east = "E"
     case west = "W"
     
