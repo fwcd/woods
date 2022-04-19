@@ -15,6 +15,7 @@ struct EditWaypointView: View {
         Form {
             Section("Waypoint") {
                 HStack(spacing: 20) {
+                    // TODO: Add a picker here for choosing the cache type
                     Image(systemName: waypoint.iconName)
                         .foregroundColor(waypoint.color)
                         .font(.title)
