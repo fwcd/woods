@@ -15,7 +15,7 @@ struct WaypointListView: View {
     @State private var newWaypoint = Waypoint()
     @State private var newListSheetShown: Bool = false {
         willSet {
-            if newValue && !newWaypointSheetShown {
+            if newValue != newWaypointSheetShown {
                 newWaypoint = Waypoint()
             }
         }
@@ -60,7 +60,7 @@ struct WaypointListView: View {
                     } inner: {
                         EditWaypointView(waypoint: $newWaypoint) {
                             waypoints.listTree[listId]?.add(waypoints: [newWaypoint])
-                            newWaypoint = Waypoint()
+                            newWaypointSheetShown = false
                         }
                     }
                 }
