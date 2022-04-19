@@ -12,6 +12,7 @@ import Combine
 
 private let log = Logger(subsystem: "Woods", category: "Waypoints")
 
+@MainActor
 class Waypoints: ObservableObject {
     /// The currently presented (e.g. by a map or list) waypoints by id (aka. GC code)
     @Published private(set) var currentWaypoints: [String: Waypoint] = [:]

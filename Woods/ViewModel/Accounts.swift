@@ -14,6 +14,7 @@ private let log = Logger(subsystem: "Woods", category: "Accounts")
 private let keychainLabel = "fwcd.woods.accounts"
 private let keychainClass: Any = kSecClassInternetPassword
 
+@MainActor
 class Accounts: ObservableObject {
     @Published private(set) var accountLogins: [UUID: AccountLogin] = [:]
     
