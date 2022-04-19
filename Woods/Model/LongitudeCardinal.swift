@@ -13,10 +13,24 @@ enum LongitudeCardinal: String, Codable, Hashable, CustomStringConvertible {
     case west = "W"
     
     var description: String { rawValue }
+    var sign: Int {
+        switch self {
+        case .east: return 1
+        case .west: return -1
+        }
+    }
     var asCardinal: Cardinal {
         switch self {
         case .east: return .east
         case .west: return .west
+        }
+    }
+    
+    init?(sign: Int) {
+        switch sign {
+        case 1: self = .east
+        case -1: self = .west
+        default: return nil
         }
     }
 }
