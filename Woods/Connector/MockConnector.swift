@@ -11,28 +11,20 @@ import Combine
 
 /// A simple connector that outputs some fake caches for testing.
 class MockConnector: Connector {
-    func logIn(using credentials: Credentials) -> AnyPublisher<Void, Error> {
-        Just(()).weakenError().eraseToAnyPublisher()
+    func logIn(using credentials: Credentials) {}
+    
+    func logOut() {}
+    
+    func waypoint(id: String) throws -> Waypoint {
+        guard let cache = mockGeocaches().first(where: { $0.id == id }) else { throw ConnectorError.waypointNotFound(id) }
+        return cache
     }
     
-    func logOut() -> AnyPublisher<Void, Error> {
-        Just(()).weakenError().eraseToAnyPublisher()
+    func waypoints(for query: WaypointsInRadiusQuery) -> [Waypoint] {
+        mockGeocaches().filter { $0.location.distance(to: query.center) <= query.radius }
     }
     
-    func waypoint(id: String) -> AnyPublisher<Waypoint, Error> {
-        Result.Publisher(Result {
-            guard let cache = mockGeocaches().first(where: { $0.id == id }) else { throw ConnectorError.waypointNotFound(id) }
-            return cache
-        }).eraseToAnyPublisher()
-    }
-    
-    func waypoints(for query: WaypointsInRadiusQuery) -> AnyPublisher<[Waypoint], Error> {
-        let caches = mockGeocaches().filter { $0.location.distance(to: query.center) <= query.radius }
-        return Just(caches).weakenError().eraseToAnyPublisher()
-    }
-    
-    func waypoints(for query: WaypointsInRegionQuery) -> AnyPublisher<[Waypoint], Error> {
-        let caches = mockGeocaches().filter { query.region.contains($0.location) }
-        return Just(caches).weakenError().eraseToAnyPublisher()
+    func waypoints(for query: WaypointsInRegionQuery) -> [Waypoint] {
+        mockGeocaches().filter { query.region.contains($0.location) }
     }
 }
