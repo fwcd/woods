@@ -8,6 +8,7 @@
 
 import Foundation
 
+@MainActor
 struct WaypointListWrapper: Identifiable {
     private let waypoints: Waypoints
     let id: UUID

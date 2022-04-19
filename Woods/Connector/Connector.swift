@@ -9,13 +9,13 @@
 import Combine
 
 protocol Connector: AnyObject {
-    func logIn(using credentials: Credentials) -> AnyPublisher<Void, Error>
+    func logIn(using credentials: Credentials) async throws
     
-    func logOut() -> AnyPublisher<Void, Error>
+    func logOut() async throws
     
-    func waypoint(id: String) -> AnyPublisher<Waypoint, Error>
+    func waypoint(id: String) async throws -> Waypoint
     
-    func waypoints(for query: WaypointsInRadiusQuery) -> AnyPublisher<[Waypoint], Error>
+    func waypoints(for query: WaypointsInRadiusQuery) async throws -> [Waypoint]
     
-    func waypoints(for query: WaypointsInRegionQuery) -> AnyPublisher<[Waypoint], Error>
+    func waypoints(for query: WaypointsInRegionQuery) async throws -> [Waypoint]
 }

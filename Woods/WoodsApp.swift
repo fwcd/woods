@@ -8,6 +8,7 @@
 
 import SwiftUI
 
+@MainActor
 private class AppState {
     let accounts: Accounts
     let waypoints: Waypoints
@@ -30,6 +31,7 @@ private class AppState {
     }
 }
 
+@MainActor
 private let state = AppState()
 
 @main

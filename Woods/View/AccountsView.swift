@@ -26,8 +26,15 @@ struct AccountsView: View {
                     AccountLoginSnippetView(login: login)
                 }
                 .onDelete { indexSet in
-                    for i in indexSet where i < logins.count && i >= 0 {
-                        accounts.logOutAndStore(logins[i].account)
+                    Task {
+                        await withTaskGroup(of: Void.self) { group in
+                            for i in indexSet where i < logins.count && i >= 0 {
+                                group.addTask {
+                                    await accounts.logOutAndStore(logins[i].account)
+                                }
+                            }
+                            await group.waitForAll()
+                        }
                     }
                 }
             }
@@ -41,7 +48,9 @@ struct AccountsView: View {
                     }
                     .confirmationDialog("This will log you out of all accounts. Are you sure?", isPresented: $logoutConfirmationShown) {
                         Button {
-                            accounts.logOutAll()
+                            Task {
+                                await accounts.logOutAll()
+                            }
                         } label: {
                             Text("Log Out All Accounts")
                         }
@@ -59,8 +68,10 @@ struct AccountsView: View {
                     loginSheetShown = false
                 } inner: {
                     LoginView { account in
-                        accounts.logInAndStore(account)
-                        loginSheetShown = false
+                        Task {
+                            await accounts.logInAndStore(account)
+                            loginSheetShown = false
+                        }
                     }
                 }
             }

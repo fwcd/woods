@@ -99,36 +99,32 @@ public struct HTTPRequest {
         }
     }
 
-    public func runAsync() -> Publishers.TryMap<URLSession.DataTaskPublisher, Data> {
-        session
-            .dataTaskPublisher(for: request)
-            .tryMap { element -> Data in
-                guard let response = element.response as? HTTPURLResponse else {
-                    throw URLError(.badServerResponse)
-                }
-                log.info("Got HTTP \(response.statusCode) for \(request.url?.absoluteString ?? "?")")
-                guard response.statusCode >= 200 && response.statusCode < 400 else {
-                    throw URLError(.badServerResponse)
-                }
-                return element.data
-            }
-    }
-
-    public func fetchUTF8Async() -> Publishers.TryMap<Publishers.TryMap<URLSession.DataTaskPublisher, Data>, String> {
-        runAsync().tryMap { data -> String in
-            if let utf8 = String(data: data, encoding: .utf8) {
-                return utf8
-            } else {
-                throw URLError(.cannotDecodeRawData)
-            }
+    @discardableResult
+    public func runAsync() async throws -> Data {
+        let (data, response) = try await session.data(for: request)
+        guard let response = response as? HTTPURLResponse else {
+            throw URLError(.badServerResponse)
         }
+        log.info("Got HTTP \(response.statusCode) for \(request.url?.absoluteString ?? "?")")
+        guard response.statusCode >= 200 && response.statusCode < 400 else {
+            throw URLError(.badServerResponse)
+        }
+        return data
     }
 
-    public func fetchJSONAsync<T>(as type: T.Type) -> Publishers.Decode<Publishers.TryMap<URLSession.DataTaskPublisher, Data>, T, JSONDecoder> where T: Decodable {
-        runAsync().decode(type: type, decoder: makeJSONDecoder())
+    public func fetchUTF8Async() async throws -> String {
+        let data = try await runAsync()
+        guard let utf8 = String(data: data, encoding: .utf8) else { throw URLError(.cannotDecodeRawData) }
+        return utf8
     }
 
-    public func fetchHTMLAsync() -> Publishers.TryMap<Publishers.TryMap<URLSession.DataTaskPublisher, Data>, Document> {
-        fetchUTF8Async().tryMap { try SwiftSoup.parse($0) }
+    public func fetchJSONAsync<T>(as type: T.Type) async throws -> T where T: Decodable {
+        let data = try await runAsync()
+        return try makeJSONDecoder().decode(T.self, from: data)
+    }
+
+    public func fetchHTMLAsync() async throws -> Document {
+        let raw = try await fetchUTF8Async()
+        return try SwiftSoup.parse(raw)
     }
 }
