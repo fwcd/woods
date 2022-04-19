@@ -118,6 +118,8 @@
 		357BE45F280F417500E31364 /* NavigationWaypointDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357BE45D280F417500E31364 /* NavigationWaypointDetailView.swift */; };
 		357BE461280F4BF500E31364 /* BindingUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357BE460280F4BF500E31364 /* BindingUtils.swift */; };
 		357BE462280F4BF500E31364 /* BindingUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357BE460280F4BF500E31364 /* BindingUtils.swift */; };
+		35A75F60280F655B00BC959C /* CoordinatesEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A75F5F280F655B00BC959C /* CoordinatesEditor.swift */; };
+		35A75F61280F655B00BC959C /* CoordinatesEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A75F5F280F655B00BC959C /* CoordinatesEditor.swift */; };
 		35E2B325280B87DE00A4267C /* CompareUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E2B324280B87DE00A4267C /* CompareUtils.swift */; };
 		35E2B326280B87DE00A4267C /* CompareUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E2B324280B87DE00A4267C /* CompareUtils.swift */; };
 		35E5DF44274642D200226EEA /* SidebarWaypointListsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E5DF43274642D200226EEA /* SidebarWaypointListsView.swift */; };
@@ -301,6 +303,7 @@
 		357BE45A280F39B100E31364 /* EditWaypointView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditWaypointView.swift; sourceTree = "<group>"; };
 		357BE45D280F417500E31364 /* NavigationWaypointDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationWaypointDetailView.swift; sourceTree = "<group>"; };
 		357BE460280F4BF500E31364 /* BindingUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingUtils.swift; sourceTree = "<group>"; };
+		35A75F5F280F655B00BC959C /* CoordinatesEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatesEditor.swift; sourceTree = "<group>"; };
 		35E2B324280B87DE00A4267C /* CompareUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareUtils.swift; sourceTree = "<group>"; };
 		35E5DF43274642D200226EEA /* SidebarWaypointListsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarWaypointListsView.swift; sourceTree = "<group>"; };
 		35E5DF452746454C00226EEA /* WaypointListWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointListWrapper.swift; sourceTree = "<group>"; };
@@ -680,6 +683,7 @@
 				C7ECBD8125EED022005933C0 /* WaypointListsView.swift */,
 				C7ECBDA525EEE271005933C0 /* NewWaypointListView.swift */,
 				357BE45A280F39B100E31364 /* EditWaypointView.swift */,
+				35A75F5F280F655B00BC959C /* CoordinatesEditor.swift */,
 				357BE45D280F417500E31364 /* NavigationWaypointDetailView.swift */,
 				C7ECBD8625EED110005933C0 /* WaypointListView.swift */,
 				3567D0132785B7DD00060C37 /* WaypointListContextMenu.swift */,
@@ -1024,6 +1028,7 @@
 				352229C7274A76AA00090224 /* SidebarContentView.swift in Sources */,
 				352229F4274A76C100090224 /* GeocacheStatus.swift in Sources */,
 				352229DB274A76B400090224 /* Waypoints.swift in Sources */,
+				35A75F61280F655B00BC959C /* CoordinatesEditor.swift in Sources */,
 				352229BB274A76AA00090224 /* WaypointLogView.swift in Sources */,
 				352229EB274A76C100090224 /* WaypointList.swift in Sources */,
 				35245D3C2808443700E7B082 /* AccountLoginSnippetView.swift in Sources */,
@@ -1165,6 +1170,7 @@
 				C7B74EBC25EDCA5E00D5194B /* GeocacheType+Color.swift in Sources */,
 				C765460E25D87C5A004F14E8 /* Coordinates.swift in Sources */,
 				C748C2A725EEA16B00661BEE /* Waypoint+Color.swift in Sources */,
+				35A75F60280F655B00BC959C /* CoordinatesEditor.swift in Sources */,
 				C7B74EFC25EDE7E900D5194B /* CardinalDirection.swift in Sources */,
 				C765461325D87CEB004F14E8 /* GeocacheSize.swift in Sources */,
 				C765469B25ED25DE004F14E8 /* EnumPicker.swift in Sources */,

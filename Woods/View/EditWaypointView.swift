@@ -31,12 +31,7 @@ struct EditWaypointView: View {
             }
             
             Section("Coordinates") {
-                // TODO: Factor out into view that binds a Coordinates
-                // TODO: Let user edit in other formats (e.g. decimal minutes, DMS, ...)
-                // TODO: Use numberPad keyboard
-                
-                TextField("Latitude", text: stringBinding(for: $waypoint.location.latitude))
-                TextField("Longitude", text: stringBinding(for: $waypoint.location.longitude))
+                CoordinatesEditor(coordinates: $waypoint.location)
             }
             
             Section("Info") {
