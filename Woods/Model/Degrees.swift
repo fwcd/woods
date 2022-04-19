@@ -44,21 +44,6 @@ struct Degrees: AdditiveArithmetic, Hashable, Comparable, Codable, CustomStringC
         }
     }
     
-    /// Absolute degrees and decimal minutes.
-    var absoluteDm: (degrees: Int, minutes: Double) {
-        get {
-            let current = dm
-            return (degrees: abs(current.degrees), minutes: abs(current.minutes))
-        }
-        set {
-            let current = dm
-            dm = (
-                degrees: current.degrees.signum() * abs(newValue.degrees),
-                minutes: current.minutes.sign.asDouble * abs(newValue.minutes)
-            )
-        }
-    }
-    
     /// Degrees, minutes and decimal seconds
     var dms: (degrees: Int, minutes: Int, seconds: Double) {
         get {
@@ -74,7 +59,10 @@ struct Degrees: AdditiveArithmetic, Hashable, Comparable, Codable, CustomStringC
     }
     
     /// The absolute value
-    var magnitude: Degrees { Degrees(degrees: abs(totalDegrees)) }
+    var magnitude: Degrees {
+        get { Degrees(degrees: absoluteDegrees) }
+        set { absoluteDegrees = abs(newValue.totalDegrees) }
+    }
     
     var description: String { String(format: "%d° %.3f'", dm.degrees, dm.minutes) }
     
