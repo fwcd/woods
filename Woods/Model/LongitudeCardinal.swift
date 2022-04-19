@@ -8,18 +8,12 @@
 import Foundation
 
 /// East or West.
-enum LongitudeCardinal: String, Codable, Hashable, CustomStringConvertible {
+enum LongitudeCardinal: String, Codable, Hashable, CustomStringConvertible, SignedCardinal {
     case east = "E"
     case west = "W"
     
     var description: String { rawValue }
-    var sign: Int {
-        switch self {
-        case .east: return 1
-        case .west: return -1
-        }
-    }
-    var fpSign: FloatingPointSign {
+    var sign: FloatingPointSign {
         switch self {
         case .east: return .plus
         case .west: return .minus
@@ -32,16 +26,8 @@ enum LongitudeCardinal: String, Codable, Hashable, CustomStringConvertible {
         }
     }
     
-    init?(sign: Int) {
+    init(sign: FloatingPointSign) {
         switch sign {
-        case 1: self = .east
-        case -1: self = .west
-        default: return nil
-        }
-    }
-    
-    init(fpSign: FloatingPointSign) {
-        switch fpSign {
         case .plus: self = .east
         case .minus: self = .west
         }

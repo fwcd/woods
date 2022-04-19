@@ -8,18 +8,13 @@
 import Foundation
 
 /// North or South.
-enum LatitudeCardinal: String, Codable, Hashable, CustomStringConvertible {
+enum LatitudeCardinal: String, Codable, Hashable, CustomStringConvertible, SignedCardinal {
     case north = "N"
     case south = "S"
     
     var description: String { rawValue }
-    var sign: Int {
-        switch self {
-        case .north: return 1
-        case .south: return -1
-        }
-    }
-    var fpSign: FloatingPointSign {
+    
+    var sign: FloatingPointSign {
         switch self {
         case .north: return .plus
         case .south: return .minus
@@ -32,16 +27,8 @@ enum LatitudeCardinal: String, Codable, Hashable, CustomStringConvertible {
         }
     }
     
-    init?(sign: Int) {
+    init(sign: FloatingPointSign) {
         switch sign {
-        case 1: self = .north
-        case -1: self = .south
-        default: return nil
-        }
-    }
-    
-    init(fpSign: FloatingPointSign) {
-        switch fpSign {
         case .plus: self = .north
         case .minus: self = .south
         }

@@ -19,6 +19,17 @@ struct Degrees: AdditiveArithmetic, Hashable, Comparable, Codable, CustomStringC
         set { totalDegrees = newValue / .pi * 180 }
     }
     
+    /// Floating-point sign.
+    var sign: FloatingPointSign {
+        get { totalDegrees.sign }
+        set {
+            switch newValue {
+            case .plus: totalDegrees = abs(totalDegrees)
+            case .minus: totalDegrees = -abs(totalDegrees)
+            }
+        }
+    }
+    
     /// Degrees and decimal minutes
     var dm: (degrees: Int, minutes: Double) {
         get {
