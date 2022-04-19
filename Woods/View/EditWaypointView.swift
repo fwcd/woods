@@ -62,6 +62,7 @@ struct EditWaypointView: View {
                             .font(.caption)
                     }
                 }
+                .padding(.vertical, 10)
                 
                 // TODO: Cache size
             }
