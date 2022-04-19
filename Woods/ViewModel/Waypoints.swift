@@ -42,37 +42,41 @@ class Waypoints: ObservableObject {
         originatingAccountIds = [:]
     }
     
-    func refresh(with query: WaypointsInRegionQuery) {
+    func refresh(with query: WaypointsInRegionQuery) async {
         log.info("Refreshing waypoints in the region around \(query.region.center) (diameter: \(query.region.diameter))")
         
-        originatingAccountIds = [:]
-        runningQueryTask = Publishers.MergeMany(accounts.accountLogins.compactMap { (acc, login) in login.connector?.waypoints(for: query).map { ($0, acc) } })
-            .collect()
-            .receive(on: RunLoop.main)
-            .sink { completion in
-                if case let .failure(error) = completion {
-                    log.warning("Could not query waypoints: \(String(describing: error))")
+        do {
+            let foundWaypoints = try await withThrowingTaskGroup(of: ([Waypoint], UUID).self) { group -> [(Waypoint, UUID)] in
+                for (acc, login) in accounts.accountLogins {
+                    group.addTask {
+                        (try await login.connector?.waypoints(for: query) ?? [], acc)
+                    }
                 }
-            } receiveValue: { [self] in
-                let foundWaypoints = $0.flatMap { (wps, acc) in wps.map { ($0, acc) } }
-                currentWaypoints = Dictionary(uniqueKeysWithValues: foundWaypoints.map { ($0.0.id, $0.0) })
-                originatingAccountIds = Dictionary(uniqueKeysWithValues: foundWaypoints.map { ($0.0.id, $0.1) })
-                log.info("Found \(foundWaypoints.count) waypoint(s)")
+                
+                var foundWaypoints: [(Waypoint, UUID)] = []
+                for try await (chunk, acc) in group {
+                    foundWaypoints += chunk.map { ($0, acc) }
+                }
+                return foundWaypoints
             }
+            
+            currentWaypoints = Dictionary(uniqueKeysWithValues: foundWaypoints.map { ($0.0.id, $0.0) })
+            originatingAccountIds = Dictionary(uniqueKeysWithValues: foundWaypoints.map { ($0.0.id, $0.1) })
+            log.info("Found \(foundWaypoints.count) waypoint(s)")
+        } catch {
+            log.warning("Could not query waypoints: \(String(describing: error))")
+        }
     }
     
-    func queryDetails(for waypointId: String) {
-        if let connector = originatingAccountIds[waypointId].flatMap({ accounts.accountLogins[$0]?.connector }), (currentWaypoints[waypointId]?.isStub ?? true) {
-            runningQueryTask = connector.waypoint(id: waypointId)
-                .receive(on: RunLoop.main)
-                .sink { completion in
-                    if case let .failure(error) = completion {
-                        log.warning("Could not query details: \(String(describing: error))")
-                    }
-                } receiveValue: { [self] in
-                    currentWaypoints[waypointId] = $0
-                    log.info("Queried details for \(waypointId)")
-                }
+    func queryDetails(for waypointId: String) async {
+        if let connector = originatingAccountIds[waypointId].flatMap({ accounts.accountLogins[$0]?.connector }),
+           (currentWaypoints[waypointId]?.isStub ?? true) {
+            do {
+                currentWaypoints[waypointId] = try await connector.waypoint(id: waypointId)
+                log.info("Queried details for \(waypointId)")
+            } catch {
+                log.warning("Could not query details: \(String(describing: error))")
+            }
         }
     }
 }

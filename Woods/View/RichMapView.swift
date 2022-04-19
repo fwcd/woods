@@ -54,7 +54,9 @@ struct RichMapView: View {
             VStack(spacing: 10) {
                 Button(action: {
                     if let region = region {
-                        waypoints.refresh(with: query(from: region))
+                        Task {
+                            await waypoints.refresh(with: query(from: region))
+                        }
                     }
                 }) {
                     Image(systemName: "arrow.clockwise.circle.fill")
@@ -96,7 +98,9 @@ struct RichMapView: View {
             .padding(10)
             .onChange(of: selectedWaypointId) {
                 if let id = $0 {
-                    waypoints.queryDetails(for: id)
+                    Task {
+                        await waypoints.queryDetails(for: id)
+                    }
                 }
             }
             .sheet(isPresented: $listPickerSheetShown) {
