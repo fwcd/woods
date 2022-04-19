@@ -31,12 +31,16 @@ where CoordinateCardinal: SignedCardinal & Hashable & CaseIterable & CustomStrin
             ))
             .pickerStyle(.menu)
             TextField("0", value: $degrees.magnitude.dm.degrees, formatter: degreesFormatter)
-                .keyboardType(.numberPad)
                 .frame(width: 50)
+                #if !os(macOS)
+                .keyboardType(.numberPad)
                 .multilineTextAlignment(.trailing)
+                #endif
             Text("°")
             TextField("00.000", value: $degrees.magnitude.dm.minutes, formatter: minutesFormatter)
+                #if !os(macOS)
                 .keyboardType(.decimalPad)
+                #endif
         }
     }
 }
