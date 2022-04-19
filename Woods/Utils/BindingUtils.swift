@@ -14,6 +14,20 @@ func unwrappingBinding<T>(for binding: Binding<T?>, defaultingTo defaultValue: T
     )
 }
 
+func roundingIntBinding<F, I>(for binding: Binding<F>) -> Binding<I> where F: BinaryFloatingPoint, I: BinaryInteger {
+    Binding(
+        get: { I(binding.wrappedValue.rounded()) },
+        set: { binding.wrappedValue = F($0) }
+    )
+}
+
+func roundingFloatBinding<F, I>(for binding: Binding<I>) -> Binding<F> where F: BinaryFloatingPoint, I: BinaryInteger {
+    Binding(
+        get: { F(binding.wrappedValue) },
+        set: { binding.wrappedValue = I($0.rounded()) }
+    )
+}
+
 func stringBinding(for binding: Binding<Degrees>) -> Binding<String> {
     Binding(
         get: { String(binding.wrappedValue.totalDegrees) },

@@ -39,6 +39,24 @@ struct EditWaypointView: View {
                 TextField("Longitude", text: stringBinding(for: $waypoint.location.longitude))
             }
             
+            Section("Info") {
+                let range = Double(Waypoint.ratings.lowerBound)...Double(Waypoint.ratings.upperBound)
+                Slider(
+                    value: roundingFloatBinding(for: unwrappingBinding(for: $waypoint.difficulty, defaultingTo: 0)),
+                    in: range
+                ) {
+                    Text("Difficulty")
+                }
+                Slider(
+                    value: roundingFloatBinding(for: unwrappingBinding(for: $waypoint.terrain, defaultingTo: 0)),
+                    in: range
+                ) {
+                    Text("Terrain")
+                }
+                
+                // TODO: Cache size
+            }
+            
             Section("Description") {
                 TextEditor(text: unwrappingBinding(for: $waypoint.description, defaultingTo: ""))
             }
