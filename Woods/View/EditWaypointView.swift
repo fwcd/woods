@@ -14,8 +14,18 @@ struct EditWaypointView: View {
     var body: some View {
         Form {
             Section("Waypoint") {
-                TextField("ID (e.g. GC-Code)", text: $waypoint.id)
-                TextField("Name", text: $waypoint.name)
+                HStack(spacing: 20) {
+                    Image(systemName: waypoint.iconName)
+                        .foregroundColor(waypoint.color)
+                        .font(.title)
+                    VStack {
+                        TextField("ID (e.g. GC-Code)", text: $waypoint.id)
+                            .font(.headline)
+                        Divider()
+                        TextField("Name", text: $waypoint.name)
+                            .font(.title2)
+                    }
+                }
             }
             
             Section("Coordinates") {
