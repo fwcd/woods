@@ -13,7 +13,8 @@ struct Coordinates: Codable, Hashable, CustomStringConvertible {
     var latitude: Degrees
     var longitude: Degrees
     
-    var northSouth: CardinalDirection {
+    /// North or south.
+    var latitudeCardinal: LatitudeCardinal {
         get { latitude.totalDegrees.sign == .plus ? .north : .south }
         set {
             switch newValue {
@@ -21,12 +22,11 @@ struct Coordinates: Codable, Hashable, CustomStringConvertible {
                 latitude.totalDegrees = abs(latitude.totalDegrees)
             case .south:
                 latitude.totalDegrees = -abs(latitude.totalDegrees)
-            default:
-                fatalError("Invalid direction for north/south: \(newValue)")
             }
         }
     }
-    var eastWest: CardinalDirection {
+    /// East or west.
+    var longitudeCardinal: LongitudeCardinal {
         get { longitude.totalDegrees.sign == .plus ? .east : .west }
         set {
             switch newValue {
@@ -34,13 +34,11 @@ struct Coordinates: Codable, Hashable, CustomStringConvertible {
                 longitude.totalDegrees = abs(longitude.totalDegrees)
             case .west:
                 longitude.totalDegrees = -abs(longitude.totalDegrees)
-            default:
-                fatalError("Invalid direction for east/west: \(newValue)")
             }
         }
     }
     
-    var description: String { "\(northSouth) \(latitude.magnitude), \(eastWest) \(longitude.magnitude)" }
+    var description: String { "\(latitudeCardinal) \(latitude.magnitude), \(longitudeCardinal) \(longitude.magnitude)" }
     
     var asCLCoordinate: CLLocationCoordinate2D {
         CLLocationCoordinate2D(latitude: latitude.totalDegrees, longitude: longitude.totalDegrees)
