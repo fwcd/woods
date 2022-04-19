@@ -288,14 +288,14 @@
 		35126CE52745CE1E00CF998C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		35126CE72745CE1E00CF998C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		35126CE82745CE1E00CF998C /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
-		35126CED2745CE1E00CF998C /* Tests (watchOS).xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests (watchOS).xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		35126CED2745CE1E00CF998C /* WoodsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WoodsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		35126CF12745CE1E00CF998C /* WatchWoodsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchWoodsTests.swift; sourceTree = "<group>"; };
 		35222981274A737300090224 /* CollectionUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionUtils.swift; sourceTree = "<group>"; };
 		35222987274A756C00090224 /* Woods.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Woods.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3522298D274A756D00090224 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		35222990274A756D00090224 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		35222992274A756D00090224 /* Woods.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Woods.entitlements; sourceTree = "<group>"; };
-		35222997274A756D00090224 /* Tests (macOS).xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests (macOS).xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		35222997274A756D00090224 /* WoodsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WoodsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3522299B274A756D00090224 /* WoodsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoodsTests.swift; sourceTree = "<group>"; };
 		35245D31280830C200E7B082 /* SlideOverCardPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideOverCardPosition.swift; sourceTree = "<group>"; };
 		35245D34280841E200E7B082 /* AccountLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountLogin.swift; sourceTree = "<group>"; };
@@ -321,7 +321,7 @@
 		C73E04C3249F9F4A00C6E22C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C73E04C6249F9F4A00C6E22C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C73E04C8249F9F4A00C6E22C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C73E04CD249F9F4A00C6E22C /* Tests (iOS).xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests (iOS).xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C73E04CD249F9F4A00C6E22C /* WoodsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WoodsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C73E04D3249F9F4A00C6E22C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C748C2A625EEA16B00661BEE /* Waypoint+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Waypoint+Color.swift"; sourceTree = "<group>"; };
 		C748C2AB25EEA19300661BEE /* Waypoint+Icon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Waypoint+Icon.swift"; sourceTree = "<group>"; };
@@ -551,12 +551,12 @@
 			isa = PBXGroup;
 			children = (
 				C73E04B7249F9F4700C6E22C /* Woods.app */,
-				C73E04CD249F9F4A00C6E22C /* Tests (iOS).xctest */,
+				C73E04CD249F9F4A00C6E22C /* WoodsTests.xctest */,
 				35126CCB2745CE1D00CF998C /* Woods.app */,
 				35126CD32745CE1E00CF998C /* Woods (WatchKit Extension).appex */,
-				35126CED2745CE1E00CF998C /* Tests (watchOS).xctest */,
+				35126CED2745CE1E00CF998C /* WoodsTests.xctest */,
 				35222987274A756C00090224 /* Woods.app */,
-				35222997274A756D00090224 /* Tests (macOS).xctest */,
+				35222997274A756D00090224 /* WoodsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -770,7 +770,7 @@
 			);
 			name = "Tests (watchOS)";
 			productName = WatchWoodsTests;
-			productReference = 35126CED2745CE1E00CF998C /* Tests (watchOS).xctest */;
+			productReference = 35126CED2745CE1E00CF998C /* WoodsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		35222986274A756C00090224 /* Woods (macOS) */ = {
@@ -809,7 +809,7 @@
 			);
 			name = "Tests (macOS)";
 			productName = MacWoodsTests;
-			productReference = 35222997274A756D00090224 /* Tests (macOS).xctest */;
+			productReference = 35222997274A756D00090224 /* WoodsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		C73E04B6249F9F4700C6E22C /* Woods (iOS) */ = {
@@ -850,7 +850,7 @@
 			);
 			name = "Tests (iOS)";
 			productName = WoodsTests;
-			productReference = C73E04CD249F9F4A00C6E22C /* Tests (iOS).xctest */;
+			productReference = C73E04CD249F9F4A00C6E22C /* WoodsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -1380,8 +1380,8 @@
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = fwcd.Woods.WatchWoodsTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = dev.fwcd.Woods.watchOSTests;
+				PRODUCT_NAME = WoodsTests;
 				SDKROOT = watchos;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -1407,8 +1407,8 @@
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = fwcd.Woods.WatchWoodsTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = dev.fwcd.Woods.watchOSTests;
+				PRODUCT_NAME = WoodsTests;
 				SDKROOT = watchos;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -1494,8 +1494,8 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.fwcd.MacWoodsTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = dev.fwcd.Woods.macOSTests;
+				PRODUCT_NAME = WoodsTests;
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -1521,8 +1521,8 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.fwcd.MacWoodsTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = dev.fwcd.Woods.macOSTests;
+				PRODUCT_NAME = WoodsTests;
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -1699,13 +1699,14 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SS8V8UGLY8;
+				INFOPLIST_FILE = "$(TARGET_NAME)/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = fwcd.WoodsTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = dev.fwcd.Woods.iOSTests;
+				PRODUCT_NAME = WoodsTests;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Woods.app/Woods";
@@ -1719,13 +1720,14 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SS8V8UGLY8;
+				INFOPLIST_FILE = "$(TARGET_NAME)/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = fwcd.WoodsTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = dev.fwcd.Woods.iOSTests;
+				PRODUCT_NAME = WoodsTests;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Woods.app/Woods";
