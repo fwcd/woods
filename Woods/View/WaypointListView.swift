@@ -51,7 +51,7 @@ struct WaypointListView: View {
                     CancelNavigationView(title: "New Waypoint") {
                         newWaypointSheetShown = false
                     } inner: {
-                        NewWaypointView { child in
+                        EditWaypointView { child in
                             waypoints.listTree[listId]?.add(waypoints: [child])
                         }
                     }

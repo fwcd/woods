@@ -1,5 +1,5 @@
 //
-//  NewWaypointView.swift
+//  EditWaypointView.swift
 //  Woods
 //
 //  Created by Fredrik on 19.04.22.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct NewWaypointView: View {
+struct EditWaypointView: View {
     let onCommit: (Waypoint) -> Void
     
     @State private var waypoint = Waypoint(
@@ -34,7 +34,7 @@ struct NewWaypointView: View {
             
             // TODO: Other metadata
             
-            Button("Add Waypoint") {
+            Button("Save Waypoint") {
                 onCommit(waypoint)
             }
         }
@@ -54,6 +54,6 @@ struct NewWaypointView: View {
 
 struct NewWaypointView_Previews: PreviewProvider {
     static var previews: some View {
-        NewWaypointView { _ in }
+        EditWaypointView { _ in }
     }
 }
