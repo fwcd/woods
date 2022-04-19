@@ -15,7 +15,7 @@ struct EditWaypointView: View {
         Form {
             Section("Waypoint") {
                 TextField("ID (e.g. GC-Code)", text: $waypoint.id)
-                TextField("Name", text: $waypoint.id)
+                TextField("Name", text: $waypoint.name)
             }
             
             Section("Coordinates") {
