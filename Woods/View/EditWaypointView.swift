@@ -59,11 +59,10 @@ struct EditWaypointView: View {
     
     // TODO: Move these utils to a utility module
     
-    private func unwrappingBinding<T>(for binding: Binding<T?>, defaultingTo defaultValue: T) -> Binding<T> {
+    private func unwrappingBinding<T>(for binding: Binding<T?>, defaultingTo defaultValue: T) -> Binding<T> where T: Equatable {
         Binding(
             get: { binding.wrappedValue ?? defaultValue },
-            // TODO: Should we check for equality with defaultValue and synthesize nil if equal?
-            set: { binding.wrappedValue = $0 }
+            set: { binding.wrappedValue = $0 == defaultValue ? nil : $0 }
         )
     }
     
