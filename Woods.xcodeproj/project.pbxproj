@@ -1386,7 +1386,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WatchWoods WatchKit Extension.appex/WatchWoods WatchKit Extension";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Woods (WatchKit Extension).appex/Woods (WatchKit Extension)";
 				WATCHOS_DEPLOYMENT_TARGET = 8.0;
 			};
 			name = Debug;
@@ -1413,7 +1413,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WatchWoods WatchKit Extension.appex/WatchWoods WatchKit Extension";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Woods (WatchKit Extension).appex/Woods (WatchKit Extension)";
 				WATCHOS_DEPLOYMENT_TARGET = 8.0;
 			};
 			name = Release;
@@ -1499,7 +1499,7 @@
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MacWoods.app/Contents/MacOS/MacWoods";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Woods.app/Contents/MacOS/Woods";
 			};
 			name = Debug;
 		};
@@ -1526,7 +1526,7 @@
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MacWoods.app/Contents/MacOS/MacWoods";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Woods.app/Contents/MacOS/Woods";
 			};
 			name = Release;
 		};
