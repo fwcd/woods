@@ -47,6 +47,15 @@ struct WaypointListView: View {
                         Text("New Waypoint")
                     }
                 }
+                .sheet(isPresented: $newWaypointSheetShown) {
+                    CancelNavigationView(title: "New Waypoint") {
+                        newWaypointSheetShown = false
+                    } inner: {
+                        NewWaypointView { child in
+                            waypoints.listTree[listId]?.add(waypoints: [child])
+                        }
+                    }
+                }
                 Button(action: { clearConfirmationShown = true }) {
                     HStack {
                         Image(systemName: "trash")
