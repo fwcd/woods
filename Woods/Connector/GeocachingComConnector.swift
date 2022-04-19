@@ -64,7 +64,7 @@ class GeocachingComConnector: Connector {
         return waypoint
     }
     
-    func waypoints(for rawQuery: WaypointsInRadiusQuery) -> AnyPublisher<[Waypoint], Error> {
+    func waypoints(for rawQuery: WaypointsInRadiusQuery) -> [Waypoint] {
         fatalError("TODO")
     }
     
@@ -78,60 +78,51 @@ class GeocachingComConnector: Connector {
         sortOrder: GeocachingComSortOrder = .datelastvisited,
         origin: Coordinates? = nil,
         accumulated: [Waypoint] = []
-    ) -> AnyPublisher<[Waypoint], Error> {
-        log.info("Sending search query (\(skip) of \(total.map { String($0) } ?? "?"))...")
-        if let total = total {
-            guard skip < total else { return Just(accumulated).weakenError().eraseToAnyPublisher() }
+    ) async throws -> [Waypoint] {
+        log.info("Sending search query (\(skip) of \(total ?? maxCaches))...")
+        guard skip < total ?? maxCaches else { return accumulated }
+        guard region.diameter <= Length(16, .kilometers) else { throw ConnectorError.regionTooWide }
+            
+        var query: [String: String] = [
+            "box": [
+                region.topLeft.latitude.totalDegrees,
+                region.topLeft.longitude.totalDegrees,
+                region.bottomRight.latitude.totalDegrees,
+                region.bottomRight.longitude.totalDegrees,
+            ].map { String($0) }.joined(separator: ","),
+            "take": String(takePerQuery),
+            "asc": "true",
+            "skip": String(skip),
+            "sort": sortOrder.rawValue
+        ]
+        
+        if sortOrder == .distance, let origin = origin {
+            query["origin"] = "\(origin.latitude),\(origin.longitude)"
         }
-        guard skip < maxCaches else { return Just(accumulated).weakenError().eraseToAnyPublisher() }
-        return Result.Publisher(Result { () -> HTTPRequest in
-            guard region.diameter <= Length(16, .kilometers) else {
-                throw ConnectorError.regionTooWide
-            }
             
-            var query: [String: String] = [
-                "box": [
-                    region.topLeft.latitude.totalDegrees,
-                    region.topLeft.longitude.totalDegrees,
-                    region.bottomRight.latitude.totalDegrees,
-                    region.bottomRight.longitude.totalDegrees,
-                ].map { String($0) }.joined(separator: ","),
-                "take": String(takePerQuery),
-                "asc": "true",
-                "skip": String(skip),
-                "sort": sortOrder.rawValue
-            ]
-            
-            if sortOrder == .distance, let origin = origin {
-                query["origin"] = "\(origin.latitude),\(origin.longitude)"
-            }
-            
-            return try HTTPRequest(url: apiSearchUrl, query: query)
-        })
-        .flatMap { $0.fetchJSONAsync(as: GeocachingComApiResults.self) }
-        .delay(for: .seconds(0.5), scheduler: RunLoop.main)
-        .flatMap { [self] results in
-            // Search the next 'page'
-            search(
-                region: region,
-                takePerQuery: takePerQuery,
-                skip: skip + takePerQuery,
-                total: results.total,
-                sortOrder: sortOrder,
-                origin: origin,
-                accumulated: accumulated + results.results
-                    .compactMap {
-                        var waypoint = $0.asWaypoint
-                        waypoint?.isStub = true
-                        return waypoint
-                    }
-            )
-        }
-        .eraseToAnyPublisher()
+        let request = try HTTPRequest(url: apiSearchUrl, query: query)
+        let results = try await request.fetchJSONAsync(as: GeocachingComApiResults.self)
+        try await Task.sleep(nanoseconds: 500_000_000)
+        
+        // Search the next 'page'
+        return try await search(
+            region: region,
+            takePerQuery: takePerQuery,
+            skip: skip + takePerQuery,
+            total: results.total,
+            sortOrder: sortOrder,
+            origin: origin,
+            accumulated: accumulated + results.results
+                .compactMap {
+                    var waypoint = $0.asWaypoint
+                    waypoint?.isStub = true
+                    return waypoint
+                }
+        )
     }
     
-    func waypoints(for query: WaypointsInRegionQuery) -> AnyPublisher<[Waypoint], Error> {
+    func waypoints(for query: WaypointsInRegionQuery) async throws -> [Waypoint] {
         log.info("Querying waypoints in region around \(query.region.center)")
-        return search(region: query.region)
+        return try await search(region: query.region)
     }
 }
