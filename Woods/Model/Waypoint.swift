@@ -10,7 +10,7 @@ import CoreGPX
 import Foundation
 
 struct Waypoint: Identifiable, Codable, Hashable {
-    static let ratings: ClosedRange<Int> = 2...10
+    static let ratings: ClosedRange<Int> = 0...10
     
     var id: String = "" // GC-Code, UUID or similar
     var name: String = ""

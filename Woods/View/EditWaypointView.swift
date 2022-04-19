@@ -41,17 +41,26 @@ struct EditWaypointView: View {
             
             Section("Info") {
                 let range = Double(Waypoint.ratings.lowerBound)...Double(Waypoint.ratings.upperBound)
-                Slider(
-                    value: roundingFloatBinding(for: unwrappingBinding(for: $waypoint.difficulty, defaultingTo: 0)),
-                    in: range
-                ) {
-                    Text("Difficulty")
-                }
-                Slider(
-                    value: roundingFloatBinding(for: unwrappingBinding(for: $waypoint.terrain, defaultingTo: 0)),
-                    in: range
-                ) {
-                    Text("Terrain")
+                HStack {
+                    // TODO: Abstract out a common view, e.g. 'EditStarsView'
+                    VStack {
+                        StarsView(rating: waypoint.difficulty ?? 0, maxRating: Waypoint.ratings.upperBound, step: 2)
+                        Slider(
+                            value: roundingFloatBinding(for: unwrappingBinding(for: $waypoint.difficulty, defaultingTo: 0)),
+                            in: range
+                        )
+                        Text("Difficulty")
+                            .font(.caption)
+                    }
+                    VStack {
+                        StarsView(rating: waypoint.terrain ?? 0, maxRating: Waypoint.ratings.upperBound, step: 2)
+                        Slider(
+                            value: roundingFloatBinding(for: unwrappingBinding(for: $waypoint.terrain, defaultingTo: 0)),
+                            in: range
+                        )
+                        Text("Terrain")
+                            .font(.caption)
+                    }
                 }
                 
                 // TODO: Cache size
