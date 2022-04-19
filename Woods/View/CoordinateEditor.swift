@@ -30,11 +30,11 @@ where CoordinateCardinal: SignedCardinal & Hashable & CaseIterable & CustomStrin
                 set: { degrees.sign = $0.sign }
             ))
             .pickerStyle(.menu)
-            TextField("0", value: $degrees.dm.degrees, formatter: degreesFormatter)
+            TextField("0", value: $degrees.absoluteDm.degrees, formatter: degreesFormatter)
                 .frame(width: 50)
                 .multilineTextAlignment(.trailing)
             Text("°")
-            TextField("00.000", value: $degrees.dm.minutes, formatter: minutesFormatter)
+            TextField("00.000", value: $degrees.absoluteDm.minutes, formatter: minutesFormatter)
         }
     }
 }

@@ -128,6 +128,8 @@
 		35A75F6A280F6D8A00BC959C /* CoordinateEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A75F68280F6D8A00BC959C /* CoordinateEditor.swift */; };
 		35A75F6C280F6DD700BC959C /* SignedCardinal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A75F6B280F6DD700BC959C /* SignedCardinal.swift */; };
 		35A75F6D280F6DD700BC959C /* SignedCardinal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A75F6B280F6DD700BC959C /* SignedCardinal.swift */; };
+		35A75F6F280F75A400BC959C /* SignUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A75F6E280F75A400BC959C /* SignUtils.swift */; };
+		35A75F70280F75A400BC959C /* SignUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A75F6E280F75A400BC959C /* SignUtils.swift */; };
 		35E2B325280B87DE00A4267C /* CompareUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E2B324280B87DE00A4267C /* CompareUtils.swift */; };
 		35E2B326280B87DE00A4267C /* CompareUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E2B324280B87DE00A4267C /* CompareUtils.swift */; };
 		35E5DF44274642D200226EEA /* SidebarWaypointListsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E5DF43274642D200226EEA /* SidebarWaypointListsView.swift */; };
@@ -316,6 +318,7 @@
 		35A75F65280F682E00BC959C /* LongitudeCardinal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongitudeCardinal.swift; sourceTree = "<group>"; };
 		35A75F68280F6D8A00BC959C /* CoordinateEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateEditor.swift; sourceTree = "<group>"; };
 		35A75F6B280F6DD700BC959C /* SignedCardinal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedCardinal.swift; sourceTree = "<group>"; };
+		35A75F6E280F75A400BC959C /* SignUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUtils.swift; sourceTree = "<group>"; };
 		35E2B324280B87DE00A4267C /* CompareUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareUtils.swift; sourceTree = "<group>"; };
 		35E5DF43274642D200226EEA /* SidebarWaypointListsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarWaypointListsView.swift; sourceTree = "<group>"; };
 		35E5DF452746454C00226EEA /* WaypointListWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointListWrapper.swift; sourceTree = "<group>"; };
@@ -664,6 +667,7 @@
 				357BE460280F4BF500E31364 /* BindingUtils.swift */,
 				C765468D25D8A30F004F14E8 /* PersistenceError.swift */,
 				C765468325D8A2A1004F14E8 /* EnvironmentUtils.swift */,
+				35A75F6E280F75A400BC959C /* SignUtils.swift */,
 				C765467E25D8A280004F14E8 /* JSONUtils.swift */,
 				C76546AF25ED2DB6004F14E8 /* HTTPRequest.swift */,
 				35E2B324280B87DE00A4267C /* CompareUtils.swift */,
@@ -1042,6 +1046,7 @@
 				352229B9274A76AA00090224 /* AccountsView.swift in Sources */,
 				352229FA274A76C600090224 /* PersistenceError.swift in Sources */,
 				352229FD274A76C600090224 /* EnvironmentUtils.swift in Sources */,
+				35A75F70280F75A400BC959C /* SignUtils.swift in Sources */,
 				352229C7274A76AA00090224 /* SidebarContentView.swift in Sources */,
 				35A75F6D280F6DD700BC959C /* SignedCardinal.swift in Sources */,
 				352229F4274A76C100090224 /* GeocacheStatus.swift in Sources */,
@@ -1130,6 +1135,7 @@
 				C7ECBDEC25EFE945005933C0 /* ShareSheet.swift in Sources */,
 				C76546B025ED2DB6004F14E8 /* HTTPRequest.swift in Sources */,
 				C765465825D890E1004F14E8 /* Account.swift in Sources */,
+				35A75F6F280F75A400BC959C /* SignUtils.swift in Sources */,
 				C7ECBD8225EED022005933C0 /* WaypointListsView.swift in Sources */,
 				C7ECBE3825F00C75005933C0 /* WaypointNavigatorView.swift in Sources */,
 				C7B6F0FD249FA16B00454841 /* RichMapView.swift in Sources */,

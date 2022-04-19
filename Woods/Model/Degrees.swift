@@ -19,15 +19,16 @@ struct Degrees: AdditiveArithmetic, Hashable, Comparable, Codable, CustomStringC
         set { totalDegrees = newValue / .pi * 180 }
     }
     
+    /// Absolute value of the total degrees.
+    var absoluteDegrees: Double {
+        get { abs(totalDegrees) }
+        set { totalDegrees = totalDegrees.sign.asDouble * abs(newValue) }
+    }
+    
     /// Floating-point sign.
     var sign: FloatingPointSign {
         get { totalDegrees.sign }
-        set {
-            switch newValue {
-            case .plus: totalDegrees = abs(totalDegrees)
-            case .minus: totalDegrees = -abs(totalDegrees)
-            }
-        }
+        set { totalDegrees = newValue.asDouble * absoluteDegrees }
     }
     
     /// Degrees and decimal minutes
@@ -40,6 +41,21 @@ struct Degrees: AdditiveArithmetic, Hashable, Comparable, Codable, CustomStringC
         }
         set {
             totalDegrees = Double(newValue.degrees) + (newValue.minutes / 60)
+        }
+    }
+    
+    /// Absolute degrees and decimal minutes.
+    var absoluteDm: (degrees: Int, minutes: Double) {
+        get {
+            let current = dm
+            return (degrees: abs(current.degrees), minutes: abs(current.minutes))
+        }
+        set {
+            let current = dm
+            dm = (
+                degrees: current.degrees.signum() * abs(newValue.degrees),
+                minutes: current.minutes.sign.asDouble * abs(newValue.minutes)
+            )
         }
     }
     
