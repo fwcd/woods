@@ -29,6 +29,7 @@ where CoordinateCardinal: SignedCardinal & Hashable & CaseIterable & CustomStrin
                 get: { CoordinateCardinal(sign: degrees.sign) },
                 set: { degrees.sign = $0.sign }
             ))
+            .pickerStyle(.menu)
             TextField("0", value: $degrees.dm.degrees, formatter: degreesFormatter)
                 .frame(width: 50)
                 .multilineTextAlignment(.trailing)

@@ -12,11 +12,8 @@ struct CoordinatesEditor: View {
     
     var body: some View {
         VStack {
-            // TODO: Let user edit in other formats (e.g. decimal minutes, DMS, ...)
-            // TODO: Use numberPad keyboard
-            
-            TextField("Latitude", text: stringBinding(for: $coordinates.latitude))
-            TextField("Longitude", text: stringBinding(for: $coordinates.longitude))
+            CoordinateEditor<LatitudeCardinal>(degrees: $coordinates.latitude)
+            CoordinateEditor<LongitudeCardinal>(degrees: $coordinates.longitude)
         }
     }
 }
