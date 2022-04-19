@@ -40,8 +40,17 @@ struct WaypointDetailView: View {
             }
             if !waypoint.additionalWaypoints.isEmpty {
                 SimpleSection(header: "Additional Waypoints", iconName: "mappin.and.ellipse") {
-                    List(waypoint.additionalWaypoints) { waypoint in
-                        WaypointSmallSnippetView(waypoint: waypoint)
+                    VStack(alignment: .leading) {
+                        ForEach(waypoint.additionalWaypoints) { child in
+                            NavigationLink {
+                                ScrollView {
+                                    WaypointDetailView(waypoint: child)
+                                }
+                                .navigationTitle("Additional Waypoint")
+                            } label: {
+                                WaypointSmallSnippetView(waypoint: child)
+                            }
+                        }
                     }
                 }
             }
