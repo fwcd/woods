@@ -9,6 +9,7 @@ import SwiftUI
 
 struct NavigationWaypointDetailView: View {
     @Binding var waypoint: Waypoint
+    var isEditable: Bool = true
     
     @State private var isEditing = false
     
@@ -24,16 +25,18 @@ struct NavigationWaypointDetailView: View {
                 }
             }
         }
-        .navigationTitle("Waypoint")
+        .navigationTitle("Waypoint Details")
         #if !os(macOS)
         .navigationBarTitleDisplayMode(.inline)
         #endif
         .toolbar {
-            ToolbarItem(placement: .primaryAction) {
-                Button {
-                    isEditing = !isEditing
-                } label: {
-                    Text(isEditing ? "Done" : "Edit")
+            ToolbarItemGroup(placement: .primaryAction) {
+                if isEditable {
+                    Button {
+                        isEditing = !isEditing
+                    } label: {
+                        Text(isEditing ? "Done" : "Edit")
+                    }
                 }
             }
         }

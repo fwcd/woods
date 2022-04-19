@@ -131,7 +131,9 @@ struct RichMapView: View {
             SlideOverCard(position: $slideOverPosition) { contentOpacity in
                 VStack(alignment: .leading) {
                     if let id = selectedWaypointId, let waypoint = waypoints[id] {
-                        WaypointSummaryView(waypoint: waypoint, contentOpacity: contentOpacity)
+                        // TODO: Get an actual binding to the waypoint here to enable editing
+                        // (this might require modifications to the way we store waypoints in the view model, since we'd not only want to bind into the currentWaypoints, but ideally into the list it originated from, if any)
+                        WaypointSummaryView(waypoint: .constant(waypoint), isEditable: false, contentOpacity: contentOpacity)
                     } else {
                         VStack(alignment: .leading, spacing: 5) {
                             SearchBar(placeholder: "Filter waypoints...", text: $searchText) {

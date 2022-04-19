@@ -9,7 +9,8 @@
 import SwiftUI
 
 struct WaypointSummaryView: View {
-    let waypoint: Waypoint
+    @Binding var waypoint: Waypoint
+    var isEditable: Bool = true
     var contentOpacity: CGFloat = 1
     
     @State private var detailSheetShown: Bool = false
@@ -53,9 +54,7 @@ struct WaypointSummaryView: View {
                     CancelNavigationView(title: "Waypoint Details") {
                         detailSheetShown = false
                     } inner: {
-                        ScrollView {
-                            WaypointDetailView(waypoint: waypoint)
-                        }
+                        NavigationWaypointDetailView(waypoint: $waypoint, isEditable: isEditable)
                         .padding([.top], 15)
                         .environmentObject(waypoints)
                         .environmentObject(locationManager)
@@ -79,7 +78,7 @@ struct WaypointSummaryView_Previews: PreviewProvider {
     @StateObject static var waypoints = Waypoints(accounts: Accounts(testMode: true))
     static var previews: some View {
         Group {
-            WaypointSummaryView(waypoint: mockGeocaches().first!)
+            WaypointSummaryView(waypoint: .constant(mockGeocaches().first!))
                 .environmentObject(locationManager)
                 .environmentObject(waypoints)
         }
