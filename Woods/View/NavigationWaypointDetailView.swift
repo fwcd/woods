@@ -10,11 +10,22 @@ import SwiftUI
 struct NavigationWaypointDetailView: View {
     let waypoint: Waypoint
     
+    @State private var isEditing = false
+    
     var body: some View {
         ScrollView {
             WaypointDetailView(waypoint: waypoint)
         }
         .navigationTitle("Waypoint")
+        .toolbar {
+            ToolbarItem(placement: .primaryAction) {
+                Button {
+                    isEditing = !isEditing
+                } label: {
+                    Text(isEditing ? "Done" : "Edit")
+                }
+            }
+        }
     }
 }
 
