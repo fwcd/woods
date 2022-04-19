@@ -12,6 +12,15 @@ struct EditWaypointView: View {
     @Binding var waypoint: Waypoint
     var onCommit: (() -> Void)? = nil
     
+    @State private var newAdditionalWaypoint = Waypoint()
+    @State private var newAdditionalWaypointSheetShown = false {
+        willSet {
+            if newValue != newAdditionalWaypointSheetShown {
+                newAdditionalWaypoint = Waypoint()
+            }
+        }
+    }
+    
     var body: some View {
         Form {
             Section("Waypoint") {
@@ -68,6 +77,32 @@ struct EditWaypointView: View {
             
             Section("Hint") {
                 TextField("Hint", text: unwrappingBinding(for: $waypoint.hint, defaultingTo: ""))
+            }
+            
+            Section("Additional Waypoints") {
+                List {
+                    ForEach(waypoint.additionalWaypoints) { child in
+                        WaypointSmallSnippetView(waypoint: child)
+                    }
+                    Button {
+                        newAdditionalWaypointSheetShown = true
+                    } label: {
+                        HStack {
+                            Image(systemName: "plus")
+                            Text("Add Waypoint...")
+                        }
+                    }
+                    .sheet(isPresented: $newAdditionalWaypointSheetShown) {
+                        CancelNavigationView(title: "New Additional Waypoint") {
+                            newAdditionalWaypointSheetShown = false
+                        } inner: {
+                            EditWaypointView(waypoint: $newAdditionalWaypoint) {
+                                waypoint.additionalWaypoints.append(newAdditionalWaypoint)
+                                newAdditionalWaypointSheetShown = false
+                            }
+                        }
+                    }
+                }
             }
             
             // TODO: Other metadata

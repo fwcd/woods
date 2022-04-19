@@ -12,15 +12,15 @@ struct WaypointListView: View {
     let listId: UUID
     var largeTitle: Bool = true
     
+    @State private var newListSheetShown: Bool = false
     @State private var newWaypoint = Waypoint()
-    @State private var newListSheetShown: Bool = false {
+    @State private var newWaypointSheetShown: Bool = false {
         willSet {
             if newValue != newWaypointSheetShown {
                 newWaypoint = Waypoint()
             }
         }
     }
-    @State private var newWaypointSheetShown: Bool = false
     @State private var clearConfirmationShown: Bool = false
     @EnvironmentObject private var waypoints: Waypoints
     
