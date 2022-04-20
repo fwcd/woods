@@ -18,6 +18,7 @@ func mockGeocaches() -> [Waypoint] {
             difficulty: 2,
             terrain: 3,
             geocacheType: .traditional,
+            geocacheSize: .large,
             description: """
                 <p>A small cache for testing purposes!</p>
                 <p><i>Have fun!</i></p>
@@ -38,6 +39,7 @@ func mockGeocaches() -> [Waypoint] {
             difficulty: 2,
             terrain: 4,
             geocacheType: .multi,
+            geocacheSize: .regular,
             additionalWaypoints: [
                 Waypoint(id: "WP1", name: "A nice café", location: Coordinates(latitude: 51.306723, longitude: 7.941415)),
                 Waypoint(id: "WP2", name: "Trail", location: Coordinates(latitude: 51.306120, longitude: 7.949290)),
@@ -50,6 +52,7 @@ func mockGeocaches() -> [Waypoint] {
             difficulty: 10,
             terrain: 10,
             geocacheType: .earth,
+            geocacheSize: .notChosen,
             found: true
         ),
         Waypoint(
@@ -58,7 +61,8 @@ func mockGeocaches() -> [Waypoint] {
             location: Coordinates(latitude: 54.32851, longitude: 10.15303),
             difficulty: 5,
             terrain: 10,
-            geocacheType: .mystery
+            geocacheType: .mystery,
+            geocacheSize: .notChosen
         ),
     ]
 }
