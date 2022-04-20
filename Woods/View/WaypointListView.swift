@@ -115,6 +115,9 @@ struct WaypointListView: View {
             }
         }
         .navigationTitle(list?.name ?? "")
+        .toolbar {
+            EditButton()
+        }
         #if !os(macOS)
         .navigationBarTitleDisplayMode(largeTitle ? .large : .inline)
         #endif
