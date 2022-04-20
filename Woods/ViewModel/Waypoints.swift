@@ -80,4 +80,10 @@ class Waypoints: ObservableObject {
             }
         }
     }
+    
+    public func filteredWaypoints(for searchText: String) -> [Waypoint] {
+        sortedWaypoints.filter { waypoint in
+            searchText.isEmpty || waypoint.matches(searchQuery: searchText)
+        }
+    }
 }
