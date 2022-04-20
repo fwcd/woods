@@ -11,21 +11,16 @@ import SwiftUI
 struct SimpleSection<Content>: View where Content: View {
     let header: String
     let iconName: String
-    let content: () -> Content
+    var alignment: HorizontalAlignment = .center
+    @ViewBuilder var content: () -> Content
     
     var body: some View {
         GroupBox(label: Label(header, systemImage: iconName)) {
-            VStack(spacing: 10) {
+            VStack(alignment: alignment, spacing: 10) {
                 content()
             }
             .padding([.top], 10)
         }
-    }
-    
-    init(header: String, iconName: String, @ViewBuilder content: @escaping () -> Content) {
-        self.header = header
-        self.iconName = iconName
-        self.content = content
     }
 }
 

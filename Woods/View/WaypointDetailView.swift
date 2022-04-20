@@ -39,18 +39,17 @@ struct WaypointDetailView: View {
                 }
             }
             if !waypoint.additionalWaypoints.isEmpty {
-                SimpleSection(header: "Additional Waypoints", iconName: "mappin.and.ellipse") {
-                    VStack(alignment: .leading) {
-                        ForEach(waypoint.additionalWaypoints) { child in
-                            NavigationLink {
-                                ScrollView {
-                                    WaypointDetailView(waypoint: child)
-                                }
-                                .navigationTitle("Additional Waypoint")
-                            } label: {
-                                WaypointSmallSnippetView(waypoint: child)
+                SimpleSection(header: "Additional Waypoints", iconName: "mappin.and.ellipse", alignment: .leading) {
+                    ForEach(waypoint.additionalWaypoints) { child in
+                        NavigationLink {
+                            ScrollView {
+                                WaypointDetailView(waypoint: child)
                             }
+                            .navigationTitle("Additional Waypoint")
+                        } label: {
+                            WaypointSmallSnippetView(waypoint: child)
                         }
+                        .buttonStyle(.plain)
                     }
                 }
             }
