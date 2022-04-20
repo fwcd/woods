@@ -25,7 +25,7 @@ struct ContentView: View {
                         Text("Lists")
                     }
                 }
-            Text("TODO")
+            SearchView()
                 .tabItem {
                     VStack {
                         Image(systemName: "magnifyingglass")

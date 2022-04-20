@@ -28,7 +28,7 @@ struct SidebarContentView: View {
                         Image(systemName: "map.fill")
                         Text("Map")
                     }
-                    NavigationLink(destination: Text("TODO"), tag: .search, selection: $selectedTab) {
+                    NavigationLink(destination: SearchView(), tag: .search, selection: $selectedTab) {
                         Image(systemName: "magnifyingglass")
                         Text("Search")
                     }

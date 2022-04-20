@@ -23,6 +23,8 @@
 		35126CE62745CE1E00CF998C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35126CE52745CE1E00CF998C /* Preview Assets.xcassets */; };
 		35126CF22745CE1E00CF998C /* WatchWoodsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35126CF12745CE1E00CF998C /* WatchWoodsTests.swift */; };
 		35126D012745CE1E00CF998C /* Woods.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 35126CCB2745CE1D00CF998C /* Woods.app */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		35156CC1280FAE7A00136E25 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35156CC0280FAE7A00136E25 /* SearchView.swift */; };
+		35156CC2280FAE7A00136E25 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35156CC0280FAE7A00136E25 /* SearchView.swift */; };
 		35222982274A737300090224 /* CollectionUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35222981274A737300090224 /* CollectionUtils.swift */; };
 		3522298E274A756D00090224 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3522298D274A756D00090224 /* Assets.xcassets */; };
 		35222991274A756D00090224 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35222990274A756D00090224 /* Preview Assets.xcassets */; };
@@ -296,6 +298,7 @@
 		35126CE82745CE1E00CF998C /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		35126CED2745CE1E00CF998C /* WoodsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WoodsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		35126CF12745CE1E00CF998C /* WatchWoodsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchWoodsTests.swift; sourceTree = "<group>"; };
+		35156CC0280FAE7A00136E25 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		35222981274A737300090224 /* CollectionUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionUtils.swift; sourceTree = "<group>"; };
 		35222987274A756C00090224 /* Woods.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Woods.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3522298D274A756D00090224 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -685,6 +688,7 @@
 				35245D3A2808443700E7B082 /* AccountLoginSnippetView.swift */,
 				35245D37280843DB00E7B082 /* AccountSnippetView.swift */,
 				C765465225D88E48004F14E8 /* LoginView.swift */,
+				35156CC0280FAE7A00136E25 /* SearchView.swift */,
 				C7B6F0FC249FA16B00454841 /* RichMapView.swift */,
 				C7B74E6B25ED8DA600D5194B /* WaypointMapView.swift */,
 				C7ECBE2C25F006D8005933C0 /* WaypointSummaryView.swift */,
@@ -1087,6 +1091,7 @@
 				352229FB274A76C600090224 /* DataUtils.swift in Sources */,
 				352229D0274A76AB00090224 /* WaypointNavigatorView.swift in Sources */,
 				352229FC274A76C600090224 /* PersistenceUtils.swift in Sources */,
+				35156CC2280FAE7A00136E25 /* SearchView.swift in Sources */,
 				352229E1274A76BB00090224 /* ConnectorError.swift in Sources */,
 				352229DE274A76B400090224 /* AccountType.swift in Sources */,
 				35E2B326280B87DE00A4267C /* CompareUtils.swift in Sources */,
@@ -1139,6 +1144,7 @@
 				C7ECBD8225EED022005933C0 /* WaypointListsView.swift in Sources */,
 				C7ECBE3825F00C75005933C0 /* WaypointNavigatorView.swift in Sources */,
 				C7B6F0FD249FA16B00454841 /* RichMapView.swift in Sources */,
+				35156CC1280FAE7A00136E25 /* SearchView.swift in Sources */,
 				C7ECBDCE25EF0C15005933C0 /* Region.swift in Sources */,
 				C73E04BB249F9F4700C6E22C /* WoodsApp.swift in Sources */,
 				C7ECBDBE25EF02B0005933C0 /* GeocacheAttributes.swift in Sources */,
