@@ -29,12 +29,12 @@ struct RichMapView: View {
     
     var body: some View {
         GeometryReader { geometry in
-            // TODO: Use a 'breakpoint' slightly wider than 300 after which the size then reverts to this instead of querying the idiom
-            let cardMaxWidth: CGFloat = UserInterfaceIdiom.current == .phone
+            let totalWidth = geometry.size.width
+            let cardMaxWidth: CGFloat = totalWidth < 500
                 ? .infinity
-                : 300
+                : 400
             let cardPadding: CGFloat = 20
-            let useSideCardLayout = geometry.size.width > cardMaxWidth + (2 * cardPadding)
+            let useSideCardLayout = totalWidth > cardMaxWidth + (2 * cardPadding) + 150
             
             ZStack(alignment: useSideCardLayout ? .trailing : .center) {
                 ZStack(alignment: .topLeading) {
