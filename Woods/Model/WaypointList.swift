@@ -19,6 +19,10 @@ struct WaypointList: Identifiable, Codable, Hashable {
         waypoints += newWaypoints.filter { !existingIds.contains($0.id) }
     }
     
+    mutating func moveWaypoints(fromOffsets offsets: IndexSet, toOffset offset: Int) {
+        waypoints.move(fromOffsets: offsets, toOffset: offset)
+    }
+    
     mutating func removeWaypoints(atOffsets offsets: IndexSet) {
         waypoints.remove(atOffsets: offsets)
     }

@@ -109,6 +109,9 @@ struct WaypointListView: View {
                         WaypointSmallSnippetView(waypoint: listWaypoints[i])
                     }
                 }
+                .onMove { indexSet, offset in
+                    waypoints.listTree[listId]!.moveWaypoints(fromOffsets: indexSet, toOffset: offset)
+                }
                 .onDelete { indexSet in
                     waypoints.listTree[listId]!.removeWaypoints(atOffsets: indexSet)
                 }
