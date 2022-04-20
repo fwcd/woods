@@ -33,7 +33,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "35222996274A756D00090224"
-               BuildableName = "Tests (macOS).xctest"
+               BuildableName = "WoodsTests.xctest"
                BlueprintName = "Tests (macOS)"
                ReferencedContainer = "container:Woods.xcodeproj">
             </BuildableReference>

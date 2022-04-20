@@ -104,7 +104,18 @@ struct EditWaypointView: View {
                             EditWaypointView(waypoint: $waypoint.additionalWaypoints[editedAdditionalWaypointIndex]) {
                                 editAdditionalWaypointSheetShown = false
                             }
+                            .toolbar {
+                                ToolbarItem(placement: .primaryAction) {
+                                    Button("Done") {
+                                        editAdditionalWaypointSheetShown = false
+                                    }
+                                }
+                            }
                         }
+                    }
+                    let commitAdditionalWaypoint = {
+                        waypoint.additionalWaypoints.append(newAdditionalWaypoint)
+                        newAdditionalWaypointSheetShown = false
                     }
                     Button {
                         newAdditionalWaypointSheetShown = true
@@ -118,10 +129,12 @@ struct EditWaypointView: View {
                         CancelNavigationView(title: "New Additional Waypoint") {
                             newAdditionalWaypointSheetShown = false
                         } inner: {
-                            EditWaypointView(waypoint: $newAdditionalWaypoint) {
-                                waypoint.additionalWaypoints.append(newAdditionalWaypoint)
-                                newAdditionalWaypointSheetShown = false
-                            }
+                            EditWaypointView(waypoint: $newAdditionalWaypoint, onCommit: commitAdditionalWaypoint)
+                                .toolbar {
+                                    ToolbarItem(placement: .primaryAction) {
+                                        Button("Save", action: commitAdditionalWaypoint)
+                                    }
+                                }
                         }
                     }
                 }

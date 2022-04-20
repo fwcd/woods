@@ -33,7 +33,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C73E04CC249F9F4A00C6E22C"
-               BuildableName = "Tests (iOS).xctest"
+               BuildableName = "WoodsTests.xctest"
                BlueprintName = "Tests (iOS)"
                ReferencedContainer = "container:Woods.xcodeproj">
             </BuildableReference>

@@ -48,6 +48,10 @@ struct WaypointListView: View {
                         .padding(20)
                     }
                 }
+                let commitNewWaypoint = {
+                    waypoints.listTree[listId]?.add(waypoints: [newWaypoint])
+                        newWaypointSheetShown = false
+                }
                 Button(action: { newWaypointSheetShown = true }) {
                     HStack {
                         Image(systemName: "plus")
@@ -58,10 +62,10 @@ struct WaypointListView: View {
                     CancelNavigationView(title: "New Waypoint") {
                         newWaypointSheetShown = false
                     } inner: {
-                        EditWaypointView(waypoint: $newWaypoint) {
-                            waypoints.listTree[listId]?.add(waypoints: [newWaypoint])
-                            newWaypointSheetShown = false
-                        }
+                        EditWaypointView(waypoint: $newWaypoint, onCommit: commitNewWaypoint)
+                            .toolbar {
+                                Button("Save", action: commitNewWaypoint)
+                            }
                     }
                 }
                 Button(action: { clearConfirmationShown = true }) {
