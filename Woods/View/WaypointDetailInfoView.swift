@@ -13,6 +13,7 @@ struct WaypointDetailInfoView: View {
     
     var body: some View {
         Text(waypoint.location.description)
+            .textSelection(.enabled)
         HStack(spacing: 20) {
             if let difficulty = waypoint.difficulty {
                 VStack {

@@ -22,10 +22,12 @@ struct WaypointSnippetView: View {
             VStack(alignment: .leading) {
                 Text(waypoint.id)
                     .font(.headline)
+                    .textSelection(.enabled)
                 Text(waypoint.name)
                     .font(.title2)
                     .fontWeight(.bold)
                     .multilineTextAlignment(.leading)
+                    .textSelection(.enabled)
             }
             Spacer()
             if let location = locationManager.location {

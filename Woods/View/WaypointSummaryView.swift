@@ -27,6 +27,7 @@ struct WaypointSummaryView: View {
                 if let hint = waypoint.hint {
                     SimpleSection(header: "Hint", iconName: "lightbulb.fill") {
                         Text(hint)
+                            .textSelection(.enabled)
                     }
                 }
                 if waypoint.placedAt != nil || waypoint.lastFoundAt != nil {

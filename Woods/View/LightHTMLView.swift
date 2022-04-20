@@ -13,12 +13,9 @@ struct LightHTMLView: View {
     let html: String
     
     var body: some View {
-        if let document = try? SwiftSoup.parseBodyFragment(html), let text = try? document.text() {
-            Text(text)
-                .multilineTextAlignment(.leading)
-        } else {
-            Text(html)
-                .multilineTextAlignment(.leading)
-        }
+        let text = (try? SwiftSoup.parseBodyFragment(html)).flatMap { try? $0.text() } ?? html
+        Text(text)
+            .multilineTextAlignment(.leading)
+            .textSelection(.enabled)
     }
 }
