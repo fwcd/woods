@@ -28,6 +28,7 @@ struct CancelNavigationView<Inner>: View where Inner: View {
                     }
                 }
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
