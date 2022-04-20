@@ -65,8 +65,11 @@ struct WaypointDetailInfoView: View {
     }
 }
 
+// TODO: Preview crashes on Xcode 13.3
+/*
 struct WaypointDetailInfoView_Previews: PreviewProvider {
     static var previews: some View {
         WaypointDetailView(waypoint: mockGeocaches().first!)
     }
 }
+*/
