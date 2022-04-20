@@ -28,7 +28,9 @@ struct CancelNavigationView<Inner>: View where Inner: View {
                     }
                 }
         }
+        #if !os(macOS)
         .navigationViewStyle(StackNavigationViewStyle())
+        #endif
     }
 }
 
