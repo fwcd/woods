@@ -28,28 +28,38 @@ struct RichMapView: View {
     @State private var searchText: String = ""
     
     var body: some View {
-        ZStack {
-            ZStack(alignment: .topLeading) {
-                WaypointMapView(
-                    waypoints: waypoints.filteredWaypoints(for: searchText),
+        GeometryReader { geometry in
+            // TODO: Use a 'breakpoint' slightly wider than 300 after which the size then reverts to this instead of querying the idiom
+            let cardMaxWidth: CGFloat = UserInterfaceIdiom.current == .phone
+                ? .infinity
+                : 300
+            let cardPadding: CGFloat = 20
+            let useSideCardLayout = geometry.size.width > cardMaxWidth + (2 * cardPadding)
+            
+            ZStack(alignment: useSideCardLayout ? .trailing : .center) {
+                ZStack(alignment: .topLeading) {
+                    WaypointMapView(
+                        waypoints: waypoints.filteredWaypoints(for: searchText),
+                        selectedWaypointId: $selectedWaypointId,
+                        region: $region,
+                        userTrackingMode: $userTrackingMode,
+                        useSatelliteView: $useSatelliteView
+                    )
+                    .edgesIgnoringSafeArea(.all)
+                    RichMapButtons(
+                        selectedWaypointId: $selectedWaypointId,
+                        useSatelliteView: $useSatelliteView,
+                        region: $region,
+                        userTrackingMode: $userTrackingMode
+                    )
+                }
+                RichMapSlideOver(
                     selectedWaypointId: $selectedWaypointId,
-                    region: $region,
-                    userTrackingMode: $userTrackingMode,
-                    useSatelliteView: $useSatelliteView
+                    searchText: $searchText
                 )
-                .edgesIgnoringSafeArea(.all)
-                RichMapButtons(
-                    selectedWaypointId: $selectedWaypointId,
-                    useSatelliteView: $useSatelliteView,
-                    region: $region,
-                    userTrackingMode: $userTrackingMode
-                )
+                .frame(maxWidth: cardMaxWidth)
+                .padding(.horizontal, useSideCardLayout ? cardPadding : 0)
             }
-            RichMapSlideOver(
-                selectedWaypointId: $selectedWaypointId,
-                searchText: $searchText
-            )
-            .frame(maxWidth: 500)
         }
     }
 }
@@ -61,6 +71,6 @@ struct RichMapView_Previews: PreviewProvider {
         RichMapView()
             .environmentObject(waypoints)
             .environmentObject(locationManager)
-            .previewInterfaceOrientation(.portrait)
+            .previewInterfaceOrientation(.landscapeRight)
     }
 }

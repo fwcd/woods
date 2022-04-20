@@ -38,24 +38,16 @@ private let state = AppState()
 struct WoodsApp: App {
     var body: some Scene {
         WindowGroup {
-            #if os(macOS)
-            SidebarContentView()
-                .environmentObject(state.accounts)
-                .environmentObject(state.waypoints)
-                .environmentObject(state.locationManager)
-            #else
-            if [.pad, .mac].contains(UIDevice.current.userInterfaceIdiom) {
-                SidebarContentView()
-                    .environmentObject(state.accounts)
-                    .environmentObject(state.waypoints)
-                    .environmentObject(state.locationManager)
-            } else {
-                ContentView()
-                    .environmentObject(state.accounts)
-                    .environmentObject(state.waypoints)
-                    .environmentObject(state.locationManager)
+            Group {
+                if [.pad, .mac].contains(UserInterfaceIdiom.current) {
+                    SidebarContentView()
+                } else {
+                    ContentView()
+                }
             }
-            #endif
+            .environmentObject(state.accounts)
+            .environmentObject(state.waypoints)
+            .environmentObject(state.locationManager)
         }
     }
 }
