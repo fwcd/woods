@@ -12,27 +12,33 @@ struct StarsView: View {
     let rating: Int
     let maxRating: Int
     var step: Int = 1
+    var starSize: CGFloat = 18
+    
+    var starCount: Int { maxRating / step }
     
     var body: some View {
         let stars = HStack(spacing: 0) {
-            ForEach(0..<(maxRating / step), id: \.self) { _ in
+            ForEach(0..<starCount, id: \.self) { _ in
                 Image(systemName: "star.fill")
+                    .font(.system(size: starSize))
             }
         }
         
         stars
-            .overlay(
-                GeometryReader { geometry in
-                    let width = (CGFloat(rating) * geometry.size.width) / CGFloat(maxRating)
-                    ZStack(alignment: .leading) {
-                        Rectangle()
-                            .frame(width: width)
-                            .foregroundColor(.primary)
-                    }
-                }
-                .mask(stars)
-            )
-            .foregroundColor(.secondary)
+            .foregroundColor(.secondary.opacity(0.5))
+            .overlay {
+                stars
+                    .clipShape(ClipWidth(fraction: CGFloat(rating) / CGFloat(maxRating)))
+            }
+    }
+}
+
+struct ClipWidth: Shape {
+    let fraction: CGFloat
+    
+    func path(in rect: CGRect) -> Path {
+        Rectangle()
+            .path(in: CGRect(origin: rect.origin, size: CGSize(width: rect.width * fraction, height: rect.height)))
     }
 }
 
