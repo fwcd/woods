@@ -93,6 +93,9 @@ struct WaypointListView: View {
                         }
                     }
                 }
+                .onMove { indexSet, offset in
+                    waypoints.listTree[listId]!.childs.move(fromOffsets: indexSet, toOffset: offset)
+                }
                 .onDelete { indexSet in
                     for childId in indexSet.map({ waypoints.listTree[listId]!.childs[$0] }) {
                         waypoints.listTree.remove(childId)
