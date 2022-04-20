@@ -14,28 +14,34 @@ struct WaypointDetailInfoView: View {
     var body: some View {
         Text(waypoint.location.description)
         HStack(spacing: 20) {
-            VStack {
-                StarsView(
-                    rating: waypoint.difficulty ?? 0,
-                    maxRating: Waypoint.ratings.upperBound,
-                    step: 2
-                )
-                Text("Difficulty")
+            if let difficulty = waypoint.difficulty {
+                VStack {
+                    StarsView(
+                        rating: difficulty,
+                        maxRating: Waypoint.ratings.upperBound,
+                        step: 2
+                    )
+                    Text("Difficulty")
+                }
             }
-            VStack {
-                StarsView(
-                    rating: waypoint.terrain ?? 0,
-                    maxRating: Waypoint.ratings.upperBound,
-                    step: 2
-                )
-                Text("Terrain")
+            if let terrain = waypoint.terrain {
+                VStack {
+                    StarsView(
+                        rating: terrain,
+                        maxRating: Waypoint.ratings.upperBound,
+                        step: 2
+                    )
+                    Text("Terrain")
+                }
             }
-            VStack {
-                SizeView(
-                    rating: value(of: waypoint.geocacheSize ?? .notChosen),
-                    maxRating: 4
-                )
-                Text("Size")
+            if let geocacheSize = waypoint.geocacheSize {
+                VStack {
+                    SizeView(
+                        rating: value(of: geocacheSize),
+                        maxRating: 4
+                    )
+                    Text("Size")
+                }
             }
         }
         .font(.caption)
