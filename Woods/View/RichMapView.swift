@@ -25,8 +25,6 @@ struct RichMapView: View {
     )
     @State private var userTrackingMode: MKUserTrackingMode = .none
     @State private var useSatelliteView: Bool = false
-    @State private var listPickerSheetShown: Bool = false
-    @State private var listPickerMode: ListPickerMode = .save
     @State private var searchText: String = ""
     @State private var slideOverPosition: SlideOverCardPosition = .bottom
     
@@ -34,11 +32,6 @@ struct RichMapView: View {
         waypoints.sortedWaypoints.filter { waypoint in
             searchText.isEmpty || waypoint.matches(searchQuery: searchText)
         }
-    }
-    
-    private enum ListPickerMode {
-        case open
-        case save
     }
     
     var body: some View {
@@ -51,82 +44,12 @@ struct RichMapView: View {
                 useSatelliteView: $useSatelliteView
             )
             .edgesIgnoringSafeArea(.all)
-            VStack(spacing: 10) {
-                Button(action: {
-                    if let region = region {
-                        Task {
-                            await waypoints.refresh(with: query(from: region))
-                        }
-                    }
-                }) {
-                    Image(systemName: "arrow.clockwise.circle.fill")
-                }
-                Button(action: {
-                    useSatelliteView = !useSatelliteView
-                }) {
-                    Image(systemName: "building.2.crop.circle.fill")
-                }
-                Button(action: {
-                    switch userTrackingMode {
-                    case .none: userTrackingMode = .follow
-                    #if os(macOS)
-                    case .follow: userTrackingMode = .none
-                    #else
-                    case .follow: userTrackingMode = .followWithHeading
-                    case .followWithHeading: userTrackingMode = .none
-                    #endif
-                    default: userTrackingMode = .follow
-                    }
-                }) {
-                    Image(systemName: "location.circle.fill")
-                }
-                Button(action: {
-                    listPickerSheetShown = true
-                    listPickerMode = .save
-                }) {
-                    Image(systemName: "plus.circle.fill")
-                }
-                Button(action: {
-                    listPickerSheetShown = true
-                    listPickerMode = .open
-                }) {
-                    Image(systemName: "folder.circle.fill")
-                }
-            }
-            .foregroundColor(.primary)
-            .font(.system(size: 40))
-            .padding(10)
-            .onChange(of: selectedWaypointId) {
-                if let id = $0 {
-                    Task {
-                        await waypoints.queryDetails(for: id)
-                    }
-                }
-            }
-            .sheet(isPresented: $listPickerSheetShown) {
-                CancelNavigationView(title: "Pick Waypoint List") {
-                    listPickerSheetShown = false
-                } inner: {
-                    Form {
-                        WaypointListPickerView { id in
-                            switch listPickerMode {
-                            case .save:
-                                waypoints.listTree[id]?.add(waypoints: waypoints.currentWaypoints.values.sorted { $0.name < $1.name })
-                            case .open:
-                                if let list = waypoints.listTree[id] {
-                                    waypoints.update(currentWaypoints: list.waypoints)
-                                }
-                            }
-                            listPickerSheetShown = false
-                        }
-                    }
-                    .navigationTitle("Pick List")
-                    #if canImport(UIKit)
-                    .navigationBarTitleDisplayMode(.inline)
-                    #endif
-                }
-                .environmentObject(waypoints)
-            }
+            RichMapButtons(
+                selectedWaypointId: $selectedWaypointId,
+                useSatelliteView: $useSatelliteView,
+                region: $region,
+                userTrackingMode: $userTrackingMode
+            )
             let cardAnimation: Animation = .easeInOut(duration: 0.2)
             SlideOverCard(position: $slideOverPosition) { contentOpacity in
                 VStack(alignment: .leading) {
@@ -178,25 +101,6 @@ struct RichMapView: View {
                 }
             }
         }
-    }
-    
-    private func query(from region: MKCoordinateRegion) -> WaypointsInRegionQuery {
-        let center = region.center
-        let span = region.span
-        let topLeft = CLLocation(
-            latitude: center.latitude + (span.latitudeDelta / 2),
-            longitude: center.longitude - (span.longitudeDelta / 2)
-        )
-        let bottomRight = CLLocation(
-            latitude: center.latitude - (span.latitudeDelta / 2),
-            longitude: center.longitude + (span.longitudeDelta / 2)
-        )
-        return WaypointsInRegionQuery(
-            region: Region(
-                topLeft: Coordinates(from: topLeft.coordinate),
-                bottomRight: Coordinates(from: bottomRight.coordinate)
-            )
-        )
     }
 }
 

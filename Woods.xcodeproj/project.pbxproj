@@ -25,6 +25,8 @@
 		35126D012745CE1E00CF998C /* Woods.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 35126CCB2745CE1D00CF998C /* Woods.app */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		35156CC1280FAE7A00136E25 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35156CC0280FAE7A00136E25 /* SearchView.swift */; };
 		35156CC2280FAE7A00136E25 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35156CC0280FAE7A00136E25 /* SearchView.swift */; };
+		35156CC4280FB0EA00136E25 /* RichMapButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35156CC3280FB0EA00136E25 /* RichMapButtons.swift */; };
+		35156CC5280FB0EA00136E25 /* RichMapButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35156CC3280FB0EA00136E25 /* RichMapButtons.swift */; };
 		35222982274A737300090224 /* CollectionUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35222981274A737300090224 /* CollectionUtils.swift */; };
 		3522298E274A756D00090224 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3522298D274A756D00090224 /* Assets.xcassets */; };
 		35222991274A756D00090224 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35222990274A756D00090224 /* Preview Assets.xcassets */; };
@@ -299,6 +301,7 @@
 		35126CED2745CE1E00CF998C /* WoodsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WoodsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		35126CF12745CE1E00CF998C /* WatchWoodsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchWoodsTests.swift; sourceTree = "<group>"; };
 		35156CC0280FAE7A00136E25 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		35156CC3280FB0EA00136E25 /* RichMapButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RichMapButtons.swift; sourceTree = "<group>"; };
 		35222981274A737300090224 /* CollectionUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionUtils.swift; sourceTree = "<group>"; };
 		35222987274A756C00090224 /* Woods.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Woods.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3522298D274A756D00090224 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -690,6 +693,7 @@
 				C765465225D88E48004F14E8 /* LoginView.swift */,
 				35156CC0280FAE7A00136E25 /* SearchView.swift */,
 				C7B6F0FC249FA16B00454841 /* RichMapView.swift */,
+				35156CC3280FB0EA00136E25 /* RichMapButtons.swift */,
 				C7B74E6B25ED8DA600D5194B /* WaypointMapView.swift */,
 				C7ECBE2C25F006D8005933C0 /* WaypointSummaryView.swift */,
 				C7B74EA425EDC46F00D5194B /* WaypointDetailView.swift */,
@@ -1104,6 +1108,7 @@
 				352229F2274A76C100090224 /* WaypointListTree.swift in Sources */,
 				357BE45F280F417500E31364 /* NavigationWaypointDetailView.swift in Sources */,
 				352229BC274A76AA00090224 /* LightHTMLView.swift in Sources */,
+				35156CC5280FB0EA00136E25 /* RichMapButtons.swift in Sources */,
 				352229B7274A76AA00090224 /* WaypointListView.swift in Sources */,
 				352229C3274A76AA00090224 /* GeocacheType+Color.swift in Sources */,
 				352229E3274A76BB00090224 /* WaypointsInRadiusQuery.swift in Sources */,
@@ -1190,6 +1195,7 @@
 				C7ECBD9425EED91E005933C0 /* WaypointListSnippetView.swift in Sources */,
 				357BE45E280F417500E31364 /* NavigationWaypointDetailView.swift in Sources */,
 				C765465325D88E48004F14E8 /* LoginView.swift in Sources */,
+				35156CC4280FB0EA00136E25 /* RichMapButtons.swift in Sources */,
 				C7ECBD8725EED110005933C0 /* WaypointListView.swift in Sources */,
 				C7E1B88A25ED72F0004575A5 /* MockConnector.swift in Sources */,
 				C765468E25D8A30F004F14E8 /* PersistenceError.swift in Sources */,
