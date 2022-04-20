@@ -28,25 +28,28 @@ struct RichMapView: View {
     @State private var searchText: String = ""
     
     var body: some View {
-        ZStack(alignment: .topLeading) {
-            WaypointMapView(
-                waypoints: waypoints.filteredWaypoints(for: searchText),
-                selectedWaypointId: $selectedWaypointId,
-                region: $region,
-                userTrackingMode: $userTrackingMode,
-                useSatelliteView: $useSatelliteView
-            )
-            .edgesIgnoringSafeArea(.all)
-            RichMapButtons(
-                selectedWaypointId: $selectedWaypointId,
-                useSatelliteView: $useSatelliteView,
-                region: $region,
-                userTrackingMode: $userTrackingMode
-            )
+        ZStack {
+            ZStack(alignment: .topLeading) {
+                WaypointMapView(
+                    waypoints: waypoints.filteredWaypoints(for: searchText),
+                    selectedWaypointId: $selectedWaypointId,
+                    region: $region,
+                    userTrackingMode: $userTrackingMode,
+                    useSatelliteView: $useSatelliteView
+                )
+                .edgesIgnoringSafeArea(.all)
+                RichMapButtons(
+                    selectedWaypointId: $selectedWaypointId,
+                    useSatelliteView: $useSatelliteView,
+                    region: $region,
+                    userTrackingMode: $userTrackingMode
+                )
+            }
             RichMapSlideOver(
                 selectedWaypointId: $selectedWaypointId,
                 searchText: $searchText
             )
+            .frame(maxWidth: 500)
         }
     }
 }
@@ -58,5 +61,6 @@ struct RichMapView_Previews: PreviewProvider {
         RichMapView()
             .environmentObject(waypoints)
             .environmentObject(locationManager)
+            .previewInterfaceOrientation(.portrait)
     }
 }
