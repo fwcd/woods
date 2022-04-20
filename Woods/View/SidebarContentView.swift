@@ -61,6 +61,7 @@ struct SidebarContentView: View {
                     }
                 }
             }
+            .listStyle(.sidebar)
         }
     }
 }
