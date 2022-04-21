@@ -12,9 +12,10 @@ import WatchConnectivity
 class WatchManager: NSObject, ObservableObject, WCSessionDelegate {
     private var session: WCSession?
     
-    var isNavigating: Bool = false {
+    /// The target that the user currently navigates to.
+    var navigationTarget: Coordinates? {
         didSet {
-            send(for: WatchProtocolKey.isNavigating, value: isNavigating)
+            send(for: WatchProtocolKey.navigationTarget, value: navigationTarget)
         }
     }
     

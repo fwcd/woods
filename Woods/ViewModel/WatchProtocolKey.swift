@@ -8,5 +8,5 @@
 import Foundation
 
 enum WatchProtocolKey {
-    static let isNavigating = WatchMessageKey<Bool>(rawValue: "isNavigating")
+    static let navigationTarget = WatchMessageKey<Coordinates?>(rawValue: "navigationTarget")
 }
