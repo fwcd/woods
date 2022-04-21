@@ -21,10 +21,12 @@ struct WaypointDetailActionsView: View {
     
     var body: some View {
         HStack {
-            Button(action: { listPickerSheetShown = true }) {
+            Button {
+                listPickerSheetShown = true
+            } label: {
                 HStack {
                     Image(systemName: "plus")
-                    Text("Add To List")
+                    Text("Add")
                 }
             }
             .sheet(isPresented: $listPickerSheetShown) {
@@ -46,7 +48,17 @@ struct WaypointDetailActionsView: View {
             }
             #if canImport(UIKit)
             if let url = waypoint.webUrl {
-                Button(action: { linkShareSheetShown = true }) {
+                Button {
+                    UIApplication.shared.open(url)
+                } label: {
+                    HStack {
+                        Image(systemName: "safari")
+                        Text("Web")
+                    }
+                }
+                Button {
+                    linkShareSheetShown = true
+                } label: {
                     HStack {
                         Image(systemName: "square.and.arrow.up")
                         Text("Link")
@@ -56,7 +68,7 @@ struct WaypointDetailActionsView: View {
                     ShareSheet(items: [url])
                 }
             }
-            Button(action: {
+            Button {
                 do {
                     let url = persistenceFileURL(path: "GPX/\(waypoint.id).gpx")
                     try waypoint.asGPX.data(using: .utf8)?.smartWrite(to: url)
@@ -64,7 +76,7 @@ struct WaypointDetailActionsView: View {
                 } catch {
                     log.error("Could not encode write GPX: \(String(describing: error))")
                 }
-            }) {
+            } label: {
                 HStack {
                     Image(systemName: "square.and.arrow.up")
                     Text("GPX")
