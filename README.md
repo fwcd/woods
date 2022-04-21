@@ -2,7 +2,7 @@
 
 [![Build](https://github.com/fwcd/woods/actions/workflows/build.yml/badge.svg)](https://github.com/fwcd/woods/actions/workflows/build.yml)
 
-A native GPS navigation and Geocaching app for iOS, written in SwiftUI.
+A native GPS navigation and Geocaching app for iOS with watch integration, written in SwiftUI.
 
 <div align="center">
 <p>
