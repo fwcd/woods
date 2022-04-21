@@ -16,7 +16,6 @@ struct WaypointDetailActionsView: View {
     
     @State private var listPickerSheetShown: Bool = false
     @State private var linkShareSheetShown: Bool = false
-    @State private var gpxShareSheetShown: Bool = false
     @State private var gpxUrl: URL? = nil
     @EnvironmentObject private var waypoints: Waypoints
     
@@ -62,7 +61,6 @@ struct WaypointDetailActionsView: View {
                     let url = persistenceFileURL(path: "GPX/\(waypoint.id).gpx")
                     try waypoint.asGPX.data(using: .utf8)?.smartWrite(to: url)
                     gpxUrl = url
-                    gpxShareSheetShown = true
                 } catch {
                     log.error("Could not encode write GPX: \(String(describing: error))")
                 }
@@ -72,16 +70,8 @@ struct WaypointDetailActionsView: View {
                     Text("GPX")
                 }
             }
-            .sheet(isPresented: $gpxShareSheetShown) {
-                if let url = gpxUrl {
-                    ShareSheet(items: [url])
-                } else {
-                    CancelNavigationView(title: "GPX") {
-                        gpxShareSheetShown = false
-                    } inner: {
-                        Text("GPX could not be generated")
-                    }
-                }
+            .sheet(item: $gpxUrl) { url in
+                ShareSheet(items: [url])
             }
             #endif
         }
