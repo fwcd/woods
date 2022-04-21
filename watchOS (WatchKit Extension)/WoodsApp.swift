@@ -11,11 +11,13 @@ import SwiftUI
 @main
 struct WoodsApp: App {
     @StateObject private var locationManager = LocationManager()
+    @StateObject private var remoteHostManager = RemoteHostManager()
     
     @SceneBuilder var body: some Scene {
         WindowGroup {
             ContentView()
                 .environmentObject(locationManager)
+                .environmentObject(remoteHostManager)
         }
 
         WKNotificationScene(controller: NotificationController.self, category: "myCategory")
