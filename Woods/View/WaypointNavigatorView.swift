@@ -8,20 +8,13 @@
 
 import SwiftUI
 
+/// A navigation arrow from the given 'current' location to the given 'target'. Does not depend on CoreLocation.
 struct WaypointNavigatorView: View {
-    let target: Coordinates
+    var location: Coordinates?
+    var heading: Degrees?
+    var accuracy: Length?
+    var target: Coordinates
     
-    @EnvironmentObject private var locationManager: LocationManager
-    
-    private var location: Coordinates? {
-        locationManager.location.map { Coordinates(from: $0.coordinate) }
-    }
-    private var heading: Degrees? {
-        locationManager.heading.map { Degrees(degrees: $0.trueHeading) }
-    }
-    private var accuracy: Length? {
-        (locationManager.location?.horizontalAccuracy).map { Length(meters: $0) }
-    }
     private var distanceToTarget: Length? {
         location.map { $0.distance(to: target) }
     }
@@ -29,30 +22,34 @@ struct WaypointNavigatorView: View {
         heading.flatMap { h in location.map { $0.heading(to: target) - h } }
     }
     private var distance: Length? { Length(10, .kilometers) }
+
+    #if os(watchOS)
+    var spacing: CGFloat = 20
+    var arrowSize: CGFloat = 64
+    var distanceFont: Font = .title2
+    var accuracyFont: Font = .title3
+    #else
+    var spacing: CGFloat = 40
+    var arrowSize: CGFloat = 128
+    var distanceFont: Font = .title
+    var accuracyFont: Font = .title2
+    #endif
     
     var body: some View {
-        VStack(spacing: 40) {
+        VStack(spacing: spacing) {
             Image(systemName: "location.north.fill")
-                .font(.system(size: 128))
+                .font(.system(size: arrowSize))
                 .rotationEffect(.degrees(headingToTarget?.totalDegrees ?? 0))
             VStack {
                 if let distance = distanceToTarget {
                     Text(distance.description)
-                        .font(.title)
+                        .font(distanceFont)
                 }
                 if let accuracy = accuracy {
                     Text("+- \(accuracy.description)")
-                        .font(.title2)
+                        .font(accuracyFont)
                 }
             }
-        }
-        .onAppear {
-            locationManager.dependOnLocation()
-            locationManager.dependOnHeading()
-        }
-        .onDisappear {
-            locationManager.undependOnLocation()
-            locationManager.undependOnHeading()
         }
     }
 }
@@ -60,7 +57,12 @@ struct WaypointNavigatorView: View {
 struct WaypointNavigatorView_Previews: PreviewProvider {
     @StateObject static var locationManager = LocationManager()
     static var previews: some View {
-        WaypointNavigatorView(target: mockGeocaches().first!.location)
-            .environmentObject(locationManager)
+        WaypointNavigatorView(
+            location: Coordinates(),
+            heading: .zero,
+            accuracy: .zero,
+            target: mockGeocaches().first!.location
+        )
+        .environmentObject(locationManager)
     }
 }
