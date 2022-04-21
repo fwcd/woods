@@ -10,11 +10,15 @@ import SwiftUI
 
 @main
 struct WoodsApp: App {
+    @StateObject private var locationManager = LocationManager()
+    
     @SceneBuilder var body: some Scene {
         WindowGroup {
             NavigationView {
-                ContentView()
+                // TODO: Display a navigator in sync with the iOS app?
+                WaypointNavigatorView(target: Coordinates())
             }
+            .environmentObject(locationManager)
         }
 
         WKNotificationScene(controller: NotificationController.self, category: "myCategory")
