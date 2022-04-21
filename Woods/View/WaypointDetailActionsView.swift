@@ -20,70 +20,74 @@ struct WaypointDetailActionsView: View {
     @EnvironmentObject private var waypoints: Waypoints
     
     var body: some View {
-        HStack {
-            Button {
-                listPickerSheetShown = true
-            } label: {
-                HStack {
-                    Image(systemName: "plus")
-                    Text("Add")
-                }
-            }
-            .sheet(isPresented: $listPickerSheetShown) {
-                CancelNavigationView(title: "Pick Waypoint List") {
-                    listPickerSheetShown = false
-                } inner: {
-                    Form {
-                        WaypointListPickerView { id in
-                            waypoints.listTree[id]?.add(waypoints: [waypoint])
-                            listPickerSheetShown = false
-                        }
-                    }
-                    .navigationTitle("Add To List")
-                    #if !os(macOS)
-                    .navigationBarTitleDisplayMode(.inline)
-                    #endif
-                }
-                .environmentObject(waypoints)
-            }
-            #if canImport(UIKit)
-            if let url = waypoint.webUrl {
+        VStack {
+            HStack {
                 Button {
-                    UIApplication.shared.open(url)
+                    listPickerSheetShown = true
                 } label: {
                     HStack {
-                        Image(systemName: "safari")
-                        Text("Web")
+                        Image(systemName: "plus")
+                        Text("Add")
+                    }
+                }
+                .sheet(isPresented: $listPickerSheetShown) {
+                    CancelNavigationView(title: "Pick Waypoint List") {
+                        listPickerSheetShown = false
+                    } inner: {
+                        Form {
+                            WaypointListPickerView { id in
+                                waypoints.listTree[id]?.add(waypoints: [waypoint])
+                                listPickerSheetShown = false
+                            }
+                        }
+                        .navigationTitle("Add To List")
+                        #if !os(macOS)
+                        .navigationBarTitleDisplayMode(.inline)
+                        #endif
+                    }
+                    .environmentObject(waypoints)
+                }
+            }
+            #if canImport(UIKit)
+            HStack {
+                if let url = waypoint.webUrl {
+                    Button {
+                        UIApplication.shared.open(url)
+                    } label: {
+                        HStack {
+                            Image(systemName: "safari")
+                            Text("Web")
+                        }
+                    }
+                    Button {
+                        linkShareSheetShown = true
+                    } label: {
+                        HStack {
+                            Image(systemName: "square.and.arrow.up")
+                            Text("Link")
+                        }
+                    }
+                    .sheet(isPresented: $linkShareSheetShown) {
+                        ShareSheet(items: [url])
                     }
                 }
                 Button {
-                    linkShareSheetShown = true
+                    do {
+                        let url = persistenceFileURL(path: "GPX/\(waypoint.id).gpx")
+                        try waypoint.asGPX.data(using: .utf8)?.smartWrite(to: url)
+                        gpxUrl = url
+                    } catch {
+                        log.error("Could not encode write GPX: \(String(describing: error))")
+                    }
                 } label: {
                     HStack {
                         Image(systemName: "square.and.arrow.up")
-                        Text("Link")
+                        Text("GPX")
                     }
                 }
-                .sheet(isPresented: $linkShareSheetShown) {
+                .sheet(item: $gpxUrl) { url in
                     ShareSheet(items: [url])
                 }
-            }
-            Button {
-                do {
-                    let url = persistenceFileURL(path: "GPX/\(waypoint.id).gpx")
-                    try waypoint.asGPX.data(using: .utf8)?.smartWrite(to: url)
-                    gpxUrl = url
-                } catch {
-                    log.error("Could not encode write GPX: \(String(describing: error))")
-                }
-            } label: {
-                HStack {
-                    Image(systemName: "square.and.arrow.up")
-                    Text("GPX")
-                }
-            }
-            .sheet(item: $gpxUrl) { url in
-                ShareSheet(items: [url])
             }
             #endif
         }
