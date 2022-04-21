@@ -12,7 +12,7 @@ class RemoteHostManager: NSObject, ObservableObject, WCSessionDelegate {
     private var session: WCSession?
     
     /// The target that the user currently navigates to.
-    @Published var navigationTarget: Coordinates?
+    @MainActor @Published var navigationTarget: Coordinates?
     
     override init() {
         super.init()
@@ -30,7 +30,9 @@ class RemoteHostManager: NSObject, ObservableObject, WCSessionDelegate {
     
     func session(_ session: WCSession, didReceiveMessage message: [String: Any]) {
         if let navigationTarget = message[WatchProtocolKey.navigationTarget] {
-            self.navigationTarget = navigationTarget
+            Task.detached { @MainActor in
+                self.navigationTarget = navigationTarget
+            }
         }
     }
 }
