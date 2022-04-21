@@ -10,14 +10,19 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, World!")
-            .padding()
+        // TODO: Display a navigator in sync with the iOS app?
+        NavigationView {
+            WaypointLocatingNavigatorView(target: Coordinates())
+        }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
+    @StateObject static var locationManager = LocationManager()
+    
     static var previews: some View {
         ContentView()
+            .environmentObject(locationManager)
             .previewDevice("Apple Watch Series 6 - 40mm")
     }
 }

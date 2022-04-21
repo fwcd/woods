@@ -14,11 +14,8 @@ struct WoodsApp: App {
     
     @SceneBuilder var body: some Scene {
         WindowGroup {
-            NavigationView {
-                // TODO: Display a navigator in sync with the iOS app?
-                WaypointLocatingNavigatorView(target: Coordinates())
-            }
-            .environmentObject(locationManager)
+            ContentView()
+                .environmentObject(locationManager)
         }
 
         WKNotificationScene(controller: NotificationController.self, category: "myCategory")
