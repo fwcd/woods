@@ -87,7 +87,7 @@ struct WaypointDetailActionsView: View {
             }
             #endif
         }
-        .buttonStyle(LargeButtonStyle())
+        .buttonStyle(LargeButtonStyle(padding: 8))
     }
 }
 

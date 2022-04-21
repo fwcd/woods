@@ -10,10 +10,11 @@ import SwiftUI
 
 struct LargeButtonStyle: ButtonStyle {
     var radius: CGFloat = 5
+    var padding: CGFloat = 12
     
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .padding(12)
+            .padding(padding)
             .foregroundColor(.white)
             .background(configuration.isPressed ? Color.blue.opacity(0.5) : Color.blue)
             .cornerRadius(radius)
