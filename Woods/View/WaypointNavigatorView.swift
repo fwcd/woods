@@ -33,7 +33,11 @@ struct WaypointNavigatorView: View {
     var body: some View {
         VStack(spacing: 40) {
             Image(systemName: "location.north.fill")
+                #if os(watchOS)
+                .font(.system(size: 64))
+                #else
                 .font(.system(size: 128))
+                #endif
                 .rotationEffect(.degrees(headingToTarget?.totalDegrees ?? 0))
             VStack {
                 if let distance = distanceToTarget {
