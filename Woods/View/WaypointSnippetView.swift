@@ -38,7 +38,7 @@ struct WaypointSnippetView: View {
                     CancelNavigationView(title: "Navigator") {
                         navigatorSheetShown = false
                     } inner: {
-                        WaypointNavigatorView(target: waypoint.location)
+                        WaypointLocatingNavigatorView(target: waypoint.location)
                             .environmentObject(locationManager)
                     }
                 }

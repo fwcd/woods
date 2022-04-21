@@ -16,7 +16,7 @@ struct WoodsApp: App {
         WindowGroup {
             NavigationView {
                 // TODO: Display a navigator in sync with the iOS app?
-                WaypointNavigatorView(target: Coordinates())
+                WaypointLocatingNavigatorView(target: Coordinates())
             }
             .environmentObject(locationManager)
         }

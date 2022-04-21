@@ -8,20 +8,13 @@
 
 import SwiftUI
 
+/// A navigation arrow from the given 'current' location to the given 'target'. Does not depend on CoreLocation.
 struct WaypointNavigatorView: View {
+    let location: Coordinates?
+    let heading: Degrees?
+    let accuracy: Length?
     let target: Coordinates
     
-    @EnvironmentObject private var locationManager: LocationManager
-    
-    private var location: Coordinates? {
-        locationManager.location.map { Coordinates(from: $0.coordinate) }
-    }
-    private var heading: Degrees? {
-        locationManager.heading.map { Degrees(degrees: $0.trueHeading) }
-    }
-    private var accuracy: Length? {
-        (locationManager.location?.horizontalAccuracy).map { Length(meters: $0) }
-    }
     private var distanceToTarget: Length? {
         location.map { $0.distance(to: target) }
     }
@@ -50,21 +43,18 @@ struct WaypointNavigatorView: View {
                 }
             }
         }
-        .onAppear {
-            locationManager.dependOnLocation()
-            locationManager.dependOnHeading()
-        }
-        .onDisappear {
-            locationManager.undependOnLocation()
-            locationManager.undependOnHeading()
-        }
     }
 }
 
 struct WaypointNavigatorView_Previews: PreviewProvider {
     @StateObject static var locationManager = LocationManager()
     static var previews: some View {
-        WaypointNavigatorView(target: mockGeocaches().first!.location)
-            .environmentObject(locationManager)
+        WaypointNavigatorView(
+            location: Coordinates(),
+            heading: .zero,
+            accuracy: .zero,
+            target: mockGeocaches().first!.location
+        )
+        .environmentObject(locationManager)
     }
 }
