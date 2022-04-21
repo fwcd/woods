@@ -10,10 +10,10 @@ import SwiftUI
 
 /// A navigation arrow from the given 'current' location to the given 'target'. Does not depend on CoreLocation.
 struct WaypointNavigatorView: View {
-    let location: Coordinates?
-    let heading: Degrees?
-    let accuracy: Length?
-    let target: Coordinates
+    var location: Coordinates?
+    var heading: Degrees?
+    var accuracy: Length?
+    var target: Coordinates
     
     private var distanceToTarget: Length? {
         location.map { $0.distance(to: target) }
@@ -22,24 +22,32 @@ struct WaypointNavigatorView: View {
         heading.flatMap { h in location.map { $0.heading(to: target) - h } }
     }
     private var distance: Length? { Length(10, .kilometers) }
+
+    #if os(watchOS)
+    var spacing: CGFloat = 20
+    var arrowSize: CGFloat = 64
+    var distanceFont: Font = .title2
+    var accuracyFont: Font = .title3
+    #else
+    var spacing: CGFloat = 40
+    var arrowSize: CGFloat = 128
+    var distanceFont: Font = .title
+    var accuracyFont: Font = .title2
+    #endif
     
     var body: some View {
-        VStack(spacing: 40) {
+        VStack(spacing: spacing) {
             Image(systemName: "location.north.fill")
-                #if os(watchOS)
-                .font(.system(size: 64))
-                #else
-                .font(.system(size: 128))
-                #endif
+                .font(.system(size: arrowSize))
                 .rotationEffect(.degrees(headingToTarget?.totalDegrees ?? 0))
             VStack {
                 if let distance = distanceToTarget {
                     Text(distance.description)
-                        .font(.title)
+                        .font(distanceFont)
                 }
                 if let accuracy = accuracy {
                     Text("+- \(accuracy.description)")
-                        .font(.title2)
+                        .font(accuracyFont)
                 }
             }
         }
