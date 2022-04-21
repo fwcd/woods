@@ -12,6 +12,12 @@ import WatchConnectivity
 class WatchManager: NSObject, ObservableObject, WCSessionDelegate {
     private var session: WCSession?
     
+    var isNavigating: Bool = false {
+        didSet {
+            send(for: WatchProtocolKey.isNavigating, value: isNavigating)
+        }
+    }
+    
     override init() {
         super.init()
         
@@ -20,6 +26,10 @@ class WatchManager: NSObject, ObservableObject, WCSessionDelegate {
             session!.delegate = self
             session!.activate()
         }
+    }
+    
+    private func send<Value>(for key: WatchMessageKey<Value>, value: Value) {
+        session?.sendMessage([key.rawValue: value], replyHandler: nil)
     }
     
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
