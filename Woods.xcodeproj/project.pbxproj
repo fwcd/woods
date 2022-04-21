@@ -132,6 +132,7 @@
 		35985CF628119D0C00D37DB2 /* WatchMessageKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35985CF428119D0C00D37DB2 /* WatchMessageKey.swift */; };
 		35985CF828119E1200D37DB2 /* WatchProtocolKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35985CF728119E1200D37DB2 /* WatchProtocolKey.swift */; };
 		35985CF928119E1200D37DB2 /* WatchProtocolKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35985CF728119E1200D37DB2 /* WatchProtocolKey.swift */; };
+		35985CFF2811A18D00D37DB2 /* RemoteHostManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35985CFE2811A18D00D37DB2 /* RemoteHostManager.swift */; };
 		35A75F60280F655B00BC959C /* CoordinatesEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A75F5F280F655B00BC959C /* CoordinatesEditor.swift */; };
 		35A75F61280F655B00BC959C /* CoordinatesEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A75F5F280F655B00BC959C /* CoordinatesEditor.swift */; };
 		35A75F63280F67DC00BC959C /* LatitudeCardinal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A75F62280F67DC00BC959C /* LatitudeCardinal.swift */; };
@@ -360,6 +361,7 @@
 		35985CEE28119AB700D37DB2 /* WatchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchManager.swift; sourceTree = "<group>"; };
 		35985CF428119D0C00D37DB2 /* WatchMessageKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchMessageKey.swift; sourceTree = "<group>"; };
 		35985CF728119E1200D37DB2 /* WatchProtocolKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchProtocolKey.swift; sourceTree = "<group>"; };
+		35985CFE2811A18D00D37DB2 /* RemoteHostManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteHostManager.swift; sourceTree = "<group>"; };
 		35A75F5F280F655B00BC959C /* CoordinatesEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatesEditor.swift; sourceTree = "<group>"; };
 		35A75F62280F67DC00BC959C /* LatitudeCardinal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatitudeCardinal.swift; sourceTree = "<group>"; };
 		35A75F65280F682E00BC959C /* LongitudeCardinal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongitudeCardinal.swift; sourceTree = "<group>"; };
@@ -516,11 +518,10 @@
 		35126CD72745CE1E00CF998C /* watchOS (WatchKit Extension) */ = {
 			isa = PBXGroup;
 			children = (
+				35985CFC2811A13E00D37DB2 /* Controller */,
+				35985CFD2811A15100D37DB2 /* ViewModel */,
+				35985CFB2811A11100D37DB2 /* View */,
 				35126CD82745CE1E00CF998C /* WoodsApp.swift */,
-				35126CDA2745CE1E00CF998C /* ContentView.swift */,
-				35126CDC2745CE1E00CF998C /* NotificationController.swift */,
-				35126CDE2745CE1E00CF998C /* NotificationView.swift */,
-				35126CE02745CE1E00CF998C /* ComplicationController.swift */,
 				35126CE22745CE1E00CF998C /* Assets.xcassets */,
 				35126CE72745CE1E00CF998C /* Info.plist */,
 				35126CE82745CE1E00CF998C /* PushNotificationPayload.apns */,
@@ -587,6 +588,32 @@
 				C73E04C2249F9F4A00C6E22C /* Preview Content */,
 			);
 			path = iOS;
+			sourceTree = "<group>";
+		};
+		35985CFB2811A11100D37DB2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				35126CDA2745CE1E00CF998C /* ContentView.swift */,
+				35126CDE2745CE1E00CF998C /* NotificationView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		35985CFC2811A13E00D37DB2 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				35126CDC2745CE1E00CF998C /* NotificationController.swift */,
+				35126CE02745CE1E00CF998C /* ComplicationController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		35985CFD2811A15100D37DB2 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				35985CFE2811A18D00D37DB2 /* RemoteHostManager.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		C73E04AE249F9F4700C6E22C = {
@@ -1078,6 +1105,7 @@
 				35DF4E7F2810DEC3009B8E06 /* GeocacheSize.swift in Sources */,
 				35DF4E862810DF31009B8E06 /* SignUtils.swift in Sources */,
 				35DF4E852810DF2B009B8E06 /* CompareUtils.swift in Sources */,
+				35985CFF2811A18D00D37DB2 /* RemoteHostManager.swift in Sources */,
 				35DF4E772810DEC3009B8E06 /* GeocacheStatus.swift in Sources */,
 				35985CF628119D0C00D37DB2 /* WatchMessageKey.swift in Sources */,
 				35126CD92745CE1E00CF998C /* WoodsApp.swift in Sources */,

@@ -12,8 +12,8 @@ struct WatchMessageKey<Value>: RawRepresentable {
 }
 
 extension Dictionary where Key == String, Value == Any {
-    subscript(key: WatchMessageKey<Value>) -> Value? {
-        get { self[key.rawValue] as Value? }
+    subscript<ConcreteValue>(key: WatchMessageKey<ConcreteValue>) -> ConcreteValue? {
+        get { self[key.rawValue] as! ConcreteValue? }
         set { self[key.rawValue] = newValue }
     }
 }
