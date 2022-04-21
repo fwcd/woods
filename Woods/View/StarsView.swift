@@ -12,7 +12,7 @@ struct StarsView: View {
     let rating: Int
     let maxRating: Int
     var step: Int = 1
-    var starSize: CGFloat = 18
+    var starSize: CGFloat = 16
     
     var starCount: Int { maxRating / step }
     
