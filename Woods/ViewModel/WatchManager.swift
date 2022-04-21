@@ -18,7 +18,7 @@ class WatchManager: NSObject, ObservableObject, WCSessionDelegate {
     /// The target that the user currently navigates to.
     var navigationTarget: Coordinates? {
         didSet {
-            send(WatchProtocolKey.navigationTarget, navigationTarget)
+            send(WatchProtocol.NavigationTargetUpdate(navigationTarget: navigationTarget))
         }
     }
     
@@ -33,12 +33,12 @@ class WatchManager: NSObject, ObservableObject, WCSessionDelegate {
         }
     }
     
-    private func send<Value>(_ key: WatchMessageKey<Value>, _ value: Value) where Value: Codable {
+    private func send<ProtoMessage>(_ protoMessage: ProtoMessage) where ProtoMessage: WatchProtocolMessage {
         guard let session = session, session.isPaired && session.isWatchAppInstalled else { return }
-        log.info("Sending \(key.rawValue)...")
+        log.info("Sending \(ProtoMessage.key.rawValue)...")
         
         var message: [String: Any] = [:]
-        message[key] = value
+        message[ProtoMessage.key] = protoMessage
         session.sendMessage(message, replyHandler: nil)
     }
     

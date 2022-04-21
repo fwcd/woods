@@ -29,9 +29,9 @@ class RemoteHostManager: NSObject, ObservableObject, WCSessionDelegate {
     }
     
     func session(_ session: WCSession, didReceiveMessage message: [String: Any]) {
-        if let navigationTarget = message[WatchProtocolKey.navigationTarget] {
+        if let update = message[WatchProtocol.NavigationTargetUpdate.key] {
             Task.detached { @MainActor in
-                self.navigationTarget = navigationTarget
+                self.navigationTarget = update.navigationTarget
             }
         }
     }
