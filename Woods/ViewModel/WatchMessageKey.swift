@@ -12,9 +12,9 @@ struct WatchMessageKey<Value>: RawRepresentable {
 }
 
 extension Dictionary where Key == String, Value == Any {
-    subscript<ConcreteValue>(key: WatchMessageKey<ConcreteValue>) -> ConcreteValue? {
-        get { self[key.rawValue] as! ConcreteValue? }
-        set { self[key.rawValue] = newValue }
+    subscript<ConcreteValue>(key: WatchMessageKey<ConcreteValue>) -> ConcreteValue? where ConcreteValue: Codable {
+        get { self[key.rawValue].flatMap { ConcreteValue(dictSerialized: $0) } }
+        set { self[key.rawValue] = newValue?.dictSerialized }
     }
 }
 

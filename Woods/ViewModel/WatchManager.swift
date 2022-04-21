@@ -33,10 +33,13 @@ class WatchManager: NSObject, ObservableObject, WCSessionDelegate {
         }
     }
     
-    private func send<Value>(_ key: WatchMessageKey<Value>, _ value: Value) {
+    private func send<Value>(_ key: WatchMessageKey<Value>, _ value: Value) where Value: Codable {
         guard let session = session, session.isPaired && session.isWatchAppInstalled else { return }
         log.info("Sending \(key.rawValue)...")
-        session.sendMessage([key.rawValue: value], replyHandler: nil)
+        
+        var message: [String: Any] = [:]
+        message[key] = value
+        session.sendMessage(message, replyHandler: nil)
     }
     
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
