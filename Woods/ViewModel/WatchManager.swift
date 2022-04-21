@@ -7,6 +7,9 @@
 
 import Foundation
 import WatchConnectivity
+import OSLog
+
+private let log = Logger(subsystem: "Woods", category: "WatchManager")
 
 /// The manager that communicates with the watch on behalf of the host app.
 class WatchManager: NSObject, ObservableObject, WCSessionDelegate {
@@ -15,7 +18,7 @@ class WatchManager: NSObject, ObservableObject, WCSessionDelegate {
     /// The target that the user currently navigates to.
     var navigationTarget: Coordinates? {
         didSet {
-            send(for: WatchProtocolKey.navigationTarget, value: navigationTarget)
+            send(WatchProtocolKey.navigationTarget, navigationTarget)
         }
     }
     
@@ -26,11 +29,14 @@ class WatchManager: NSObject, ObservableObject, WCSessionDelegate {
             session = WCSession.default
             session!.delegate = self
             session!.activate()
+            log.info("Activated watch connectivity session")
         }
     }
     
-    private func send<Value>(for key: WatchMessageKey<Value>, value: Value) {
-        session?.sendMessage([key.rawValue: value], replyHandler: nil)
+    private func send<Value>(_ key: WatchMessageKey<Value>, _ value: Value) {
+        guard let session = session, session.isPaired && session.isWatchAppInstalled else { return }
+        log.info("Sending \(key.rawValue)...")
+        session.sendMessage([key.rawValue: value], replyHandler: nil)
     }
     
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
