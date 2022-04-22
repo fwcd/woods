@@ -19,12 +19,14 @@ private let searchUrl = URL(string: "\(baseUrl)/play/search")!
 private let searchMoreUrl = URL(string: "\(baseUrl)/play/search/more-results")!
 private let myLogsUrl = URL(string: "\(baseUrl)/my/logs.aspx")!
 private let apiSearchUrl = URL(string: "\(baseUrl)/api/proxy/web/search/v2")!
+private let serverParamsUrl = URL(string: "\(baseUrl)/play/serverparameters/params")!
 
 private func apiPreviewUrl(gcCode: String) -> URL {
     URL(string: "\(baseUrl)/api/proxy/web/search/geocachepreview/\(gcCode)")!
 }
 
 private let log = Logger(subsystem: "Woods", category: "GeocachingComConnector")
+private let searchParamsPattern = try! Regex(from: "\\{.+\\}")
 
 class GeocachingComConnector: Connector {
     func logIn(using credentials: Credentials) async throws {
@@ -53,6 +55,22 @@ class GeocachingComConnector: Connector {
     
     func logOut() async {
         // TODO
+    }
+    
+    func accountInfo() async throws -> AccountInfo {
+        log.info("Querying account info")
+        
+        let request = try HTTPRequest(url: serverParamsUrl)
+        let raw = try await request.fetchUTF8Async()
+        guard let jsonData = searchParamsPattern.firstGroups(in: raw)?[0].data(using: .utf8) else {
+            throw ConnectorError.accountInfoFailed("Could not parse/encode search params: '\(raw)'")
+        }
+        let value = try makeJSONDecoder().decode(GeocachingComApiResults.ServerParameters.self, from: jsonData)
+        
+        return AccountInfo(
+            roles: value.userInfo.roles ?? [],
+            avatarUrl: value.userInfo.avatarUrl
+        )
     }
     
     func waypoint(id: String) async throws -> Waypoint {

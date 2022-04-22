@@ -174,4 +174,22 @@ struct GeocachingComApiResults: Codable {
             }
         }
     }
+    
+    struct ServerParameters: Codable {
+        enum CodingKeys: String, CodingKey {
+            case userInfo = "user:infoo"
+        }
+        
+        let userInfo: UserInfo
+        
+        struct UserInfo: Codable {
+            let username: String?
+            let referenceCode: String?
+            let userType: String?
+            let isLoggedIn: Bool
+            let roles: [String]?
+            let publicGuid: String?
+            let avatarUrl: URL?
+        }
+    }
 }

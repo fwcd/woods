@@ -12,6 +12,7 @@ enum ConnectorError: Error {
     case invalidWaypoint(String)
     case waypointNotFound(String)
     case waypointQueryFailed(String)
+    case accountInfoFailed(String)
     case regionTooWide
     case noConnector
 }
