@@ -13,9 +13,15 @@ protocol Connector: AnyObject {
     
     func logOut() async throws
     
+    func accountInfo() async throws -> AccountInfo
+    
     func waypoint(id: String) async throws -> Waypoint
     
     func waypoints(for query: WaypointsInRadiusQuery) async throws -> [Waypoint]
     
     func waypoints(for query: WaypointsInRegionQuery) async throws -> [Waypoint]
+}
+
+extension Connector {
+    func accountInfo() -> AccountInfo { AccountInfo() }
 }
