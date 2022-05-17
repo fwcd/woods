@@ -107,6 +107,7 @@
 		35222A00274A76C600090224 /* CollectionUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35222981274A737300090224 /* CollectionUtils.swift */; };
 		35222A03274A773E00090224 /* CoreGPX in Frameworks */ = {isa = PBXBuildFile; productRef = 35222A02274A773E00090224 /* CoreGPX */; };
 		35222A05274A774100090224 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 35222A04274A774100090224 /* SwiftSoup */; };
+		3522497F28344296008330D8 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3522497E28344296008330D8 /* Settings.bundle */; };
 		35245D32280830C200E7B082 /* SlideOverCardPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35245D31280830C200E7B082 /* SlideOverCardPosition.swift */; };
 		35245D33280830C200E7B082 /* SlideOverCardPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35245D31280830C200E7B082 /* SlideOverCardPosition.swift */; };
 		35245D35280841E200E7B082 /* AccountLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35245D34280841E200E7B082 /* AccountLogin.swift */; };
@@ -352,6 +353,7 @@
 		35222992274A756D00090224 /* Woods.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Woods.entitlements; sourceTree = "<group>"; };
 		35222997274A756D00090224 /* WoodsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WoodsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3522299B274A756D00090224 /* WoodsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoodsTests.swift; sourceTree = "<group>"; };
+		3522497E28344296008330D8 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		35245D31280830C200E7B082 /* SlideOverCardPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideOverCardPosition.swift; sourceTree = "<group>"; };
 		35245D34280841E200E7B082 /* AccountLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountLogin.swift; sourceTree = "<group>"; };
 		35245D37280843DB00E7B082 /* AccountSnippetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSnippetView.swift; sourceTree = "<group>"; };
@@ -593,6 +595,7 @@
 				351120C6280704A400D5E6B3 /* Woods.entitlements */,
 				C73E04C5249F9F4A00C6E22C /* LaunchScreen.storyboard */,
 				C73E04C2249F9F4A00C6E22C /* Preview Content */,
+				3522497E28344296008330D8 /* Settings.bundle */,
 			);
 			path = iOS;
 			sourceTree = "<group>";
@@ -1071,6 +1074,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3522497F28344296008330D8 /* Settings.bundle in Resources */,
 				C73E04C7249F9F4A00C6E22C /* LaunchScreen.storyboard in Resources */,
 				C73E04C4249F9F4A00C6E22C /* Preview Assets.xcassets in Resources */,
 				C73E04C1249F9F4A00C6E22C /* Assets.xcassets in Resources */,

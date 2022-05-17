@@ -1,0 +1,7 @@
+name: CoreGPX, nameSpecified: coregpx, owner: vincentneo, version: 0.9.0, source: https://github.com/vincentneo/CoreGPX
+
+name: SwiftSoup, nameSpecified: swiftsoup, owner: scinfu, version: 2.3.3, source: https://github.com/scinfu/SwiftSoup
+
+add-version-numbers: false
+
+LicensePlist Version: 3.21.1
