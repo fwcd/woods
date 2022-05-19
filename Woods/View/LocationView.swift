@@ -17,7 +17,7 @@ struct LocationView: View {
                     .font(.title2)
                     .textSelection(.enabled)
                 if let accuracy = locationManager.accuracy {
-                    Text("+- \(accuracy.description)")
+                    Text("\u{00B1} \(accuracy.description)")
                         .textSelection(.enabled)
                         .font(.title3)
                 }

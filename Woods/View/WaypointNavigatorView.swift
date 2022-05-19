@@ -46,7 +46,7 @@ struct WaypointNavigatorView: View {
                         .font(distanceFont)
                 }
                 if let accuracy = accuracy {
-                    Text("+- \(accuracy.description)")
+                    Text("\u{00B1} \(accuracy.description)")
                         .font(accuracyFont)
                 }
             }
