@@ -21,7 +21,7 @@ struct WaypointLocatingNavigatorView: View {
         WaypointNavigatorView(
             location: locationManager.location,
             heading: locationManager.heading,
-            accuracy: locationManager.accuracy,
+            accuracy: locationManager.locationAccuracy,
             target: target
         )
         .onAppear {

@@ -12,14 +12,26 @@ struct LocationView: View {
     
     var body: some View {
         NavigationView {
-            VStack(spacing: 10) {
-                Text("\(locationManager.location?.description ?? "No Location")")
-                    .font(.title2)
-                    .textSelection(.enabled)
-                if let accuracy = locationManager.accuracy {
-                    Text("\u{00B1} \(accuracy.description)")
+            VStack(spacing: 40) {
+                VStack(spacing: 10) {
+                    Text("\(locationManager.location?.description ?? "No Location")")
+                        .font(.title2)
                         .textSelection(.enabled)
-                        .font(.title3)
+                    if let accuracy = locationManager.locationAccuracy {
+                        Text("\u{00B1} \(accuracy.description)")
+                            .textSelection(.enabled)
+                            .font(.title3)
+                    }
+                }
+                VStack(spacing: 10) {
+                    Text(locationManager.heading.map { String("\($0)°") } ?? "No Heading")
+                        .font(.title2)
+                        .textSelection(.enabled)
+                    if let accuracy = locationManager.locationAccuracy {
+                        Text("\u{00B1} \(accuracy.description)")
+                            .textSelection(.enabled)
+                            .font(.title3)
+                    }
                 }
             }
             .navigationTitle("Location")

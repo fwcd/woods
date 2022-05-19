@@ -16,15 +16,15 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published private(set) var clLocation: CLLocation? = nil
     @Published private(set) var clHeading: CLHeading? = nil
     
-    var location: Coordinates? {
-        clLocation.map { Coordinates(from: $0.coordinate) }
-    }
-    var heading: Degrees? {
-        clHeading.map { Degrees(degrees: $0.trueHeading) }
-    }
-    var accuracy: Length? {
-        (clLocation?.horizontalAccuracy).map { Length(meters: $0) }
-    }
+    var location: Coordinates? { clLocation.map { Coordinates(from: $0.coordinate) } }
+    var course: Degrees? { clLocation.map { Degrees(degrees: $0.course) } }
+    var heading: Degrees? { clHeading.map { Degrees(degrees: $0.trueHeading) } }
+    var altitude: Length? { clLocation.map { Length(meters: $0.altitude) } }
+    
+    var locationAccuracy: Length? { clLocation.map { Length(meters: $0.horizontalAccuracy) } }
+    var courseAccuracy: Degrees? { clLocation.map { Degrees(degrees: $0.courseAccuracy) } }
+    var headingAccuracy: Degrees? { clHeading.map { Degrees(degrees: $0.headingAccuracy) } }
+    var altitudeAccuracy: Length? { clLocation.map { Length(meters: $0.verticalAccuracy) } }
     
     private let manager = CLLocationManager()
     
