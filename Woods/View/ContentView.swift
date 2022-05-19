@@ -18,6 +18,13 @@ struct ContentView: View {
                         Text("Map")
                     }
                 }
+            LocationView()
+                .tabItem {
+                    VStack {
+                        Image(systemName: "location.fill")
+                        Text("Location")
+                    }
+                }
             WaypointListsView()
                 .tabItem {
                     VStack {
@@ -52,5 +59,6 @@ struct ContentView_Previews: PreviewProvider {
             .environmentObject(accounts)
             .environmentObject(waypoints)
             .environmentObject(locationManager)
+            .previewInterfaceOrientation(.portrait)
     }
 }

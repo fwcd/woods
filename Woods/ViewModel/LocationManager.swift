@@ -13,8 +13,19 @@ import OSLog
 private let log = Logger(subsystem: "Woods", category: "LocationManager")
 
 class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
-    @Published private(set) var location: CLLocation? = nil
-    @Published private(set) var heading: CLHeading? = nil
+    @Published private(set) var clLocation: CLLocation? = nil
+    @Published private(set) var clHeading: CLHeading? = nil
+    
+    var location: Coordinates? {
+        clLocation.map { Coordinates(from: $0.coordinate) }
+    }
+    var heading: Degrees? {
+        clHeading.map { Degrees(degrees: $0.trueHeading) }
+    }
+    var accuracy: Length? {
+        (clLocation?.horizontalAccuracy).map { Length(meters: $0) }
+    }
+    
     private let manager = CLLocationManager()
     
     // Location and heading use a reference count to track whether
@@ -56,11 +67,11 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        location = locations.last
+        clLocation = locations.last
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
-        heading = newHeading
+        clHeading = newHeading
     }
     
     func dependOnLocation() {

@@ -32,7 +32,7 @@ struct WaypointSnippetView: View {
             Spacer()
             if let location = locationManager.location {
                 Button(action: { navigatorSheetShown = true }) {
-                    WaypointDistanceView(start: Coordinates(from: location.coordinate), target: waypoint.location)
+                    WaypointDistanceView(start: location, target: waypoint.location)
                 }
                 .sheet(isPresented: $navigatorSheetShown) {
                     CancelNavigationView(title: "Navigator") {

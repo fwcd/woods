@@ -17,21 +17,11 @@ struct WaypointLocatingNavigatorView: View {
     @EnvironmentObject private var watchManager: WatchManager
     #endif
     
-    private var location: Coordinates? {
-        locationManager.location.map { Coordinates(from: $0.coordinate) }
-    }
-    private var heading: Degrees? {
-        locationManager.heading.map { Degrees(degrees: $0.trueHeading) }
-    }
-    private var accuracy: Length? {
-        (locationManager.location?.horizontalAccuracy).map { Length(meters: $0) }
-    }
-    
     var body: some View {
         WaypointNavigatorView(
-            location: location,
-            heading: heading,
-            accuracy: accuracy,
+            location: locationManager.location,
+            heading: locationManager.heading,
+            accuracy: locationManager.accuracy,
             target: target
         )
         .onAppear {
