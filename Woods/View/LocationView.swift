@@ -16,25 +16,30 @@ struct LocationView: View {
                 VStack(spacing: 10) {
                     Text("\(locationManager.location?.description ?? "No Location")")
                         .font(.title2)
-                        .textSelection(.enabled)
                     if let accuracy = locationManager.locationAccuracy {
                         Text("\u{00B1} \(accuracy.description)")
-                            .textSelection(.enabled)
                             .font(.title3)
                     }
                 }
                 VStack(spacing: 10) {
                     Text(locationManager.heading.map { String("\($0)°") } ?? "No Heading")
                         .font(.title2)
-                        .textSelection(.enabled)
-                    if let accuracy = locationManager.locationAccuracy {
+                    if let accuracy = locationManager.headingAccuracy {
                         Text("\u{00B1} \(accuracy.description)")
-                            .textSelection(.enabled)
+                            .font(.title3)
+                    }
+                }
+                VStack(spacing: 10) {
+                    Text(locationManager.altitude.map { String("\($0) Altitude") } ?? "No Altitude")
+                        .font(.title2)
+                    if let accuracy = locationManager.altitudeAccuracy {
+                        Text("\u{00B1} \(accuracy.description)")
                             .font(.title3)
                     }
                 }
             }
             .navigationTitle("Location")
+            .textSelection(.enabled)
             .onAppear {
                 locationManager.dependOnLocation()
                 locationManager.dependOnHeading()
