@@ -12,9 +12,17 @@ struct LocationView: View {
     
     var body: some View {
         NavigationView {
-            Text("\(locationManager.location?.description ?? "No Location")")
-                .textSelection(.enabled)
-                .navigationTitle("Location")
+            VStack(spacing: 10) {
+                Text("\(locationManager.location?.description ?? "No Location")")
+                    .font(.title2)
+                    .textSelection(.enabled)
+                if let accuracy = locationManager.accuracy {
+                    Text("+- \(accuracy.description)")
+                        .textSelection(.enabled)
+                        .font(.title3)
+                }
+            }
+            .navigationTitle("Location")
             .onAppear {
                 locationManager.dependOnLocation()
                 locationManager.dependOnHeading()
