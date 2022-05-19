@@ -22,7 +22,7 @@ struct LocationView: View {
                     }
                 }
                 VStack(spacing: 10) {
-                    Text(locationManager.heading.map { String("\($0)°") } ?? "No Heading")
+                    Text(locationManager.heading?.description ?? "No Heading")
                         .font(.title2)
                     if let accuracy = locationManager.headingAccuracy {
                         Text("\u{00B1} \(accuracy.description)")
