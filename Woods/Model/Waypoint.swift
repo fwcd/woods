@@ -21,7 +21,7 @@ struct Waypoint: Identifiable, Codable, Hashable {
     var geocacheType: GeocacheType? = nil
     var geocacheSize: GeocacheSize? = nil
     var status: WaypointStatus? = nil
-    var attributes: WaypointAttributes = []
+    var attributes: [WaypointAttribute: Bool] = [:]
     var owner: String? = nil
     var placedAt: Date? = nil
     var lastFoundAt: Date? = nil
