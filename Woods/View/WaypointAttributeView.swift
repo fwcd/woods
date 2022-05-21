@@ -10,6 +10,7 @@ import SwiftUI
 struct WaypointAttributeView: View {
     let attribute: WaypointAttribute
     var negated: Bool = false
+    var size: CGFloat = 45
     
     private var symbolName: String? {
         switch attribute {
@@ -33,11 +34,15 @@ struct WaypointAttributeView: View {
     }
     
     var body: some View {
-        if let symbolName = symbolName {
+        let symbolName = symbolName ?? "questionmark"
+        ZStack {
+            RoundedRectangle(cornerRadius: size / 4)
+                .frame(width: size, height: size)
+                .foregroundColor(.black)
             Image(systemName: symbolName)
+                .font(.system(size: size / 2))
+                .foregroundColor(.white)
             // TODO: Render negations
-        } else {
-            Image(systemName: "questionmark") // TODO: Remaining symbols (make it non-optional?)
         }
     }
 }
