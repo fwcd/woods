@@ -27,7 +27,23 @@ struct WaypointAttributeView: View {
         case .boat: return "ferry.fill"
         case .flashlightRequired: return "flashlight.on.fill"
         case .specialToolRequired: return "wrench.and.screwdriver.fill"
+        case .dangerousArea: return "drop.triangle"
         case .wirelessBeacon: return "wifi"
+        case .ticks: return "ant.fill"
+        case .abandonedStructure: return "building.columns"
+        case .recommendedForKids: return "person.fill"
+        case .recommendedAtNight: return "moon.fill"
+        case .scenicView: return "binoculars.fill"
+        case .parkAndGrab: return "parkingsign.circle.fill"
+        case .significantHike: return "figure.walk"
+        case .nightCache: return "moon.stars.fill"
+        case .availableDuringWinter: return "snowflake"
+        case .stealthRequired: return "theatermasks.fill"
+        case .fieldPuzzle: return "puzzlepiece.extension.fill"
+        case .needsMaintenance: return "wrench.fill"
+        case .watchForLivestock: return "hare.fill"
+        case .touristFriendly: return "suitcase.fill"
+        case .seasonalAccess: return "thermometer.sun"
         default: return nil
         // TODO: More symbols
         }
