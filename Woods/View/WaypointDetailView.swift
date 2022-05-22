@@ -24,12 +24,7 @@ struct WaypointDetailView: View {
             }
             if let attributes = waypoint.attributes.nilIfEmpty {
                 SimpleSection(header: "Attributes", iconName: "tag.fill") {
-                    // TODO: Wrapping
-                    HStack {
-                        ForEach(attributes.keys.sorted { $0.rawValue < $1.rawValue }, id: \.self) { attribute in
-                            WaypointAttributeView(attribute: attribute, isEnabled: attributes[attribute] ?? true)
-                        }
-                    }
+                    WaypointAttributeGridView(attributes: attributes)
                 }
             }
             if let hint = waypoint.hint {

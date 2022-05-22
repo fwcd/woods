@@ -125,6 +125,8 @@
 		35677A37281287A200708B3B /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35677A35281287A200708B3B /* Regex.swift */; };
 		3567D0122785B5DD00060C37 /* CancelNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3567D0112785B5DD00060C37 /* CancelNavigationView.swift */; };
 		3567D0142785B7DD00060C37 /* WaypointListContextMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3567D0132785B7DD00060C37 /* WaypointListContextMenu.swift */; };
+		357168A8283AE107007305C5 /* WaypointAttributeGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357168A7283AE107007305C5 /* WaypointAttributeGridView.swift */; };
+		357168A9283AE107007305C5 /* WaypointAttributeGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357168A7283AE107007305C5 /* WaypointAttributeGridView.swift */; };
 		357BE45B280F39B100E31364 /* EditWaypointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357BE45A280F39B100E31364 /* EditWaypointView.swift */; };
 		357BE45C280F39B100E31364 /* EditWaypointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357BE45A280F39B100E31364 /* EditWaypointView.swift */; };
 		357BE45E280F417500E31364 /* NavigationWaypointDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357BE45D280F417500E31364 /* NavigationWaypointDetailView.swift */; };
@@ -368,6 +370,7 @@
 		35677A35281287A200708B3B /* Regex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
 		3567D0112785B5DD00060C37 /* CancelNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelNavigationView.swift; sourceTree = "<group>"; };
 		3567D0132785B7DD00060C37 /* WaypointListContextMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointListContextMenu.swift; sourceTree = "<group>"; };
+		357168A7283AE107007305C5 /* WaypointAttributeGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointAttributeGridView.swift; sourceTree = "<group>"; };
 		357BE45A280F39B100E31364 /* EditWaypointView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditWaypointView.swift; sourceTree = "<group>"; };
 		357BE45D280F417500E31364 /* NavigationWaypointDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationWaypointDetailView.swift; sourceTree = "<group>"; };
 		357BE460280F4BF500E31364 /* BindingUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingUtils.swift; sourceTree = "<group>"; };
@@ -793,6 +796,7 @@
 				C7B74EA425EDC46F00D5194B /* WaypointDetailView.swift */,
 				C7ECBE0D25EFFC13005933C0 /* WaypointDetailInfoView.swift */,
 				C7ECBE1525EFFCB7005933C0 /* WaypointDetailActionsView.swift */,
+				357168A7283AE107007305C5 /* WaypointAttributeGridView.swift */,
 				35BF10DD2839361300D20C9C /* WaypointAttributeView.swift */,
 				C7ECBDE625EFE479005933C0 /* LargeButtonStyle.swift */,
 				C7ECBDE125EFE03F005933C0 /* SimpleSection.swift */,
@@ -1217,6 +1221,7 @@
 				352229C9274A76AA00090224 /* StarsView.swift in Sources */,
 				35245D36280841E200E7B082 /* AccountLogin.swift in Sources */,
 				352229E6274A76BB00090224 /* MockConnector.swift in Sources */,
+				357168A9283AE107007305C5 /* WaypointAttributeGridView.swift in Sources */,
 				352229EA274A76C100090224 /* Degrees.swift in Sources */,
 				352229C0274A76AA00090224 /* WaypointDetailView.swift in Sources */,
 				352229D5274A76AB00090224 /* WaypointDistanceView.swift in Sources */,
@@ -1354,6 +1359,7 @@
 				35677A332812856100708B3B /* AccountInfo.swift in Sources */,
 				C765460E25D87C5A004F14E8 /* Coordinates.swift in Sources */,
 				35A75F66280F682E00BC959C /* LongitudeCardinal.swift in Sources */,
+				357168A8283AE107007305C5 /* WaypointAttributeGridView.swift in Sources */,
 				C748C2A725EEA16B00661BEE /* Waypoint+Color.swift in Sources */,
 				35BF10DE2839361300D20C9C /* WaypointAttributeView.swift in Sources */,
 				35A75F60280F655B00BC959C /* CoordinatesEditor.swift in Sources */,
