@@ -44,6 +44,8 @@ struct WaypointAttributeView: View {
         case .watchForLivestock: return "hare.fill"
         case .touristFriendly: return "suitcase.fill"
         case .seasonalAccess: return "thermometer.sun"
+        case .frontYardPrivateResidence: return "house.fill"
+        case .teamworkRequired: return "person.3.fill"
         default: return nil
         // TODO: More symbols
         }
