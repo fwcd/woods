@@ -35,24 +35,40 @@ struct WaypointAttributeView: View {
     
     var body: some View {
         let symbolName = symbolName ?? "questionmark"
-        ZStack {
-            RoundedRectangle(cornerRadius: size / 4)
+        let cornerRadius = size / 4
+        let lineWidth = size / 12
+        let diagOffset = cornerRadius / 2 - lineWidth / 2
+        ZStack(alignment: .center) {
+            RoundedRectangle(cornerRadius: cornerRadius)
+                .fill(.black)
                 .frame(width: size, height: size)
-                .foregroundColor(.black)
             Image(systemName: symbolName)
                 .font(.system(size: size / 2))
                 .foregroundColor(.white)
-            // TODO: Render negations
+            if negated {
+                RoundedRectangle(cornerRadius: cornerRadius)
+                    .stroke(.red, lineWidth: lineWidth)
+                    .frame(width: size, height: size)
+                Path { path in
+                    path.move(to: CGPoint(x: diagOffset, y: diagOffset))
+                    path.addLine(to: CGPoint(x: size - diagOffset, y: size - diagOffset))
+                    path.closeSubpath()
+                }
+                .stroke(.red, lineWidth: lineWidth)
+                .frame(width: size, height: size)
+            }
         }
     }
 }
 
 struct WaypointAttributeView_Previews: PreviewProvider {
     static var previews: some View {
-        List(WaypointAttribute.allCases, id: \.self) { attribute in
-            HStack {
-                WaypointAttributeView(attribute: attribute)
-                Text(attribute.name)
+        ForEach([false, true], id: \.self) { negated in
+            List(WaypointAttribute.allCases, id: \.self) { attribute in
+                HStack {
+                    WaypointAttributeView(attribute: attribute, negated: negated)
+                    Text(attribute.name)
+                }
             }
         }
     }
