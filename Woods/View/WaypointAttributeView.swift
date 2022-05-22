@@ -27,8 +27,8 @@ struct WaypointAttributeView: View {
         case .boat: return "ferry.fill"
         case .flashlightRequired: return "flashlight.on.fill"
         case .specialToolRequired: return "wrench.and.screwdriver.fill"
-        case .dangerousArea: return "drop.triangle"
-        case .wirelessBeacon: return "wifi"
+        case .dangerousArea: return "exclamationmark.triangle"
+        case .wirelessBeacon: return "antenna.radiowaves.left.and.right"
         case .ticks: return "ant.fill"
         case .abandonedStructure: return "building.columns"
         case .recommendedForKids: return "person.fill"
@@ -46,6 +46,9 @@ struct WaypointAttributeView: View {
         case .seasonalAccess: return "thermometer.sun"
         case .frontYardPrivateResidence: return "house.fill"
         case .teamworkRequired: return "person.3.fill"
+        case .poisonousPlants: return "leaf.fill"
+        case .picnicTablesNearby: return "studentdesk"
+        case .campingAvailable: return "triangle"
         default: return nil
         // TODO: More symbols
         }
@@ -66,6 +69,9 @@ struct WaypointAttributeView: View {
         case .longHike: return "> 10 km"
         case .takesLessThanAnHour: return "< 1h"
         case .availableAtAllTimes: return "24/7"
+        case .uvLightRequired: return "UV"
+        case .truckDriverRV: return "RV"
+        case .publicRestroomsNearby: return "WC"
         default:
             return attribute?.name
                 .split(separator: " ")
