@@ -49,6 +49,13 @@ struct WaypointAttributeView: View {
         }
     }
     
+    private var backgroundColor: Color {
+        switch attribute {
+        case .needsMaintenance: return .init(red: 0.5, green: 0, blue: 0)
+        default: return .black
+        }
+    }
+    
     private var abbreviation: String {
         switch attribute {
         case .shortHike: return "< 1 km"
@@ -70,7 +77,7 @@ struct WaypointAttributeView: View {
         let diagOffset = cornerRadius / 2 - lineWidth / 2
         ZStack(alignment: .center) {
             RoundedRectangle(cornerRadius: cornerRadius)
-                .fill(.black)
+                .fill(backgroundColor)
             Group {
                 if let symbolName = symbolName {
                     Image(systemName: symbolName)
