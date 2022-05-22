@@ -9,7 +9,7 @@ import SwiftUI
 
 struct WaypointAttributeView: View {
     let attribute: WaypointAttribute
-    var negated: Bool = false
+    var isEnabled: Bool = true
     var size: CGFloat = 45
     
     private var symbolName: String? {
@@ -92,7 +92,7 @@ struct WaypointAttributeView: View {
             .foregroundColor(.white)
             .minimumScaleFactor(0.01)
             .multilineTextAlignment(.center)
-            if negated {
+            if !isEnabled {
                 RoundedRectangle(cornerRadius: cornerRadius)
                     .stroke(.red, lineWidth: lineWidth)
                 Path { path in
@@ -109,10 +109,10 @@ struct WaypointAttributeView: View {
 
 struct WaypointAttributeView_Previews: PreviewProvider {
     static var previews: some View {
-        ForEach([false, true], id: \.self) { negated in
+        ForEach([true, false], id: \.self) { isEnabled in
             List(WaypointAttribute.allCases, id: \.self) { attribute in
                 HStack {
-                    WaypointAttributeView(attribute: attribute, negated: negated)
+                    WaypointAttributeView(attribute: attribute, isEnabled: isEnabled)
                     Text(attribute.name)
                 }
             }

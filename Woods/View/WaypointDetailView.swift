@@ -27,7 +27,7 @@ struct WaypointDetailView: View {
                     // TODO: Wrapping
                     HStack {
                         ForEach(attributes.keys.sorted { $0.rawValue < $1.rawValue }, id: \.self) { attribute in
-                            WaypointAttributeView(attribute: attribute, negated: !(attributes[attribute] ?? true))
+                            WaypointAttributeView(attribute: attribute, isEnabled: attributes[attribute] ?? true)
                         }
                     }
                 }
