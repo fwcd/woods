@@ -49,31 +49,52 @@ struct WaypointAttributeView: View {
         }
     }
     
+    private var abbreviation: String {
+        switch attribute {
+        case .shortHike: return "< 1 km"
+        case .mediumHike: return "1-10 km"
+        case .longHike: return "> 10 km"
+        case .takesLessThanAnHour: return "< 1h"
+        case .availableAtAllTimes: return "24/7"
+        default:
+            return attribute.name
+                .split(separator: " ")
+                .compactMap { $0.first?.uppercased() }
+                .joined()
+        }
+    }
+    
     var body: some View {
-        let symbolName = symbolName ?? "questionmark"
         let cornerRadius = size / 4
         let lineWidth = size / 12
         let diagOffset = cornerRadius / 2 - lineWidth / 2
         ZStack(alignment: .center) {
             RoundedRectangle(cornerRadius: cornerRadius)
                 .fill(.black)
-                .frame(width: size, height: size)
-            Image(systemName: symbolName)
-                .font(.system(size: size / 2))
-                .foregroundColor(.white)
+            Group {
+                if let symbolName = symbolName {
+                    Image(systemName: symbolName)
+                } else {
+                    Text(abbreviation)
+                        .padding(4)
+                }
+            }
+            .font(.system(size: size / 2))
+            .foregroundColor(.white)
+            .minimumScaleFactor(0.01)
+            .multilineTextAlignment(.center)
             if negated {
                 RoundedRectangle(cornerRadius: cornerRadius)
                     .stroke(.red, lineWidth: lineWidth)
-                    .frame(width: size, height: size)
                 Path { path in
                     path.move(to: CGPoint(x: diagOffset, y: diagOffset))
                     path.addLine(to: CGPoint(x: size - diagOffset, y: size - diagOffset))
                     path.closeSubpath()
                 }
                 .stroke(.red, lineWidth: lineWidth)
-                .frame(width: size, height: size)
             }
         }
+        .frame(width: size, height: size)
     }
 }
 
