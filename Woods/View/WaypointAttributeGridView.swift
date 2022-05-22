@@ -6,15 +6,22 @@
 //
 
 import SwiftUI
+import WrappingHStack
 
 struct WaypointAttributeGridView: View {
     let attributes: [WaypointAttribute: Bool]
     
     var body: some View {
-        HStack {
-            ForEach(attributes.keys.sorted { $0.rawValue < $1.rawValue }, id: \.self) { attribute in
-                WaypointAttributeView(attribute: attribute, isEnabled: attributes[attribute]!)
-            }
+        let spacing: CGFloat = 8
+        let keys = attributes.keys
+            .sorted { $0.rawValue < $1.rawValue }
+        WrappingHStack(
+            keys,
+            id: \.self,
+            spacing: .constant(spacing),
+            lineSpacing: spacing
+        ) { attribute in
+            WaypointAttributeView(attribute: attribute, isEnabled: attributes[attribute]!)
         }
     }
 }
