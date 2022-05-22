@@ -22,6 +22,16 @@ struct WaypointDetailView: View {
                     LightHTMLView(html: description)
                 }
             }
+            if let attributes = waypoint.attributes.nilIfEmpty {
+                SimpleSection(header: "Attributes", iconName: "tag.fill") {
+                    // TODO: Wrapping
+                    HStack {
+                        ForEach(attributes.keys.sorted { $0.rawValue < $1.rawValue }, id: \.self) { attribute in
+                            WaypointAttributeView(attribute: attribute, negated: !(attributes[attribute] ?? true))
+                        }
+                    }
+                }
+            }
             if let hint = waypoint.hint {
                 SimpleSection(header: "Hint", iconName: "lightbulb.fill") {
                     Text(hint)
