@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct WaypointAttributeView: View {
-    let attribute: WaypointAttribute
+    var attribute: WaypointAttribute? = nil
     var isEnabled: Bool = true
     var size: CGFloat = 45
     
@@ -54,11 +54,12 @@ struct WaypointAttributeView: View {
     private var backgroundColor: Color {
         switch attribute {
         case .needsMaintenance: return .init(red: 0.5, green: 0, blue: 0)
+        case nil: return .gray
         default: return .black
         }
     }
     
-    private var abbreviation: String {
+    private var abbreviation: String? {
         switch attribute {
         case .shortHike: return "< 1 km"
         case .mediumHike: return "1-10 km"
@@ -66,7 +67,7 @@ struct WaypointAttributeView: View {
         case .takesLessThanAnHour: return "< 1h"
         case .availableAtAllTimes: return "24/7"
         default:
-            return attribute.name
+            return attribute?.name
                 .split(separator: " ")
                 .compactMap { $0.first?.uppercased() }
                 .joined()
@@ -83,9 +84,11 @@ struct WaypointAttributeView: View {
             Group {
                 if let symbolName = symbolName {
                     Image(systemName: symbolName)
-                } else {
+                } else if let abbreviation = abbreviation {
                     Text(abbreviation)
                         .padding(4)
+                } else {
+                    
                 }
             }
             .font(.system(size: size / 2))
@@ -110,10 +113,16 @@ struct WaypointAttributeView: View {
 struct WaypointAttributeView_Previews: PreviewProvider {
     static var previews: some View {
         ForEach([true, false], id: \.self) { isEnabled in
-            List(WaypointAttribute.allCases, id: \.self) { attribute in
+            List {
                 HStack {
-                    WaypointAttributeView(attribute: attribute, isEnabled: isEnabled)
-                    Text(attribute.name)
+                    WaypointAttributeView(isEnabled: isEnabled)
+                    Text("Empty")
+                }
+                ForEach(WaypointAttribute.allCases, id: \.self) { attribute in
+                    HStack {
+                        WaypointAttributeView(attribute: attribute, isEnabled: isEnabled)
+                        Text(attribute.name)
+                    }
                 }
             }
         }
