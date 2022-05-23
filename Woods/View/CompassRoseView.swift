@@ -12,13 +12,10 @@ struct CompassRoseView: View {
     
     var body: some View {
         ZStack {
-            Group {
-                CompassRoseMarkers(markCount: 180)
-                    .stroke(lineWidth: 1)
-                CompassRoseMarkers(markCount: 12)
-                    .stroke(lineWidth: 4)
-            }
-            .rotationEffect(.degrees(heading.totalDegrees))
+            CompassRoseMarkers(heading: heading, markCount: 180)
+                .stroke(lineWidth: 1)
+            CompassRoseMarkers(heading: heading, markCount: 12)
+                .stroke(lineWidth: 4)
             // TODO: Labels
             Text(heading.shortDescription)
                 .font(.system(size: 48))

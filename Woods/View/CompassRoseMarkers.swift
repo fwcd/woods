@@ -8,16 +8,18 @@
 import SwiftUI
 
 struct CompassRoseMarkers: Shape {
+    var heading: Degrees = .zero
     var markCount: Int = 180
     
     func path(in rect: CGRect) -> Path {
         var path = Path()
+        let headingRadians = heading.totalRadians
         let size = rect.size
         let stride = 2 * .pi / CGFloat(markCount)
         let markLength = (size.width + size.height) / 20
         
         for i in 0..<markCount {
-            let angle = CGFloat(i) * stride
+            let angle = CGFloat(i) * stride - headingRadians
             let outerRadiusX = size.width / 2
             let outerRadiusY = size.height / 2
             let innerRadiusX = outerRadiusX - markLength
