@@ -47,7 +47,7 @@
 		352229C0274A76AA00090224 /* WaypointDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74EA425EDC46F00D5194B /* WaypointDetailView.swift */; };
 		352229C1274A76AA00090224 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74EC325EDCF8800D5194B /* SearchBar.swift */; };
 		352229C2274A76AA00090224 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765465225D88E48004F14E8 /* LoginView.swift */; };
-		352229C3274A76AA00090224 /* GeocacheType+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74EBB25EDCA5E00D5194B /* GeocacheType+Color.swift */; };
+		352229C3274A76AA00090224 /* WaypointType+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74EBB25EDCA5E00D5194B /* WaypointType+Color.swift */; };
 		352229C4274A76AA00090224 /* RichMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B6F0FC249FA16B00454841 /* RichMapView.swift */; };
 		352229C5274A76AA00090224 /* WaypointDetailInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBE0D25EFFC13005933C0 /* WaypointDetailInfoView.swift */; };
 		352229C6274A76AA00090224 /* Waypoint+Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C748C2AB25EEA19300661BEE /* Waypoint+Icon.swift */; };
@@ -243,7 +243,7 @@
 		C7B74EA525EDC46F00D5194B /* WaypointDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74EA425EDC46F00D5194B /* WaypointDetailView.swift */; };
 		C7B74EAA25EDC4A600D5194B /* MockGeocaches.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74EA925EDC4A600D5194B /* MockGeocaches.swift */; };
 		C7B74EB725EDC5C200D5194B /* StarsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74EB625EDC5C200D5194B /* StarsView.swift */; };
-		C7B74EBC25EDCA5E00D5194B /* GeocacheType+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74EBB25EDCA5E00D5194B /* GeocacheType+Color.swift */; };
+		C7B74EBC25EDCA5E00D5194B /* WaypointType+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74EBB25EDCA5E00D5194B /* WaypointType+Color.swift */; };
 		C7B74EC425EDCF8800D5194B /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74EC325EDCF8800D5194B /* SearchBar.swift */; };
 		C7B74EC925EDD32F00D5194B /* WaypointLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74EC825EDD32F00D5194B /* WaypointLog.swift */; };
 		C7B74ECE25EDD35400D5194B /* WaypointLogType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74ECD25EDD35400D5194B /* WaypointLogType.swift */; };
@@ -456,7 +456,7 @@
 		C7B74EA425EDC46F00D5194B /* WaypointDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointDetailView.swift; sourceTree = "<group>"; };
 		C7B74EA925EDC4A600D5194B /* MockGeocaches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockGeocaches.swift; sourceTree = "<group>"; };
 		C7B74EB625EDC5C200D5194B /* StarsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarsView.swift; sourceTree = "<group>"; };
-		C7B74EBB25EDCA5E00D5194B /* GeocacheType+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GeocacheType+Color.swift"; sourceTree = "<group>"; };
+		C7B74EBB25EDCA5E00D5194B /* WaypointType+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WaypointType+Color.swift"; sourceTree = "<group>"; };
 		C7B74EC325EDCF8800D5194B /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		C7B74EC825EDD32F00D5194B /* WaypointLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointLog.swift; sourceTree = "<group>"; };
 		C7B74ECD25EDD35400D5194B /* WaypointLogType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointLogType.swift; sourceTree = "<group>"; };
@@ -847,9 +847,9 @@
 				C7ECBD8625EED110005933C0 /* WaypointListView.swift */,
 				3567D0132785B7DD00060C37 /* WaypointListContextMenu.swift */,
 				C7ECBD9325EED91E005933C0 /* WaypointListSnippetView.swift */,
-				C7B74EBB25EDCA5E00D5194B /* GeocacheType+Color.swift */,
 				C748C2A625EEA16B00661BEE /* Waypoint+Color.swift */,
 				C748C2AB25EEA19300661BEE /* Waypoint+Icon.swift */,
+				C7B74EBB25EDCA5E00D5194B /* WaypointType+Color.swift */,
 				356EF3C7283C4EB700BCBA8F /* WaypointType+Icon.swift */,
 				C7B74EB625EDC5C200D5194B /* StarsView.swift */,
 				C7ECBE0525EFF9D9005933C0 /* SizeView.swift */,
@@ -1293,7 +1293,7 @@
 				352229BC274A76AA00090224 /* LightHTMLView.swift in Sources */,
 				35156CC5280FB0EA00136E25 /* RichMapButtons.swift in Sources */,
 				352229B7274A76AA00090224 /* WaypointListView.swift in Sources */,
-				352229C3274A76AA00090224 /* GeocacheType+Color.swift in Sources */,
+				352229C3274A76AA00090224 /* WaypointType+Color.swift in Sources */,
 				352229E3274A76BB00090224 /* WaypointsInRadiusQuery.swift in Sources */,
 				352229B5274A76AA00090224 /* WaypointSmallSnippetView.swift in Sources */,
 				352229B6274A76AA00090224 /* SimpleSection.swift in Sources */,
@@ -1402,7 +1402,7 @@
 				C7B6F0FF249FA1B300454841 /* Map.swift in Sources */,
 				C73E04BF249F9F4700C6E22C /* ContentView.swift in Sources */,
 				357BE45B280F39B100E31364 /* EditWaypointView.swift in Sources */,
-				C7B74EBC25EDCA5E00D5194B /* GeocacheType+Color.swift in Sources */,
+				C7B74EBC25EDCA5E00D5194B /* WaypointType+Color.swift in Sources */,
 				35677A332812856100708B3B /* AccountInfo.swift in Sources */,
 				C765460E25D87C5A004F14E8 /* Coordinates.swift in Sources */,
 				35A75F66280F682E00BC959C /* LongitudeCardinal.swift in Sources */,

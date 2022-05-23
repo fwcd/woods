@@ -22,7 +22,7 @@ struct WaypointTypeView_Previews: PreviewProvider {
         List(WaypointType.allCases, id: \.self) { type in
             HStack {
                 WaypointTypeView(type: type)
-                Text(type.rawValue)
+                Text(type.name)
             }
         }
     }
