@@ -11,12 +11,13 @@ import SwiftUI
 struct LargeButtonStyle: ButtonStyle {
     var radius: CGFloat = 5
     var padding: CGFloat = 12
+    var color: Color = .accentColor
     
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .padding(padding)
             .foregroundColor(.white)
-            .background(configuration.isPressed ? Color.blue.opacity(0.5) : Color.blue)
+            .background(configuration.isPressed ? color.opacity(0.4) : color.opacity(0.7))
             .cornerRadius(radius)
     }
 }
