@@ -65,6 +65,7 @@ struct Degrees: AdditiveArithmetic, Hashable, Comparable, Codable, CustomStringC
     }
     
     var description: String { String(format: "%d° %.3f'", dm.degrees, dm.minutes) }
+    var shortDescription: String { String(format: "%d°", dm.degrees) }
     
     init() {
         self.init(degrees: 0)

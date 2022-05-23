@@ -13,22 +13,13 @@ struct LocationView: View {
     var body: some View {
         NavigationView {
             VStack(spacing: 40) {
-                CompassRoseView()
+                CompassRoseView(heading: locationManager.heading ?? .zero)
                     .aspectRatio(1, contentMode: .fit)
                     .padding(30)
-                    .rotationEffect(.degrees(locationManager.heading?.totalDegrees ?? 0))
                 VStack(spacing: 10) {
                     Text("\(locationManager.location?.description ?? "No Location")")
                         .font(.title2)
                     if let accuracy = locationManager.locationAccuracy {
-                        Text("\u{00B1} \(accuracy.description)")
-                            .font(.title3)
-                    }
-                }
-                VStack(spacing: 10) {
-                    Text(locationManager.heading?.description ?? "No Heading")
-                        .font(.title2)
-                    if let accuracy = locationManager.headingAccuracy {
                         Text("\u{00B1} \(accuracy.description)")
                             .font(.title3)
                     }
