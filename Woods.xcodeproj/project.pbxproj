@@ -87,7 +87,7 @@
 		352229E9274A76C100090224 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765463025D8856C004F14E8 /* Credentials.swift */; };
 		352229EA274A76C100090224 /* Degrees.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74EE225EDDD8C00D5194B /* Degrees.swift */; };
 		352229EB274A76C100090224 /* WaypointList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBD7925EECF7B005933C0 /* WaypointList.swift */; };
-		352229EC274A76C100090224 /* GeocacheAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBDBD25EF02B0005933C0 /* GeocacheAttributes.swift */; };
+		352229EC274A76C100090224 /* WaypointAttribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBDBD25EF02B0005933C0 /* WaypointAttribute.swift */; };
 		352229ED274A76C100090224 /* Waypoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765460025D87B26004F14E8 /* Waypoint.swift */; };
 		352229EE274A76C100090224 /* MockGeocaches.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74EA925EDC4A600D5194B /* MockGeocaches.swift */; };
 		352229EF274A76C100090224 /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBDCD25EF0C15005933C0 /* Region.swift */; };
@@ -95,7 +95,7 @@
 		352229F1274A76C100090224 /* WaypointLogType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74ECD25EDD35400D5194B /* WaypointLogType.swift */; };
 		352229F2274A76C100090224 /* WaypointListTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBDB225EEF77A005933C0 /* WaypointListTree.swift */; };
 		352229F3274A76C100090224 /* Cardinal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74EFB25EDE7E900D5194B /* Cardinal.swift */; };
-		352229F4274A76C100090224 /* GeocacheStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBDDC25EF182F005933C0 /* GeocacheStatus.swift */; };
+		352229F4274A76C100090224 /* WaypointStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBDDC25EF182F005933C0 /* WaypointStatus.swift */; };
 		352229F5274A76C100090224 /* Length.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765462B25D880D7004F14E8 /* Length.swift */; };
 		352229F6274A76C100090224 /* Coordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765460D25D87C5A004F14E8 /* Coordinates.swift */; };
 		352229F7274A76C100090224 /* WaypointLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74EC825EDD32F00D5194B /* WaypointLog.swift */; };
@@ -125,6 +125,12 @@
 		35677A37281287A200708B3B /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35677A35281287A200708B3B /* Regex.swift */; };
 		3567D0122785B5DD00060C37 /* CancelNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3567D0112785B5DD00060C37 /* CancelNavigationView.swift */; };
 		3567D0142785B7DD00060C37 /* WaypointListContextMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3567D0132785B7DD00060C37 /* WaypointListContextMenu.swift */; };
+		357168A8283AE107007305C5 /* WaypointAttributeGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357168A7283AE107007305C5 /* WaypointAttributeGridView.swift */; };
+		357168A9283AE107007305C5 /* WaypointAttributeGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357168A7283AE107007305C5 /* WaypointAttributeGridView.swift */; };
+		357168AC283AE716007305C5 /* WrappingHStack in Frameworks */ = {isa = PBXBuildFile; productRef = 357168AB283AE716007305C5 /* WrappingHStack */; };
+		357168AE283AE731007305C5 /* WrappingHStack in Frameworks */ = {isa = PBXBuildFile; productRef = 357168AD283AE731007305C5 /* WrappingHStack */; };
+		357168B0283B1EB0007305C5 /* WaypointAttribute+GeocachingCom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357168AF283B1EB0007305C5 /* WaypointAttribute+GeocachingCom.swift */; };
+		357168B1283B1EB0007305C5 /* WaypointAttribute+GeocachingCom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357168AF283B1EB0007305C5 /* WaypointAttribute+GeocachingCom.swift */; };
 		357BE45B280F39B100E31364 /* EditWaypointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357BE45A280F39B100E31364 /* EditWaypointView.swift */; };
 		357BE45C280F39B100E31364 /* EditWaypointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357BE45A280F39B100E31364 /* EditWaypointView.swift */; };
 		357BE45E280F417500E31364 /* NavigationWaypointDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357BE45D280F417500E31364 /* NavigationWaypointDetailView.swift */; };
@@ -153,6 +159,8 @@
 		35A75F6D280F6DD700BC959C /* SignedCardinal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A75F6B280F6DD700BC959C /* SignedCardinal.swift */; };
 		35A75F6F280F75A400BC959C /* SignUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A75F6E280F75A400BC959C /* SignUtils.swift */; };
 		35A75F70280F75A400BC959C /* SignUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A75F6E280F75A400BC959C /* SignUtils.swift */; };
+		35BF10DE2839361300D20C9C /* WaypointAttributeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BF10DD2839361300D20C9C /* WaypointAttributeView.swift */; };
+		35BF10DF2839361300D20C9C /* WaypointAttributeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BF10DD2839361300D20C9C /* WaypointAttributeView.swift */; };
 		35DF4E6B2810D824009B8E06 /* URL+Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DF4E6A2810D824009B8E06 /* URL+Identifiable.swift */; };
 		35DF4E6C2810D824009B8E06 /* URL+Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DF4E6A2810D824009B8E06 /* URL+Identifiable.swift */; };
 		35DF4E6E2810DEC3009B8E06 /* WaypointLogType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74ECD25EDD35400D5194B /* WaypointLogType.swift */; };
@@ -164,12 +172,12 @@
 		35DF4E742810DEC3009B8E06 /* Degrees.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74EE225EDDD8C00D5194B /* Degrees.swift */; };
 		35DF4E752810DEC3009B8E06 /* WaypointListTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBDB225EEF77A005933C0 /* WaypointListTree.swift */; };
 		35DF4E762810DEC3009B8E06 /* Coordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765460D25D87C5A004F14E8 /* Coordinates.swift */; };
-		35DF4E772810DEC3009B8E06 /* GeocacheStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBDDC25EF182F005933C0 /* GeocacheStatus.swift */; };
+		35DF4E772810DEC3009B8E06 /* WaypointStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBDDC25EF182F005933C0 /* WaypointStatus.swift */; };
 		35DF4E782810DEC3009B8E06 /* Waypoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765460025D87B26004F14E8 /* Waypoint.swift */; };
 		35DF4E792810DEC3009B8E06 /* LongitudeCardinal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A75F65280F682E00BC959C /* LongitudeCardinal.swift */; };
 		35DF4E7A2810DEC3009B8E06 /* MockGeocaches.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74EA925EDC4A600D5194B /* MockGeocaches.swift */; };
 		35DF4E7B2810DEC3009B8E06 /* Cardinal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74EFB25EDE7E900D5194B /* Cardinal.swift */; };
-		35DF4E7C2810DEC3009B8E06 /* GeocacheAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBDBD25EF02B0005933C0 /* GeocacheAttributes.swift */; };
+		35DF4E7C2810DEC3009B8E06 /* WaypointAttribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBDBD25EF02B0005933C0 /* WaypointAttribute.swift */; };
 		35DF4E7D2810DEC3009B8E06 /* Length.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765462B25D880D7004F14E8 /* Length.swift */; };
 		35DF4E7E2810DEC3009B8E06 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765463025D8856C004F14E8 /* Credentials.swift */; };
 		35DF4E7F2810DEC3009B8E06 /* GeocacheSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765461225D87CEB004F14E8 /* GeocacheSize.swift */; };
@@ -244,12 +252,12 @@
 		C7ECBDA625EEE271005933C0 /* NewWaypointListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBDA525EEE271005933C0 /* NewWaypointListView.swift */; };
 		C7ECBDAE25EEF2E9005933C0 /* WaypointListPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBDAD25EEF2E9005933C0 /* WaypointListPickerView.swift */; };
 		C7ECBDB325EEF77A005933C0 /* WaypointListTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBDB225EEF77A005933C0 /* WaypointListTree.swift */; };
-		C7ECBDBE25EF02B0005933C0 /* GeocacheAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBDBD25EF02B0005933C0 /* GeocacheAttributes.swift */; };
+		C7ECBDBE25EF02B0005933C0 /* WaypointAttribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBDBD25EF02B0005933C0 /* WaypointAttribute.swift */; };
 		C7ECBDC625EF0B90005933C0 /* WaypointsInRegionQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBDC525EF0B90005933C0 /* WaypointsInRegionQuery.swift */; };
 		C7ECBDCE25EF0C15005933C0 /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBDCD25EF0C15005933C0 /* Region.swift */; };
 		C7ECBDD325EF107E005933C0 /* GeocachingComSortOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBDD225EF107E005933C0 /* GeocachingComSortOrder.swift */; };
 		C7ECBDD825EF1389005933C0 /* GeocachingComApiResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBDD725EF1389005933C0 /* GeocachingComApiResults.swift */; };
-		C7ECBDDD25EF182F005933C0 /* GeocacheStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBDDC25EF182F005933C0 /* GeocacheStatus.swift */; };
+		C7ECBDDD25EF182F005933C0 /* WaypointStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBDDC25EF182F005933C0 /* WaypointStatus.swift */; };
 		C7ECBDE225EFE03F005933C0 /* SimpleSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBDE125EFE03F005933C0 /* SimpleSection.swift */; };
 		C7ECBDE725EFE479005933C0 /* LargeButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBDE625EFE479005933C0 /* LargeButtonStyle.swift */; };
 		C7ECBDEC25EFE945005933C0 /* ShareSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBDEB25EFE945005933C0 /* ShareSheet.swift */; };
@@ -366,6 +374,8 @@
 		35677A35281287A200708B3B /* Regex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
 		3567D0112785B5DD00060C37 /* CancelNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelNavigationView.swift; sourceTree = "<group>"; };
 		3567D0132785B7DD00060C37 /* WaypointListContextMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointListContextMenu.swift; sourceTree = "<group>"; };
+		357168A7283AE107007305C5 /* WaypointAttributeGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointAttributeGridView.swift; sourceTree = "<group>"; };
+		357168AF283B1EB0007305C5 /* WaypointAttribute+GeocachingCom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WaypointAttribute+GeocachingCom.swift"; sourceTree = "<group>"; };
 		357BE45A280F39B100E31364 /* EditWaypointView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditWaypointView.swift; sourceTree = "<group>"; };
 		357BE45D280F417500E31364 /* NavigationWaypointDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationWaypointDetailView.swift; sourceTree = "<group>"; };
 		357BE460280F4BF500E31364 /* BindingUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingUtils.swift; sourceTree = "<group>"; };
@@ -380,6 +390,7 @@
 		35A75F68280F6D8A00BC959C /* CoordinateEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateEditor.swift; sourceTree = "<group>"; };
 		35A75F6B280F6DD700BC959C /* SignedCardinal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedCardinal.swift; sourceTree = "<group>"; };
 		35A75F6E280F75A400BC959C /* SignUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUtils.swift; sourceTree = "<group>"; };
+		35BF10DD2839361300D20C9C /* WaypointAttributeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointAttributeView.swift; sourceTree = "<group>"; };
 		35DF4E6A2810D824009B8E06 /* URL+Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Identifiable.swift"; sourceTree = "<group>"; };
 		35E2B324280B87DE00A4267C /* CompareUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareUtils.swift; sourceTree = "<group>"; };
 		35E5DF43274642D200226EEA /* SidebarWaypointListsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarWaypointListsView.swift; sourceTree = "<group>"; };
@@ -448,12 +459,12 @@
 		C7ECBDA525EEE271005933C0 /* NewWaypointListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWaypointListView.swift; sourceTree = "<group>"; };
 		C7ECBDAD25EEF2E9005933C0 /* WaypointListPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointListPickerView.swift; sourceTree = "<group>"; };
 		C7ECBDB225EEF77A005933C0 /* WaypointListTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointListTree.swift; sourceTree = "<group>"; };
-		C7ECBDBD25EF02B0005933C0 /* GeocacheAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocacheAttributes.swift; sourceTree = "<group>"; };
+		C7ECBDBD25EF02B0005933C0 /* WaypointAttribute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointAttribute.swift; sourceTree = "<group>"; };
 		C7ECBDC525EF0B90005933C0 /* WaypointsInRegionQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointsInRegionQuery.swift; sourceTree = "<group>"; };
 		C7ECBDCD25EF0C15005933C0 /* Region.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
 		C7ECBDD225EF107E005933C0 /* GeocachingComSortOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocachingComSortOrder.swift; sourceTree = "<group>"; };
 		C7ECBDD725EF1389005933C0 /* GeocachingComApiResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocachingComApiResults.swift; sourceTree = "<group>"; };
-		C7ECBDDC25EF182F005933C0 /* GeocacheStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocacheStatus.swift; sourceTree = "<group>"; };
+		C7ECBDDC25EF182F005933C0 /* WaypointStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointStatus.swift; sourceTree = "<group>"; };
 		C7ECBDE125EFE03F005933C0 /* SimpleSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleSection.swift; sourceTree = "<group>"; };
 		C7ECBDE625EFE479005933C0 /* LargeButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeButtonStyle.swift; sourceTree = "<group>"; };
 		C7ECBDEB25EFE945005933C0 /* ShareSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSheet.swift; sourceTree = "<group>"; };
@@ -489,6 +500,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				35222A03274A773E00090224 /* CoreGPX in Frameworks */,
+				357168AE283AE731007305C5 /* WrappingHStack in Frameworks */,
 				35222A05274A774100090224 /* SwiftSoup in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -505,6 +517,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C76546B625ED2E07004F14E8 /* SwiftSoup in Frameworks */,
+				357168AC283AE716007305C5 /* WrappingHStack in Frameworks */,
 				C7ECBE1F25EFFEA6005933C0 /* CoreGPX in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -706,8 +719,8 @@
 				35A75F6B280F6DD700BC959C /* SignedCardinal.swift */,
 				C765461225D87CEB004F14E8 /* GeocacheSize.swift */,
 				C765460825D87BA9004F14E8 /* GeocacheType.swift */,
-				C7ECBDDC25EF182F005933C0 /* GeocacheStatus.swift */,
-				C7ECBDBD25EF02B0005933C0 /* GeocacheAttributes.swift */,
+				C7ECBDDC25EF182F005933C0 /* WaypointStatus.swift */,
+				C7ECBDBD25EF02B0005933C0 /* WaypointAttribute.swift */,
 				C7B74EC825EDD32F00D5194B /* WaypointLog.swift */,
 				C7B74ECD25EDD35400D5194B /* WaypointLogType.swift */,
 				C765462B25D880D7004F14E8 /* Length.swift */,
@@ -728,6 +741,7 @@
 				C765466125D89141004F14E8 /* GeocachingComConnector.swift */,
 				C7ECBDD725EF1389005933C0 /* GeocachingComApiResults.swift */,
 				C7ECBDD225EF107E005933C0 /* GeocachingComSortOrder.swift */,
+				357168AF283B1EB0007305C5 /* WaypointAttribute+GeocachingCom.swift */,
 				C7E1B88925ED72F0004575A5 /* MockConnector.swift */,
 			);
 			path = Connector;
@@ -790,6 +804,8 @@
 				C7B74EA425EDC46F00D5194B /* WaypointDetailView.swift */,
 				C7ECBE0D25EFFC13005933C0 /* WaypointDetailInfoView.swift */,
 				C7ECBE1525EFFCB7005933C0 /* WaypointDetailActionsView.swift */,
+				357168A7283AE107007305C5 /* WaypointAttributeGridView.swift */,
+				35BF10DD2839361300D20C9C /* WaypointAttributeView.swift */,
 				C7ECBDE625EFE479005933C0 /* LargeButtonStyle.swift */,
 				C7ECBDE125EFE03F005933C0 /* SimpleSection.swift */,
 				C7ECBDAD25EEF2E9005933C0 /* WaypointListPickerView.swift */,
@@ -904,6 +920,7 @@
 			packageProductDependencies = (
 				35222A02274A773E00090224 /* CoreGPX */,
 				35222A04274A774100090224 /* SwiftSoup */,
+				357168AD283AE731007305C5 /* WrappingHStack */,
 			);
 			productName = MacWoods;
 			productReference = 35222987274A756C00090224 /* Woods.app */;
@@ -945,6 +962,7 @@
 			packageProductDependencies = (
 				C76546B525ED2E07004F14E8 /* SwiftSoup */,
 				C7ECBE1E25EFFEA6005933C0 /* CoreGPX */,
+				357168AB283AE716007305C5 /* WrappingHStack */,
 			);
 			productName = Woods;
 			productReference = C73E04B7249F9F4700C6E22C /* Woods.app */;
@@ -1017,6 +1035,7 @@
 			packageReferences = (
 				C76546B425ED2E07004F14E8 /* XCRemoteSwiftPackageReference "SwiftSoup" */,
 				C7ECBE1D25EFFEA6005933C0 /* XCRemoteSwiftPackageReference "CoreGPX" */,
+				357168AA283AE716007305C5 /* XCRemoteSwiftPackageReference "WrappingHStack" */,
 			);
 			productRefGroup = C73E04B8249F9F4700C6E22C /* Products */;
 			projectDirPath = "";
@@ -1124,11 +1143,11 @@
 				35DF4E862810DF31009B8E06 /* SignUtils.swift in Sources */,
 				35DF4E852810DF2B009B8E06 /* CompareUtils.swift in Sources */,
 				35985CFF2811A18D00D37DB2 /* RemoteHostManager.swift in Sources */,
-				35DF4E772810DEC3009B8E06 /* GeocacheStatus.swift in Sources */,
+				35DF4E772810DEC3009B8E06 /* WaypointStatus.swift in Sources */,
 				35985CF628119D0C00D37DB2 /* WatchMessageKey.swift in Sources */,
 				35126CD92745CE1E00CF998C /* WoodsApp.swift in Sources */,
 				35126CDF2745CE1E00CF998C /* NotificationView.swift in Sources */,
-				35DF4E7C2810DEC3009B8E06 /* GeocacheAttributes.swift in Sources */,
+				35DF4E7C2810DEC3009B8E06 /* WaypointAttribute.swift in Sources */,
 				35DF4E7A2810DEC3009B8E06 /* MockGeocaches.swift in Sources */,
 				35DF4E742810DEC3009B8E06 /* Degrees.swift in Sources */,
 				35985CED28118A2B00D37DB2 /* WaypointLocatingNavigatorView.swift in Sources */,
@@ -1148,7 +1167,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				352229C5274A76AA00090224 /* WaypointDetailInfoView.swift in Sources */,
-				352229EC274A76C100090224 /* GeocacheAttributes.swift in Sources */,
+				352229EC274A76C100090224 /* WaypointAttribute.swift in Sources */,
 				352229DD274A76B400090224 /* Account.swift in Sources */,
 				352229EF274A76C100090224 /* Region.swift in Sources */,
 				352229DF274A76B400090224 /* WaypointListWrapper.swift in Sources */,
@@ -1183,7 +1202,7 @@
 				35A75F70280F75A400BC959C /* SignUtils.swift in Sources */,
 				352229C7274A76AA00090224 /* SidebarContentView.swift in Sources */,
 				35A75F6D280F6DD700BC959C /* SignedCardinal.swift in Sources */,
-				352229F4274A76C100090224 /* GeocacheStatus.swift in Sources */,
+				352229F4274A76C100090224 /* WaypointStatus.swift in Sources */,
 				352229DB274A76B400090224 /* Waypoints.swift in Sources */,
 				35A75F61280F655B00BC959C /* CoordinatesEditor.swift in Sources */,
 				352229BB274A76AA00090224 /* WaypointLogView.swift in Sources */,
@@ -1194,6 +1213,7 @@
 				352229BF274A76AA00090224 /* SizeView.swift in Sources */,
 				352229EE274A76C100090224 /* MockGeocaches.swift in Sources */,
 				357BE462280F4BF500E31364 /* BindingUtils.swift in Sources */,
+				35BF10DF2839361300D20C9C /* WaypointAttributeView.swift in Sources */,
 				352229E8274A76BB00090224 /* Connector.swift in Sources */,
 				352229F6274A76C100090224 /* Coordinates.swift in Sources */,
 				352229F5274A76C100090224 /* Length.swift in Sources */,
@@ -1201,6 +1221,7 @@
 				350C523328078F5C00309F5C /* CompatibilityLayer.swift in Sources */,
 				35A75F64280F67DC00BC959C /* LatitudeCardinal.swift in Sources */,
 				352229B2274A765300090224 /* WoodsApp.swift in Sources */,
+				357168B1283B1EB0007305C5 /* WaypointAttribute+GeocachingCom.swift in Sources */,
 				35985CEC281188E800D37DB2 /* WaypointLocatingNavigatorView.swift in Sources */,
 				352229E2274A76BB00090224 /* GeocachingComSortOrder.swift in Sources */,
 				352229C1274A76AA00090224 /* SearchBar.swift in Sources */,
@@ -1212,6 +1233,7 @@
 				352229C9274A76AA00090224 /* StarsView.swift in Sources */,
 				35245D36280841E200E7B082 /* AccountLogin.swift in Sources */,
 				352229E6274A76BB00090224 /* MockConnector.swift in Sources */,
+				357168A9283AE107007305C5 /* WaypointAttributeGridView.swift in Sources */,
 				352229EA274A76C100090224 /* Degrees.swift in Sources */,
 				352229C0274A76AA00090224 /* WaypointDetailView.swift in Sources */,
 				352229D5274A76AB00090224 /* WaypointDistanceView.swift in Sources */,
@@ -1262,7 +1284,7 @@
 			files = (
 				C70B379D25ED7CC100553597 /* Waypoints.swift in Sources */,
 				C765461C25D87E74004F14E8 /* Connector.swift in Sources */,
-				C7ECBDDD25EF182F005933C0 /* GeocacheStatus.swift in Sources */,
+				C7ECBDDD25EF182F005933C0 /* WaypointStatus.swift in Sources */,
 				C7ECBD7A25EECF7B005933C0 /* WaypointList.swift in Sources */,
 				C7ECBE0E25EFFC13005933C0 /* WaypointDetailInfoView.swift in Sources */,
 				C765464125D88B6C004F14E8 /* KeychainError.swift in Sources */,
@@ -1283,7 +1305,7 @@
 				35156CC1280FAE7A00136E25 /* SearchView.swift in Sources */,
 				C7ECBDCE25EF0C15005933C0 /* Region.swift in Sources */,
 				C73E04BB249F9F4700C6E22C /* WoodsApp.swift in Sources */,
-				C7ECBDBE25EF02B0005933C0 /* GeocacheAttributes.swift in Sources */,
+				C7ECBDBE25EF02B0005933C0 /* WaypointAttribute.swift in Sources */,
 				C765466225D89141004F14E8 /* GeocachingComConnector.swift in Sources */,
 				35677A36281287A200708B3B /* Regex.swift in Sources */,
 				C765468425D8A2A1004F14E8 /* EnvironmentUtils.swift in Sources */,
@@ -1333,6 +1355,7 @@
 				357BE45E280F417500E31364 /* NavigationWaypointDetailView.swift in Sources */,
 				C765465325D88E48004F14E8 /* LoginView.swift in Sources */,
 				35156CC4280FB0EA00136E25 /* RichMapButtons.swift in Sources */,
+				357168B0283B1EB0007305C5 /* WaypointAttribute+GeocachingCom.swift in Sources */,
 				C7ECBD8725EED110005933C0 /* WaypointListView.swift in Sources */,
 				C7E1B88A25ED72F0004575A5 /* MockConnector.swift in Sources */,
 				C765468E25D8A30F004F14E8 /* PersistenceError.swift in Sources */,
@@ -1349,7 +1372,9 @@
 				35677A332812856100708B3B /* AccountInfo.swift in Sources */,
 				C765460E25D87C5A004F14E8 /* Coordinates.swift in Sources */,
 				35A75F66280F682E00BC959C /* LongitudeCardinal.swift in Sources */,
+				357168A8283AE107007305C5 /* WaypointAttributeGridView.swift in Sources */,
 				C748C2A725EEA16B00661BEE /* Waypoint+Color.swift in Sources */,
+				35BF10DE2839361300D20C9C /* WaypointAttributeView.swift in Sources */,
 				35A75F60280F655B00BC959C /* CoordinatesEditor.swift in Sources */,
 				C7B74EFC25EDE7E900D5194B /* Cardinal.swift in Sources */,
 				C765461325D87CEB004F14E8 /* GeocacheSize.swift in Sources */,
@@ -1995,6 +2020,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		357168AA283AE716007305C5 /* XCRemoteSwiftPackageReference "WrappingHStack" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dkk/WrappingHStack";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		C76546B425ED2E07004F14E8 /* XCRemoteSwiftPackageReference "SwiftSoup" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/scinfu/SwiftSoup.git";
@@ -2023,6 +2056,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C76546B425ED2E07004F14E8 /* XCRemoteSwiftPackageReference "SwiftSoup" */;
 			productName = SwiftSoup;
+		};
+		357168AB283AE716007305C5 /* WrappingHStack */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 357168AA283AE716007305C5 /* XCRemoteSwiftPackageReference "WrappingHStack" */;
+			productName = WrappingHStack;
+		};
+		357168AD283AE731007305C5 /* WrappingHStack */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 357168AA283AE716007305C5 /* XCRemoteSwiftPackageReference "WrappingHStack" */;
+			productName = WrappingHStack;
 		};
 		35DF4E822810DEEA009B8E06 /* CoreGPX */ = {
 			isa = XCSwiftPackageProductDependency;

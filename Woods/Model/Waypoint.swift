@@ -20,8 +20,8 @@ struct Waypoint: Identifiable, Codable, Hashable {
     var terrain: Int? = nil    // half stars, between 2 and 10 (see maxRating)
     var geocacheType: GeocacheType? = nil
     var geocacheSize: GeocacheSize? = nil
-    var geocacheStatus: GeocacheStatus? = nil
-    var geocacheAttributes: GeocacheAttributes = []
+    var status: WaypointStatus? = nil
+    var attributes: [WaypointAttribute: Bool] = [:]
     var owner: String? = nil
     var placedAt: Date? = nil
     var lastFoundAt: Date? = nil

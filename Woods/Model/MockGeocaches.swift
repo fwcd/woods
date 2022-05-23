@@ -19,6 +19,16 @@ func mockGeocaches() -> [Waypoint] {
             terrain: 3,
             geocacheType: .traditional,
             geocacheSize: .large,
+            attributes: [
+                .needsMaintenance: true,
+                .treeClimbing: false,
+                .longHike: true,
+                .significantHike: true,
+                .nightCache: true,
+                .motorcycles: true,
+                .uvLightRequired: true,
+                .availableDuringWinter: false
+            ],
             description: """
                 <p>A small cache for testing purposes!</p>
                 <p><i>Have fun!</i></p>

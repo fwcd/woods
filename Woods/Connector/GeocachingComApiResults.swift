@@ -41,8 +41,9 @@ struct GeocachingComApiResults: Codable {
         let hint: String?
         let totalActivities: Int?
         let recentActivities: [Activity]?
+        let attributes: [Attribute]?
         
-        var parsedGeocacheSize: GeocacheSize? {
+        var parsedSize: GeocacheSize? {
             switch containerType {
             case 1?: return .notChosen
             case 2?: return .micro
@@ -54,7 +55,7 @@ struct GeocachingComApiResults: Codable {
             default: return nil
             }
         }
-        var parsedGeocacheType: GeocacheType? {
+        var parsedType: GeocacheType? {
             switch geocacheType {
             case 2?: return .traditional
             case 3?: return .multi
@@ -78,7 +79,7 @@ struct GeocachingComApiResults: Codable {
             default: return nil
             }
         }
-        var parsedGeocacheStatus: GeocacheStatus? {
+        var parsedStatus: WaypointStatus? {
             switch cacheStatus {
             case 0?: return .enabled
             case 1?: return .disabled
@@ -97,9 +98,15 @@ struct GeocachingComApiResults: Codable {
                 location: location,
                 difficulty: difficulty.map { Int($0 * 2) },
                 terrain: terrain.map { Int($0 * 2) },
-                geocacheType: parsedGeocacheType,
-                geocacheSize: parsedGeocacheSize,
-                geocacheStatus: parsedGeocacheStatus,
+                geocacheType: parsedType,
+                geocacheSize: parsedSize,
+                status: parsedStatus,
+                attributes: Dictionary(
+                    uniqueKeysWithValues: attributes?
+                        .compactMap { attribute in
+                            attribute.asWaypointAttribute.map { ($0, attribute.isApplicable) }
+                        } ?? []
+                ),
                 owner: owner?.username,
                 placedAt: placedDate.flatMap(formatter.date(from:)),
                 lastFoundAt: lastFoundDate.flatMap(formatter.date(from:)),
@@ -171,6 +178,16 @@ struct GeocachingComApiResults: Codable {
                     username: owner?.username ?? "<unknown>",
                     content: text
                 )
+            }
+        }
+        
+        struct Attribute: Codable {
+            let id: Int
+            let name: String
+            let isApplicable: Bool
+            
+            var asWaypointAttribute: WaypointAttribute? {
+                .init(geocachingComId: id)
             }
         }
     }

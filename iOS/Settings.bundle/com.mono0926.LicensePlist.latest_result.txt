@@ -2,6 +2,8 @@ name: CoreGPX, nameSpecified: coregpx, owner: vincentneo, version: 0.9.0, source
 
 name: SwiftSoup, nameSpecified: swiftsoup, owner: scinfu, version: 2.3.3, source: https://github.com/scinfu/SwiftSoup
 
+name: WrappingHStack, nameSpecified: wrappinghstack, owner: dkk, version: 2.2.1, source: https://github.com/dkk/WrappingHStack
+
 add-version-numbers: false
 
 LicensePlist Version: 3.21.1

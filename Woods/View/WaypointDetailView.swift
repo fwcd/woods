@@ -22,6 +22,11 @@ struct WaypointDetailView: View {
                     LightHTMLView(html: description)
                 }
             }
+            if let attributes = waypoint.attributes.nilIfEmpty {
+                SimpleSection(header: "Attributes", iconName: "tag.fill") {
+                    WaypointAttributeGridView(attributes: attributes)
+                }
+            }
             if let hint = waypoint.hint {
                 SimpleSection(header: "Hint", iconName: "lightbulb.fill") {
                     Text(hint)
