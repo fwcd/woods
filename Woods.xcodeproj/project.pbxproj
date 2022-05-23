@@ -129,6 +129,8 @@
 		357168A9283AE107007305C5 /* WaypointAttributeGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357168A7283AE107007305C5 /* WaypointAttributeGridView.swift */; };
 		357168AC283AE716007305C5 /* WrappingHStack in Frameworks */ = {isa = PBXBuildFile; productRef = 357168AB283AE716007305C5 /* WrappingHStack */; };
 		357168AE283AE731007305C5 /* WrappingHStack in Frameworks */ = {isa = PBXBuildFile; productRef = 357168AD283AE731007305C5 /* WrappingHStack */; };
+		357168B0283B1EB0007305C5 /* WaypointAttribute+GeocachingCom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357168AF283B1EB0007305C5 /* WaypointAttribute+GeocachingCom.swift */; };
+		357168B1283B1EB0007305C5 /* WaypointAttribute+GeocachingCom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357168AF283B1EB0007305C5 /* WaypointAttribute+GeocachingCom.swift */; };
 		357BE45B280F39B100E31364 /* EditWaypointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357BE45A280F39B100E31364 /* EditWaypointView.swift */; };
 		357BE45C280F39B100E31364 /* EditWaypointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357BE45A280F39B100E31364 /* EditWaypointView.swift */; };
 		357BE45E280F417500E31364 /* NavigationWaypointDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357BE45D280F417500E31364 /* NavigationWaypointDetailView.swift */; };
@@ -373,6 +375,7 @@
 		3567D0112785B5DD00060C37 /* CancelNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelNavigationView.swift; sourceTree = "<group>"; };
 		3567D0132785B7DD00060C37 /* WaypointListContextMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointListContextMenu.swift; sourceTree = "<group>"; };
 		357168A7283AE107007305C5 /* WaypointAttributeGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointAttributeGridView.swift; sourceTree = "<group>"; };
+		357168AF283B1EB0007305C5 /* WaypointAttribute+GeocachingCom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WaypointAttribute+GeocachingCom.swift"; sourceTree = "<group>"; };
 		357BE45A280F39B100E31364 /* EditWaypointView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditWaypointView.swift; sourceTree = "<group>"; };
 		357BE45D280F417500E31364 /* NavigationWaypointDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationWaypointDetailView.swift; sourceTree = "<group>"; };
 		357BE460280F4BF500E31364 /* BindingUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingUtils.swift; sourceTree = "<group>"; };
@@ -738,6 +741,7 @@
 				C765466125D89141004F14E8 /* GeocachingComConnector.swift */,
 				C7ECBDD725EF1389005933C0 /* GeocachingComApiResults.swift */,
 				C7ECBDD225EF107E005933C0 /* GeocachingComSortOrder.swift */,
+				357168AF283B1EB0007305C5 /* WaypointAttribute+GeocachingCom.swift */,
 				C7E1B88925ED72F0004575A5 /* MockConnector.swift */,
 			);
 			path = Connector;
@@ -1217,6 +1221,7 @@
 				350C523328078F5C00309F5C /* CompatibilityLayer.swift in Sources */,
 				35A75F64280F67DC00BC959C /* LatitudeCardinal.swift in Sources */,
 				352229B2274A765300090224 /* WoodsApp.swift in Sources */,
+				357168B1283B1EB0007305C5 /* WaypointAttribute+GeocachingCom.swift in Sources */,
 				35985CEC281188E800D37DB2 /* WaypointLocatingNavigatorView.swift in Sources */,
 				352229E2274A76BB00090224 /* GeocachingComSortOrder.swift in Sources */,
 				352229C1274A76AA00090224 /* SearchBar.swift in Sources */,
@@ -1350,6 +1355,7 @@
 				357BE45E280F417500E31364 /* NavigationWaypointDetailView.swift in Sources */,
 				C765465325D88E48004F14E8 /* LoginView.swift in Sources */,
 				35156CC4280FB0EA00136E25 /* RichMapButtons.swift in Sources */,
+				357168B0283B1EB0007305C5 /* WaypointAttribute+GeocachingCom.swift in Sources */,
 				C7ECBD8725EED110005933C0 /* WaypointListView.swift in Sources */,
 				C7E1B88A25ED72F0004575A5 /* MockConnector.swift in Sources */,
 				C765468E25D8A30F004F14E8 /* PersistenceError.swift in Sources */,
