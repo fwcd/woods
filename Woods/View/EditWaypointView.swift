@@ -114,6 +114,7 @@ struct EditWaypointView: View {
                         }
                     }
                     let commitAdditionalWaypoint = {
+                        newAdditionalWaypoint.generateIdIfEmpty()
                         waypoint.additionalWaypoints.append(newAdditionalWaypoint)
                         newAdditionalWaypointSheetShown = false
                     }

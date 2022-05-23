@@ -49,6 +49,7 @@ struct WaypointListView: View {
                     }
                 }
                 let commitNewWaypoint = {
+                    newWaypoint.generateIdIfEmpty()
                     waypoints.listTree[listId]?.add(waypoints: [newWaypoint])
                         newWaypointSheetShown = false
                 }

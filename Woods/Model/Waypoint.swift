@@ -57,4 +57,10 @@ struct Waypoint: Identifiable, Codable, Hashable {
         let lowerQuery = searchQuery.lowercased()
         return [id, name, summary].compactMap { $0?.lowercased() }.contains { $0.contains(lowerQuery) }
     }
+    
+    mutating func generateIdIfEmpty() {
+        if id.isEmpty {
+            id = "WP\(String(Int.random(in: 0..<1_000_000_000), radix: 16).uppercased())"
+        }
+    }
 }
