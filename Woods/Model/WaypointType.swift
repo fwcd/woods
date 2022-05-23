@@ -1,18 +1,19 @@
 //
-//  GeocacheType.swift
+//  WaypointType.swift
 //  Woods
 //
 //  Created by Fredrik on 2/13/21.
 //  Copyright © 2021 Fredrik.
 //
 
-enum GeocacheType: String, Codable, Hashable {
-    case traditional
-    case multi
-    case mystery
-    case virtual
-    case webcam
-    case earth
+enum WaypointType: String, Codable, Hashable {
+    case waypoint
+    case traditionalCache
+    case multiCache
+    case mysteryCache
+    case virtualCache
+    case webcamCache
+    case earthCache
     case letterbox
     case wherigo
     case event
@@ -26,5 +27,5 @@ enum GeocacheType: String, Codable, Hashable {
     case gpsAdventuresExhibit
     case groundspeakBlockParty
     case hqCelebration
-    case locationless
+    case locationlessCache
 }

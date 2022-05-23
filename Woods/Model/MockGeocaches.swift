@@ -17,7 +17,7 @@ func mockGeocaches() -> [Waypoint] {
             location: Coordinates(latitude: 52.50733, longitude: 13.42806),
             difficulty: 2,
             terrain: 3,
-            geocacheType: .traditional,
+            type: .traditionalCache,
             geocacheSize: .large,
             attributes: [
                 .needsMaintenance: true,
@@ -48,7 +48,7 @@ func mockGeocaches() -> [Waypoint] {
             location: Coordinates(latitude: 51.30563, longitude: 7.94576),
             difficulty: 2,
             terrain: 4,
-            geocacheType: .multi,
+            type: .multiCache,
             geocacheSize: .regular,
             additionalWaypoints: [
                 Waypoint(id: "WP1", name: "A nice café", location: Coordinates(latitude: 51.306723, longitude: 7.941415)),
@@ -61,7 +61,7 @@ func mockGeocaches() -> [Waypoint] {
             location: Coordinates(latitude: 46.89705, longitude: 7.97048),
             difficulty: 10,
             terrain: 10,
-            geocacheType: .earth,
+            type: .earthCache,
             geocacheSize: .notChosen,
             found: true
         ),
@@ -71,7 +71,7 @@ func mockGeocaches() -> [Waypoint] {
             location: Coordinates(latitude: 54.32851, longitude: 10.15303),
             difficulty: 5,
             terrain: 10,
-            geocacheType: .mystery,
+            type: .mysteryCache,
             geocacheSize: .notChosen
         ),
     ]

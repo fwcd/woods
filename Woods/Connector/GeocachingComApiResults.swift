@@ -55,19 +55,19 @@ struct GeocachingComApiResults: Codable {
             default: return nil
             }
         }
-        var parsedType: GeocacheType? {
+        var parsedType: WaypointType? {
             switch geocacheType {
-            case 2?: return .traditional
-            case 3?: return .multi
-            case 4?: return .virtual
+            case 2?: return .traditionalCache
+            case 3?: return .multiCache
+            case 4?: return .virtualCache
             case 5?: return .letterbox
             case 6?: return .event
-            case 8?: return .mystery
+            case 8?: return .mysteryCache
             case 9?: return .projectApe
-            case 11?: return .webcam
-            case 12?: return .locationless
+            case 11?: return .webcamCache
+            case 12?: return .locationlessCache
             case 13?: return .citoEvent
-            case 137?: return .earth
+            case 137?: return .earthCache
             case 453?: return .megaEvent
             case 1304?: return .gpsAdventuresExhibit
             case 1858?: return .wherigo
@@ -98,7 +98,7 @@ struct GeocachingComApiResults: Codable {
                 location: location,
                 difficulty: difficulty.map { Int($0 * 2) },
                 terrain: terrain.map { Int($0 * 2) },
-                geocacheType: parsedType,
+                type: parsedType,
                 geocacheSize: parsedSize,
                 status: parsedStatus,
                 attributes: Dictionary(

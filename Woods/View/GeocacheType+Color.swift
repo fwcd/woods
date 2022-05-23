@@ -8,20 +8,20 @@
 
 import SwiftUI
 
-extension GeocacheType {
+extension WaypointType {
     var color: Color {
         switch self {
-        case .traditional:
+        case .traditionalCache:
             return .green
-        case .multi:
+        case .multiCache:
             return .orange
-        case .mystery:
+        case .mysteryCache:
             return .blue
-        case .virtual:
+        case .virtualCache:
             return .white
-        case .webcam:
+        case .webcamCache:
             return .gray
-        case .earth:
+        case .earthCache:
             return .yellow
         case .letterbox:
             return .blue

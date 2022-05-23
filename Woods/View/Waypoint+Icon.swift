@@ -12,7 +12,7 @@ extension Waypoint {
     var iconName: String {
         if found {
             return "face.smiling.fill"
-        } else if geocacheType != nil {
+        } else if type != nil {
             return "archivebox.fill"
         } else {
             return "flag.fill"

@@ -10,6 +10,6 @@ import SwiftUI
 
 extension Waypoint {
     var color: Color {
-        geocacheType?.color ?? .primary
+        type?.color ?? .primary
     }
 }
