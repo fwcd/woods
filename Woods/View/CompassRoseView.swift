@@ -9,8 +9,13 @@ import SwiftUI
 
 struct CompassRoseView: View {
     var body: some View {
-        CompassRoseMarkers()
-            .stroke(lineWidth: 2)
+        ZStack {
+            CompassRoseMarkers(markCount: 180)
+                .stroke(lineWidth: 1)
+            CompassRoseMarkers(markCount: 12)
+                .stroke(lineWidth: 4)
+            // TODO: Labels
+        }
     }
 }
 
