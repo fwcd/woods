@@ -13,6 +13,10 @@ struct LocationView: View {
     var body: some View {
         NavigationView {
             VStack(spacing: 40) {
+                CompassRoseView()
+                    .aspectRatio(1, contentMode: .fit)
+                    .padding(30)
+                    .rotationEffect(.degrees(locationManager.heading?.totalDegrees ?? 0))
                 VStack(spacing: 10) {
                     Text("\(locationManager.location?.description ?? "No Location")")
                         .font(.title2)
