@@ -19,7 +19,7 @@ struct CompassRoseMarkers: Shape {
         let markLength = (size.width + size.height) / 20
         
         for i in 0..<markCount {
-            let angle = CGFloat(i) * stride - headingRadians
+            let angle = CGFloat(i) * stride - headingRadians - .pi / 2
             let outerRadiusX = size.width / 2
             let outerRadiusY = size.height / 2
             let innerRadiusX = outerRadiusX - markLength

@@ -124,6 +124,8 @@
 		35677A37281287A200708B3B /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35677A35281287A200708B3B /* Regex.swift */; };
 		3567D0122785B5DD00060C37 /* CancelNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3567D0112785B5DD00060C37 /* CancelNavigationView.swift */; };
 		3567D0142785B7DD00060C37 /* WaypointListContextMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3567D0132785B7DD00060C37 /* WaypointListContextMenu.swift */; };
+		356EF3BF283C36D500BCBA8F /* CompassRoseLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356EF3BE283C36D500BCBA8F /* CompassRoseLabels.swift */; };
+		356EF3C0283C36D500BCBA8F /* CompassRoseLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356EF3BE283C36D500BCBA8F /* CompassRoseLabels.swift */; };
 		357168A8283AE107007305C5 /* WaypointAttributeGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357168A7283AE107007305C5 /* WaypointAttributeGridView.swift */; };
 		357168A9283AE107007305C5 /* WaypointAttributeGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357168A7283AE107007305C5 /* WaypointAttributeGridView.swift */; };
 		357168AC283AE716007305C5 /* WrappingHStack in Frameworks */ = {isa = PBXBuildFile; productRef = 357168AB283AE716007305C5 /* WrappingHStack */; };
@@ -378,6 +380,7 @@
 		35677A35281287A200708B3B /* Regex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
 		3567D0112785B5DD00060C37 /* CancelNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelNavigationView.swift; sourceTree = "<group>"; };
 		3567D0132785B7DD00060C37 /* WaypointListContextMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointListContextMenu.swift; sourceTree = "<group>"; };
+		356EF3BE283C36D500BCBA8F /* CompassRoseLabels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompassRoseLabels.swift; sourceTree = "<group>"; };
 		357168A7283AE107007305C5 /* WaypointAttributeGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointAttributeGridView.swift; sourceTree = "<group>"; };
 		357168AF283B1EB0007305C5 /* WaypointAttribute+GeocachingCom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WaypointAttribute+GeocachingCom.swift"; sourceTree = "<group>"; };
 		357168B2283B2D7A007305C5 /* CompassRoseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompassRoseView.swift; sourceTree = "<group>"; };
@@ -799,6 +802,7 @@
 				3517B21D2835C93600A37F24 /* LocationView.swift */,
 				357168B2283B2D7A007305C5 /* CompassRoseView.swift */,
 				357168B5283B30EF007305C5 /* CompassRoseMarkers.swift */,
+				356EF3BE283C36D500BCBA8F /* CompassRoseLabels.swift */,
 				C765464D25D88CEC004F14E8 /* AccountsView.swift */,
 				35245D3A2808443700E7B082 /* AccountLoginSnippetView.swift */,
 				35245D37280843DB00E7B082 /* AccountSnippetView.swift */,
@@ -1186,6 +1190,7 @@
 				352229F7274A76C100090224 /* WaypointLog.swift in Sources */,
 				351120C52807046500D5E6B3 /* WaypointListContextMenu.swift in Sources */,
 				352229DC274A76B400090224 /* LocationManager.swift in Sources */,
+				356EF3C0283C36D500BCBA8F /* CompassRoseLabels.swift in Sources */,
 				352229E0274A76B400090224 /* Accounts.swift in Sources */,
 				35222A00274A76C600090224 /* CollectionUtils.swift in Sources */,
 				352229ED274A76C100090224 /* Waypoint.swift in Sources */,
@@ -1363,6 +1368,7 @@
 				C7ECBDAE25EEF2E9005933C0 /* WaypointListPickerView.swift in Sources */,
 				3517B21E2835C93600A37F24 /* LocationView.swift in Sources */,
 				C7B74EC425EDCF8800D5194B /* SearchBar.swift in Sources */,
+				356EF3BF283C36D500BCBA8F /* CompassRoseLabels.swift in Sources */,
 				C7ECBD9425EED91E005933C0 /* WaypointListSnippetView.swift in Sources */,
 				357BE45E280F417500E31364 /* NavigationWaypointDetailView.swift in Sources */,
 				C765465325D88E48004F14E8 /* LoginView.swift in Sources */,
