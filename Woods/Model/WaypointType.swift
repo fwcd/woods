@@ -22,7 +22,7 @@ enum WaypointType: String, Codable, Hashable {
     case lostAndFoundEvent
     case citoEvent
     case projectApe
-    case other
+    case otherCache
     case geocachingHq
     case gpsAdventuresExhibit
     case groundspeakBlockParty

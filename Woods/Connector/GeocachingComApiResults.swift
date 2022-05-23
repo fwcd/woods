@@ -98,7 +98,7 @@ struct GeocachingComApiResults: Codable {
                 location: location,
                 difficulty: difficulty.map { Int($0 * 2) },
                 terrain: terrain.map { Int($0 * 2) },
-                type: parsedType,
+                type: parsedType ?? .otherCache,
                 geocacheSize: parsedSize,
                 status: parsedStatus,
                 attributes: Dictionary(

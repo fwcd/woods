@@ -10,6 +10,6 @@ import SwiftUI
 
 extension Waypoint {
     var color: Color {
-        type?.color ?? .primary
+        type.color
     }
 }

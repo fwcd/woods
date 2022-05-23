@@ -18,7 +18,7 @@ struct Waypoint: Identifiable, Codable, Hashable {
     var isStub: Bool = false // Whether the data is incomplete
     var difficulty: Int? = nil // half stars, between 2 and 10 (see maxRating)
     var terrain: Int? = nil    // half stars, between 2 and 10 (see maxRating)
-    var type: WaypointType? = nil
+    var type: WaypointType = .waypoint
     var geocacheSize: GeocacheSize? = nil
     var status: WaypointStatus? = nil
     var attributes: [WaypointAttribute: Bool] = [:]

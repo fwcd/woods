@@ -12,10 +12,10 @@ extension Waypoint {
     var iconName: String {
         if found {
             return "face.smiling.fill"
-        } else if type != nil {
-            return "archivebox.fill"
-        } else {
-            return "flag.fill"
+        }
+        switch type {
+        case .waypoint: return "flag.fill"
+        default: return "archivebox.fill"
         }
     }
 }
