@@ -8,22 +8,27 @@
 import SwiftUI
 
 struct WaypointTypePicker: View {
-    @Binding var type: WaypointType
+    @Binding var selection: WaypointType
     
     var body: some View {
-        Picker(selection: $type, label: Text("Waypoint Type")) {
+        Menu {
             ForEach(WaypointType.allCases, id: \.self) { type in
-                WaypointTypeView(type: type)
-                    .foregroundColor(.red)
+                Button {
+                    selection = type
+                } label: {
+                    Text(type.name)
+                    WaypointTypeView(type: type)
+                }
             }
+        } label: {
+            WaypointTypeView(type: selection)
         }
-        .pickerStyle(MenuPickerStyle())
     }
 }
 
 struct WaypointTypePicker_Previews: PreviewProvider {
     @State private static var type: WaypointType = .waypoint
     static var previews: some View {
-        WaypointTypePicker(type: $type)
+        WaypointTypePicker(selection: $type)
     }
 }

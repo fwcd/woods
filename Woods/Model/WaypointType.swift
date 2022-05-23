@@ -21,11 +21,37 @@ enum WaypointType: String, Codable, Hashable, CaseIterable {
     case gigaEvent
     case lostAndFoundEvent
     case citoEvent
-    case projectApe
+    case projectApeCache
     case otherCache
     case geocachingHq
     case gpsAdventuresExhibit
     case groundspeakBlockParty
     case hqCelebration
     case locationlessCache
+    
+    var name: String {
+        switch self {
+        case .waypoint: return "Waypoint"
+        case .traditionalCache: return "Traditional Cache"
+        case .multiCache: return "Multi Cache"
+        case .mysteryCache: return "Mystery Cache"
+        case .virtualCache: return "Virtual Cache"
+        case .webcamCache: return "Webcam Cache"
+        case .earthCache: return "Earth Cache"
+        case .letterbox: return "Letterbox"
+        case .wherigo: return "Wherigo"
+        case .event: return "Event"
+        case .megaEvent: return "Mega Event"
+        case .gigaEvent: return "Giga Event"
+        case .lostAndFoundEvent: return "Lost+Found Event"
+        case .citoEvent: return "CITO Event"
+        case .projectApeCache: return "Project APE Cache"
+        case .otherCache: return "Other Cache"
+        case .geocachingHq: return "Geocaching HQ"
+        case .gpsAdventuresExhibit: return "GPS Adventures Exhibit"
+        case .groundspeakBlockParty: return "Groundspeak Block Party"
+        case .hqCelebration: return "HQ Celebration"
+        case .locationlessCache: return "Locationless Cache"
+        }
+    }
 }

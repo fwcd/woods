@@ -27,7 +27,7 @@ struct EditWaypointView: View {
         Form {
             Section("Waypoint") {
                 HStack(spacing: 20) {
-                    WaypointTypePicker(type: $waypoint.type)
+                    WaypointTypePicker(selection: $waypoint.type)
                     VStack {
                         TextField("ID (e.g. GC-Code)", text: $waypoint.id)
                             .font(.headline)

@@ -63,7 +63,7 @@ struct GeocachingComApiResults: Codable {
             case 5?: return .letterbox
             case 6?: return .event
             case 8?: return .mysteryCache
-            case 9?: return .projectApe
+            case 9?: return .projectApeCache
             case 11?: return .webcamCache
             case 12?: return .locationlessCache
             case 13?: return .citoEvent
