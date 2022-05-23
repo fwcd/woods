@@ -6,7 +6,7 @@
 //  Copyright © 2021 Fredrik.
 //
 
-enum WaypointType: String, Codable, Hashable {
+enum WaypointType: String, Codable, Hashable, CaseIterable {
     case waypoint
     case traditionalCache
     case multiCache

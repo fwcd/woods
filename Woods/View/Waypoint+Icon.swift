@@ -13,9 +13,6 @@ extension Waypoint {
         if found {
             return "face.smiling.fill"
         }
-        switch type {
-        case .waypoint: return "flag.fill"
-        default: return "archivebox.fill"
-        }
+        return type.iconName
     }
 }

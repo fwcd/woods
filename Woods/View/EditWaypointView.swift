@@ -27,10 +27,7 @@ struct EditWaypointView: View {
         Form {
             Section("Waypoint") {
                 HStack(spacing: 20) {
-                    // TODO: Add a picker here for choosing the cache type
-                    Image(systemName: waypoint.iconName)
-                        .foregroundColor(waypoint.color)
-                        .font(.title)
+                    WaypointTypePicker(type: $waypoint.type)
                     VStack {
                         TextField("ID (e.g. GC-Code)", text: $waypoint.id)
                             .font(.headline)

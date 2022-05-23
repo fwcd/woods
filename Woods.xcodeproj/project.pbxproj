@@ -126,6 +126,12 @@
 		3567D0142785B7DD00060C37 /* WaypointListContextMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3567D0132785B7DD00060C37 /* WaypointListContextMenu.swift */; };
 		356EF3BF283C36D500BCBA8F /* CompassRoseLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356EF3BE283C36D500BCBA8F /* CompassRoseLabels.swift */; };
 		356EF3C0283C36D500BCBA8F /* CompassRoseLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356EF3BE283C36D500BCBA8F /* CompassRoseLabels.swift */; };
+		356EF3C2283C4DF100BCBA8F /* WaypointTypePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356EF3C1283C4DF100BCBA8F /* WaypointTypePicker.swift */; };
+		356EF3C3283C4DF100BCBA8F /* WaypointTypePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356EF3C1283C4DF100BCBA8F /* WaypointTypePicker.swift */; };
+		356EF3C5283C4E4E00BCBA8F /* WaypointTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356EF3C4283C4E4E00BCBA8F /* WaypointTypeView.swift */; };
+		356EF3C6283C4E4E00BCBA8F /* WaypointTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356EF3C4283C4E4E00BCBA8F /* WaypointTypeView.swift */; };
+		356EF3C8283C4EB700BCBA8F /* WaypointType+Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356EF3C7283C4EB700BCBA8F /* WaypointType+Icon.swift */; };
+		356EF3C9283C4EB700BCBA8F /* WaypointType+Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356EF3C7283C4EB700BCBA8F /* WaypointType+Icon.swift */; };
 		357168A8283AE107007305C5 /* WaypointAttributeGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357168A7283AE107007305C5 /* WaypointAttributeGridView.swift */; };
 		357168A9283AE107007305C5 /* WaypointAttributeGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357168A7283AE107007305C5 /* WaypointAttributeGridView.swift */; };
 		357168AC283AE716007305C5 /* WrappingHStack in Frameworks */ = {isa = PBXBuildFile; productRef = 357168AB283AE716007305C5 /* WrappingHStack */; };
@@ -381,6 +387,9 @@
 		3567D0112785B5DD00060C37 /* CancelNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelNavigationView.swift; sourceTree = "<group>"; };
 		3567D0132785B7DD00060C37 /* WaypointListContextMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointListContextMenu.swift; sourceTree = "<group>"; };
 		356EF3BE283C36D500BCBA8F /* CompassRoseLabels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompassRoseLabels.swift; sourceTree = "<group>"; };
+		356EF3C1283C4DF100BCBA8F /* WaypointTypePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointTypePicker.swift; sourceTree = "<group>"; };
+		356EF3C4283C4E4E00BCBA8F /* WaypointTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointTypeView.swift; sourceTree = "<group>"; };
+		356EF3C7283C4EB700BCBA8F /* WaypointType+Icon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WaypointType+Icon.swift"; sourceTree = "<group>"; };
 		357168A7283AE107007305C5 /* WaypointAttributeGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointAttributeGridView.swift; sourceTree = "<group>"; };
 		357168AF283B1EB0007305C5 /* WaypointAttribute+GeocachingCom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WaypointAttribute+GeocachingCom.swift"; sourceTree = "<group>"; };
 		357168B2283B2D7A007305C5 /* CompassRoseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompassRoseView.swift; sourceTree = "<group>"; };
@@ -830,6 +839,8 @@
 				C7ECBD8125EED022005933C0 /* WaypointListsView.swift */,
 				C7ECBDA525EEE271005933C0 /* NewWaypointListView.swift */,
 				357BE45A280F39B100E31364 /* EditWaypointView.swift */,
+				356EF3C1283C4DF100BCBA8F /* WaypointTypePicker.swift */,
+				356EF3C4283C4E4E00BCBA8F /* WaypointTypeView.swift */,
 				35A75F5F280F655B00BC959C /* CoordinatesEditor.swift */,
 				35A75F68280F6D8A00BC959C /* CoordinateEditor.swift */,
 				357BE45D280F417500E31364 /* NavigationWaypointDetailView.swift */,
@@ -839,6 +850,7 @@
 				C7B74EBB25EDCA5E00D5194B /* GeocacheType+Color.swift */,
 				C748C2A625EEA16B00661BEE /* Waypoint+Color.swift */,
 				C748C2AB25EEA19300661BEE /* Waypoint+Icon.swift */,
+				356EF3C7283C4EB700BCBA8F /* WaypointType+Icon.swift */,
 				C7B74EB625EDC5C200D5194B /* StarsView.swift */,
 				C7ECBE0525EFF9D9005933C0 /* SizeView.swift */,
 				C7B74EC325EDCF8800D5194B /* SearchBar.swift */,
@@ -1180,6 +1192,7 @@
 			files = (
 				352229C5274A76AA00090224 /* WaypointDetailInfoView.swift in Sources */,
 				352229EC274A76C100090224 /* WaypointAttribute.swift in Sources */,
+				356EF3C9283C4EB700BCBA8F /* WaypointType+Icon.swift in Sources */,
 				352229DD274A76B400090224 /* Account.swift in Sources */,
 				352229EF274A76C100090224 /* Region.swift in Sources */,
 				352229DF274A76B400090224 /* WaypointListWrapper.swift in Sources */,
@@ -1191,6 +1204,7 @@
 				351120C52807046500D5E6B3 /* WaypointListContextMenu.swift in Sources */,
 				352229DC274A76B400090224 /* LocationManager.swift in Sources */,
 				356EF3C0283C36D500BCBA8F /* CompassRoseLabels.swift in Sources */,
+				356EF3C6283C4E4E00BCBA8F /* WaypointTypeView.swift in Sources */,
 				352229E0274A76B400090224 /* Accounts.swift in Sources */,
 				35222A00274A76C600090224 /* CollectionUtils.swift in Sources */,
 				352229ED274A76C100090224 /* Waypoint.swift in Sources */,
@@ -1260,6 +1274,7 @@
 				352229FB274A76C600090224 /* DataUtils.swift in Sources */,
 				352229D0274A76AB00090224 /* WaypointNavigatorView.swift in Sources */,
 				352229FC274A76C600090224 /* PersistenceUtils.swift in Sources */,
+				356EF3C3283C4DF100BCBA8F /* WaypointTypePicker.swift in Sources */,
 				35156CC2280FAE7A00136E25 /* SearchView.swift in Sources */,
 				352229E1274A76BB00090224 /* ConnectorError.swift in Sources */,
 				352229DE274A76B400090224 /* AccountType.swift in Sources */,
@@ -1304,6 +1319,7 @@
 				C7ECBD7A25EECF7B005933C0 /* WaypointList.swift in Sources */,
 				C7ECBE0E25EFFC13005933C0 /* WaypointDetailInfoView.swift in Sources */,
 				C765464125D88B6C004F14E8 /* KeychainError.swift in Sources */,
+				356EF3C8283C4EB700BCBA8F /* WaypointType+Icon.swift in Sources */,
 				C765463625D885B3004F14E8 /* ConnectorError.swift in Sources */,
 				C765460925D87BA9004F14E8 /* WaypointType.swift in Sources */,
 				3567D0122785B5DD00060C37 /* CancelNavigationView.swift in Sources */,
@@ -1402,11 +1418,13 @@
 				C7B74EC925EDD32F00D5194B /* WaypointLog.swift in Sources */,
 				3567D0142785B7DD00060C37 /* WaypointListContextMenu.swift in Sources */,
 				C7B74EAA25EDC4A600D5194B /* MockGeocaches.swift in Sources */,
+				356EF3C5283C4E4E00BCBA8F /* WaypointTypeView.swift in Sources */,
 				C7ECBE0625EFF9D9005933C0 /* SizeView.swift in Sources */,
 				C7ECBDD325EF107E005933C0 /* GeocachingComSortOrder.swift in Sources */,
 				C7B74ED625EDD60000D5194B /* WaypointLogView.swift in Sources */,
 				35DF4E6B2810D824009B8E06 /* URL+Identifiable.swift in Sources */,
 				C765462C25D880D7004F14E8 /* Length.swift in Sources */,
+				356EF3C2283C4DF100BCBA8F /* WaypointTypePicker.swift in Sources */,
 				C7ECBD9C25EEE197005933C0 /* AutoFocusTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
