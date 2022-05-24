@@ -12,6 +12,10 @@ extension WaypointType {
         switch self {
         case .waypoint:
             return "flag.fill"
+        case .webcamCache:
+            return "camera.aperture"
+        case .earthCache:
+            return "globe.europe.africa.fill"
         case .event,
              .megaEvent,
              .gigaEvent,
