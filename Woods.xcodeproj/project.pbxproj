@@ -132,6 +132,8 @@
 		356EF3C6283C4E4E00BCBA8F /* WaypointTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356EF3C4283C4E4E00BCBA8F /* WaypointTypeView.swift */; };
 		356EF3C8283C4EB700BCBA8F /* WaypointType+Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356EF3C7283C4EB700BCBA8F /* WaypointType+Icon.swift */; };
 		356EF3C9283C4EB700BCBA8F /* WaypointType+Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356EF3C7283C4EB700BCBA8F /* WaypointType+Icon.swift */; };
+		356EF3CB283C5B3A00BCBA8F /* WaypointAttributePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356EF3CA283C5A9100BCBA8F /* WaypointAttributePicker.swift */; };
+		356EF3CC283C5B3A00BCBA8F /* WaypointAttributePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356EF3CA283C5A9100BCBA8F /* WaypointAttributePicker.swift */; };
 		357168A8283AE107007305C5 /* WaypointAttributeGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357168A7283AE107007305C5 /* WaypointAttributeGridView.swift */; };
 		357168A9283AE107007305C5 /* WaypointAttributeGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357168A7283AE107007305C5 /* WaypointAttributeGridView.swift */; };
 		357168AC283AE716007305C5 /* WrappingHStack in Frameworks */ = {isa = PBXBuildFile; productRef = 357168AB283AE716007305C5 /* WrappingHStack */; };
@@ -390,6 +392,7 @@
 		356EF3C1283C4DF100BCBA8F /* WaypointTypePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointTypePicker.swift; sourceTree = "<group>"; };
 		356EF3C4283C4E4E00BCBA8F /* WaypointTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointTypeView.swift; sourceTree = "<group>"; };
 		356EF3C7283C4EB700BCBA8F /* WaypointType+Icon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WaypointType+Icon.swift"; sourceTree = "<group>"; };
+		356EF3CA283C5A9100BCBA8F /* WaypointAttributePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointAttributePicker.swift; sourceTree = "<group>"; };
 		357168A7283AE107007305C5 /* WaypointAttributeGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointAttributeGridView.swift; sourceTree = "<group>"; };
 		357168AF283B1EB0007305C5 /* WaypointAttribute+GeocachingCom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WaypointAttribute+GeocachingCom.swift"; sourceTree = "<group>"; };
 		357168B2283B2D7A007305C5 /* CompassRoseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompassRoseView.swift; sourceTree = "<group>"; };
@@ -827,6 +830,7 @@
 				C7ECBE1525EFFCB7005933C0 /* WaypointDetailActionsView.swift */,
 				357168A7283AE107007305C5 /* WaypointAttributeGridView.swift */,
 				35BF10DD2839361300D20C9C /* WaypointAttributeView.swift */,
+				356EF3CA283C5A9100BCBA8F /* WaypointAttributePicker.swift */,
 				C7ECBDE625EFE479005933C0 /* LargeButtonStyle.swift */,
 				C7ECBDE125EFE03F005933C0 /* SimpleSection.swift */,
 				C7ECBDAD25EEF2E9005933C0 /* WaypointListPickerView.swift */,
@@ -1267,6 +1271,7 @@
 				352229C0274A76AA00090224 /* WaypointDetailView.swift in Sources */,
 				352229D5274A76AB00090224 /* WaypointDistanceView.swift in Sources */,
 				352229D9274A76AB00090224 /* EnumPicker.swift in Sources */,
+				356EF3CB283C5B3A00BCBA8F /* WaypointAttributePicker.swift in Sources */,
 				352229D4274A76AB00090224 /* SlideOverCard.swift in Sources */,
 				352229DA274A76B400090224 /* KeychainError.swift in Sources */,
 				352229BE274A76AA00090224 /* WaypointListsView.swift in Sources */,
@@ -1359,6 +1364,7 @@
 				C765464E25D88CEC004F14E8 /* AccountsView.swift in Sources */,
 				C7B74EB725EDC5C200D5194B /* StarsView.swift in Sources */,
 				C7ECBD7025EEAB38005933C0 /* LocationManager.swift in Sources */,
+				356EF3CC283C5B3A00BCBA8F /* WaypointAttributePicker.swift in Sources */,
 				350C523228078F5C00309F5C /* CompatibilityLayer.swift in Sources */,
 				35245D32280830C200E7B082 /* SlideOverCardPosition.swift in Sources */,
 				C7ECBDC625EF0B90005933C0 /* WaypointsInRegionQuery.swift in Sources */,
