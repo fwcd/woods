@@ -64,11 +64,17 @@ struct WaypointDetailActionsView: View {
                         }
                     }
                 }
-                ShareLink(item: waypoint, preview: SharePreview(waypoint.name)) {
-                    // TODO: Should we use a more general label than 'GPX' once we support other Transferable representations?
+                // TODO: Add subject/message to share links
+                ShareLink(
+                    item: waypoint,
+                    preview: SharePreview(
+                        "\(waypoint.id): \(waypoint.name)",
+                        icon: Image(systemName: waypoint.iconName)
+                    )
+                ) {
                     HStack {
                         Image(systemName: "square.and.arrow.up")
-                        Text("GPX")
+                        Text("Waypoint")
                     }
                 }
             }
