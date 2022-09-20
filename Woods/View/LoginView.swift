@@ -30,6 +30,7 @@ struct LoginView: View {
                 Text("Log in")
             }
         }
+        .scrollDismissesKeyboard(.interactively)
     }
 }
 

@@ -146,6 +146,7 @@ struct EditWaypointView: View {
                 }
             }
         }
+        .scrollDismissesKeyboard(.interactively)
     }
 }
 
