@@ -15,7 +15,6 @@ struct WaypointDetailActionsView: View {
     let waypoint: Waypoint
     
     @State private var listPickerSheetShown: Bool = false
-    @State private var gpxUrl: URL? = nil
     @EnvironmentObject private var waypoints: Waypoints
     
     var body: some View {
@@ -65,23 +64,12 @@ struct WaypointDetailActionsView: View {
                         }
                     }
                 }
-                // TODO: Migrate to ShareLink
-                Button {
-                    do {
-                        let url = persistenceFileURL(path: "GPX/\(waypoint.id).gpx")
-                        try waypoint.asGPX.data(using: .utf8)?.smartWrite(to: url)
-                        gpxUrl = url
-                    } catch {
-                        log.error("Could not encode write GPX: \(String(describing: error))")
-                    }
-                } label: {
+                ShareLink(item: waypoint, preview: SharePreview(waypoint.name)) {
+                    // TODO: Should we use a more general label than 'GPX' once we support other Transferable representations?
                     HStack {
                         Image(systemName: "square.and.arrow.up")
                         Text("GPX")
                     }
-                }
-                .sheet(item: $gpxUrl) { url in
-                    ShareSheet(items: [url])
                 }
             }
             #endif
