@@ -15,7 +15,6 @@ struct WaypointDetailActionsView: View {
     let waypoint: Waypoint
     
     @State private var listPickerSheetShown: Bool = false
-    @State private var linkShareSheetShown: Bool = false
     @State private var gpxUrl: URL? = nil
     @EnvironmentObject private var waypoints: Waypoints
     
@@ -59,18 +58,14 @@ struct WaypointDetailActionsView: View {
                             Text("Web")
                         }
                     }
-                    Button {
-                        linkShareSheetShown = true
-                    } label: {
+                    ShareLink(item: url) {
                         HStack {
                             Image(systemName: "square.and.arrow.up")
                             Text("Link")
                         }
                     }
-                    .sheet(isPresented: $linkShareSheetShown) {
-                        ShareSheet(items: [url])
-                    }
                 }
+                // TODO: Migrate to ShareLink
                 Button {
                     do {
                         let url = persistenceFileURL(path: "GPX/\(waypoint.id).gpx")
