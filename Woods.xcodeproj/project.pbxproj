@@ -549,6 +549,155 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3503AF4729AAAEE600AF1188 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				3517B21D2835C93600A37F24 /* LocationView.swift */,
+				357168B2283B2D7A007305C5 /* CompassRoseView.swift */,
+				357168B5283B30EF007305C5 /* CompassRoseMarkers.swift */,
+				356EF3BE283C36D500BCBA8F /* CompassRoseLabels.swift */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
+		3503AF4829AAAF0800AF1188 /* Accounts */ = {
+			isa = PBXGroup;
+			children = (
+				C765464D25D88CEC004F14E8 /* AccountsView.swift */,
+				35245D3A2808443700E7B082 /* AccountLoginSnippetView.swift */,
+				35245D37280843DB00E7B082 /* AccountSnippetView.swift */,
+				C765465225D88E48004F14E8 /* LoginView.swift */,
+			);
+			path = Accounts;
+			sourceTree = "<group>";
+		};
+		3503AF4929AAAF2700AF1188 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				35156CC0280FAE7A00136E25 /* SearchView.swift */,
+				C7B74EC325EDCF8800D5194B /* SearchBar.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		3503AF4A29AAAF4100AF1188 /* RichMap */ = {
+			isa = PBXGroup;
+			children = (
+				C7B6F0FC249FA16B00454841 /* RichMapView.swift */,
+				35156CC3280FB0EA00136E25 /* RichMapButtons.swift */,
+				35156CC6280FB2C900136E25 /* RichMapSlideOver.swift */,
+			);
+			path = RichMap;
+			sourceTree = "<group>";
+		};
+		3503AF4B29AAAF7700AF1188 /* Waypoint */ = {
+			isa = PBXGroup;
+			children = (
+				3503AF5329AAB16700AF1188 /* Map */,
+				3503AF5229AAB14B00AF1188 /* Show */,
+				3503AF4E29AAB02900AF1188 /* Edit */,
+				3503AF4D29AAAFEA00AF1188 /* List */,
+				3503AF5529AAB24900AF1188 /* Navigator */,
+				3503AF5029AAB0B900AF1188 /* Extensions */,
+			);
+			path = Waypoint;
+			sourceTree = "<group>";
+		};
+		3503AF4D29AAAFEA00AF1188 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				C7ECBD8125EED022005933C0 /* WaypointListsView.swift */,
+				C7ECBDAD25EEF2E9005933C0 /* WaypointListPickerView.swift */,
+				C7ECBDA525EEE271005933C0 /* NewWaypointListView.swift */,
+				C7ECBD8625EED110005933C0 /* WaypointListView.swift */,
+				3567D0132785B7DD00060C37 /* WaypointListContextMenu.swift */,
+				C7ECBD9325EED91E005933C0 /* WaypointListSnippetView.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		3503AF4E29AAB02900AF1188 /* Edit */ = {
+			isa = PBXGroup;
+			children = (
+				357BE45A280F39B100E31364 /* EditWaypointView.swift */,
+				356EF3CA283C5A9100BCBA8F /* WaypointAttributePicker.swift */,
+				356EF3C1283C4DF100BCBA8F /* WaypointTypePicker.swift */,
+				35A75F5F280F655B00BC959C /* CoordinatesEditor.swift */,
+				35A75F68280F6D8A00BC959C /* CoordinateEditor.swift */,
+			);
+			path = Edit;
+			sourceTree = "<group>";
+		};
+		3503AF5029AAB0B900AF1188 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C748C2A625EEA16B00661BEE /* Waypoint+Color.swift */,
+				C748C2AB25EEA19300661BEE /* Waypoint+Icon.swift */,
+				C7B74EBB25EDCA5E00D5194B /* WaypointType+Color.swift */,
+				356EF3C7283C4EB700BCBA8F /* WaypointType+Icon.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3503AF5129AAB0FC00AF1188 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				C7B74EB625EDC5C200D5194B /* StarsView.swift */,
+				C7ECBE0525EFF9D9005933C0 /* SizeView.swift */,
+				C7B6F0FE249FA1B300454841 /* Map.swift */,
+				C7ECBDE625EFE479005933C0 /* LargeButtonStyle.swift */,
+				C7ECBDE125EFE03F005933C0 /* SimpleSection.swift */,
+				C765469A25ED25DE004F14E8 /* EnumPicker.swift */,
+				C7B74E8725EDADC100D5194B /* SlideOverCard.swift */,
+				35245D31280830C200E7B082 /* SlideOverCardPosition.swift */,
+				C7ECBD9B25EEE197005933C0 /* AutoFocusTextField.swift */,
+				C7B74E8C25EDAEA400D5194B /* Handle.swift */,
+				C7ECBDEB25EFE945005933C0 /* ShareSheet.swift */,
+				C7ECBDF025EFE971005933C0 /* SimpleUIViewControllerRepresentable.swift */,
+				C7ECBDF525EFEC27005933C0 /* WebHTMLView.swift */,
+				C7ECBDFD25EFEEA1005933C0 /* LightHTMLView.swift */,
+				350C523128078F5C00309F5C /* CompatibilityLayer.swift */,
+				3567D0112785B5DD00060C37 /* CancelNavigationStack.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		3503AF5229AAB14B00AF1188 /* Show */ = {
+			isa = PBXGroup;
+			children = (
+				C7ECBE2C25F006D8005933C0 /* WaypointSummaryView.swift */,
+				C7B74F0325EE9BED00D5194B /* WaypointSnippetView.swift */,
+				C7ECBD8E25EED8AF005933C0 /* WaypointSmallSnippetView.swift */,
+				C7ECBD7425EEB23B005933C0 /* WaypointDistanceView.swift */,
+				357BE45D280F417500E31364 /* NavigationWaypointDetailView.swift */,
+				C7B74EA425EDC46F00D5194B /* WaypointDetailView.swift */,
+				C7ECBE0D25EFFC13005933C0 /* WaypointDetailInfoView.swift */,
+				C7ECBE1525EFFCB7005933C0 /* WaypointDetailActionsView.swift */,
+				35BF10DD2839361300D20C9C /* WaypointAttributeView.swift */,
+				357168A7283AE107007305C5 /* WaypointAttributeGridView.swift */,
+				C7B74ED525EDD60000D5194B /* WaypointLogView.swift */,
+				356EF3C4283C4E4E00BCBA8F /* WaypointTypeView.swift */,
+			);
+			path = Show;
+			sourceTree = "<group>";
+		};
+		3503AF5329AAB16700AF1188 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				C7B74E6B25ED8DA600D5194B /* WaypointMapView.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		3503AF5529AAB24900AF1188 /* Navigator */ = {
+			isa = PBXGroup;
+			children = (
+				35985CEA281188E800D37DB2 /* WaypointLocatingNavigatorView.swift */,
+				C7ECBE3725F00C75005933C0 /* WaypointNavigatorView.swift */,
+			);
+			path = Navigator;
+			sourceTree = "<group>";
+		};
 		35126CD72745CE1E00CF998C /* watchOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -798,68 +947,15 @@
 		C7E8C79A249FA02B00B5BAF9 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3503AF4A29AAAF4100AF1188 /* RichMap */,
+				3503AF4729AAAEE600AF1188 /* Location */,
+				3503AF4B29AAAF7700AF1188 /* Waypoint */,
+				3503AF4929AAAF2700AF1188 /* Search */,
+				3503AF4829AAAF0800AF1188 /* Accounts */,
+				3503AF5129AAB0FC00AF1188 /* Utils */,
 				C73E04BE249F9F4700C6E22C /* ContentView.swift */,
 				35353C3B2745D90F002ACE14 /* SidebarContentView.swift */,
 				35E5DF43274642D200226EEA /* SidebarWaypointListsView.swift */,
-				3517B21D2835C93600A37F24 /* LocationView.swift */,
-				357168B2283B2D7A007305C5 /* CompassRoseView.swift */,
-				357168B5283B30EF007305C5 /* CompassRoseMarkers.swift */,
-				356EF3BE283C36D500BCBA8F /* CompassRoseLabels.swift */,
-				C765464D25D88CEC004F14E8 /* AccountsView.swift */,
-				35245D3A2808443700E7B082 /* AccountLoginSnippetView.swift */,
-				35245D37280843DB00E7B082 /* AccountSnippetView.swift */,
-				C765465225D88E48004F14E8 /* LoginView.swift */,
-				35156CC0280FAE7A00136E25 /* SearchView.swift */,
-				C7B6F0FC249FA16B00454841 /* RichMapView.swift */,
-				35156CC3280FB0EA00136E25 /* RichMapButtons.swift */,
-				35156CC6280FB2C900136E25 /* RichMapSlideOver.swift */,
-				C7B74E6B25ED8DA600D5194B /* WaypointMapView.swift */,
-				C7ECBE2C25F006D8005933C0 /* WaypointSummaryView.swift */,
-				C7B74EA425EDC46F00D5194B /* WaypointDetailView.swift */,
-				C7ECBE0D25EFFC13005933C0 /* WaypointDetailInfoView.swift */,
-				C7ECBE1525EFFCB7005933C0 /* WaypointDetailActionsView.swift */,
-				357168A7283AE107007305C5 /* WaypointAttributeGridView.swift */,
-				35BF10DD2839361300D20C9C /* WaypointAttributeView.swift */,
-				356EF3CA283C5A9100BCBA8F /* WaypointAttributePicker.swift */,
-				C7ECBDE625EFE479005933C0 /* LargeButtonStyle.swift */,
-				C7ECBDE125EFE03F005933C0 /* SimpleSection.swift */,
-				C7ECBDAD25EEF2E9005933C0 /* WaypointListPickerView.swift */,
-				C7ECBD7425EEB23B005933C0 /* WaypointDistanceView.swift */,
-				C7B74F0325EE9BED00D5194B /* WaypointSnippetView.swift */,
-				35985CEA281188E800D37DB2 /* WaypointLocatingNavigatorView.swift */,
-				C7ECBE3725F00C75005933C0 /* WaypointNavigatorView.swift */,
-				C7ECBD8E25EED8AF005933C0 /* WaypointSmallSnippetView.swift */,
-				C7B74ED525EDD60000D5194B /* WaypointLogView.swift */,
-				C7ECBD8125EED022005933C0 /* WaypointListsView.swift */,
-				C7ECBDA525EEE271005933C0 /* NewWaypointListView.swift */,
-				357BE45A280F39B100E31364 /* EditWaypointView.swift */,
-				356EF3C1283C4DF100BCBA8F /* WaypointTypePicker.swift */,
-				356EF3C4283C4E4E00BCBA8F /* WaypointTypeView.swift */,
-				35A75F5F280F655B00BC959C /* CoordinatesEditor.swift */,
-				35A75F68280F6D8A00BC959C /* CoordinateEditor.swift */,
-				357BE45D280F417500E31364 /* NavigationWaypointDetailView.swift */,
-				C7ECBD8625EED110005933C0 /* WaypointListView.swift */,
-				3567D0132785B7DD00060C37 /* WaypointListContextMenu.swift */,
-				C7ECBD9325EED91E005933C0 /* WaypointListSnippetView.swift */,
-				C748C2A625EEA16B00661BEE /* Waypoint+Color.swift */,
-				C748C2AB25EEA19300661BEE /* Waypoint+Icon.swift */,
-				C7B74EBB25EDCA5E00D5194B /* WaypointType+Color.swift */,
-				356EF3C7283C4EB700BCBA8F /* WaypointType+Icon.swift */,
-				C7B74EB625EDC5C200D5194B /* StarsView.swift */,
-				C7ECBE0525EFF9D9005933C0 /* SizeView.swift */,
-				C7B74EC325EDCF8800D5194B /* SearchBar.swift */,
-				C7B6F0FE249FA1B300454841 /* Map.swift */,
-				C765469A25ED25DE004F14E8 /* EnumPicker.swift */,
-				C7B74E8725EDADC100D5194B /* SlideOverCard.swift */,
-				35245D31280830C200E7B082 /* SlideOverCardPosition.swift */,
-				C7ECBD9B25EEE197005933C0 /* AutoFocusTextField.swift */,
-				C7B74E8C25EDAEA400D5194B /* Handle.swift */,
-				C7ECBDEB25EFE945005933C0 /* ShareSheet.swift */,
-				C7ECBDF025EFE971005933C0 /* SimpleUIViewControllerRepresentable.swift */,
-				C7ECBDF525EFEC27005933C0 /* WebHTMLView.swift */,
-				C7ECBDFD25EFEEA1005933C0 /* LightHTMLView.swift */,
-				3567D0112785B5DD00060C37 /* CancelNavigationStack.swift */,
-				350C523128078F5C00309F5C /* CompatibilityLayer.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
