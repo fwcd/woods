@@ -114,7 +114,7 @@ struct WaypointListView: View {
                         NavigationWaypointDetailView(waypoint: Binding(
                             get: { listWaypoints[i] },
                             set: { waypoints.listTree[listId]?.waypoints[i] = $0 }
-                        ))
+                        ), hasMap: true)
                     } label: {
                         WaypointSmallSnippetView(waypoint: listWaypoints[i])
                     }

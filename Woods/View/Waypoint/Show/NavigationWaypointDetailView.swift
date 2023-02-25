@@ -9,6 +9,7 @@ import SwiftUI
 
 struct NavigationWaypointDetailView: View {
     @Binding var waypoint: Waypoint
+    var hasMap: Bool = true
     var isEditable: Bool = true
     
     @State private var isEditing = false
@@ -21,7 +22,7 @@ struct NavigationWaypointDetailView: View {
                 }
             } else {
                 ScrollView {
-                    WaypointDetailView(waypoint: waypoint)
+                    WaypointDetailView(waypoint: waypoint, hasMap: hasMap)
                 }
             }
         }

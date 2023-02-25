@@ -10,9 +10,15 @@ import SwiftUI
 
 struct WaypointDetailView: View {
     let waypoint: Waypoint
+    var hasMap: Bool = false
     
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
+            if hasMap {
+                WaypointMapView(waypoints: [waypoint] + waypoint.additionalWaypoints)
+                    .frame(height: 200)
+                    .cornerRadius(10)
+            }
             WaypointSnippetView(waypoint: waypoint)
             SimpleSection(header: "Info", iconName: "paperclip") {
                 WaypointDetailInfoView(waypoint: waypoint)
