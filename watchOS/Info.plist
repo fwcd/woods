@@ -6,15 +6,5 @@
 	<string>The app lets you look for and navigate to caches near you using your location.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>The app lets you look for and navigate to caches near you using your location.</string>
-	<key>NSExtension</key>
-	<dict>
-		<key>NSExtensionAttributes</key>
-		<dict>
-			<key>WKAppBundleIdentifier</key>
-			<string>dev.fwcd.Woods.watchkitapp</string>
-		</dict>
-		<key>NSExtensionPointIdentifier</key>
-		<string>com.apple.watchkit</string>
-	</dict>
 </dict>
 </plist>
