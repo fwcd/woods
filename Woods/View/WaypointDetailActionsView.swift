@@ -15,8 +15,6 @@ struct WaypointDetailActionsView: View {
     let waypoint: Waypoint
     
     @State private var listPickerSheetShown: Bool = false
-    @State private var linkShareSheetShown: Bool = false
-    @State private var gpxUrl: URL? = nil
     @EnvironmentObject private var waypoints: Waypoints
     
     var body: some View {
@@ -59,34 +57,25 @@ struct WaypointDetailActionsView: View {
                             Text("Web")
                         }
                     }
-                    Button {
-                        linkShareSheetShown = true
-                    } label: {
+                    ShareLink(item: url) {
                         HStack {
                             Image(systemName: "square.and.arrow.up")
                             Text("Link")
                         }
                     }
-                    .sheet(isPresented: $linkShareSheetShown) {
-                        ShareSheet(items: [url])
-                    }
                 }
-                Button {
-                    do {
-                        let url = persistenceFileURL(path: "GPX/\(waypoint.id).gpx")
-                        try waypoint.asGPX.data(using: .utf8)?.smartWrite(to: url)
-                        gpxUrl = url
-                    } catch {
-                        log.error("Could not encode write GPX: \(String(describing: error))")
-                    }
-                } label: {
+                // TODO: Add subject/message to share links
+                ShareLink(
+                    item: waypoint,
+                    preview: SharePreview(
+                        "\(waypoint.id): \(waypoint.name)",
+                        icon: Image(systemName: waypoint.iconName)
+                    )
+                ) {
                     HStack {
                         Image(systemName: "square.and.arrow.up")
-                        Text("GPX")
+                        Text("Waypoint")
                     }
-                }
-                .sheet(item: $gpxUrl) { url in
-                    ShareSheet(items: [url])
                 }
             }
             #endif
