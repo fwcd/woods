@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import WrappingHStack
+import FlowStackLayout
 
 struct WaypointAttributeGridView: View {
     let attributes: [WaypointAttribute: Bool]
@@ -15,13 +15,16 @@ struct WaypointAttributeGridView: View {
         let spacing: CGFloat = 8
         let keys = attributes.keys
             .sorted { $0.rawValue < $1.rawValue }
-        WrappingHStack(
-            keys,
-            id: \.self,
-            spacing: .constant(spacing),
-            lineSpacing: spacing
-        ) { attribute in
-            WaypointAttributeView(attribute: attribute, isEnabled: attributes[attribute]!)
+        FlowStack(
+            horizontalSpacing: spacing,
+            verticalSpacing: spacing
+        ) {
+            ForEach(
+                keys,
+                id: \.self
+            ) { attribute in
+                WaypointAttributeView(attribute: attribute, isEnabled: attributes[attribute]!)
+            }
         }
     }
 }
