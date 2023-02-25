@@ -285,7 +285,6 @@
 		C7ECBDDD25EF182F005933C0 /* WaypointStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBDDC25EF182F005933C0 /* WaypointStatus.swift */; };
 		C7ECBDE225EFE03F005933C0 /* SimpleSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBDE125EFE03F005933C0 /* SimpleSection.swift */; };
 		C7ECBDE725EFE479005933C0 /* LargeButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBDE625EFE479005933C0 /* LargeButtonStyle.swift */; };
-		C7ECBDEC25EFE945005933C0 /* ShareSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBDEB25EFE945005933C0 /* ShareSheet.swift */; };
 		C7ECBDF125EFE971005933C0 /* SimpleUIViewControllerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBDF025EFE971005933C0 /* SimpleUIViewControllerRepresentable.swift */; };
 		C7ECBDF625EFEC27005933C0 /* WebHTMLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBDF525EFEC27005933C0 /* WebHTMLView.swift */; };
 		C7ECBDFE25EFEEA1005933C0 /* LightHTMLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBDFD25EFEEA1005933C0 /* LightHTMLView.swift */; };
@@ -483,7 +482,6 @@
 		C7ECBDDC25EF182F005933C0 /* WaypointStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointStatus.swift; sourceTree = "<group>"; };
 		C7ECBDE125EFE03F005933C0 /* SimpleSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleSection.swift; sourceTree = "<group>"; };
 		C7ECBDE625EFE479005933C0 /* LargeButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeButtonStyle.swift; sourceTree = "<group>"; };
-		C7ECBDEB25EFE945005933C0 /* ShareSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSheet.swift; sourceTree = "<group>"; };
 		C7ECBDF025EFE971005933C0 /* SimpleUIViewControllerRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleUIViewControllerRepresentable.swift; sourceTree = "<group>"; };
 		C7ECBDF525EFEC27005933C0 /* WebHTMLView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebHTMLView.swift; sourceTree = "<group>"; };
 		C7ECBDFD25EFEEA1005933C0 /* LightHTMLView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightHTMLView.swift; sourceTree = "<group>"; };
@@ -652,7 +650,6 @@
 				C7B74EC325EDCF8800D5194B /* SearchBar.swift */,
 				C7ECBD9B25EEE197005933C0 /* AutoFocusTextField.swift */,
 				C7B74E8C25EDAEA400D5194B /* Handle.swift */,
-				C7ECBDEB25EFE945005933C0 /* ShareSheet.swift */,
 				C7ECBDF025EFE971005933C0 /* SimpleUIViewControllerRepresentable.swift */,
 				C7ECBDF525EFEC27005933C0 /* WebHTMLView.swift */,
 				C7ECBDFD25EFEEA1005933C0 /* LightHTMLView.swift */,
@@ -1398,7 +1395,6 @@
 				C765463C25D88AC6004F14E8 /* Accounts.swift in Sources */,
 				35222982274A737300090224 /* CollectionUtils.swift in Sources */,
 				C765465D25D890F6004F14E8 /* AccountType.swift in Sources */,
-				C7ECBDEC25EFE945005933C0 /* ShareSheet.swift in Sources */,
 				C76546B025ED2DB6004F14E8 /* HTTPRequest.swift in Sources */,
 				C765465825D890E1004F14E8 /* Account.swift in Sources */,
 				35A75F6F280F75A400BC959C /* SignUtils.swift in Sources */,
