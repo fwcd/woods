@@ -13,38 +13,23 @@ struct ContentView: View {
         TabView {
             RichMapView()
                 .tabItem {
-                    VStack {
-                        Image(systemName: "map.fill")
-                        Text("Map")
-                    }
+                    Label("Map", systemImage: "map.fill")
                 }
             LocationView()
                 .tabItem {
-                    VStack {
-                        Image(systemName: "location.fill")
-                        Text("Location")
-                    }
+                    Label("Location", systemImage: "location.fill")
                 }
             WaypointListsView()
                 .tabItem {
-                    VStack {
-                        Image(systemName: "list.bullet")
-                        Text("Lists")
-                    }
+                    Label("Lists", systemImage: "list.bullet")
                 }
             SearchView()
                 .tabItem {
-                    VStack {
-                        Image(systemName: "magnifyingglass")
-                        Text("Search")
-                    }
+                    Label("Search", systemImage: "magnifyingglass")
                 }
             AccountsView()
                 .tabItem {
-                    VStack {
-                        Image(systemName: "person.circle.fill")
-                        Text("Accounts")
-                    }
+                    Label("Accounts", systemImage: "person.circle.fill")
                 }
         }
     }

@@ -29,17 +29,13 @@ struct SidebarContentView: View {
                     NavigationLink(value: tab) {
                         switch tab {
                         case .map:
-                            Image(systemName: "map.fill")
-                            Text("Map")
+                            Label("Map", systemImage: "map.fill")
                         case .lists:
-                            Image(systemName: "list.bullet")
-                            Text("Lists")
+                            Label("Lists", systemImage: "list.bullet")
                         case .search:
-                            Image(systemName: "magnifyingglass")
-                            Text("Search")
+                            Label("Search", systemImage: "magnifyingglass")
                         case .accounts:
-                            Image(systemName: "person.circle.fill")
-                            Text("Accounts")
+                            Label("Accounts", systemImage: "person.circle.fill")
                         }
                     }
                 }
