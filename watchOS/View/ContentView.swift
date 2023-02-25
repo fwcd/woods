@@ -12,7 +12,7 @@ struct ContentView: View {
     @EnvironmentObject private var remoteHostManager: RemoteHostManager
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             if let target = remoteHostManager.navigationTarget {
                 WaypointLocatingNavigatorView(target: target)
             } else {

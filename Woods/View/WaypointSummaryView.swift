@@ -52,7 +52,7 @@ struct WaypointSummaryView: View {
                 }
                 .buttonStyle(LargeButtonStyle())
                 .sheet(isPresented: $detailSheetShown) {
-                    CancelNavigationView(title: "Waypoint Details") {
+                    CancelNavigationStack(title: "Waypoint Details") {
                         detailSheetShown = false
                     } inner: {
                         NavigationWaypointDetailView(waypoint: $waypoint, isEditable: isEditable)

@@ -12,7 +12,7 @@ struct WaypointListsView: View {
     @EnvironmentObject private var waypoints: Waypoints
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             WaypointListView(listId: waypoints.listTree.rootId)
         }
     }

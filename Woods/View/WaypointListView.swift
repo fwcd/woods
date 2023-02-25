@@ -38,7 +38,7 @@ struct WaypointListView: View {
                     }
                 }
                 .sheet(isPresented: $newListSheetShown) {
-                    CancelNavigationView(title: "New Waypoint List") {
+                    CancelNavigationStack(title: "New Waypoint List") {
                         newListSheetShown = false
                     } inner: {
                         NewWaypointListView { child in
@@ -60,7 +60,7 @@ struct WaypointListView: View {
                     }
                 }
                 .sheet(isPresented: $newWaypointSheetShown) {
-                    CancelNavigationView(title: "New Waypoint") {
+                    CancelNavigationStack(title: "New Waypoint") {
                         newWaypointSheetShown = false
                     } inner: {
                         EditWaypointView(waypoint: $newWaypoint, onCommit: commitNewWaypoint)

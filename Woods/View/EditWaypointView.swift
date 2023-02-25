@@ -95,7 +95,7 @@ struct EditWaypointView: View {
                         waypoint.additionalWaypoints.remove(atOffsets: indexSet)
                     }
                     .sheet(isPresented: $editAdditionalWaypointSheetShown) {
-                        CancelNavigationView(title: "Edit Additional Waypoint") {
+                        CancelNavigationStack(title: "Edit Additional Waypoint") {
                             editAdditionalWaypointSheetShown = false
                         } inner: {
                             EditWaypointView(waypoint: $waypoint.additionalWaypoints[editedAdditionalWaypointIndex]) {
@@ -124,7 +124,7 @@ struct EditWaypointView: View {
                         }
                     }
                     .sheet(isPresented: $newAdditionalWaypointSheetShown) {
-                        CancelNavigationView(title: "New Additional Waypoint") {
+                        CancelNavigationStack(title: "New Additional Waypoint") {
                             newAdditionalWaypointSheetShown = false
                         } inner: {
                             EditWaypointView(waypoint: $newAdditionalWaypoint, onCommit: commitAdditionalWaypoint)

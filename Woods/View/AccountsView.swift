@@ -17,7 +17,7 @@ struct AccountsView: View {
     @State private var logoutConfirmationShown = false
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             List {
                 let logins = accounts.accountLogins
                     .values
@@ -64,7 +64,7 @@ struct AccountsView: View {
                 }
             }
             .sheet(isPresented: $loginSheetShown) {
-                CancelNavigationView(title: "Login") {
+                CancelNavigationStack(title: "Login") {
                     loginSheetShown = false
                 } inner: {
                     LoginView { account in

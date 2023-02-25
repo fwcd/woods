@@ -35,7 +35,7 @@ struct WaypointSnippetView: View {
                     WaypointDistanceView(start: location, target: waypoint.location)
                 }
                 .sheet(isPresented: $navigatorSheetShown) {
-                    CancelNavigationView(title: "Navigator") {
+                    CancelNavigationStack(title: "Navigator") {
                         navigatorSheetShown = false
                     } inner: {
                         WaypointLocatingNavigatorView(target: waypoint.location)

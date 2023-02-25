@@ -29,7 +29,7 @@ struct WaypointDetailActionsView: View {
                     }
                 }
                 .sheet(isPresented: $listPickerSheetShown) {
-                    CancelNavigationView(title: "Pick Waypoint List") {
+                    CancelNavigationStack(title: "Pick Waypoint List") {
                         listPickerSheetShown = false
                     } inner: {
                         Form {

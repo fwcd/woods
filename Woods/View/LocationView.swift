@@ -11,7 +11,7 @@ struct LocationView: View {
     @EnvironmentObject private var locationManager: LocationManager
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack(spacing: 40) {
                 CompassRoseView(heading: locationManager.heading ?? .zero)
                     .aspectRatio(1, contentMode: .fit)

@@ -48,7 +48,7 @@ struct NavigationWaypointDetailView_Previews: PreviewProvider {
     @StateObject private static var locationManager = LocationManager()
     @StateObject private static var waypoints = Waypoints(accounts: Accounts(testMode: true))
     static var previews: some View {
-        NavigationView {
+        NavigationStack {
             NavigationWaypointDetailView(waypoint: $waypoint)
                 .environmentObject(locationManager)
                 .environmentObject(waypoints)
