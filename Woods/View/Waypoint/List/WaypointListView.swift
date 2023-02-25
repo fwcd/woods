@@ -31,11 +31,10 @@ struct WaypointListView: View {
     var body: some View {
         Form {
             Section {
-                Button(action: { newListSheetShown = true }) {
-                    HStack {
-                        Image(systemName: "plus")
-                        Text("New List")
-                    }
+                Button {
+                    newListSheetShown = true
+                } label: {
+                    Label("New List", systemImage: "plus")
                 }
                 .sheet(isPresented: $newListSheetShown) {
                     CancelNavigationStack(title: "New Waypoint List") {
@@ -53,11 +52,10 @@ struct WaypointListView: View {
                     waypoints.listTree[listId]?.add(waypoints: [newWaypoint])
                         newWaypointSheetShown = false
                 }
-                Button(action: { newWaypointSheetShown = true }) {
-                    HStack {
-                        Image(systemName: "plus")
-                        Text("New Waypoint")
-                    }
+                Button {
+                    newWaypointSheetShown = true
+                } label: {
+                    Label("New Waypoint", systemImage: "plus")
                 }
                 .sheet(isPresented: $newWaypointSheetShown) {
                     CancelNavigationStack(title: "New Waypoint") {
@@ -69,11 +67,10 @@ struct WaypointListView: View {
                             }
                     }
                 }
-                Button(action: { clearConfirmationShown = true }) {
-                    HStack {
-                        Image(systemName: "trash")
-                        Text("Clear List")
-                    }
+                Button {
+                    clearConfirmationShown = true
+                } label: {
+                    Label("Clear List", systemImage: "trash")
                 }
                 .confirmationDialog("Are you sure?", isPresented: $clearConfirmationShown) {
                     Button {

@@ -93,8 +93,6 @@ struct WaypointAttributeView: View {
                 } else if let abbreviation = abbreviation {
                     Text(abbreviation)
                         .padding(4)
-                } else {
-                    
                 }
             }
             .font(.system(size: size / 2))

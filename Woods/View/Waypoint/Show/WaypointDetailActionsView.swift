@@ -23,10 +23,7 @@ struct WaypointDetailActionsView: View {
                 Button {
                     listPickerSheetShown = true
                 } label: {
-                    HStack {
-                        Image(systemName: "plus")
-                        Text("Add")
-                    }
+                    Label("Add", systemImage: "plus")
                 }
                 .sheet(isPresented: $listPickerSheetShown) {
                     CancelNavigationStack(title: "Pick Waypoint List") {
@@ -52,16 +49,10 @@ struct WaypointDetailActionsView: View {
                     Button {
                         UIApplication.shared.open(url)
                     } label: {
-                        HStack {
-                            Image(systemName: "safari")
-                            Text("Web")
-                        }
+                        Label("Web", systemImage: "safari")
                     }
                     ShareLink(item: url) {
-                        HStack {
-                            Image(systemName: "square.and.arrow.up")
-                            Text("Link")
-                        }
+                        Label("Link", systemImage: "square.and.arrow.up")
                     }
                 }
                 // TODO: Add subject/message to share links
@@ -72,10 +63,7 @@ struct WaypointDetailActionsView: View {
                         icon: Image(systemName: waypoint.iconName)
                     )
                 ) {
-                    HStack {
-                        Image(systemName: "square.and.arrow.up")
-                        Text("Waypoint")
-                    }
+                    Label("Waypoint", systemImage: "square.and.arrow.up")
                 }
             }
             #endif

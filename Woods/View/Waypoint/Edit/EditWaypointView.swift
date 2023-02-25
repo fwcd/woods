@@ -118,10 +118,7 @@ struct EditWaypointView: View {
                     Button {
                         newAdditionalWaypointSheetShown = true
                     } label: {
-                        HStack {
-                            Image(systemName: "plus")
-                            Text("Add Waypoint...")
-                        }
+                        Label("Add Waypoint...", systemImage: "plus")
                     }
                     .sheet(isPresented: $newAdditionalWaypointSheetShown) {
                         CancelNavigationStack(title: "New Additional Waypoint") {
