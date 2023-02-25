@@ -11,10 +11,11 @@ struct AccountLoginSnippetView: View {
     let login: AccountLogin
     
     var body: some View {
-        HStack {
+        Label {
+            AccountSnippetView(account: login.account)
+        } icon: {
             Image(systemName: "circlebadge.fill")
                 .foregroundColor(colorOf(state: login.state))
-            AccountSnippetView(account: login.account)
         }
     }
     

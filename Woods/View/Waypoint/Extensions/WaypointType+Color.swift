@@ -39,11 +39,12 @@ extension WaypointType {
 struct WaypointTypeColor_Previews: PreviewProvider {
     static var previews: some View {
         List(WaypointType.allCases, id: \.self) { type in
-            HStack {
+            Label {
+                Text(type.name)
+            } icon: {
                 RoundedRectangle(cornerRadius: 5)
                     .fill(type.color)
                     .frame(width: 30, height: 30)
-                Text(type.name)
             }
         }
     }

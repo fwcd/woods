@@ -12,12 +12,13 @@ struct WaypointListSnippetView: View {
     let list: WaypointList
     
     var body: some View {
-        HStack {
-            Image(systemName: "list.bullet")
+        Label {
             VStack {
                 Text(list.name)
                     .font(.headline)
             }
+        } icon: {
+            Image(systemName: "list.bullet")
         }
     }
 }

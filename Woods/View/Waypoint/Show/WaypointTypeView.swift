@@ -20,9 +20,10 @@ struct WaypointTypeView: View {
 struct WaypointTypeView_Previews: PreviewProvider {
     static var previews: some View {
         List(WaypointType.allCases, id: \.self) { type in
-            HStack {
-                WaypointTypeView(type: type)
+            Label {
                 Text(type.name)
+            } icon: {
+                WaypointTypeView(type: type)
             }
         }
     }

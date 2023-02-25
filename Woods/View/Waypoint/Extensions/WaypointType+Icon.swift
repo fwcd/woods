@@ -36,10 +36,11 @@ extension WaypointType {
 struct WaypointTypeIcon_Previews: PreviewProvider {
     static var previews: some View {
         List(WaypointType.allCases, id: \.self) { type in
-            HStack {
+            Label {
+                Text(type.name)
+            } icon: {
                 Image(systemName: type.iconName)
                     .font(.title)
-                Text(type.name)
             }
         }
     }
