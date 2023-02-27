@@ -149,6 +149,8 @@
 		357BE462280F4BF500E31364 /* BindingUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357BE460280F4BF500E31364 /* BindingUtils.swift */; };
 		3594EF8129AD6DE700AC705E /* URLRequest+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3594EF8029AD6DE700AC705E /* URLRequest+Extensions.swift */; };
 		3594EF8229AD6DE700AC705E /* URLRequest+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3594EF8029AD6DE700AC705E /* URLRequest+Extensions.swift */; };
+		3594EF8429AD783600AC705E /* AccountLoginStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3594EF8329AD783600AC705E /* AccountLoginStateView.swift */; };
+		3594EF8529AD783600AC705E /* AccountLoginStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3594EF8329AD783600AC705E /* AccountLoginStateView.swift */; };
 		35985CEB281188E800D37DB2 /* WaypointLocatingNavigatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35985CEA281188E800D37DB2 /* WaypointLocatingNavigatorView.swift */; };
 		35985CEC281188E800D37DB2 /* WaypointLocatingNavigatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35985CEA281188E800D37DB2 /* WaypointLocatingNavigatorView.swift */; };
 		35985CED28118A2B00D37DB2 /* WaypointLocatingNavigatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35985CEA281188E800D37DB2 /* WaypointLocatingNavigatorView.swift */; };
@@ -393,6 +395,7 @@
 		357BE45D280F417500E31364 /* NavigationWaypointDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationWaypointDetailView.swift; sourceTree = "<group>"; };
 		357BE460280F4BF500E31364 /* BindingUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingUtils.swift; sourceTree = "<group>"; };
 		3594EF8029AD6DE700AC705E /* URLRequest+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+Extensions.swift"; sourceTree = "<group>"; };
+		3594EF8329AD783600AC705E /* AccountLoginStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountLoginStateView.swift; sourceTree = "<group>"; };
 		35985CEA281188E800D37DB2 /* WaypointLocatingNavigatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointLocatingNavigatorView.swift; sourceTree = "<group>"; };
 		35985CEE28119AB700D37DB2 /* WatchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchManager.swift; sourceTree = "<group>"; };
 		35985CF428119D0C00D37DB2 /* WatchMessageKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchMessageKey.swift; sourceTree = "<group>"; };
@@ -566,6 +569,7 @@
 			children = (
 				C765464D25D88CEC004F14E8 /* AccountsView.swift */,
 				35245D3A2808443700E7B082 /* AccountLoginSnippetView.swift */,
+				3594EF8329AD783600AC705E /* AccountLoginStateView.swift */,
 				35245D37280843DB00E7B082 /* AccountSnippetView.swift */,
 				C765465225D88E48004F14E8 /* LoginView.swift */,
 			);
@@ -1362,6 +1366,7 @@
 				35677A37281287A200708B3B /* Regex.swift in Sources */,
 				35156CC8280FB2CA00136E25 /* RichMapSlideOver.swift in Sources */,
 				357BE45F280F417500E31364 /* NavigationWaypointDetailView.swift in Sources */,
+				3594EF8529AD783600AC705E /* AccountLoginStateView.swift in Sources */,
 				352229BC274A76AA00090224 /* LightHTMLView.swift in Sources */,
 				35156CC5280FB0EA00136E25 /* RichMapButtons.swift in Sources */,
 				352229B7274A76AA00090224 /* WaypointListView.swift in Sources */,
@@ -1472,6 +1477,7 @@
 				C7ECBDA625EEE271005933C0 /* NewWaypointListView.swift in Sources */,
 				C7ECBDFE25EFEEA1005933C0 /* LightHTMLView.swift in Sources */,
 				C7B74F0425EE9BED00D5194B /* WaypointSnippetView.swift in Sources */,
+				3594EF8429AD783600AC705E /* AccountLoginStateView.swift in Sources */,
 				35985CF528119D0C00D37DB2 /* WatchMessageKey.swift in Sources */,
 				35245D35280841E200E7B082 /* AccountLogin.swift in Sources */,
 				C765463125D8856C004F14E8 /* Credentials.swift in Sources */,

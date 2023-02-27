@@ -14,17 +14,7 @@ struct AccountLoginSnippetView: View {
         Label {
             AccountSnippetView(account: login.account)
         } icon: {
-            Image(systemName: "circlebadge.fill")
-                .foregroundColor(colorOf(state: login.state))
-        }
-    }
-    
-    private func colorOf(state: AccountLogin.State) -> Color {
-        switch state {
-        case .connecting: return .yellow
-        case .connected: return .green
-        case .failed: return .red
-        case .loggedOut: return .gray
+            AccountLoginStateView(state: login.state)
         }
     }
 }
