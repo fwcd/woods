@@ -29,12 +29,14 @@ private let log = Logger(subsystem: "Woods", category: "GeocachingComConnector")
 private let searchParamsPattern = try! Regex(from: "\\{.+\\}")
 
 class GeocachingComConnector: Connector {
+    private let session = URLSession(configuration: .ephemeral)
+    
     func logIn(using credentials: Credentials) async throws {
         let tokenFieldName = "__RequestVerificationToken"
         
         // Fetch the login page
-        let request = try HTTPRequest(url: loginPageUrl)
-        let document = try await request.fetchHTMLAsync()
+        let request = try URLRequest(standardWithUrl: loginPageUrl)
+        let document = try await session.fetchHTML(for: request)
         
         log.info("Parsing login page")
         guard let tokenField = try document.select("input[name=\(tokenFieldName)]").first() else {
@@ -43,14 +45,14 @@ class GeocachingComConnector: Connector {
         let tokenValue = try tokenField.attr("value")
         
         // Send the login request
-        let loginRequest = try HTTPRequest(url: loginPageUrl, method: "POST", query: [
+        let loginRequest = try URLRequest(standardWithUrl: loginPageUrl, method: "POST", query: [
             "UsernameOrEmail": credentials.username,
             "Password": credentials.password,
             tokenFieldName: tokenValue
         ])
         
         log.info("Submitting login request")
-        try await loginRequest.runAsync()
+        try await session.runAndCheck(loginRequest)
     }
     
     func logOut() async {
@@ -60,8 +62,8 @@ class GeocachingComConnector: Connector {
     func accountInfo() async throws -> AccountInfo {
         log.info("Querying account info")
         
-        let request = try HTTPRequest(url: serverParamsUrl)
-        let raw = try await request.fetchUTF8Async()
+        let request = try URLRequest(standardWithUrl: serverParamsUrl)
+        let raw = try await session.fetchUTF8(for: request)
         guard let jsonData = searchParamsPattern.firstGroups(in: raw)?[0].data(using: .utf8) else {
             throw ConnectorError.accountInfoFailed("Could not parse/encode search params: '\(raw)'")
         }
@@ -76,8 +78,8 @@ class GeocachingComConnector: Connector {
     func waypoint(id: String) async throws -> Waypoint {
         log.info("Querying details for \(id)")
         guard id.starts(with: "GC") else { throw ConnectorError.invalidWaypoint("Not a Geocaching.com geocache") }
-        let request = try HTTPRequest(url: apiPreviewUrl(gcCode: id))
-        let result = try await request.fetchJSONAsync(as: GeocachingComApiResults.Geocache.self)
+        let request = try URLRequest(standardWithUrl: apiPreviewUrl(gcCode: id))
+        let result = try await session.fetchJSON(as: GeocachingComApiResults.Geocache.self, for: request)
         guard let waypoint = result.asWaypoint else { throw ConnectorError.waypointNotFound(id) }
         return waypoint
     }
@@ -118,8 +120,8 @@ class GeocachingComConnector: Connector {
             query["origin"] = "\(origin.latitude),\(origin.longitude)"
         }
             
-        let request = try HTTPRequest(url: apiSearchUrl, query: query)
-        let results = try await request.fetchJSONAsync(as: GeocachingComApiResults.self)
+        let request = try URLRequest(standardWithUrl: apiSearchUrl, query: query)
+        let results = try await session.fetchJSON(as: GeocachingComApiResults.self, for: request)
         try await Task.sleep(nanoseconds: 500_000_000)
         
         // Search the next 'page'
