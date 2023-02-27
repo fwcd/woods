@@ -141,7 +141,7 @@ class Accounts: ObservableObject {
     /// Stores the given accounts in the user's keychain.
     private func storeInKeychain(accounts: [Account]) throws {
         log.info("Storing \(accounts.count) account(s) in keychain")
-        for account in accounts where !account.credentials.username.isEmpty {
+        for account in accounts where canBeStoredInKeychain(account: account) {
             let query: [String: Any] = [
                 kSecClass as String: keychainClass,
                 kSecAttrAccount as String: "\(account.id):\(account.credentials.username)",
@@ -157,7 +157,7 @@ class Accounts: ObservableObject {
     /// Removes the given accounts in the user's keychain.
     private func removeFromKeychain(accounts: [Account]) throws {
         log.info("Removing \(accounts.count) account(s) from keychain")
-        for account in accounts {
+        for account in accounts where canBeStoredInKeychain(account: account) {
             let query: [String: Any] = [
                 kSecClass as String: keychainClass,
                 kSecAttrLabel as String: keychainLabel,
@@ -167,6 +167,11 @@ class Accounts: ObservableObject {
             let status = SecItemDelete(query as CFDictionary)
             guard status == errSecSuccess else { throw KeychainError.couldNotDelete(status) }
         }
+    }
+    
+    /// Whether a given account can be stored in the keychain.
+    private func canBeStoredInKeychain(account: Account) -> Bool {
+        !account.credentials.username.isEmpty
     }
     
     /// Removes all (woods-related) accounts from the user's keychain.
