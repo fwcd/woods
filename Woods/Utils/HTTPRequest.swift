@@ -43,11 +43,11 @@ public struct HTTPRequest {
             request.httpBody = body
         }
 
+        request.setValue("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.72 Safari/537.36", forHTTPHeaderField: "User-Agent")
+        
         for (key, value) in headers {
             request.setValue(value, forHTTPHeaderField: key)
         }
-        
-        request.setValue("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.72 Safari/537.36", forHTTPHeaderField: "User-Agent")
     }
 
     public init(
