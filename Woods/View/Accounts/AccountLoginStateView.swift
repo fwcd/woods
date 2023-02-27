@@ -20,8 +20,12 @@ struct AccountLoginStateView: View {
     }
     
     var body: some View {
-        Image(systemName: "circlebadge.fill")
-            .foregroundColor(color)
+        if case .connecting = state {
+            ProgressView()
+        } else {
+            Image(systemName: "circlebadge.fill")
+                .foregroundColor(color)
+        }
     }
 }
 
