@@ -5,7 +5,7 @@
 //  Created by Fredrik on 14.04.22.
 //
 
-class AccountLogin: Identifiable {
+struct AccountLogin: Identifiable {
     let account: Account
     var state: State
     

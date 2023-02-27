@@ -90,10 +90,10 @@ class Accounts: ObservableObject {
         accountLogins[account.id] = login
         do {
             let connector = try await account.type.makeConnector(using: account.credentials)
-            login.state = .connected(connector)
+            accountLogins[account.id]?.state = .connected(connector)
         } catch {
             log.warning("Could not log in with account \(account): \(String(describing: error))")
-            login.state = .failed
+            accountLogins[account.id]?.state = .failed
         }
     }
     
