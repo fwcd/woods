@@ -35,7 +35,7 @@ class GeocachingComConnector: Connector {
         let tokenFieldName = "__RequestVerificationToken"
         
         // Fetch the login page
-        let request = try URLRequest(standardWithUrl: loginPageUrl)
+        let request = try URLRequest.standard(url: loginPageUrl)
         let document = try await session.fetchHTML(for: request)
         
         log.info("Parsing login page")
@@ -45,7 +45,7 @@ class GeocachingComConnector: Connector {
         let tokenValue = try tokenField.attr("value")
         
         // Send the login request
-        let loginRequest = try URLRequest(standardWithUrl: loginPageUrl, method: "POST", query: [
+        let loginRequest = try URLRequest.standard(url: loginPageUrl, method: "POST", query: [
             "UsernameOrEmail": credentials.username,
             "Password": credentials.password,
             tokenFieldName: tokenValue
@@ -62,7 +62,7 @@ class GeocachingComConnector: Connector {
     func accountInfo() async throws -> AccountInfo {
         log.info("Querying account info")
         
-        let request = try URLRequest(standardWithUrl: serverParamsUrl)
+        let request = try URLRequest.standard(url: serverParamsUrl)
         let raw = try await session.fetchUTF8(for: request)
         guard let jsonData = searchParamsPattern.firstGroups(in: raw)?[0].data(using: .utf8) else {
             throw ConnectorError.accountInfoFailed("Could not parse/encode search params: '\(raw)'")
@@ -78,7 +78,7 @@ class GeocachingComConnector: Connector {
     func waypoint(id: String) async throws -> Waypoint {
         log.info("Querying details for \(id)")
         guard id.starts(with: "GC") else { throw ConnectorError.invalidWaypoint("Not a Geocaching.com geocache") }
-        let request = try URLRequest(standardWithUrl: apiPreviewUrl(gcCode: id))
+        let request = try URLRequest.standard(url: apiPreviewUrl(gcCode: id))
         let result = try await session.fetchJSON(as: GeocachingComApiResults.Geocache.self, for: request)
         guard let waypoint = result.asWaypoint else { throw ConnectorError.waypointNotFound(id) }
         return waypoint
@@ -120,7 +120,7 @@ class GeocachingComConnector: Connector {
             query["origin"] = "\(origin.latitude),\(origin.longitude)"
         }
             
-        let request = try URLRequest(standardWithUrl: apiSearchUrl, query: query)
+        let request = try URLRequest.standard(url: apiSearchUrl, query: query)
         let results = try await session.fetchJSON(as: GeocachingComApiResults.self, for: request)
         try await Task.sleep(nanoseconds: 500_000_000)
         
