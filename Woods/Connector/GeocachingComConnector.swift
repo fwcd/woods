@@ -28,10 +28,10 @@ private func apiPreviewUrl(gcCode: String) -> URL {
 private let log = Logger(subsystem: "Woods", category: "GeocachingComConnector")
 private let searchParamsPattern = try! Regex(from: "\\{.+\\}")
 
-class GeocachingComConnector: Connector {
+final class GeocachingComConnector: Connector {
     private let session = URLSession(configuration: .ephemeral)
     
-    func logIn(using credentials: Credentials) async throws {
+    init(using credentials: Credentials) async throws {
         let tokenFieldName = "__RequestVerificationToken"
         
         // Fetch the login page

@@ -8,17 +8,21 @@
 
 import Combine
 
+/// A proxy for a connection to a remote waypoint/geocache service.
 protocol Connector: AnyObject {
-    func logIn(using credentials: Credentials) async throws
+    /// Logs into the service.
+    init(using credentials: Credentials) async throws
     
-    func logOut() async throws
-    
+    /// Fetches infomation about the account.
     func accountInfo() async throws -> AccountInfo
     
+    /// Fetches a waypoint with the given id.
     func waypoint(id: String) async throws -> Waypoint
     
+    /// Fetches waypoints within the given radius.
     func waypoints(for query: WaypointsInRadiusQuery) async throws -> [Waypoint]
     
+    /// Fetches waypoints within the given region.
     func waypoints(for query: WaypointsInRegionQuery) async throws -> [Waypoint]
 }
 

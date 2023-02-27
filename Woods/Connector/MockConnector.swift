@@ -10,10 +10,10 @@ import Foundation
 import Combine
 
 /// A simple connector that outputs some fake caches for testing.
-class MockConnector: Connector {
-    func logIn(using credentials: Credentials) {}
+final class MockConnector: Connector {
+    init() {}
     
-    func logOut() {}
+    init(using credentials: Credentials) {}
     
     func waypoint(id: String) throws -> Waypoint {
         guard let cache = mockGeocaches().first(where: { $0.id == id }) else { throw ConnectorError.waypointNotFound(id) }

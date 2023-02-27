@@ -12,12 +12,12 @@ enum AccountType: String, CustomStringConvertible, CaseIterable, Hashable {
     
     var description: String { rawValue }
     
-    func makeConnector() -> Connector {
+    func makeConnector(using credentials: Credentials) async throws -> any Connector {
         switch self {
         case .geocachingCom:
-            return GeocachingComConnector()
+            return try await GeocachingComConnector(using: credentials)
         case .mock:
-            return MockConnector()
+            return MockConnector(using: credentials)
         }
     }
 }

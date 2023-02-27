@@ -30,7 +30,7 @@ class Accounts: ObservableObject {
         }
         
         if testMode {
-            accountLogins = Dictionary(uniqueKeysWithValues: accounts.map { ($0.id, AccountLogin(account: $0, state: .connected)) })
+            accountLogins = Dictionary(uniqueKeysWithValues: accounts.map { ($0.id, AccountLogin(account: $0, state: .connected(MockConnector()))) })
         } else {
             let initialAccounts = initialAccounts
             Task {
@@ -85,13 +85,12 @@ class Accounts: ObservableObject {
     
     private func logIn(using account: Account) async {
         log.info("Logging in using \(account)")
-        let connector = account.type.makeConnector()
-        let login = AccountLogin(account: account, connector: connector, state: .connecting)
+        let login = AccountLogin(account: account, state: .connecting)
         
         accountLogins[account.id] = login
         do {
-            try await connector.logIn(using: account.credentials)
-            login.state = .connected
+            let connector = try await account.type.makeConnector(using: account.credentials)
+            login.state = .connected(connector)
         } catch {
             log.warning("Could not log in with account \(account): \(String(describing: error))")
             login.state = .failed
@@ -99,15 +98,8 @@ class Accounts: ObservableObject {
     }
     
     private func logOut(using account: Account) async throws {
-        log.info("Logging out using \(account)")
-        guard let connector = accountLogins[account.id]?.connector else { throw ConnectorError.noConnector }
-        
-        do {
-            try await connector.logOut()
-            accountLogins[account.id] = nil
-        } catch {
-            log.warning("Could not log out from account \(account): \(String(describing: error))")
-        }
+        log.info("Logging out from \(account)")
+        accountLogins[account.id]?.state = .loggedOut
     }
     
     /// Loads all accounts from the user's keychain.

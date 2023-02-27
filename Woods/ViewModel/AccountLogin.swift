@@ -7,24 +7,28 @@
 
 class AccountLogin: Identifiable {
     let account: Account
-    var connector: Connector?
     var state: State
     
     var id: Account.ID { account.id }
     
-    enum State {
-        case connecting
-        case connected
-        case failed
+    var connector: Connector? {
+        switch state {
+        case .connected(let connector):
+            return connector
+        default:
+            return nil
+        }
     }
     
-    init(
-        account: Account,
-        connector: Connector? = nil,
-        state: State = .connecting
-    ) {
+    enum State {
+        case connecting
+        case connected(any Connector)
+        case failed
+        case loggedOut
+    }
+    
+    init(account: Account, state: State = .loggedOut) {
         self.account = account
-        self.connector = connector
         self.state = state
     }
 }

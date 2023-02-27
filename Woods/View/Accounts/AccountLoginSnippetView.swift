@@ -24,6 +24,7 @@ struct AccountLoginSnippetView: View {
         case .connecting: return .yellow
         case .connected: return .green
         case .failed: return .red
+        case .loggedOut: return .gray
         }
     }
 }
