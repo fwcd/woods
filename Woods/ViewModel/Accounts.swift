@@ -65,24 +65,16 @@ class Accounts: ObservableObject {
     
     func remove(_ account: Account) async {
         do {
-            try removeFromKeychain(accounts: [account])
             accountLogins[account.id] = nil
+            try removeFromKeychain(accounts: [account])
         } catch {
             log.error("Could not remove \(account): \(String(describing: error))")
         }
     }
     
-    func logOutAll() async {
-        for login in accountLogins.values {
-            let account = login.account
-            do {
-                try await logOut(from: account)
-                try removeFromKeychain(accounts: [account])
-            } catch {
-                log.error("Could not log out of \(account): \(String(describing: error))")
-            }
-        }
+    func removeAll() async {
         do {
+            accountLogins = [:]
             try clearKeychain()
         } catch {
             log.error("Could not clear keychain: \(String(describing: error))")

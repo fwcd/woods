@@ -14,7 +14,7 @@ private let log = Logger(subsystem: "Woods", category: "AccountsView")
 struct AccountsView: View {
     @EnvironmentObject private var accounts: Accounts
     @State private var loginSheetShown = false
-    @State private var logoutConfirmationShown = false
+    @State private var removeAllConfirmationShown = false
     
     var body: some View {
         NavigationStack {
@@ -42,17 +42,17 @@ struct AccountsView: View {
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
                     Button {
-                        logoutConfirmationShown = true
+                        removeAllConfirmationShown = true
                     } label: {
-                        Text("Log Out All")
+                        Text("Remove All")
                     }
-                    .confirmationDialog("This will log you out of all accounts. Are you sure?", isPresented: $logoutConfirmationShown) {
+                    .confirmationDialog("This will log out and remove all accounts. Are you sure?", isPresented: $removeAllConfirmationShown) {
                         Button {
                             Task {
-                                await accounts.logOutAll()
+                                await accounts.removeAll()
                             }
                         } label: {
-                            Text("Log Out All Accounts")
+                            Text("Remove All Accounts")
                         }
                         Button("Cancel", role: .cancel) {}
                     }
