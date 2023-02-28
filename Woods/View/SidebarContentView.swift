@@ -24,17 +24,19 @@ struct SidebarContentView: View {
         NavigationSplitView {
             // TODO: Show lists inline again (with SidebarWaypointListsView)
             
-            Section(header: Text("Navigation")) {
-                List(SidebarTab.allCases, id: \.self, selection: $selectedTab) { tab in
-                    switch tab {
-                    case .map:
-                        Label("Map", systemImage: "map.fill")
-                    case .lists:
-                        Label("Lists", systemImage: "list.bullet")
-                    case .search:
-                        Label("Search", systemImage: "magnifyingglass")
-                    case .accounts:
-                        Label("Accounts", systemImage: "person.circle.fill")
+            List(selection: $selectedTab) {
+                Section(header: Text("Navigation")) {
+                    ForEach(SidebarTab.allCases, id: \.self) { tab in
+                        switch tab {
+                        case .map:
+                            Label("Map", systemImage: "map.fill")
+                        case .lists:
+                            Label("Lists", systemImage: "list.bullet")
+                        case .search:
+                            Label("Search", systemImage: "magnifyingglass")
+                        case .accounts:
+                            Label("Accounts", systemImage: "person.circle.fill")
+                        }
                     }
                 }
             }
