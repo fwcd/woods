@@ -35,7 +35,7 @@ class Accounts: ObservableObject {
             let initialAccounts = initialAccounts
             Task {
                 for account in initialAccounts {
-                    await logIn(using: account)
+                    await logIn(to: account)
                 }
             }
         }
@@ -47,19 +47,28 @@ class Accounts: ObservableObject {
     
     func logInAndStore(_ account: Account) async {
         do {
-            await logIn(using: account)
+            await logIn(to: account)
             try storeInKeychain(accounts: [account])
         } catch {
             log.error("Could not log into \(account): \(String(describing: error))")
         }
     }
     
-    func logOutAndStore(_ account: Account) async {
+    func logOut(_ account: Account) async {
         do {
-            try await logOut(using: account)
+            try await logOut(from: account)
             try removeFromKeychain(accounts: [account])
         } catch {
             log.error("Could not log out of \(account): \(String(describing: error))")
+        }
+    }
+    
+    func remove(_ account: Account) async {
+        do {
+            try removeFromKeychain(accounts: [account])
+            accountLogins[account.id] = nil
+        } catch {
+            log.error("Could not remove \(account): \(String(describing: error))")
         }
     }
     
@@ -67,7 +76,7 @@ class Accounts: ObservableObject {
         for login in accountLogins.values {
             let account = login.account
             do {
-                try await logOut(using: account)
+                try await logOut(from: account)
                 try removeFromKeychain(accounts: [account])
             } catch {
                 log.error("Could not log out of \(account): \(String(describing: error))")
@@ -83,7 +92,7 @@ class Accounts: ObservableObject {
     
     // TODO: Do we need to switch to the main actor when updating the login state?
     
-    private func logIn(using account: Account) async {
+    private func logIn(to account: Account) async {
         log.info("Logging in using \(account)")
         let login = AccountLogin(account: account, state: .connecting)
         
@@ -97,7 +106,7 @@ class Accounts: ObservableObject {
         }
     }
     
-    private func logOut(using account: Account) async throws {
+    private func logOut(from account: Account) async throws {
         log.info("Logging out from \(account)")
         accountLogins[account.id]?.state = .loggedOut
     }

@@ -30,7 +30,7 @@ struct AccountsView: View {
                         await withTaskGroup(of: Void.self) { group in
                             for i in indexSet where i < logins.count && i >= 0 {
                                 group.addTask {
-                                    await accounts.logOutAndStore(logins[i].account)
+                                    await accounts.remove(logins[i].account)
                                 }
                             }
                             await group.waitForAll()
