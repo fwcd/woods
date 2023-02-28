@@ -36,10 +36,13 @@ struct SidebarContentView: View {
                     SidebarWaypointListsView { listId in
                         Detail.list(listId)
                     }
+            
+                    WaypointListButtons(id: waypoints.listTree.rootId) {
+                        Spacer()
+                    }
+                    .buttonStyle(.bordered)
                 }
             }
-            
-            
         } detail: {
             switch selectedDetail {
             case .map?:

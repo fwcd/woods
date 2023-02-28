@@ -1,8 +1,9 @@
 import SwiftUI
 
-struct WaypointListButtons: View {
+struct WaypointListButtons<Suffix>: View where Suffix: View {
     let id: UUID
     var name: String? = nil
+    @ViewBuilder let labelSuffix: () -> Suffix
     
     @EnvironmentObject private var waypoints: Waypoints
     
@@ -22,6 +23,7 @@ struct WaypointListButtons: View {
             newListSheetShown = true
         } label: {
             Label("New List", systemImage: "plus")
+            labelSuffix()
         }
         .sheet(isPresented: $newListSheetShown) {
             CancelNavigationStack(title: "New Waypoint List") {
@@ -43,6 +45,7 @@ struct WaypointListButtons: View {
             newWaypointSheetShown = true
         } label: {
             Label("New Waypoint", systemImage: "plus")
+            labelSuffix()
         }
         .sheet(isPresented: $newWaypointSheetShown) {
             CancelNavigationStack(title: "New Waypoint") {
@@ -58,6 +61,7 @@ struct WaypointListButtons: View {
             clearConfirmationShown = true
         } label: {
             Label("Clear List", systemImage: "trash")
+            labelSuffix()
         }
         .confirmationDialog("Are you sure?", isPresented: $clearConfirmationShown) {
             Button {
@@ -70,5 +74,11 @@ struct WaypointListButtons: View {
             }
             Button("Cancel", role: .cancel) {}
         }
+    }
+}
+
+extension WaypointListButtons where Suffix == EmptyView {
+    init(id: UUID, name: String? = nil) {
+        self.init(id: id, name: name) {}
     }
 }
