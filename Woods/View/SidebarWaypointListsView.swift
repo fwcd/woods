@@ -8,24 +8,23 @@
 
 import SwiftUI
 
-struct SidebarWaypointListsView: View {
+struct SidebarWaypointListsView<Tag>: View where Tag: Hashable {
+    let listTagger: (UUID) -> Tag
+    
     @EnvironmentObject private var waypoints: Waypoints
     
     var body: some View {
         // TODO: Buttons for adding/deleting lists (or perhaps via context menu?)
         ForEach(waypoints.listRootWrapper.childs ?? []) { topLevelWrapper in
             OutlineGroup(topLevelWrapper, children: \.childs) { wrapper in
-                NavigationLink {
-                    WaypointListView(listId: wrapper.id)
-                } label: {
-                    if let list = wrapper.list {
-                        WaypointListSnippetView(list: list)
-                    } else {
-                        Text("Unknown List")
-                    }
-                }
-                .contextMenu {
-                    WaypointListContextMenu(listId: wrapper.id)
+                if let list = wrapper.list {
+                    WaypointListSnippetView(list: list)
+                        .tag(listTagger(wrapper.id))
+                        .contextMenu {
+                            WaypointListContextMenu(listId: wrapper.id)
+                        }
+                } else {
+                    Text("Unknown List")
                 }
             }
         }

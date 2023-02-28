@@ -9,10 +9,11 @@
 import SwiftUI
 
 struct SidebarContentView: View {
-    private enum Detail: Hashable, CaseIterable {
+    private enum Detail: Hashable {
         case map
         case search
         case accounts
+        case list(UUID)
     }
     
     @State private var selectedDetail: Detail? = .map
@@ -21,8 +22,6 @@ struct SidebarContentView: View {
     
     var body: some View {
         NavigationSplitView {
-            // TODO: Show lists inline again (with SidebarWaypointListsView)
-            
             List(selection: $selectedDetail) {
                 Section(header: Text("Navigation")) {
                     Label("Map", systemImage: "map.fill")
@@ -34,7 +33,9 @@ struct SidebarContentView: View {
                 }
                 
                 Section(header: Text("Lists")) {
-                    SidebarWaypointListsView()
+                    SidebarWaypointListsView { listId in
+                        Detail.list(listId)
+                    }
                 }
             }
         } detail: {
@@ -45,6 +46,8 @@ struct SidebarContentView: View {
                 SearchView()
             case .accounts?:
                 AccountsView()
+            case .list(let id)?:
+                WaypointListView(listId: id)
             default:
                 EmptyView()
             }
