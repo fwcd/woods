@@ -23,7 +23,21 @@ struct AccountsView: View {
                     .values
                     .sorted { $0.account.credentials.username < $1.account.credentials.username }
                 ForEach(logins) { login in
-                    AccountLoginSnippetView(login: login)
+                    Toggle(isOn: Binding(
+                        get: { login.state.isAttemptedLogin },
+                        set: { newLoggedIn in
+                            guard newLoggedIn != login.state.isAttemptedLogin else { return }
+                            Task {
+                                if newLoggedIn {
+                                    await accounts.logIn(login.account)
+                                } else {
+                                    await accounts.logOut(login.account)
+                                }
+                            }
+                        }
+                    )) {
+                        AccountLoginSnippetView(login: login)
+                    }
                 }
                 .onDelete { indexSet in
                     Task {

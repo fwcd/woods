@@ -45,21 +45,20 @@ class Accounts: ObservableObject {
         accountLogins[id]
     }
     
+    func logIn(_ account: Account) async {
+        await logIn(to: account)
+    }
+    
+    func logOut(_ account: Account) async {
+        await logOut(from: account)
+    }
+    
     func logInAndStore(_ account: Account) async {
         do {
             await logIn(to: account)
             try storeInKeychain(accounts: [account])
         } catch {
             log.error("Could not log into \(account): \(String(describing: error))")
-        }
-    }
-    
-    func logOut(_ account: Account) async {
-        do {
-            try await logOut(from: account)
-            try removeFromKeychain(accounts: [account])
-        } catch {
-            log.error("Could not log out of \(account): \(String(describing: error))")
         }
     }
     
@@ -98,7 +97,7 @@ class Accounts: ObservableObject {
         }
     }
     
-    private func logOut(from account: Account) async throws {
+    private func logOut(from account: Account) async {
         log.info("Logging out from \(account)")
         accountLogins[account.id]?.state = .loggedOut
     }

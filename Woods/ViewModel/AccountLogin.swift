@@ -25,6 +25,15 @@ struct AccountLogin: Identifiable {
         case connected(any Connector)
         case failed
         case loggedOut
+        
+        var isAttemptedLogin: Bool {
+            switch self {
+            case .loggedOut:
+                return false
+            default:
+                return true
+            }
+        }
     }
     
     init(account: Account, state: State = .loggedOut) {
