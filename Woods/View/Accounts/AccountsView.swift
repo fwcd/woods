@@ -69,8 +69,8 @@ struct AccountsView: View {
                 } inner: {
                     LoginView { account in
                         Task {
-                            await accounts.logInAndStore(account)
                             loginSheetShown = false
+                            await accounts.logInAndStore(account)
                         }
                     }
                 }
