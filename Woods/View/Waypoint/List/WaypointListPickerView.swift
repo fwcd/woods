@@ -14,9 +14,13 @@ struct WaypointListPickerView: View {
     @EnvironmentObject private var waypoints: Waypoints
     
     var body: some View {
-        List(waypoints.listTree.preOrderTraversed()) { list in
-            Button(action: { onPick(list.id) }) {
-                WaypointListSnippetView(list: list)
+        List(waypoints.listRootWrapper.childs ?? [], children: \.childs) { listWrapper in
+            Button {
+                onPick(listWrapper.id)
+            } label: {
+                if let list = listWrapper.list {
+                    WaypointListSnippetView(list: list)
+                }
             }
         }
     }
