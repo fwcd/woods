@@ -10,26 +10,21 @@ import SwiftUI
 
 struct SidebarWaypointListsView<Tag>: View where Tag: Hashable {
     let tagList: (UUID) -> Tag
-    let select: (UUID) -> Void
     
     @EnvironmentObject private var waypoints: Waypoints
     
     var body: some View {
         // TODO: Buttons for adding/deleting lists (or perhaps via context menu?)
-        ForEach(waypoints.listRootWrapper.childs ?? []) { topLevelWrapper in
-            OutlineGroup(topLevelWrapper, children: \.childs) { wrapper in
-                if let list = wrapper.list {
-                    WaypointListSnippetView(list: list)
-                        .tag(tagList(wrapper.id))
-                        .onTapGesture {
-                            select(wrapper.id)
-                        }
-                        .contextMenu {
-                            WaypointListContextMenu(listId: wrapper.id)
-                        }
-                } else {
-                    Text("Unknown List")
-                }
+        // TODO: Use an OutlineGroup again (or similar) to show the entire tree in the sidebar. Unfortunately, this seems to interact poorly with tag-based list selection and NavigationSplitView so we omit it for now.
+        ForEach(waypoints.listRootWrapper.childs ?? []) { wrapper in
+            if let list = wrapper.list {
+                WaypointListSnippetView(list: list)
+                    .tag(tagList(wrapper.id))
+                    .contextMenu {
+                        WaypointListContextMenu(listId: wrapper.id)
+                    }
+            } else {
+                Text("Unknown List")
             }
         }
     }

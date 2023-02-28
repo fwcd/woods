@@ -35,8 +35,6 @@ struct SidebarContentView: View {
                 Section(header: Text("Lists")) {
                     SidebarWaypointListsView { listId in
                         Detail.list(listId)
-                    } select: { listId in
-                        selectedDetail = .list(listId)
                     }
                 }
             }
