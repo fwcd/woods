@@ -12,16 +12,6 @@ struct WaypointListView: View {
     let listId: UUID
     var largeTitle: Bool = true
     
-    @State private var newListSheetShown: Bool = false
-    @State private var newWaypoint = Waypoint()
-    @State private var newWaypointSheetShown: Bool = false {
-        willSet {
-            if newValue != newWaypointSheetShown {
-                newWaypoint = Waypoint()
-            }
-        }
-    }
-    @State private var clearConfirmationShown: Bool = false
     @EnvironmentObject private var waypoints: Waypoints
     
     var list: WaypointList? {
@@ -31,58 +21,7 @@ struct WaypointListView: View {
     var body: some View {
         Form {
             Section {
-                Button {
-                    newListSheetShown = true
-                } label: {
-                    Label("New List", systemImage: "plus")
-                }
-                .sheet(isPresented: $newListSheetShown) {
-                    CancelNavigationStack(title: "New Waypoint List") {
-                        newListSheetShown = false
-                    } inner: {
-                        NewWaypointListView { child in
-                            waypoints.listTree.insert(under: listId, child: child)
-                            newListSheetShown = false
-                        }
-                        .padding(20)
-                    }
-                }
-                let commitNewWaypoint = {
-                    newWaypoint.generateIdIfEmpty()
-                    waypoints.listTree[listId]?.add(waypoints: [newWaypoint])
-                        newWaypointSheetShown = false
-                }
-                Button {
-                    newWaypointSheetShown = true
-                } label: {
-                    Label("New Waypoint", systemImage: "plus")
-                }
-                .sheet(isPresented: $newWaypointSheetShown) {
-                    CancelNavigationStack(title: "New Waypoint") {
-                        newWaypointSheetShown = false
-                    } inner: {
-                        EditWaypointView(waypoint: $newWaypoint, onCommit: commitNewWaypoint)
-                            .toolbar {
-                                Button("Save", action: commitNewWaypoint)
-                            }
-                    }
-                }
-                Button {
-                    clearConfirmationShown = true
-                } label: {
-                    Label("Clear List", systemImage: "trash")
-                }
-                .confirmationDialog("Are you sure?", isPresented: $clearConfirmationShown) {
-                    Button {
-                        for childId in waypoints.listTree[listId]?.childs ?? [] {
-                            waypoints.listTree.remove(childId)
-                        }
-                        waypoints.listTree[listId]?.clearWaypoints()
-                    } label: {
-                        Text("Clear \(list?.name ?? "List")")
-                    }
-                    Button("Cancel", role: .cancel) {}
-                }
+                WaypointListButtons(id: listId, name: list?.name)
             }
             Section(header: Text("Items")) {
                 ForEach(list?.childs ?? [], id: \.self) { childId in

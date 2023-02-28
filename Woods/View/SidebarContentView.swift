@@ -38,6 +38,8 @@ struct SidebarContentView: View {
                     }
                 }
             }
+            
+            
         } detail: {
             switch selectedDetail {
             case .map?:
