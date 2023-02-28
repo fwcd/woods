@@ -9,7 +9,8 @@
 import SwiftUI
 
 struct SidebarWaypointListsView<Tag>: View where Tag: Hashable {
-    let listTagger: (UUID) -> Tag
+    let tagList: (UUID) -> Tag
+    let select: (UUID) -> Void
     
     @EnvironmentObject private var waypoints: Waypoints
     
@@ -19,7 +20,10 @@ struct SidebarWaypointListsView<Tag>: View where Tag: Hashable {
             OutlineGroup(topLevelWrapper, children: \.childs) { wrapper in
                 if let list = wrapper.list {
                     WaypointListSnippetView(list: list)
-                        .tag(listTagger(wrapper.id))
+                        .tag(tagList(wrapper.id))
+                        .onTapGesture {
+                            select(wrapper.id)
+                        }
                         .contextMenu {
                             WaypointListContextMenu(listId: wrapper.id)
                         }
