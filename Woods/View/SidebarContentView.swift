@@ -9,14 +9,13 @@
 import SwiftUI
 
 struct SidebarContentView: View {
-    private enum SidebarTab: Hashable, CaseIterable {
+    private enum Detail: Hashable, CaseIterable {
         case map
-        case lists
         case search
         case accounts
     }
     
-    @State private var selectedTab: SidebarTab? = .map
+    @State private var selectedDetail: Detail? = .map
     @State private var newListSheetShown: Bool = false
     @EnvironmentObject private var waypoints: Waypoints
     
@@ -24,28 +23,24 @@ struct SidebarContentView: View {
         NavigationSplitView {
             // TODO: Show lists inline again (with SidebarWaypointListsView)
             
-            List(selection: $selectedTab) {
+            List(selection: $selectedDetail) {
                 Section(header: Text("Navigation")) {
-                    ForEach(SidebarTab.allCases, id: \.self) { tab in
-                        switch tab {
-                        case .map:
-                            Label("Map", systemImage: "map.fill")
-                        case .lists:
-                            Label("Lists", systemImage: "list.bullet")
-                        case .search:
-                            Label("Search", systemImage: "magnifyingglass")
-                        case .accounts:
-                            Label("Accounts", systemImage: "person.circle.fill")
-                        }
-                    }
+                    Label("Map", systemImage: "map.fill")
+                        .tag(Detail.map)
+                    Label("Search", systemImage: "magnifyingglass")
+                        .tag(Detail.search)
+                    Label("Accounts", systemImage: "person.circle.fill")
+                        .tag(Detail.accounts)
+                }
+                
+                Section(header: Text("Lists")) {
+                    SidebarWaypointListsView()
                 }
             }
         } detail: {
-            switch selectedTab {
+            switch selectedDetail {
             case .map?:
                 RichMapView()
-            case .lists?:
-                WaypointListsView()
             case .search?:
                 SearchView()
             case .accounts?:
