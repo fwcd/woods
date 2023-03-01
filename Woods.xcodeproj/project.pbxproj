@@ -600,10 +600,14 @@
 		3503AF4B29AAAF7700AF1188 /* Waypoint */ = {
 			isa = PBXGroup;
 			children = (
+				35C08CBC29B0167D00C43B7D /* Snippet */,
+				35C08CBB29B0165D00C43B7D /* Summary */,
+				35C08CBD29B0168E00C43B7D /* Detail */,
+				35C08CBE29B016A400C43B7D /* Log */,
 				3503AF5329AAB16700AF1188 /* Map */,
-				3503AF5229AAB14B00AF1188 /* Show */,
-				3503AF4E29AAB02900AF1188 /* Edit */,
 				3503AF4D29AAAFEA00AF1188 /* List */,
+				35C08CB929B015EC00C43B7D /* Attribute */,
+				35C08CBA29B0163900C43B7D /* Type */,
 				3503AF5529AAB24900AF1188 /* Navigator */,
 				3503AF5029AAB0B900AF1188 /* Extensions */,
 			);
@@ -625,18 +629,6 @@
 			path = List;
 			sourceTree = "<group>";
 		};
-		3503AF4E29AAB02900AF1188 /* Edit */ = {
-			isa = PBXGroup;
-			children = (
-				357BE45A280F39B100E31364 /* EditWaypointView.swift */,
-				356EF3CA283C5A9100BCBA8F /* WaypointAttributePicker.swift */,
-				356EF3C1283C4DF100BCBA8F /* WaypointTypePicker.swift */,
-				35A75F5F280F655B00BC959C /* CoordinatesEditor.swift */,
-				35A75F68280F6D8A00BC959C /* CoordinateEditor.swift */,
-			);
-			path = Edit;
-			sourceTree = "<group>";
-		};
 		3503AF5029AAB0B900AF1188 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -651,6 +643,8 @@
 		3503AF5129AAB0FC00AF1188 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				35A75F5F280F655B00BC959C /* CoordinatesEditor.swift */,
+				35A75F68280F6D8A00BC959C /* CoordinateEditor.swift */,
 				C7B74EB625EDC5C200D5194B /* StarsView.swift */,
 				C7ECBE0525EFF9D9005933C0 /* SizeView.swift */,
 				C7B6F0FE249FA1B300454841 /* Map.swift */,
@@ -669,25 +663,6 @@
 				3567D0112785B5DD00060C37 /* CancelNavigationStack.swift */,
 			);
 			path = Utils;
-			sourceTree = "<group>";
-		};
-		3503AF5229AAB14B00AF1188 /* Show */ = {
-			isa = PBXGroup;
-			children = (
-				C7ECBE2C25F006D8005933C0 /* WaypointSummaryView.swift */,
-				C7B74F0325EE9BED00D5194B /* WaypointSnippetView.swift */,
-				C7ECBD8E25EED8AF005933C0 /* WaypointSmallSnippetView.swift */,
-				C7ECBD7425EEB23B005933C0 /* WaypointDistanceView.swift */,
-				357BE45D280F417500E31364 /* NavigationWaypointDetailView.swift */,
-				C7B74EA425EDC46F00D5194B /* WaypointDetailView.swift */,
-				C7ECBE0D25EFFC13005933C0 /* WaypointDetailInfoView.swift */,
-				C7ECBE1525EFFCB7005933C0 /* WaypointDetailActionsView.swift */,
-				35BF10DD2839361300D20C9C /* WaypointAttributeView.swift */,
-				357168A7283AE107007305C5 /* WaypointAttributeGridView.swift */,
-				C7B74ED525EDD60000D5194B /* WaypointLogView.swift */,
-				356EF3C4283C4E4E00BCBA8F /* WaypointTypeView.swift */,
-			);
-			path = Show;
 			sourceTree = "<group>";
 		};
 		3503AF5329AAB16700AF1188 /* Map */ = {
@@ -807,6 +782,63 @@
 				35985CFE2811A18D00D37DB2 /* RemoteHostManager.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		35C08CB929B015EC00C43B7D /* Attribute */ = {
+			isa = PBXGroup;
+			children = (
+				35BF10DD2839361300D20C9C /* WaypointAttributeView.swift */,
+				356EF3CA283C5A9100BCBA8F /* WaypointAttributePicker.swift */,
+				357168A7283AE107007305C5 /* WaypointAttributeGridView.swift */,
+			);
+			path = Attribute;
+			sourceTree = "<group>";
+		};
+		35C08CBA29B0163900C43B7D /* Type */ = {
+			isa = PBXGroup;
+			children = (
+				356EF3C4283C4E4E00BCBA8F /* WaypointTypeView.swift */,
+				356EF3C1283C4DF100BCBA8F /* WaypointTypePicker.swift */,
+			);
+			path = Type;
+			sourceTree = "<group>";
+		};
+		35C08CBB29B0165D00C43B7D /* Summary */ = {
+			isa = PBXGroup;
+			children = (
+				C7ECBE2C25F006D8005933C0 /* WaypointSummaryView.swift */,
+			);
+			path = Summary;
+			sourceTree = "<group>";
+		};
+		35C08CBC29B0167D00C43B7D /* Snippet */ = {
+			isa = PBXGroup;
+			children = (
+				C7B74F0325EE9BED00D5194B /* WaypointSnippetView.swift */,
+				C7ECBD8E25EED8AF005933C0 /* WaypointSmallSnippetView.swift */,
+				C7ECBD7425EEB23B005933C0 /* WaypointDistanceView.swift */,
+			);
+			path = Snippet;
+			sourceTree = "<group>";
+		};
+		35C08CBD29B0168E00C43B7D /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				357BE45D280F417500E31364 /* NavigationWaypointDetailView.swift */,
+				C7B74EA425EDC46F00D5194B /* WaypointDetailView.swift */,
+				357BE45A280F39B100E31364 /* EditWaypointView.swift */,
+				C7ECBE0D25EFFC13005933C0 /* WaypointDetailInfoView.swift */,
+				C7ECBE1525EFFCB7005933C0 /* WaypointDetailActionsView.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		35C08CBE29B016A400C43B7D /* Log */ = {
+			isa = PBXGroup;
+			children = (
+				C7B74ED525EDD60000D5194B /* WaypointLogView.swift */,
+			);
+			path = Log;
 			sourceTree = "<group>";
 		};
 		C73E04AE249F9F4700C6E22C = {
