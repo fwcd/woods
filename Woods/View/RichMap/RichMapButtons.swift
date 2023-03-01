@@ -66,6 +66,7 @@ struct RichMapButtons: View {
                 Image(systemName: "folder.circle.fill")
             }
         }
+        .buttonStyle(.borderless)
         .foregroundColor(.primary)
         .font(.system(size: 40))
         .padding(10)
