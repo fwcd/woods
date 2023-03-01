@@ -68,7 +68,11 @@ struct RichMapButtons: View {
         }
         .buttonStyle(.borderless)
         .foregroundColor(.primary)
+        #if os(macOS)
+        .font(.system(size: 30))
+        #else
         .font(.system(size: 40))
+        #endif
         .padding(10)
         .onChange(of: selectedWaypointId) {
             if let id = $0 {
