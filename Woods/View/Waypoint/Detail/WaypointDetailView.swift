@@ -70,13 +70,8 @@ struct WaypointDetailView: View {
             }
             if !waypoint.logs.isEmpty {
                 SimpleSection(header: "Logs", iconName: "book.closed.fill") {
-                    VStack(alignment: .leading, spacing: 10) {
-                        // TODO: Only show some logs and add link to full logs
-                        ForEach(waypoint.logs) { log in
-                            WaypointLogView(waypointLog: log)
-                        }
-                    }
-                    .frame(maxWidth: .infinity)
+                    WaypointLogsView(waypoint: waypoint)
+                        .frame(maxWidth: .infinity)
                 }
             }
         }
