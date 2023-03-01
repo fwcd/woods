@@ -12,13 +12,14 @@ struct NavigationWaypointDetailView: View {
     var hasMap: Bool = true
     var isEditable: Bool = true
     
+    @State private var editedWaypoint = Waypoint()
     @State private var isEditing = false
     
     var body: some View {
         Group {
             if isEditing {
-                EditWaypointView(waypoint: $waypoint) {
-                    isEditing = false
+                EditWaypointView(waypoint: $editedWaypoint) {
+                    commitEdit()
                 }
             } else {
                 ScrollView {
@@ -34,13 +35,27 @@ struct NavigationWaypointDetailView: View {
             ToolbarItemGroup(placement: .primaryAction) {
                 if isEditable {
                     Button {
-                        isEditing = !isEditing
+                        if isEditing {
+                            commitEdit()
+                        } else {
+                            beginEdit()
+                        }
                     } label: {
                         Text(isEditing ? "Done" : "Edit")
                     }
                 }
             }
         }
+    }
+    
+    private func beginEdit() {
+        editedWaypoint = waypoint
+        isEditing = true
+    }
+    
+    private func commitEdit() {
+        waypoint = editedWaypoint
+        isEditing = false
     }
 }
 
