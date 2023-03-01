@@ -24,9 +24,9 @@ struct LoginView: View {
                 TextField("Username", text: $credentials.username)
                 SecureField("Password", text: $credentials.password)
             }
-            Button(action: {
+            Button {
                 onLogIn(Account(type: accountType, credentials: credentials))
-            }) {
+            } label: {
                 Text("Log in")
             }
         }

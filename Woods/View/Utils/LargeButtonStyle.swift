@@ -24,8 +24,7 @@ struct LargeButtonStyle: ButtonStyle {
 
 struct LargeButtonStyle_Previews: PreviewProvider {
     static var previews: some View {
-        Button(action: {}) {
-            Text("Test")
+        Button("Test") {
         }
         .buttonStyle(LargeButtonStyle())
     }

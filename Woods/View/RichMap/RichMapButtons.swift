@@ -25,21 +25,21 @@ struct RichMapButtons: View {
     
     var body: some View {
         VStack(spacing: 10) {
-            Button(action: {
+            Button {
                 if let region = region {
                     Task {
                         await waypoints.refresh(with: query(from: region))
                     }
                 }
-            }) {
+            } label: {
                 Image(systemName: "arrow.clockwise.circle.fill")
             }
-            Button(action: {
+            Button {
                 useSatelliteView = !useSatelliteView
-            }) {
+            } label: {
                 Image(systemName: "building.2.crop.circle.fill")
             }
-            Button(action: {
+            Button {
                 switch userTrackingMode {
                 case .none: userTrackingMode = .follow
                 #if os(macOS)
@@ -50,19 +50,19 @@ struct RichMapButtons: View {
                 #endif
                 default: userTrackingMode = .follow
                 }
-            }) {
+            } label: {
                 Image(systemName: "location.circle.fill")
             }
-            Button(action: {
+            Button {
                 listPickerSheetShown = true
                 listPickerMode = .save
-            }) {
+            } label: {
                 Image(systemName: "plus.circle.fill")
             }
-            Button(action: {
+            Button {
                 listPickerSheetShown = true
                 listPickerMode = .open
-            }) {
+            } label: {
                 Image(systemName: "folder.circle.fill")
             }
         }

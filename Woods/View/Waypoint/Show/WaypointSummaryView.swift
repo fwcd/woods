@@ -41,9 +41,9 @@ struct WaypointSummaryView: View {
                         }
                     }
                 }
-                Button(action: {
+                Button {
                     detailSheetShown = true
-                }) {
+                } label: {
                     HStack {
                         Spacer()
                         Text("Show Details")
