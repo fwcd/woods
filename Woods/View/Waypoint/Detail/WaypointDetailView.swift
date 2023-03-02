@@ -102,13 +102,15 @@ struct WaypointDetailView_Previews: PreviewProvider {
     @StateObject static var waypoints = Waypoints(accounts: Accounts(testMode: true))
     static var previews: some View {
         Group {
-            WaypointDetailView(waypoint: mockGeocaches().first!)
-                .environmentObject(locationManager)
-                .environmentObject(waypoints)
-            WaypointDetailView(waypoint: mockGeocaches().first!)
-                .preferredColorScheme(.dark)
-                .environmentObject(locationManager)
-                .environmentObject(waypoints)
+            ScrollView {
+                WaypointDetailView(waypoint: mockGeocaches().first!)
+            }
+            ScrollView {
+                WaypointDetailView(waypoint: mockGeocaches().first!)
+                    .preferredColorScheme(.dark)
+            }
         }
+        .environmentObject(locationManager)
+        .environmentObject(waypoints)
     }
 }
