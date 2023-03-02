@@ -77,9 +77,7 @@ struct WaypointDetailView: View {
                     Label("Additional Waypoints", systemImage: "mappin.and.ellipse")
                 }
             }
-            SimpleSection {
-                WaypointDetailActionsView(waypoint: waypoint)
-            }
+            WaypointDetailActionsView(waypoint: waypoint)
             if !waypoint.logs.isEmpty {
                 SimpleSection {
                     WaypointLogsView(waypoint: waypoint)
