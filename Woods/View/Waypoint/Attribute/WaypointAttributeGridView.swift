@@ -16,6 +16,7 @@ struct WaypointAttributeGridView: View {
         let keys = attributes.keys
             .sorted { $0.rawValue < $1.rawValue }
         FlowStack(
+            alignment: .leading,
             horizontalSpacing: spacing,
             verticalSpacing: spacing
         ) {
