@@ -76,7 +76,7 @@ final class GeocachingComConnector: Connector {
         guard id.starts(with: "GC") else { throw ConnectorError.invalidWaypoint("Not a Geocaching.com geocache") }
         let request = try URLRequest.standard(url: apiPreviewUrl(gcCode: id))
         let result = try await session.fetchJSON(as: GeocachingComApi.Geocache.self, for: request)
-        guard let waypoint = result.asWaypoint else { throw ConnectorError.waypointNotFound(id) }
+        guard let waypoint = Waypoint(result) else { throw ConnectorError.waypointNotFound(id) }
         return waypoint
     }
     
@@ -130,7 +130,7 @@ final class GeocachingComConnector: Connector {
             origin: origin,
             accumulated: accumulated + results.results
                 .compactMap {
-                    var waypoint = $0.asWaypoint
+                    var waypoint = Waypoint($0)
                     waypoint?.isStub = true
                     return waypoint
                 }
