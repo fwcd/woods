@@ -63,7 +63,7 @@ final class GeocachingComConnector: Connector {
         guard let jsonData = searchParamsPattern.firstGroups(in: raw)?[0].data(using: .utf8) else {
             throw ConnectorError.accountInfoFailed("Could not parse/encode search params: '\(raw)'")
         }
-        let value = try makeJSONDecoder().decode(GeocachingComApiResults.ServerParameters.self, from: jsonData)
+        let value = try JSONDecoder.standard().decode(GeocachingComApiResults.ServerParameters.self, from: jsonData)
         
         return AccountInfo(
             roles: value.userInfo.roles ?? [],

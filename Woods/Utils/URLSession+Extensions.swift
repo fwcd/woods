@@ -28,7 +28,7 @@ extension URLSession {
 
     func fetchJSON<T>(as type: T.Type, for request: URLRequest) async throws -> T where T: Decodable {
         let data = try await runAndCheck(request)
-        return try makeJSONDecoder().decode(T.self, from: data)
+        return try JSONDecoder.standard().decode(T.self, from: data)
     }
 
     func fetchHTML(for request: URLRequest) async throws -> Document {

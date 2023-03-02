@@ -10,8 +10,8 @@ import Foundation
 import Combine
 import OSLog
 
-private let encoder = makeJSONEncoder()
-private let decoder = makeJSONDecoder()
+private let encoder = JSONEncoder.standard()
+private let decoder = JSONDecoder.standard()
 private let log = Logger(subsystem: "Woods", category: "Utils")
 private let persistenceEnabled = !isRunningInSwiftUIPreview()
 private var subscriptions = [String: AnyCancellable]()

@@ -8,21 +8,25 @@
 
 import Foundation
 
-public func makeJSONEncoder() -> JSONEncoder {
-    let encoder = JSONEncoder()
-    encoder.dateEncodingStrategy = .secondsSince1970
-    return encoder
+extension JSONEncoder {
+    static func standard() -> JSONEncoder {
+        let encoder = JSONEncoder()
+        encoder.dateEncodingStrategy = .secondsSince1970
+        return encoder
+    }
 }
 
-public func makeJSONDecoder() -> JSONDecoder {
-    let decoder = JSONDecoder()
-    decoder.dateDecodingStrategy = .secondsSince1970
-    return decoder
+extension JSONDecoder {
+    static func standard() -> JSONDecoder {
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .secondsSince1970
+        return decoder
+    }
 }
 
 extension Encodable {
     var dictSerialized: Any {
-        (try? makeJSONEncoder().encode(self))
+        (try? JSONEncoder.standard().encode(self))
             .flatMap { try? JSONSerialization.jsonObject(with: $0, options: .allowFragments) } as Any
     }
 }
@@ -30,7 +34,7 @@ extension Encodable {
 extension Decodable {
     init?(dictSerialized: Any) {
         guard let value = (try? JSONSerialization.data(withJSONObject: dictSerialized, options: []))
-            .flatMap({ try? makeJSONDecoder().decode(Self.self, from: $0) }) else { return nil }
+            .flatMap({ try? JSONDecoder.standard().decode(Self.self, from: $0) }) else { return nil }
         self = value
     }
 }
