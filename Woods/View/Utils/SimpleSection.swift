@@ -18,6 +18,7 @@ struct SimpleSection<Content, Header>: View where Content: View, Header: View {
             VStack(alignment: alignment, spacing: 10) {
                 content()
             }
+            .frame(maxWidth: .infinity)
             .padding([.top], 10)
         } label: {
             header()
