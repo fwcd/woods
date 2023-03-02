@@ -65,7 +65,7 @@ struct WaypointDetailView: View {
                     }
                 }
             }
-            SimpleSection(header: "Actions", iconName: "ellipsis") {
+            SimpleSection {
                 WaypointDetailActionsView(waypoint: waypoint)
             }
             if !waypoint.logs.isEmpty {

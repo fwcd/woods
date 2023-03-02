@@ -9,17 +9,27 @@
 import SwiftUI
 
 struct SimpleSection<Content>: View where Content: View {
-    let header: String
-    let iconName: String
+    var header: String? = nil
+    var iconName: String? = nil
     var alignment: HorizontalAlignment = .center
     @ViewBuilder var content: () -> Content
     
     var body: some View {
-        GroupBox(label: Label(header, systemImage: iconName)) {
+        GroupBox {
             VStack(alignment: alignment, spacing: 10) {
                 content()
             }
             .padding([.top], 10)
+        } label: {
+            if let header = header {
+                if let iconName = iconName {
+                    Label(header, systemImage: iconName)
+                } else {
+                    Text(header)
+                }
+            } else if let iconName = iconName {
+                Image(systemName: iconName)
+            }
         }
     }
 }
