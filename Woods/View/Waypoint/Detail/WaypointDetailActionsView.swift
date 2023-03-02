@@ -75,7 +75,7 @@ struct WaypointDetailActionsView: View {
 struct WaypointDetailActionsView_Previews: PreviewProvider {
     @StateObject static var waypoints = Waypoints(accounts: Accounts(testMode: true))
     static var previews: some View {
-        WaypointDetailView(waypoint: mockGeocaches().first!)
+        WaypointDetailActionsView(waypoint: mockGeocaches().first!)
             .environmentObject(waypoints)
     }
 }
