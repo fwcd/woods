@@ -20,19 +20,13 @@ struct WaypointLogView: View {
                     Text(waypointLog.username)
                         .font(.headline)
                         .textSelection(.enabled)
-                    Text("\(waypointLog.type.displayName) on \(format(date: waypointLog.createdAt ?? waypointLog.timestamp))")
+                    Text("\(waypointLog.type.displayName) on \(DateFormatter.standard().string(from: waypointLog.createdAt ?? waypointLog.timestamp))")
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                 }
             }
             LightHTMLView(html: waypointLog.content)
         }
-    }
-    
-    func format(date: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd.MM.yyyy HH:mm"
-        return formatter.string(from: date)
     }
 }
 
