@@ -10,10 +10,10 @@ import Foundation
 
 struct WaypointLog: Identifiable, Hashable, Codable {
     var id: UUID = UUID() // on Geocaching.com this should match the LUID
-    var type: WaypointLogType
+    var type: WaypointLogType = .found
     var timestamp: Date = Date()
     var createdAt: Date? = nil
     var lastEditedAt: Date? = nil
-    var username: String // TODO: More detailed user info
-    var content: String
+    var username: String = "" // TODO: More detailed user info
+    var content: String = ""
 }

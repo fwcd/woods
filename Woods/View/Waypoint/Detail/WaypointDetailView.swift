@@ -37,9 +37,7 @@ struct WaypointDetailView: View {
                 AdditionalWaypointsSection(waypoint: waypoint)
             }
             WaypointDetailActionsView(waypoint: waypoint)
-            if !waypoint.logs.isEmpty {
-                WaypointLogsSection(waypoint: waypoint)
-            }
+            WaypointLogsSection(waypoint: waypoint)
         }
         .padding([.leading, .trailing], 20)
     }
