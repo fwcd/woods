@@ -63,7 +63,7 @@ final class GeocachingComConnector: Connector {
         guard let jsonData = searchParamsPattern.firstGroups(in: raw)?[0].data(using: .utf8) else {
             throw ConnectorError.accountInfoFailed("Could not parse/encode search params: '\(raw)'")
         }
-        let value = try JSONDecoder.standard().decode(GeocachingComApiResults.ServerParameters.self, from: jsonData)
+        let value = try JSONDecoder.standard().decode(GeocachingComApi.ServerParameters.self, from: jsonData)
         
         return AccountInfo(
             roles: value.userInfo.roles ?? [],
@@ -75,7 +75,7 @@ final class GeocachingComConnector: Connector {
         log.info("Querying details for \(id)")
         guard id.starts(with: "GC") else { throw ConnectorError.invalidWaypoint("Not a Geocaching.com geocache") }
         let request = try URLRequest.standard(url: apiPreviewUrl(gcCode: id))
-        let result = try await session.fetchJSON(as: GeocachingComApiResults.Geocache.self, for: request)
+        let result = try await session.fetchJSON(as: GeocachingComApi.Geocache.self, for: request)
         guard let waypoint = result.asWaypoint else { throw ConnectorError.waypointNotFound(id) }
         return waypoint
     }
@@ -117,7 +117,7 @@ final class GeocachingComConnector: Connector {
         }
             
         let request = try URLRequest.standard(url: apiSearchUrl, query: query)
-        let results = try await session.fetchJSON(as: GeocachingComApiResults.self, for: request)
+        let results = try await session.fetchJSON(as: GeocachingComApi.Results.self, for: request)
         try await Task.sleep(nanoseconds: 500_000_000)
         
         // Search the next 'page'

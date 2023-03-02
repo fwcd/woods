@@ -8,11 +8,13 @@
 
 import Foundation
 
-struct GeocachingComApiResults: Codable {
-    let results: [Geocache]
-    let total: Int
-    
+enum GeocachingComApi {
     // TODO: Use details URL to query more details?
+    
+    struct Results: Codable {
+        let results: [Geocache]
+        let total: Int
+    }
     
     struct Geocache: Codable {
         let id: Int?
