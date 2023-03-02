@@ -15,4 +15,5 @@ enum ConnectorError: Error {
     case accountInfoFailed(String)
     case regionTooWide
     case noConnector
+    case postingLogsNotSupported
 }
