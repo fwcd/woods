@@ -1,5 +1,5 @@
 //
-//  EditWaypointLogView.swift
+//  WaypointLogEditorView.swift
 //  Woods
 //
 //  Created by Fredrik on 02.03.23.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct EditWaypointLogView: View {
+struct WaypointLogEditorView: View {
     @Binding var waypointLog: WaypointLog
     
     var body: some View {
@@ -34,6 +34,6 @@ struct EditWaypointLogView: View {
 
 struct EditWaypointLogView_Previews: PreviewProvider {
     static var previews: some View {
-        EditWaypointLogView(waypointLog: .constant(WaypointLog(type: .found, username: "Alice", content: "Very nice cache, thanks!")))
+        WaypointLogEditorView(waypointLog: .constant(WaypointLog(type: .found, username: "Alice", content: "Very nice cache, thanks!")))
     }
 }

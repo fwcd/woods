@@ -51,7 +51,7 @@ struct WaypointListButtons<Suffix>: View where Suffix: View {
             CancelNavigationStack(title: "New Waypoint") {
                 newWaypointSheetShown = false
             } inner: {
-                EditWaypointView(waypoint: $newWaypoint, onCommit: commitNewWaypoint)
+                WaypointEditorView(waypoint: $newWaypoint, onCommit: commitNewWaypoint)
                     .toolbar {
                         Button("Save", action: commitNewWaypoint)
                     }

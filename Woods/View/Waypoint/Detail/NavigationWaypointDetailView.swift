@@ -18,7 +18,7 @@ struct NavigationWaypointDetailView: View {
     var body: some View {
         Group {
             if isEditing {
-                EditWaypointView(waypoint: $editedWaypoint) {
+                WaypointEditorView(waypoint: $editedWaypoint) {
                     commitEdit()
                 }
             } else {

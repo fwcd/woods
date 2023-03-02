@@ -1,5 +1,5 @@
 //
-//  EditWaypointView.swift
+//  WaypointEditorView.swift
 //  Woods
 //
 //  Created by Fredrik on 19.04.22.
@@ -8,7 +8,7 @@
 import SwiftUI
 
 /// An 'editable' version of WaypointDetailView.
-struct EditWaypointView: View {
+struct WaypointEditorView: View {
     @Binding var waypoint: Waypoint
     var onCommit: (() -> Void)? = nil
     
@@ -98,7 +98,7 @@ struct EditWaypointView: View {
                         CancelNavigationStack(title: "Edit Additional Waypoint") {
                             editAdditionalWaypointSheetShown = false
                         } inner: {
-                            EditWaypointView(waypoint: $waypoint.additionalWaypoints[editedAdditionalWaypointIndex]) {
+                            WaypointEditorView(waypoint: $waypoint.additionalWaypoints[editedAdditionalWaypointIndex]) {
                                 editAdditionalWaypointSheetShown = false
                             }
                             .toolbar {
@@ -124,7 +124,7 @@ struct EditWaypointView: View {
                         CancelNavigationStack(title: "New Additional Waypoint") {
                             newAdditionalWaypointSheetShown = false
                         } inner: {
-                            EditWaypointView(waypoint: $newAdditionalWaypoint, onCommit: commitAdditionalWaypoint)
+                            WaypointEditorView(waypoint: $newAdditionalWaypoint, onCommit: commitAdditionalWaypoint)
                                 .toolbar {
                                     ToolbarItem(placement: .primaryAction) {
                                         Button("Save", action: commitAdditionalWaypoint)
@@ -150,6 +150,6 @@ struct EditWaypointView: View {
 struct NewWaypointView_Previews: PreviewProvider {
     @State private static var waypoint = Waypoint()
     static var previews: some View {
-        EditWaypointView(waypoint: $waypoint)
+        WaypointEditorView(waypoint: $waypoint)
     }
 }
