@@ -6,7 +6,7 @@
 //  Copyright © 2021 Fredrik.
 //
 
-enum WaypointLogType: String, Codable, Hashable {
+enum WaypointLogType: String, Codable, Hashable, CaseIterable, CustomStringConvertible {
     case found
     case didNotFind
     case note
@@ -45,6 +45,10 @@ enum WaypointLogType: String, Codable, Hashable {
         case .needsArchived: return "Needs archived"
         case .ownerMaintenance: return "Owner maintenance"
         }
+    }
+    
+    var description: String {
+        displayName
     }
     
     var emoji: String {

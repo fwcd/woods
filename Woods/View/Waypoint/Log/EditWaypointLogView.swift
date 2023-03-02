@@ -13,23 +13,20 @@ struct EditWaypointLogView: View {
     var body: some View {
         Form {
             Section("Info") {
-                // TODO: Editable
-                HStack {
-                    Text(waypointLog.type.emoji)
-                        .font(.title2)
-                    VStack(alignment: .leading) {
-                        Text(waypointLog.username)
-                            .font(.headline)
-                            .textSelection(.enabled)
-                        Text("\(waypointLog.type.displayName) on \(DateFormatter.standard().string(from: waypointLog.createdAt ?? waypointLog.timestamp))")
-                            .font(.subheadline)
-                            .foregroundColor(.secondary)
-                    }
+                // TODO: Add icon
+                EnumPicker(selection: $waypointLog.type, label: Text("Log Type"))
+                DatePicker(selection: $waypointLog.timestamp) {
+                    Text("Date")
                 }
             }
+            
             Section("Content") {
                 // TODO: HTML
                 TextEditor(text: $waypointLog.content)
+            }
+            
+            Section("Preview") {
+                WaypointLogView(waypointLog: waypointLog)
             }
         }
     }
