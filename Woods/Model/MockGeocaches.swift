@@ -29,6 +29,8 @@ func mockGeocaches() -> [Waypoint] {
                 .uvLightRequired: true,
                 .availableDuringWinter: false
             ],
+            placedAt: Date(timeIntervalSince1970: 1677770255),
+            lastFoundAt: Date(timeIntervalSince1970: 1675760255),
             description: """
                 <p>A small cache for testing purposes!</p>
                 <p><i>Have fun!</i></p>

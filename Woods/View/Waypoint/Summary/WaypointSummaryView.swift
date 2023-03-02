@@ -21,31 +21,12 @@ struct WaypointSummaryView: View {
         VStack(alignment: .leading, spacing: 20) {
             WaypointSnippetView(waypoint: waypoint)
             Group {
-                SimpleSection {
-                    WaypointDetailInfoView(waypoint: waypoint)
-                } header: {
-                    Label("Info", systemImage: "paperclip")
-                }
+                WaypointInfoSection(waypoint: waypoint)
                 if let hint = waypoint.hint {
-                    SimpleSection {
-                        Text(hint)
-                            .textSelection(.enabled)
-                    } header: {
-                        Label("Hint", systemImage: "lightbulb.fill")
-                    }
+                    WaypointHintSection(hint: hint)
                 }
                 if waypoint.placedAt != nil || waypoint.lastFoundAt != nil {
-                    let formatter = makeDateFormatter()
-                    SimpleSection {
-                        if let placedAt = waypoint.placedAt {
-                            Text("Placed: \(formatter.string(from: placedAt))")
-                        }
-                        if let lastFoundAt = waypoint.lastFoundAt {
-                            Text("Last Found: \(formatter.string(from: lastFoundAt))")
-                        }
-                    } header: {
-                        Label("Dates", systemImage: "calendar")
-                    }
+                    WaypointDatesSection(waypoint: waypoint)
                 }
                 Button {
                     detailSheetShown = true
@@ -71,12 +52,6 @@ struct WaypointSummaryView: View {
             .opacity(contentOpacity)
         }
         .padding([.leading, .trailing], 20)
-    }
-    
-    private func makeDateFormatter() -> DateFormatter {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd.MM.yyyy"
-        return formatter
     }
 }
 

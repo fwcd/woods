@@ -13,4 +13,10 @@ extension DateFormatter {
         formatter.dateFormat = "dd.MM.yyyy HH:mm"
         return formatter
     }
+    
+    static func standardDate() -> DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd.MM.yyyy"
+        return formatter
+    }
 }

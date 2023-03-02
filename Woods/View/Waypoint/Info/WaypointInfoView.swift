@@ -1,5 +1,5 @@
 //
-//  WaypointDetailInfoView.swift
+//  WaypointInfoView.swift
 //  Woods
 //
 //  Created by Fredrik on 3/2/21.
@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct WaypointDetailInfoView: View {
+struct WaypointInfoView: View {
     let waypoint: Waypoint
     
     var body: some View {

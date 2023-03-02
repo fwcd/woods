@@ -20,80 +20,28 @@ struct WaypointDetailView: View {
                     .cornerRadius(10)
             }
             WaypointSnippetView(waypoint: waypoint)
-            SimpleSection {
-                WaypointDetailInfoView(waypoint: waypoint)
-            } header: {
-                Label("Info", systemImage: "paperclip")
-            }
+            WaypointInfoSection(waypoint: waypoint)
             if let description = waypoint.description {
-                SimpleSection {
-                    LightHTMLView(html: description)
-                } header: {
-                    Label("Description", systemImage: "newspaper.fill")
-                }
+                WaypointDescriptionSection(description: description)
             }
             if let attributes = waypoint.attributes.nilIfEmpty {
-                SimpleSection {
-                    WaypointAttributeGridView(attributes: attributes)
-                } header: {
-                    Label("Attributes", systemImage: "tag.fill")
-                }
+                WaypointAttributeSection(attributes: attributes)
             }
             if let hint = waypoint.hint {
-                SimpleSection {
-                    Text(hint)
-                        .textSelection(.enabled)
-                } header: {
-                    Label("Hint", systemImage: "lightbulb.fill")
-                }
+                WaypointHintSection(hint: hint)
             }
             if waypoint.placedAt != nil || waypoint.lastFoundAt != nil {
-                let formatter = makeDateFormatter()
-                SimpleSection {
-                    if let placedAt = waypoint.placedAt {
-                        Text("Placed: \(formatter.string(from: placedAt))")
-                    }
-                    if let lastFoundAt = waypoint.lastFoundAt {
-                        Text("Last Found: \(formatter.string(from: lastFoundAt))")
-                    }
-                } header: {
-                    Label("Dates", systemImage: "calendar")
-                }
+                WaypointDatesSection(waypoint: waypoint)
             }
             if !waypoint.additionalWaypoints.isEmpty {
-                SimpleSection(alignment: .leading) {
-                    ForEach(waypoint.additionalWaypoints) { child in
-                        NavigationLink {
-                            ScrollView {
-                                WaypointDetailView(waypoint: child)
-                            }
-                            .navigationTitle("Additional Waypoint")
-                        } label: {
-                            WaypointSmallSnippetView(waypoint: child)
-                        }
-                        .buttonStyle(.plain)
-                    }
-                } header: {
-                    Label("Additional Waypoints", systemImage: "mappin.and.ellipse")
-                }
+                AdditionalWaypointsSection(waypoint: waypoint)
             }
             WaypointDetailActionsView(waypoint: waypoint)
             if !waypoint.logs.isEmpty {
-                SimpleSection {
-                    WaypointLogsView(waypoint: waypoint)
-                        .frame(maxWidth: .infinity)
-                } header: {
-                    Label("Logs", systemImage: "book.closed.fill")
-                }
+                WaypointLogsSection(waypoint: waypoint)
             }
         }
         .padding([.leading, .trailing], 20)
-    }
-    
-    private func makeDateFormatter() -> DateFormatter {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd.MM.yyyy"
-        return formatter
     }
 }
 
