@@ -21,24 +21,30 @@ struct WaypointSummaryView: View {
         VStack(alignment: .leading, spacing: 20) {
             WaypointSnippetView(waypoint: waypoint)
             Group {
-                SimpleSection(header: "Info", iconName: "paperclip") {
+                SimpleSection {
                     WaypointDetailInfoView(waypoint: waypoint)
+                } header: {
+                    Label("Info", systemImage: "paperclip")
                 }
                 if let hint = waypoint.hint {
-                    SimpleSection(header: "Hint", iconName: "lightbulb.fill") {
+                    SimpleSection {
                         Text(hint)
                             .textSelection(.enabled)
+                    } header: {
+                        Label("Hint", systemImage: "lightbulb.fill")
                     }
                 }
                 if waypoint.placedAt != nil || waypoint.lastFoundAt != nil {
                     let formatter = makeDateFormatter()
-                    SimpleSection(header: "Dates", iconName: "calendar") {
+                    SimpleSection {
                         if let placedAt = waypoint.placedAt {
                             Text("Placed: \(formatter.string(from: placedAt))")
                         }
                         if let lastFoundAt = waypoint.lastFoundAt {
                             Text("Last Found: \(formatter.string(from: lastFoundAt))")
                         }
+                    } header: {
+                        Label("Dates", systemImage: "calendar")
                     }
                 }
                 Button {

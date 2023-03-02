@@ -20,38 +20,48 @@ struct WaypointDetailView: View {
                     .cornerRadius(10)
             }
             WaypointSnippetView(waypoint: waypoint)
-            SimpleSection(header: "Info", iconName: "paperclip") {
+            SimpleSection {
                 WaypointDetailInfoView(waypoint: waypoint)
+            } header: {
+                Label("Info", systemImage: "paperclip")
             }
             if let description = waypoint.description {
-                SimpleSection(header: "Description", iconName: "newspaper.fill") {
+                SimpleSection {
                     LightHTMLView(html: description)
+                } header: {
+                    Label("Description", systemImage: "newspaper.fill")
                 }
             }
             if let attributes = waypoint.attributes.nilIfEmpty {
-                SimpleSection(header: "Attributes", iconName: "tag.fill") {
+                SimpleSection {
                     WaypointAttributeGridView(attributes: attributes)
+                } header: {
+                    Label("Attributes", systemImage: "tag.fill")
                 }
             }
             if let hint = waypoint.hint {
-                SimpleSection(header: "Hint", iconName: "lightbulb.fill") {
+                SimpleSection {
                     Text(hint)
                         .textSelection(.enabled)
+                } header: {
+                    Label("Hint", systemImage: "lightbulb.fill")
                 }
             }
             if waypoint.placedAt != nil || waypoint.lastFoundAt != nil {
                 let formatter = makeDateFormatter()
-                SimpleSection(header: "Dates", iconName: "calendar") {
+                SimpleSection {
                     if let placedAt = waypoint.placedAt {
                         Text("Placed: \(formatter.string(from: placedAt))")
                     }
                     if let lastFoundAt = waypoint.lastFoundAt {
                         Text("Last Found: \(formatter.string(from: lastFoundAt))")
                     }
+                } header: {
+                    Label("Dates", systemImage: "calendar")
                 }
             }
             if !waypoint.additionalWaypoints.isEmpty {
-                SimpleSection(header: "Additional Waypoints", iconName: "mappin.and.ellipse", alignment: .leading) {
+                SimpleSection(alignment: .leading) {
                     ForEach(waypoint.additionalWaypoints) { child in
                         NavigationLink {
                             ScrollView {
@@ -63,15 +73,19 @@ struct WaypointDetailView: View {
                         }
                         .buttonStyle(.plain)
                     }
+                } header: {
+                    Label("Additional Waypoints", systemImage: "mappin.and.ellipse")
                 }
             }
             SimpleSection {
                 WaypointDetailActionsView(waypoint: waypoint)
             }
             if !waypoint.logs.isEmpty {
-                SimpleSection(header: "Logs", iconName: "book.closed.fill") {
+                SimpleSection {
                     WaypointLogsView(waypoint: waypoint)
                         .frame(maxWidth: .infinity)
+                } header: {
+                    Label("Logs", systemImage: "book.closed.fill")
                 }
             }
         }
