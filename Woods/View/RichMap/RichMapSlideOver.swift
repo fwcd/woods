@@ -65,8 +65,7 @@ struct RichMapSlideOver: View {
                 if selectedWaypointId != nil {
                     withAnimation(cardAnimation) {
                         switch slideOverPosition {
-                        case .bottom: slideOverPosition = .middle
-                        case .middle: slideOverPosition = .top
+                        case .bottom: slideOverPosition = .top
                         default: break
                         }
                     }
