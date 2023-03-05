@@ -763,6 +763,25 @@
 			path = "Tests (watchOS)";
 			sourceTree = "<group>";
 		};
+		35199DA929B54B6200921D35 /* GeocachingCom */ = {
+			isa = PBXGroup;
+			children = (
+				C765466125D89141004F14E8 /* GeocachingComConnector.swift */,
+				C7ECBDD725EF1389005933C0 /* GeocachingComApi.swift */,
+				C7ECBDD225EF107E005933C0 /* GeocachingComSortOrder.swift */,
+				357168AF283B1EB0007305C5 /* WaypointAttribute+GeocachingCom.swift */,
+			);
+			path = GeocachingCom;
+			sourceTree = "<group>";
+		};
+		35199DAA29B54B6800921D35 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				C7E1B88925ED72F0004575A5 /* MockConnector.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
 		35222988274A756C00090224 /* macOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -1036,15 +1055,12 @@
 		C765461A25D87E25004F14E8 /* Connector */ = {
 			isa = PBXGroup;
 			children = (
+				35199DAA29B54B6800921D35 /* Mock */,
+				35199DA929B54B6200921D35 /* GeocachingCom */,
 				C765461B25D87E74004F14E8 /* Connector.swift */,
 				C765463525D885B3004F14E8 /* ConnectorError.swift */,
 				C765462325D87E9C004F14E8 /* WaypointsInRadiusQuery.swift */,
 				C7ECBDC525EF0B90005933C0 /* WaypointsInRegionQuery.swift */,
-				C765466125D89141004F14E8 /* GeocachingComConnector.swift */,
-				C7ECBDD725EF1389005933C0 /* GeocachingComApi.swift */,
-				C7ECBDD225EF107E005933C0 /* GeocachingComSortOrder.swift */,
-				357168AF283B1EB0007305C5 /* WaypointAttribute+GeocachingCom.swift */,
-				C7E1B88925ED72F0004575A5 /* MockConnector.swift */,
 			);
 			path = Connector;
 			sourceTree = "<group>";
