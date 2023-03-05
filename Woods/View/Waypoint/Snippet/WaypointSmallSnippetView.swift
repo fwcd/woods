@@ -14,7 +14,7 @@ struct WaypointSmallSnippetView: View {
     var body: some View {
         Label {
             VStack(alignment: .leading) {
-                Text(waypoint.name)
+                Text(waypoint.name.nilIfEmpty ?? waypoint.id)
                     .font(.headline)
                 Text(waypoint.location.description)
                     .font(.subheadline)
