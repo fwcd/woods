@@ -14,6 +14,9 @@ struct WaypointListsView: View {
     var body: some View {
         NavigationStack {
             WaypointListView(listId: waypoints.listTree.rootId)
+                .navigationDestination(for: WaypointRoute.self) { route in
+                    WaypointRouteView(route: route)
+                }
         }
     }
 }
