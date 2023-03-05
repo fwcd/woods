@@ -16,8 +16,11 @@ struct WaypointTypePicker: View {
                 Button {
                     selection = type
                 } label: {
-                    Text(type.name)
-                    WaypointTypeView(type: type)
+                    Label {
+                        Text(type.name)
+                    } icon: {
+                        WaypointTypeView(type: type)
+                    }
                 }
             }
         } label: {

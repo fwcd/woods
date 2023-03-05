@@ -30,6 +30,9 @@ where CoordinateCardinal: SignedCardinal & Hashable & CaseIterable & CustomStrin
                 set: { degrees.sign = $0.sign }
             ))
             .pickerStyle(.menu)
+            #if os(macOS)
+            .frame(width: 60)
+            #endif
             TextField("0", value: $degrees.magnitude.dm.degrees, formatter: degreesFormatter)
                 .frame(width: 50)
                 #if !os(macOS)
