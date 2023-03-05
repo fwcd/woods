@@ -55,6 +55,10 @@ final class GeocachingComConnector: Connector {
         try await session.runAndCheck(loginRequest)
     }
     
+    deinit {
+        session.invalidateAndCancel()
+    }
+    
     func accountInfo() async throws -> AccountInfo {
         log.info("Querying account info")
         
