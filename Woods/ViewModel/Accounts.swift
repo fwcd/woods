@@ -111,9 +111,12 @@ class Accounts: ObservableObject {
     
     private func logIn(to account: Account) async {
         log.info("Logging in using \(account)")
-        let login = AccountLogin(account: account, state: .connecting)
         
-        accountLogins[account.id] = login
+        accountLogins[account.id] = AccountLogin(account: account, state: .connecting)
+        if !enabledIds.contains(account.id) {
+            enabledIds.insert(account.id)
+        }
+        
         do {
             let connector = try await account.type.makeConnector(using: account.credentials)
             accountLogins[account.id]?.state = .connected(connector)
@@ -125,7 +128,11 @@ class Accounts: ObservableObject {
     
     private func logOut(from account: Account) async {
         log.info("Logging out from \(account)")
+        
         accountLogins[account.id]?.state = .loggedOut
+        if enabledIds.contains(account.id) {
+            enabledIds.remove(account.id)
+        }
     }
     
     /// Loads all accounts from the user's keychain.
