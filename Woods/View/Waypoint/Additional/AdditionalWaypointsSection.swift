@@ -13,12 +13,7 @@ struct AdditionalWaypointsSection: View {
     var body: some View {
         SimpleSection(alignment: .leading) {
             ForEach(waypoint.additionalWaypoints) { child in
-                NavigationLink {
-                    ScrollView {
-                        WaypointDetailView(waypoint: child)
-                    }
-                    .navigationTitle("Additional Waypoint")
-                } label: {
+                NavigationLink(value: WaypointRoute.waypoint(child)) {
                     WaypointSmallSnippetView(waypoint: child)
                 }
                 .buttonStyle(.plain)
