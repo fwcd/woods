@@ -83,6 +83,11 @@ enum GeocachingComApi {
         static let updateCoordinates = Self(rawValue: 47)
     }
     
+    struct PostedCoordinates: Codable {
+        var latitude: Double = 0
+        var longitude: Double = 0
+    }
+    
     struct Geocache: Codable {
         let id: Int?
         let name: String
@@ -112,15 +117,6 @@ enum GeocachingComApi {
         let recentActivities: [Activity]?
         let attributes: [Attribute]?
         
-        struct PostedCoordinates: Codable {
-            let latitude: Double
-            let longitude: Double
-            
-            var asCoordinates: Coordinates {
-                Coordinates(latitude: latitude, longitude: longitude)
-            }
-        }
-        
         struct User: Codable {
             let code: String?
             let username: String
@@ -135,8 +131,6 @@ enum GeocachingComApi {
             let dateCreatedUtc: String?
             let dateLastUpdatedUtc: String?
             let logDate: String?
-            
-            
         }
         
         struct Attribute: Codable {
@@ -165,6 +159,51 @@ enum GeocachingComApi {
             let roles: [String]?
             let publicGuid: String?
             let avatarUrl: URL?
+        }
+    }
+    
+    struct LogPost: Codable {
+        var geocache: Geocache?
+        var logType: LogType?
+        var ownerIsViewing: Bool?
+        var logDate: String?
+        var logText: String?
+        var usedFavoritePoint: Bool? = false
+        var dateTimeCreatedUtc: String? = nil
+        var dateTimeLastUpdatedUtc: String? = nil
+        var guid: String? = nil
+        
+        struct Geocache: Codable {
+            var id: Int?
+            var referenceCode: String?
+            var postedCoordinates: PostedCoordinates? = .init()
+            var callerSpecific: CallerSpecific? = .init()
+            
+            struct CallerSpecific: Codable {
+                var favorited: Bool = false
+            }
+        }
+        
+        struct LogType: Codable, RawRepresentable, Hashable {
+            let rawValue: String
+            
+            static let found = Self(rawValue: "2")
+            static let didNotFind = Self(rawValue: "3")
+            static let note = Self(rawValue: "4")
+            static let needsArchived = Self(rawValue: "7")
+            static let archived = Self(rawValue: "5")
+            static let willAttend = Self(rawValue: "9")
+            static let attended = Self(rawValue: "10")
+            static let webcamPhotoTaken = Self(rawValue: "11")
+            static let unarchived = Self(rawValue: "12")
+            static let reviewerNote = Self(rawValue: "18")
+            static let disabled = Self(rawValue: "22")
+            static let enabled = Self(rawValue: "23")
+            static let published = Self(rawValue: "24")
+            static let retracted = Self(rawValue: "25")
+            static let needsMaintenance = Self(rawValue: "45")
+            static let ownerMaintenance = Self(rawValue: "46")
+            static let updateCoordinates = Self(rawValue: "47")
         }
     }
 }
@@ -246,13 +285,36 @@ extension WaypointLogType {
         default: return nil
         }
     }
+    
+    init?(_ logPostType: GeocachingComApi.LogPost.LogType) {
+        switch logPostType {
+        case .found: self = .found
+        case .didNotFind: self = .didNotFind
+        case .note: self = .note
+        case .needsArchived: self = .needsArchived
+        case .archived: self = .archived
+        case .willAttend: self = .willAttend
+        case .attended: self = .attended
+        case .webcamPhotoTaken: self = .webcamPhotoTaken
+        case .unarchived: self = .unarchived
+        case .reviewerNote: self = .reviewerNote
+        case .disabled: self = .disabled
+        case .enabled: self = .enabled
+        case .published: self = .published
+        case .retracted: self = .retracted
+        case .needsMaintenance: self = .needsMaintenance
+        case .ownerMaintenance: self = .ownerMaintenance
+        case .updateCoordinates: self = .updateCoordinates
+        default: return nil
+        }
+    }
 }
 
 extension Waypoint {
     init?(_ apiCache: GeocachingComApi.Geocache) {
         let formatter = ISO8601DateFormatter()
         formatter.formatOptions = [.withInternetDateTime]
-        guard let location = apiCache.postedCoordinates?.asCoordinates else { return nil }
+        guard let location = apiCache.postedCoordinates.map(Coordinates.init) else { return nil }
         self.init(
             id: apiCache.code,
             name: apiCache.name,
@@ -286,15 +348,76 @@ extension Waypoint {
 
 extension WaypointLog {
     init?(_ apiLog: GeocachingComApi.Geocache.Activity) {
-        let formatter = ISO8601DateFormatter()
-        formatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+        let formatter = gcIsoDateFormatter()
         guard let type = apiLog.activityTypeId.flatMap(WaypointLogType.init) else { return nil }
         self.init(
             type: type,
             createdAt: apiLog.dateCreatedUtc.flatMap(formatter.date(from:)),
             lastEditedAt: apiLog.dateLastUpdatedUtc.flatMap(formatter.date(from:)),
-            username: apiLog.owner?.username ?? "<unknown>",
+            username: apiLog.owner?.username ?? "",
             content: apiLog.text ?? ""
         )
+    }
+    
+    init?(_ apiLogPost: GeocachingComApi.LogPost) {
+        let formatter = gcIsoDateFormatter()
+        guard let type = apiLogPost.logType.flatMap(WaypointLogType.init),
+              let id = apiLogPost.guid.flatMap(UUID.init(uuidString:)) else { return nil }
+        self.init(
+            id: id,
+            type: type,
+            createdAt: apiLogPost.dateTimeCreatedUtc.flatMap(formatter.date(from:)),
+            lastEditedAt: apiLogPost.dateTimeLastUpdatedUtc.flatMap(formatter.date(from:)),
+            username: "",
+            content: apiLogPost.logText ?? ""
+        )
+    }
+}
+
+extension Coordinates {
+    init(_ coordinates: GeocachingComApi.PostedCoordinates) {
+        self.init(latitude: coordinates.latitude, longitude: coordinates.longitude)
+    }
+}
+
+extension GeocachingComApi.LogPost {
+    init(_ log: WaypointLog, for waypoint: Waypoint) {
+        self.init(
+            geocache: .init(waypoint),
+            logType: LogType(log.type),
+            ownerIsViewing: log.username == waypoint.owner,
+            logDate: DateFormatter.isoDate().string(from: log.timestamp),
+            logText: log.content
+        )
+    }
+}
+
+extension GeocachingComApi.LogPost.Geocache {
+    init(_ waypoint: Waypoint) {
+        self.init(id: gcCacheId(gcCode: waypoint.id), referenceCode: waypoint.id)
+    }
+}
+
+extension GeocachingComApi.LogPost.LogType {
+    init(_ logType: WaypointLogType) {
+        switch logType {
+        case .found: self = .found
+        case .didNotFind: self = .didNotFind
+        case .note: self = .note
+        case .needsArchived: self = .needsArchived
+        case .archived: self = .archived
+        case .willAttend: self = .willAttend
+        case .attended: self = .attended
+        case .webcamPhotoTaken: self = .webcamPhotoTaken
+        case .unarchived: self = .unarchived
+        case .reviewerNote: self = .reviewerNote
+        case .disabled: self = .disabled
+        case .enabled: self = .enabled
+        case .published: self = .published
+        case .retracted: self = .retracted
+        case .needsMaintenance: self = .needsMaintenance
+        case .ownerMaintenance: self = .ownerMaintenance
+        case .updateCoordinates: self = .updateCoordinates
+        }
     }
 }

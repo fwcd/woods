@@ -12,7 +12,7 @@ extension URLRequest {
         method: String = "GET",
         query: [String: String] = [:],
         headers: [String: String] = [:],
-        body customBody: String? = nil
+        body customBody: Data? = nil
     ) throws -> URLRequest {
         let isPost = method == "POST"
 
@@ -25,7 +25,7 @@ extension URLRequest {
             body = components.percentEncodedQuery?.data(using: .utf8) ?? .init()
             components.queryItems = []
         } else {
-            body = customBody?.data(using: .utf8) ?? .init()
+            body = customBody ?? .init()
         }
 
         guard let url = components.url else { throw URLError(.badURL) }

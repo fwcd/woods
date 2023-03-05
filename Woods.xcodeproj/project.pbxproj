@@ -37,6 +37,8 @@
 		35199DA429B52D9600921D35 /* AccountType+Connector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35199DA329B52D9600921D35 /* AccountType+Connector.swift */; };
 		35199DA629B52DCA00921D35 /* AccountType+Connector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35199DA329B52D9600921D35 /* AccountType+Connector.swift */; };
 		35199DA829B52DD800921D35 /* AccountType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765465C25D890F6004F14E8 /* AccountType.swift */; };
+		35199DAC29B5587500921D35 /* GeocachingComUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35199DAB29B5587500921D35 /* GeocachingComUtils.swift */; };
+		35199DAD29B5587500921D35 /* GeocachingComUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35199DAB29B5587500921D35 /* GeocachingComUtils.swift */; };
 		35222982274A737300090224 /* CollectionUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35222981274A737300090224 /* CollectionUtils.swift */; };
 		3522298E274A756D00090224 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3522298D274A756D00090224 /* Assets.xcassets */; };
 		35222991274A756D00090224 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35222990274A756D00090224 /* Preview Assets.xcassets */; };
@@ -400,6 +402,7 @@
 		35199D9329B4F98300921D35 /* PopoverNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverNavigation.swift; sourceTree = "<group>"; };
 		35199D9629B513FD00921D35 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		35199DA329B52D9600921D35 /* AccountType+Connector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AccountType+Connector.swift"; sourceTree = "<group>"; };
+		35199DAB29B5587500921D35 /* GeocachingComUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocachingComUtils.swift; sourceTree = "<group>"; };
 		35222981274A737300090224 /* CollectionUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionUtils.swift; sourceTree = "<group>"; };
 		35222987274A756C00090224 /* Woods.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Woods.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3522298D274A756D00090224 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -769,6 +772,7 @@
 				C765466125D89141004F14E8 /* GeocachingComConnector.swift */,
 				C7ECBDD725EF1389005933C0 /* GeocachingComApi.swift */,
 				C7ECBDD225EF107E005933C0 /* GeocachingComSortOrder.swift */,
+				35199DAB29B5587500921D35 /* GeocachingComUtils.swift */,
 				357168AF283B1EB0007305C5 /* WaypointAttribute+GeocachingCom.swift */,
 			);
 			path = GeocachingCom;
@@ -1380,6 +1384,7 @@
 				35985CF928119E1200D37DB2 /* WatchProtocol.swift in Sources */,
 				35DF4E702810DEC3009B8E06 /* LatitudeCardinal.swift in Sources */,
 				35126CE12745CE1E00CF998C /* ComplicationController.swift in Sources */,
+				35199DAD29B5587500921D35 /* GeocachingComUtils.swift in Sources */,
 				35985D002811A80600D37DB2 /* JSONUtils.swift in Sources */,
 				35199DA829B52DD800921D35 /* AccountType.swift in Sources */,
 				35DF4E842810DF1A009B8E06 /* LocationManager.swift in Sources */,
@@ -1613,6 +1618,7 @@
 				3575D6C229B0F53400DF4380 /* WaypointDatesSection.swift in Sources */,
 				C7B74E8D25EDAEA400D5194B /* Handle.swift in Sources */,
 				C765464E25D88CEC004F14E8 /* AccountsView.swift in Sources */,
+				35199DAC29B5587500921D35 /* GeocachingComUtils.swift in Sources */,
 				C7B74EB725EDC5C200D5194B /* StarsView.swift in Sources */,
 				C7ECBD7025EEAB38005933C0 /* LocationManager.swift in Sources */,
 				356EF3CC283C5B3A00BCBA8F /* WaypointAttributePicker.swift in Sources */,

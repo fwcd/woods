@@ -25,6 +25,10 @@ private func apiPreviewUrl(gcCode: String) -> URL {
     URL(string: "\(baseUrl)/api/proxy/web/search/geocachepreview/\(gcCode)")!
 }
 
+private func apiLogUrl(gcCode: String) -> URL {
+    URL(string: "\(baseUrl)/api/proxy/web/v1/Geocache/\(gcCode)/GeocacheLog")!
+}
+
 private let log = Logger(subsystem: "Woods", category: "GeocachingComConnector")
 private let searchParamsPattern = try! Regex(from: "\\{.+\\}")
 
@@ -76,8 +80,8 @@ final class GeocachingComConnector: Connector {
     }
     
     func waypoint(id: String) async throws -> Waypoint {
+        try verifyIsGcCode(id: id)
         log.info("Querying details for \(id)")
-        guard id.starts(with: "GC") else { throw ConnectorError.invalidWaypoint("Not a Geocaching.com geocache") }
         let request = try URLRequest.standard(url: apiPreviewUrl(gcCode: id))
         let result = try await session.fetchJSON(as: GeocachingComApi.Geocache.self, for: request)
         guard let waypoint = Waypoint(result) else { throw ConnectorError.waypointNotFound(id) }
@@ -86,6 +90,23 @@ final class GeocachingComConnector: Connector {
     
     func waypoints(for rawQuery: WaypointsInRadiusQuery) -> [Waypoint] {
         fatalError("TODO")
+    }
+    
+    func post(waypointLog: WaypointLog, for waypoint: Waypoint) async throws -> WaypointLog {
+        try verifyIsGcCode(id: waypoint.id)
+        let post = GeocachingComApi.LogPost(waypointLog, for: waypoint)
+        let request = try URLRequest.standard(
+            url: apiLogUrl(gcCode: waypoint.id),
+            method: "POST",
+            body: JSONEncoder.standard().encode(post)
+        )
+        let result = try await session.fetchJSON(as: GeocachingComApi.LogPost.self, for: request)
+        guard let createdLog = WaypointLog(result) else { throw ConnectorError.waypointLogCouldNotBeParsed("Got result: \(result)") }
+        return createdLog
+    }
+    
+    private func verifyIsGcCode(id: String) throws {
+        guard id.starts(with: "GC") else { throw ConnectorError.invalidWaypoint("Not a Geocaching.com geocache") }
     }
     
     /// Searches the given region.

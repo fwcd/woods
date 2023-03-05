@@ -17,7 +17,7 @@ protocol Connector: AnyObject {
     func accountInfo() async throws -> AccountInfo
     
     /// Posts a log.
-    func post(waypointLog: WaypointLog, for waypointId: String) async throws -> Waypoint
+    func post(waypointLog: WaypointLog, for waypoint: Waypoint) async throws -> WaypointLog
     
     /// Fetches a waypoint with the given id.
     func waypoint(id: String) async throws -> Waypoint
@@ -30,7 +30,7 @@ protocol Connector: AnyObject {
 }
 
 extension Connector {
-    func post(waypointLog: WaypointLog, for waypointId: String) throws -> Waypoint {
+    func post(waypointLog: WaypointLog, for waypoint: Waypoint) throws -> WaypointLog {
         throw ConnectorError.postingLogsNotSupported
     }
     
