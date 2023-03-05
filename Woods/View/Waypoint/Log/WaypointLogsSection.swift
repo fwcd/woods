@@ -21,17 +21,19 @@ struct WaypointLogsSection: View {
             HStack {
                 Label("Logs", systemImage: "book.closed.fill")
                 Spacer()
-                Button {
-                    newLog = WaypointLog()
-                    newLogSheetShown = true
-                } label: {
-                    Label("New Log", systemImage: "square.and.pencil")
-                }
-                .popover(isPresented: $newLogSheetShown) {
-                    PopoverNavigation(title: "New Log") {
-                        newLogSheetShown = false
-                    } inner: {
-                        WaypointLogEditorView(waypointLog: $newLog)
+                if !waypoint.fetchableViaAccountTypes.isEmpty {
+                    Button {
+                        newLog = WaypointLog()
+                        newLogSheetShown = true
+                    } label: {
+                        Label("New Log", systemImage: "square.and.pencil")
+                    }
+                    .popover(isPresented: $newLogSheetShown) {
+                        PopoverNavigation(title: "New Log") {
+                            newLogSheetShown = false
+                        } inner: {
+                            WaypointLogEditorView(waypointLog: $newLog)
+                        }
                     }
                 }
             }

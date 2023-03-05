@@ -34,6 +34,9 @@
 		35199D9529B4F98300921D35 /* PopoverNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35199D9329B4F98300921D35 /* PopoverNavigation.swift */; };
 		35199D9729B513FD00921D35 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35199D9629B513FD00921D35 /* ContentView.swift */; };
 		35199D9829B513FD00921D35 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35199D9629B513FD00921D35 /* ContentView.swift */; };
+		35199DA429B52D9600921D35 /* AccountType+Connector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35199DA329B52D9600921D35 /* AccountType+Connector.swift */; };
+		35199DA629B52DCA00921D35 /* AccountType+Connector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35199DA329B52D9600921D35 /* AccountType+Connector.swift */; };
+		35199DA829B52DD800921D35 /* AccountType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765465C25D890F6004F14E8 /* AccountType.swift */; };
 		35222982274A737300090224 /* CollectionUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35222981274A737300090224 /* CollectionUtils.swift */; };
 		3522298E274A756D00090224 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3522298D274A756D00090224 /* Assets.xcassets */; };
 		35222991274A756D00090224 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35222990274A756D00090224 /* Preview Assets.xcassets */; };
@@ -396,6 +399,7 @@
 		35199D9029B4F0F100921D35 /* WaypointSnippetEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointSnippetEditor.swift; sourceTree = "<group>"; };
 		35199D9329B4F98300921D35 /* PopoverNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverNavigation.swift; sourceTree = "<group>"; };
 		35199D9629B513FD00921D35 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		35199DA329B52D9600921D35 /* AccountType+Connector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AccountType+Connector.swift"; sourceTree = "<group>"; };
 		35222981274A737300090224 /* CollectionUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionUtils.swift; sourceTree = "<group>"; };
 		35222987274A756C00090224 /* Woods.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Woods.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3522298D274A756D00090224 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -1024,6 +1028,7 @@
 				C7B74EE225EDDD8C00D5194B /* Degrees.swift */,
 				C765463025D8856C004F14E8 /* Credentials.swift */,
 				35677A322812856100708B3B /* AccountInfo.swift */,
+				C765465C25D890F6004F14E8 /* AccountType.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1048,7 +1053,7 @@
 			isa = PBXGroup;
 			children = (
 				C765465725D890E1004F14E8 /* Account.swift */,
-				C765465C25D890F6004F14E8 /* AccountType.swift */,
+				35199DA329B52D9600921D35 /* AccountType+Connector.swift */,
 				35245D34280841E200E7B082 /* AccountLogin.swift */,
 				C765463B25D88AC6004F14E8 /* Accounts.swift */,
 				C765464025D88B6C004F14E8 /* KeychainError.swift */,
@@ -1360,6 +1365,7 @@
 				35DF4E702810DEC3009B8E06 /* LatitudeCardinal.swift in Sources */,
 				35126CE12745CE1E00CF998C /* ComplicationController.swift in Sources */,
 				35985D002811A80600D37DB2 /* JSONUtils.swift in Sources */,
+				35199DA829B52DD800921D35 /* AccountType.swift in Sources */,
 				35DF4E842810DF1A009B8E06 /* LocationManager.swift in Sources */,
 				35DF4E802810DEC3009B8E06 /* WaypointList.swift in Sources */,
 				35DF4E762810DEC3009B8E06 /* Coordinates.swift in Sources */,
@@ -1425,6 +1431,7 @@
 				352229F9274A76C600090224 /* JSONUtils.swift in Sources */,
 				35A75F6A280F6D8A00BC959C /* CoordinateEditor.swift in Sources */,
 				352229E4274A76BB00090224 /* GeocachingComConnector.swift in Sources */,
+				35199DA629B52DCA00921D35 /* AccountType+Connector.swift in Sources */,
 				352229E9274A76C100090224 /* Credentials.swift in Sources */,
 				352229D7274A76AB00090224 /* NewWaypointListView.swift in Sources */,
 				357168B9283B30FE007305C5 /* LocationView.swift in Sources */,
@@ -1631,6 +1638,7 @@
 				C765465325D88E48004F14E8 /* LoginView.swift in Sources */,
 				35156CC4280FB0EA00136E25 /* RichMapButtons.swift in Sources */,
 				357168B0283B1EB0007305C5 /* WaypointAttribute+GeocachingCom.swift in Sources */,
+				35199DA429B52D9600921D35 /* AccountType+Connector.swift in Sources */,
 				C7ECBD8725EED110005933C0 /* WaypointListView.swift in Sources */,
 				C7E1B88A25ED72F0004575A5 /* MockConnector.swift in Sources */,
 				35C08CC629B01E2900C43B7D /* WaypointLogEditorView.swift in Sources */,

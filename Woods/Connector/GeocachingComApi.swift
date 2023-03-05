@@ -278,7 +278,8 @@ extension Waypoint {
             description: apiCache.description,
             hint: apiCache.hint,
             webUrl: URL(string: "https://coord.info/\(apiCache.code)"),
-            logs: apiCache.recentActivities?.compactMap(WaypointLog.init) ?? []
+            logs: apiCache.recentActivities?.compactMap(WaypointLog.init) ?? [],
+            fetchableViaAccountTypes: [.geocachingCom]
         )
     }
 }

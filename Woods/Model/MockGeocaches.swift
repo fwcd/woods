@@ -42,7 +42,8 @@ func mockGeocaches() -> [Waypoint] {
                 WaypointLog(type: .found, username: "Charles", content: "TFTC"),
                 WaypointLog(type: .ownerMaintenance, username: "Dave", content: "Thanks for the note!"),
                 WaypointLog(type: .needsMaintenance, username: "Erik", content: "The logbook should probably be replaced."),
-            ]
+            ],
+            fetchableViaAccountTypes: [.mock]
         ),
         Waypoint(
             id: "MOCK2",
@@ -55,7 +56,8 @@ func mockGeocaches() -> [Waypoint] {
             additionalWaypoints: [
                 Waypoint(id: "WP1", name: "A nice café", location: Coordinates(latitude: 51.306723, longitude: 7.941415)),
                 Waypoint(id: "WP2", name: "Trail", location: Coordinates(latitude: 51.306120, longitude: 7.949290)),
-            ]
+            ],
+            fetchableViaAccountTypes: [.mock]
         ),
         Waypoint(
             id: "MOCK3",
@@ -65,7 +67,8 @@ func mockGeocaches() -> [Waypoint] {
             terrain: 10,
             type: .earthCache,
             geocacheSize: .notChosen,
-            found: true
+            found: true,
+            fetchableViaAccountTypes: [.mock]
         ),
         Waypoint(
             id: "MOCK4",
@@ -74,7 +77,8 @@ func mockGeocaches() -> [Waypoint] {
             difficulty: 5,
             terrain: 10,
             type: .mysteryCache,
-            geocacheSize: .notChosen
+            geocacheSize: .notChosen,
+            fetchableViaAccountTypes: [.mock]
         ),
     ]
 }

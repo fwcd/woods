@@ -36,8 +36,7 @@ struct Waypoint: Identifiable, Codable, Hashable {
     var webUrl: URL? = nil
     var logs: [WaypointLog] = []
     var additionalWaypoints: [Waypoint] = []
-    
-    
+    var fetchableViaAccountTypes: Set<AccountType> = []
     
     func matches(searchQuery: String) -> Bool {
         let lowerQuery = searchQuery.lowercased()
