@@ -37,7 +37,9 @@ struct WaypointDetailView: View {
                 AdditionalWaypointsSection(waypoint: waypoint)
             }
             WaypointDetailActionsView(waypoint: waypoint)
-            WaypointLogsSection(waypoint: waypoint)
+            if !waypoint.logs.isEmpty || !waypoint.fetchableViaAccountTypes.isEmpty {
+                WaypointLogsSection(waypoint: waypoint)
+            }
         }
         .padding([.leading, .trailing], 20)
     }
