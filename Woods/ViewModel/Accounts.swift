@@ -17,6 +17,22 @@ private let keychainClass: Any = kSecClassInternetPassword
 @MainActor
 class Accounts: ObservableObject {
     @Published private(set) var accountLogins: [UUID: AccountLogin] = [:]
+    @Published(persistingTo: "Accounts/enabledIds.json") var enabledIds: Set<UUID> = [] {
+        didSet {
+            Task {
+                for id in enabledIds {
+                    if let login = accountLogins[id], !login.state.isAttemptedLogin {
+                        await logIn(to: login.account)
+                    }
+                }
+                for (id, login) in accountLogins {
+                    if !enabledIds.contains(id) && login.state.isAttemptedLogin {
+                        await logOut(from: login.account)
+                    }
+                }
+            }
+        }
+    }
     
     init(accounts: [Account] = [], testMode: Bool = false) {
         var initialAccounts = accounts
@@ -35,7 +51,11 @@ class Accounts: ObservableObject {
             let initialAccounts = initialAccounts
             Task {
                 for account in initialAccounts {
-                    await logIn(to: account)
+                    if enabledIds.contains(account.id) {
+                        await logIn(to: account)
+                    } else {
+                        accountLogins[account.id] = AccountLogin(account: account, state: .loggedOut)
+                    }
                 }
             }
         }

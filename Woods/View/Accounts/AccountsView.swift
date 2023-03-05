@@ -23,16 +23,14 @@ struct AccountsView: View {
                     .values
                     .sorted { $0.account.credentials.username < $1.account.credentials.username }
                 ForEach(logins) { login in
+                    let accountId = login.account.id
                     Toggle(isOn: Binding(
-                        get: { login.state.isAttemptedLogin },
+                        get: { accounts.enabledIds.contains(accountId) },
                         set: { newLoggedIn in
-                            guard newLoggedIn != login.state.isAttemptedLogin else { return }
-                            Task {
-                                if newLoggedIn {
-                                    await accounts.logIn(login.account)
-                                } else {
-                                    await accounts.logOut(login.account)
-                                }
+                            if newLoggedIn {
+                                accounts.enabledIds.insert(accountId)
+                            } else {
+                                accounts.enabledIds.remove(accountId)
                             }
                         }
                     )) {
