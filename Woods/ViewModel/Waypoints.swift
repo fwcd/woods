@@ -65,14 +65,14 @@ class Waypoints: ObservableObject {
         }
     }
     
-    func queryDetails(for waypointId: String) async {
-        if let stubWaypoint = currentWaypoints[waypointId], stubWaypoint.isStub,
-           let connector = connector(for: stubWaypoint) {
+    func refresh(_ waypointId: String) async {
+        if let waypoint = currentWaypoints[waypointId],
+           let connector = connector(for: waypoint) {
             do {
                 currentWaypoints[waypointId] = try await connector.waypoint(id: waypointId)
-                log.info("Queried details for \(waypointId)")
+                log.info("Refreshed \(waypointId)")
             } catch {
-                log.warning("Could not query details: \(String(describing: error))")
+                log.warning("Could not refresh waypoint: \(String(describing: error))")
             }
         }
     }

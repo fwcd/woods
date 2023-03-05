@@ -77,7 +77,8 @@ struct RichMapButtons: View {
         .onChange(of: selectedWaypointId) {
             if let id = $0 {
                 Task {
-                    await waypoints.queryDetails(for: id)
+                    // Refreshing the individual waypoint queries its details
+                    await waypoints.refresh(id)
                 }
             }
         }
