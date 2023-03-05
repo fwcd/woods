@@ -31,7 +31,6 @@ private class AppState {
         
         #if canImport(UIKit)
         UITableView.appearance().backgroundColor = .clear // applies to Form backgrounds too
-        UITabBar.appearance().scrollEdgeAppearance = UITabBarAppearance()
         #endif
     }
 }

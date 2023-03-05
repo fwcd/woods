@@ -26,7 +26,6 @@ struct WaypointLogEditorView: View {
                     #if os(macOS)
                     .frame(height: 40)
                     #endif
-
             }
             
             Section("Preview") {

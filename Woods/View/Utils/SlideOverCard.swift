@@ -11,6 +11,7 @@ import SwiftUI
 
 struct SlideOverCard<Content>: View where Content: View {
     @Binding var position: SlideOverCardPosition
+    var supportedPositions: [SlideOverCardPosition] = SlideOverCardPosition.allCases
     @ViewBuilder let content: (CGFloat) -> Content
     
     @State private var translation: CGFloat = 0
@@ -83,7 +84,7 @@ struct SlideOverCard<Content>: View where Content: View {
     }
     
     private func closestPosition(to y: CGFloat, in geometry: GeometryProxy) -> SlideOverCardPosition {
-        SlideOverCardPosition.allCases.min(by: ascendingComparator { otherPos in
+        supportedPositions.min(by: ascendingComparator { otherPos in
             abs(y - offset(for: otherPos, in: geometry))
         })!
     }
@@ -92,7 +93,7 @@ struct SlideOverCard<Content>: View where Content: View {
         let height = geometry.size.height
         switch position {
         case .top:
-            return height * 0.1
+            return height * 0.2
         case .middle:
             return height * 0.5
         case .bottom:
