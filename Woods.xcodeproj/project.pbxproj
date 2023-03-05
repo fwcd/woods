@@ -633,7 +633,6 @@
 				35C08CBC29B0167D00C43B7D /* Snippet */,
 				35C08CBB29B0165D00C43B7D /* Summary */,
 				35C08CBD29B0168E00C43B7D /* Detail */,
-				C7B74F0325EE9BED00D5194B /* WaypointSnippetView.swift */,
 				3575D6B929B0F37300DF4380 /* Info */,
 				3575D6BB29B0F3AC00DF4380 /* Description */,
 				3575D6C029B0F52600DF4380 /* Date */,
@@ -901,6 +900,7 @@
 		35C08CBC29B0167D00C43B7D /* Snippet */ = {
 			isa = PBXGroup;
 			children = (
+				C7B74F0325EE9BED00D5194B /* WaypointSnippetView.swift */,
 				C7ECBD8E25EED8AF005933C0 /* WaypointSmallSnippetView.swift */,
 				C7ECBD7425EEB23B005933C0 /* WaypointDistanceView.swift */,
 			);
