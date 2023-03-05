@@ -67,7 +67,7 @@ class Waypoints: ObservableObject {
     
     func refresh(_ waypointId: String) async {
         if let waypoint = currentWaypoints[waypointId],
-           let connector = connector(for: waypoint) {
+           let connector = accounts.connector(for: waypoint) {
             do {
                 currentWaypoints[waypointId] = try await connector.waypoint(id: waypointId)
                 log.info("Refreshed \(waypointId)")
@@ -75,12 +75,6 @@ class Waypoints: ObservableObject {
                 log.warning("Could not refresh waypoint: \(String(describing: error))")
             }
         }
-    }
-    
-    private func connector(for waypoint: Waypoint) -> (any Connector)? {
-        accounts.accountLogins.values.first { login in
-            login.state.isConnected && waypoint.fetchableViaAccountTypes.contains(login.account.type)
-        }?.connector
     }
     
     func filteredWaypoints(for searchText: String) -> [Waypoint] {

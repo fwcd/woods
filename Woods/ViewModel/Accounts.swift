@@ -65,6 +65,12 @@ class Accounts: ObservableObject {
         accountLogins[id]
     }
     
+    func connector(for waypoint: Waypoint) -> (any Connector)? {
+        accountLogins.values.first { login in
+            login.state.isConnected && waypoint.fetchableViaAccountTypes.contains(login.account.type)
+        }?.connector
+    }
+    
     func logIn(_ account: Account) async {
         await logIn(to: account)
     }

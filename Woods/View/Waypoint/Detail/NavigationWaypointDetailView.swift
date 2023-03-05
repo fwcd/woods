@@ -6,12 +6,16 @@
 //
 
 import SwiftUI
+import OSLog
+
+private let log = Logger(subsystem: "Woods", category: "NavigationWaypointDetailView")
 
 struct NavigationWaypointDetailView: View {
     @Binding var waypoint: Waypoint
     var hasMap: Bool = true
     var isEditable: Bool = true
     
+    @EnvironmentObject private var accounts: Accounts
     @State private var editedWaypoint = Waypoint()
     @State private var isEditing = false
     
@@ -24,6 +28,17 @@ struct NavigationWaypointDetailView: View {
             } else {
                 ScrollView {
                     WaypointDetailView(waypoint: waypoint, hasMap: hasMap)
+                }
+                .refreshable {
+                    Task {
+                        if let connector = accounts.connector(for: waypoint) {
+                            do {
+                                waypoint = try await connector.waypoint(id: waypoint.id)
+                            } catch {
+                                log.warning("Could not refresh waypoint \(waypoint.id): \(error)")
+                            }
+                        }
+                    }
                 }
             }
         }
