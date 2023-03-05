@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct TabbedContentView: View {
     @EnvironmentObject private var remoteHostManager: RemoteHostManager
     
     var body: some View {
@@ -28,7 +28,7 @@ struct ContentView_Previews: PreviewProvider {
     @StateObject static var remoteHostManager = RemoteHostManager()
     
     static var previews: some View {
-        ContentView()
+        TabbedContentView()
             .environmentObject(locationManager)
             .environmentObject(remoteHostManager)
             .previewDevice("Apple Watch Series 6 - 40mm")

@@ -30,6 +30,9 @@ struct LoginView: View {
                 Text("Log in")
             }
         }
+        #if !os(macOS)
+        .frame(minWidth: 300, minHeight: 300)
+        #endif
         .scrollDismissesKeyboard(.interactively)
     }
 }

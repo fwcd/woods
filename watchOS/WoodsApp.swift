@@ -15,7 +15,7 @@ struct WoodsApp: App {
     
     @SceneBuilder var body: some Scene {
         WindowGroup {
-            ContentView()
+            TabbedContentView()
                 .environmentObject(locationManager)
                 .environmentObject(remoteHostManager)
         }

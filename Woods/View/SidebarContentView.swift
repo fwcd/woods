@@ -43,6 +43,7 @@ struct SidebarContentView: View {
                     .buttonStyle(.bordered)
                 }
             }
+            .navigationTitle("Woods")
         } detail: {
             switch selectedDetail {
             case .map?:

@@ -2,35 +2,18 @@
 //  ContentView.swift
 //  Woods
 //
-//  Created by Fredrik on 6/21/20.
-//  Copyright © 2020 Fredrik.
+//  Created by Fredrik on 05.03.23.
 //
 
 import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        TabView {
-            RichMapView()
-                .tabItem {
-                    Label("Map", systemImage: "map.fill")
-                }
-            LocationView()
-                .tabItem {
-                    Label("Location", systemImage: "location.fill")
-                }
-            WaypointListsView()
-                .tabItem {
-                    Label("Lists", systemImage: "list.bullet")
-                }
-            SearchView()
-                .tabItem {
-                    Label("Search", systemImage: "magnifyingglass")
-                }
-            AccountsView()
-                .tabItem {
-                    Label("Accounts", systemImage: "person.circle.fill")
-                }
+        let isCompact = ![.pad, .mac].contains(UserInterfaceIdiom.current)
+        if isCompact {
+            TabbedContentView()
+        } else {
+            SidebarContentView()
         }
     }
 }
@@ -47,3 +30,4 @@ struct ContentView_Previews: PreviewProvider {
             .previewInterfaceOrientation(.portrait)
     }
 }
+

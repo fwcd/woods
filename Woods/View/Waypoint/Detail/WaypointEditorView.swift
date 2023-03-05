@@ -138,6 +138,7 @@ struct WaypointEditorView: View {
                 }
             }
         }
+        .frame(minWidth: 300, minHeight: 500)
         .scrollDismissesKeyboard(.interactively)
     }
 }

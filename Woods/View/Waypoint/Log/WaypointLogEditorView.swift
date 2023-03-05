@@ -32,6 +32,9 @@ struct WaypointLogEditorView: View {
                 WaypointLogView(waypointLog: waypointLog)
             }
         }
+        #if !os(macOS)
+        .frame(minWidth: 300, minHeight: 500)
+        #endif
     }
 }
 

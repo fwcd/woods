@@ -13,7 +13,7 @@
 		351120C42807043C00D5E6B3 /* CancelNavigationStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3567D0112785B5DD00060C37 /* CancelNavigationStack.swift */; };
 		351120C52807046500D5E6B3 /* WaypointListContextMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3567D0132785B7DD00060C37 /* WaypointListContextMenu.swift */; };
 		35126CD92745CE1E00CF998C /* WoodsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35126CD82745CE1E00CF998C /* WoodsApp.swift */; };
-		35126CDB2745CE1E00CF998C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35126CDA2745CE1E00CF998C /* ContentView.swift */; };
+		35126CDB2745CE1E00CF998C /* TabbedContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35126CDA2745CE1E00CF998C /* TabbedContentView.swift */; };
 		35126CDD2745CE1E00CF998C /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35126CDC2745CE1E00CF998C /* NotificationController.swift */; };
 		35126CDF2745CE1E00CF998C /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35126CDE2745CE1E00CF998C /* NotificationView.swift */; };
 		35126CE12745CE1E00CF998C /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35126CE02745CE1E00CF998C /* ComplicationController.swift */; };
@@ -32,6 +32,8 @@
 		35199D9229B4F0F100921D35 /* WaypointSnippetEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35199D9029B4F0F100921D35 /* WaypointSnippetEditor.swift */; };
 		35199D9429B4F98300921D35 /* PopoverNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35199D9329B4F98300921D35 /* PopoverNavigation.swift */; };
 		35199D9529B4F98300921D35 /* PopoverNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35199D9329B4F98300921D35 /* PopoverNavigation.swift */; };
+		35199D9729B513FD00921D35 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35199D9629B513FD00921D35 /* ContentView.swift */; };
+		35199D9829B513FD00921D35 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35199D9629B513FD00921D35 /* ContentView.swift */; };
 		35222982274A737300090224 /* CollectionUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35222981274A737300090224 /* CollectionUtils.swift */; };
 		3522298E274A756D00090224 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3522298D274A756D00090224 /* Assets.xcassets */; };
 		35222991274A756D00090224 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35222990274A756D00090224 /* Preview Assets.xcassets */; };
@@ -67,7 +69,7 @@
 		352229D3274A76AB00090224 /* WaypointSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBE2C25F006D8005933C0 /* WaypointSummaryView.swift */; };
 		352229D4274A76AB00090224 /* SlideOverCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74E8725EDADC100D5194B /* SlideOverCard.swift */; };
 		352229D5274A76AB00090224 /* WaypointDistanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBD7425EEB23B005933C0 /* WaypointDistanceView.swift */; };
-		352229D6274A76AB00090224 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73E04BE249F9F4700C6E22C /* ContentView.swift */; };
+		352229D6274A76AB00090224 /* TabbedContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73E04BE249F9F4700C6E22C /* TabbedContentView.swift */; };
 		352229D7274A76AB00090224 /* NewWaypointListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBDA525EEE271005933C0 /* NewWaypointListView.swift */; };
 		352229D9274A76AB00090224 /* EnumPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765469A25ED25DE004F14E8 /* EnumPicker.swift */; };
 		352229DA274A76B400090224 /* KeychainError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765464025D88B6C004F14E8 /* KeychainError.swift */; };
@@ -248,7 +250,7 @@
 		35E5DF462746454C00226EEA /* WaypointListWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E5DF452746454C00226EEA /* WaypointListWrapper.swift */; };
 		C70B379D25ED7CC100553597 /* Waypoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70B379C25ED7CC100553597 /* Waypoints.swift */; };
 		C73E04BB249F9F4700C6E22C /* WoodsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73E04BA249F9F4700C6E22C /* WoodsApp.swift */; };
-		C73E04BF249F9F4700C6E22C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73E04BE249F9F4700C6E22C /* ContentView.swift */; };
+		C73E04BF249F9F4700C6E22C /* TabbedContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73E04BE249F9F4700C6E22C /* TabbedContentView.swift */; };
 		C73E04C1249F9F4A00C6E22C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C73E04C0249F9F4A00C6E22C /* Assets.xcassets */; };
 		C73E04C4249F9F4A00C6E22C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C73E04C3249F9F4A00C6E22C /* Preview Assets.xcassets */; };
 		C73E04C7249F9F4A00C6E22C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C73E04C5249F9F4A00C6E22C /* LaunchScreen.storyboard */; };
@@ -377,7 +379,7 @@
 		351120C6280704A400D5E6B3 /* Woods.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Woods.entitlements; sourceTree = "<group>"; };
 		35126CCB2745CE1D00CF998C /* Woods.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Woods.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35126CD82745CE1E00CF998C /* WoodsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoodsApp.swift; sourceTree = "<group>"; };
-		35126CDA2745CE1E00CF998C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		35126CDA2745CE1E00CF998C /* TabbedContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbedContentView.swift; sourceTree = "<group>"; };
 		35126CDC2745CE1E00CF998C /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		35126CDE2745CE1E00CF998C /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
 		35126CE02745CE1E00CF998C /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
@@ -393,6 +395,7 @@
 		3517B21D2835C93600A37F24 /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
 		35199D9029B4F0F100921D35 /* WaypointSnippetEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointSnippetEditor.swift; sourceTree = "<group>"; };
 		35199D9329B4F98300921D35 /* PopoverNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverNavigation.swift; sourceTree = "<group>"; };
+		35199D9629B513FD00921D35 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		35222981274A737300090224 /* CollectionUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionUtils.swift; sourceTree = "<group>"; };
 		35222987274A756C00090224 /* Woods.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Woods.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3522298D274A756D00090224 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -458,7 +461,7 @@
 		C70B379C25ED7CC100553597 /* Waypoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Waypoints.swift; sourceTree = "<group>"; };
 		C73E04B7249F9F4700C6E22C /* Woods.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Woods.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C73E04BA249F9F4700C6E22C /* WoodsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoodsApp.swift; sourceTree = "<group>"; };
-		C73E04BE249F9F4700C6E22C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		C73E04BE249F9F4700C6E22C /* TabbedContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbedContentView.swift; sourceTree = "<group>"; };
 		C73E04C0249F9F4A00C6E22C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C73E04C3249F9F4A00C6E22C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C73E04C6249F9F4A00C6E22C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -853,7 +856,7 @@
 		35985CFB2811A11100D37DB2 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				35126CDA2745CE1E00CF998C /* ContentView.swift */,
+				35126CDA2745CE1E00CF998C /* TabbedContentView.swift */,
 				35126CDE2745CE1E00CF998C /* NotificationView.swift */,
 			);
 			path = View;
@@ -1091,8 +1094,9 @@
 				3503AF4929AAAF2700AF1188 /* Search */,
 				3503AF4829AAAF0800AF1188 /* Accounts */,
 				3503AF5129AAB0FC00AF1188 /* Utils */,
-				C73E04BE249F9F4700C6E22C /* ContentView.swift */,
+				C73E04BE249F9F4700C6E22C /* TabbedContentView.swift */,
 				35353C3B2745D90F002ACE14 /* SidebarContentView.swift */,
+				35199D9629B513FD00921D35 /* ContentView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1351,7 +1355,7 @@
 				35AB81FB28D976640052F55A /* Waypoint+GPX.swift in Sources */,
 				35AB820728D979B90052F55A /* GPXError.swift in Sources */,
 				35DF4E722810DEC3009B8E06 /* SignedCardinal.swift in Sources */,
-				35126CDB2745CE1E00CF998C /* ContentView.swift in Sources */,
+				35126CDB2745CE1E00CF998C /* TabbedContentView.swift in Sources */,
 				35985CF928119E1200D37DB2 /* WatchProtocol.swift in Sources */,
 				35DF4E702810DEC3009B8E06 /* LatitudeCardinal.swift in Sources */,
 				35126CE12745CE1E00CF998C /* ComplicationController.swift in Sources */,
@@ -1451,7 +1455,7 @@
 				352229EB274A76C100090224 /* WaypointList.swift in Sources */,
 				35245D3C2808443700E7B082 /* AccountLoginSnippetView.swift in Sources */,
 				357BE45C280F39B100E31364 /* WaypointEditorView.swift in Sources */,
-				352229D6274A76AB00090224 /* ContentView.swift in Sources */,
+				352229D6274A76AB00090224 /* TabbedContentView.swift in Sources */,
 				352229BF274A76AA00090224 /* SizeView.swift in Sources */,
 				352229EE274A76C100090224 /* MockGeocaches.swift in Sources */,
 				357BE462280F4BF500E31364 /* BindingUtils.swift in Sources */,
@@ -1490,6 +1494,7 @@
 				352229D0274A76AB00090224 /* WaypointNavigatorView.swift in Sources */,
 				352229FC274A76C600090224 /* PersistenceUtils.swift in Sources */,
 				356EF3C3283C4DF100BCBA8F /* WaypointTypePicker.swift in Sources */,
+				35199D9829B513FD00921D35 /* ContentView.swift in Sources */,
 				35156CC2280FAE7A00136E25 /* SearchView.swift in Sources */,
 				352229E1274A76BB00090224 /* ConnectorError.swift in Sources */,
 				352229DE274A76B400090224 /* AccountType.swift in Sources */,
@@ -1639,7 +1644,8 @@
 				35245D35280841E200E7B082 /* AccountLogin.swift in Sources */,
 				C765463125D8856C004F14E8 /* Credentials.swift in Sources */,
 				C7B6F0FF249FA1B300454841 /* Map.swift in Sources */,
-				C73E04BF249F9F4700C6E22C /* ContentView.swift in Sources */,
+				C73E04BF249F9F4700C6E22C /* TabbedContentView.swift in Sources */,
+				35199D9729B513FD00921D35 /* ContentView.swift in Sources */,
 				357BE45B280F39B100E31364 /* WaypointEditorView.swift in Sources */,
 				C7B74EBC25EDCA5E00D5194B /* WaypointType+Color.swift in Sources */,
 				3594EF8129AD6DE700AC705E /* URLRequest+Extensions.swift in Sources */,
