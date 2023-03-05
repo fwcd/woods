@@ -86,18 +86,16 @@ struct RichMapButtons: View {
             PopoverNavigation(title: "Pick Waypoint List") {
                 listPickerSheetShown = false
             } inner: {
-                Form {
-                    WaypointListPickerView { id in
-                        switch listPickerMode {
-                        case .save:
-                            waypoints.listTree[id]?.add(waypoints: waypoints.currentWaypoints.values.sorted { $0.name < $1.name })
-                        case .open:
-                            if let list = waypoints.listTree[id] {
-                                waypoints.update(currentWaypoints: list.waypoints)
-                            }
+                WaypointListPickerView { id in
+                    switch listPickerMode {
+                    case .save:
+                        waypoints.listTree[id]?.add(waypoints: waypoints.currentWaypoints.values.sorted { $0.name < $1.name })
+                    case .open:
+                        if let list = waypoints.listTree[id] {
+                            waypoints.update(currentWaypoints: list.waypoints)
                         }
-                        listPickerSheetShown = false
                     }
+                    listPickerSheetShown = false
                 }
                 #if canImport(UIKit)
                 .navigationTitle("Pick List")
