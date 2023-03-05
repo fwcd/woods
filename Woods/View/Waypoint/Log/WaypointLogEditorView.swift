@@ -44,6 +44,14 @@ struct WaypointLogEditorView: View {
                 WaypointLogView(waypointLog: waypointLog)
             }
         }
+        .onAppear {
+            accountId = accounts.accountLogin(forAny: accountTypes)?.account.id
+        }
+        .onChange(of: accountId) { accountId in
+            if let accountId, let login = accounts.accountLogins[accountId] {
+                waypointLog.username = login.account.credentials.username
+            }
+        }
         #if !os(macOS)
         .frame(minWidth: 300, minHeight: 500)
         #endif
