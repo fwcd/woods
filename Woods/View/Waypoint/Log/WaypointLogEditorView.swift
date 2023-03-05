@@ -9,6 +9,10 @@ import SwiftUI
 
 struct WaypointLogEditorView: View {
     @Binding var waypointLog: WaypointLog
+    let accountTypes: Set<AccountType>
+    
+    @EnvironmentObject private var accounts: Accounts
+    @State private var accountId: UUID? = nil
     
     var body: some View {
         Form {
@@ -17,6 +21,14 @@ struct WaypointLogEditorView: View {
                 EnumPicker(selection: $waypointLog.type, label: Text("Log Type"))
                 DatePicker(selection: $waypointLog.timestamp) {
                     Text("Date")
+                }
+                Picker(selection: $accountId) {
+                    ForEach(accounts.sortedAccountLogins.filter { accountTypes.contains($0.account.type) }) { login in
+                        Text(login.account.credentials.username.nilIfEmpty ?? login.account.type.description)
+                            .tag(login.account.id)
+                    }
+                } label: {
+                    Text("Account")
                 }
             }
             
@@ -40,6 +52,9 @@ struct WaypointLogEditorView: View {
 
 struct EditWaypointLogView_Previews: PreviewProvider {
     static var previews: some View {
-        WaypointLogEditorView(waypointLog: .constant(WaypointLog(type: .found, username: "Alice", content: "Very nice cache, thanks!")))
+        WaypointLogEditorView(
+            waypointLog: .constant(WaypointLog(type: .found, username: "Alice", content: "Very nice cache, thanks!")),
+            accountTypes: Set(AccountType.allCases)
+        )
     }
 }

@@ -24,8 +24,8 @@ public struct EnumPicker<Label, Value>: View
     
     public var body: some View {
         Picker(selection: $selection, label: label) {
-            ForEach(0..<Value.allCases.count, id: \.self) {
-                Text(Value.allCases[$0].description).tag(Value.allCases[$0])
+            ForEach(Value.allCases, id: \.self) { value in
+                Text(value.description).tag(value)
             }
         }
     }

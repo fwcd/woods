@@ -32,7 +32,10 @@ struct WaypointLogsSection: View {
                         PopoverNavigation(title: "New Log") {
                             newLogSheetShown = false
                         } inner: {
-                            WaypointLogEditorView(waypointLog: $newLog)
+                            WaypointLogEditorView(
+                                waypointLog: $newLog,
+                                accountTypes: waypoint.fetchableViaAccountTypes
+                            )
                         }
                     }
                 }

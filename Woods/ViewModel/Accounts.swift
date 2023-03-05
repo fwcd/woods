@@ -34,6 +34,12 @@ class Accounts: ObservableObject {
         }
     }
     
+    var sortedAccountLogins: [AccountLogin] {
+        accountLogins
+            .values
+            .sorted { $0.account.credentials.username < $1.account.credentials.username }
+    }
+    
     init(accounts: [Account] = [], testMode: Bool = false) {
         var initialAccounts = accounts
         

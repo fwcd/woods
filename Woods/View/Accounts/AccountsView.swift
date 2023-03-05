@@ -19,9 +19,7 @@ struct AccountsView: View {
     var body: some View {
         NavigationStack {
             List {
-                let logins = accounts.accountLogins
-                    .values
-                    .sorted { $0.account.credentials.username < $1.account.credentials.username }
+                let logins = accounts.sortedAccountLogins
                 ForEach(logins) { login in
                     let accountId = login.account.id
                     Toggle(isOn: Binding(
