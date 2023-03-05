@@ -34,6 +34,15 @@ struct AccountLogin: Identifiable {
                 return true
             }
         }
+        
+        var isConnected: Bool {
+            switch self {
+            case .connected(_):
+                return true
+            default:
+                return false
+            }
+        }
     }
     
     init(account: Account, state: State = .loggedOut) {

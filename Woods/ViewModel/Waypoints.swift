@@ -18,8 +18,6 @@ class Waypoints: ObservableObject {
     @Published private(set) var currentWaypoints: [String: Waypoint] = [:]
     @Published(persistingTo: "Waypoints/listTree.json") var listTree = WaypointListTree()
     
-    private var originatingAccountIds: [String: UUID] = [:] // Waypoint id to account id
-    
     private let accounts: Accounts
     private var runningQueryTask: AnyCancellable?
     
@@ -40,7 +38,6 @@ class Waypoints: ObservableObject {
     
     func update(currentWaypoints: [Waypoint]) {
         self.currentWaypoints = Dictionary(uniqueKeysWithValues: currentWaypoints.map { ($0.id, $0) })
-        originatingAccountIds = [:]
     }
     
     func refresh(with query: WaypointsInRegionQuery) async {
@@ -62,7 +59,6 @@ class Waypoints: ObservableObject {
             }
             
             currentWaypoints = Dictionary(uniqueKeysWithValues: foundWaypoints.map { ($0.0.id, $0.0) })
-            originatingAccountIds = Dictionary(uniqueKeysWithValues: foundWaypoints.map { ($0.0.id, $0.1) })
             log.info("Found \(foundWaypoints.count) waypoint(s)")
         } catch {
             log.warning("Could not query waypoints: \(String(describing: error))")
@@ -70,8 +66,8 @@ class Waypoints: ObservableObject {
     }
     
     func queryDetails(for waypointId: String) async {
-        if let connector = originatingAccountIds[waypointId].flatMap({ accounts.accountLogins[$0]?.connector }),
-           (currentWaypoints[waypointId]?.isStub ?? true) {
+        if let stubWaypoint = currentWaypoints[waypointId], stubWaypoint.isStub,
+           let connector = connector(for: stubWaypoint) {
             do {
                 currentWaypoints[waypointId] = try await connector.waypoint(id: waypointId)
                 log.info("Queried details for \(waypointId)")
@@ -81,7 +77,13 @@ class Waypoints: ObservableObject {
         }
     }
     
-    public func filteredWaypoints(for searchText: String) -> [Waypoint] {
+    private func connector(for waypoint: Waypoint) -> (any Connector)? {
+        accounts.accountLogins.values.first { login in
+            login.state.isConnected && waypoint.fetchableViaAccountTypes.contains(login.account.type)
+        }?.connector
+    }
+    
+    func filteredWaypoints(for searchText: String) -> [Waypoint] {
         sortedWaypoints.filter { waypoint in
             searchText.isEmpty || waypoint.matches(searchQuery: searchText)
         }
