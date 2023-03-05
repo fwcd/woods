@@ -26,6 +26,10 @@ struct WaypointTypePicker: View {
         } label: {
             WaypointTypeView(type: selection)
         }
+        .menuStyle(.borderlessButton)
+        #if os(macOS)
+        .frame(width: 40)
+        #endif
     }
 }
 

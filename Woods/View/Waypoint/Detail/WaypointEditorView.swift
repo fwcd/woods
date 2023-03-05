@@ -26,16 +26,7 @@ struct WaypointEditorView: View {
     var body: some View {
         Form {
             Section("Waypoint") {
-                HStack(spacing: 20) {
-                    WaypointTypePicker(selection: $waypoint.type)
-                    VStack {
-                        TextField("ID (e.g. GC-Code)", text: $waypoint.id)
-                            .font(.headline)
-                        Divider()
-                        TextField("Name", text: $waypoint.name)
-                            .font(.title2)
-                    }
-                }
+                WaypointSnippetEditor(waypoint: $waypoint)
             }
             
             Section("Coordinates") {

@@ -13,7 +13,11 @@ struct WaypointTypeView: View {
     var body: some View {
         Image(systemName: type.iconName)
             .foregroundColor(type.color)
+            #if os(macOS)
+            .frame(width: 20)
+            #else
             .font(.title)
+            #endif
     }
 }
 

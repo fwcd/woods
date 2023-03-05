@@ -16,10 +16,12 @@ struct CancelNavigationStack<Inner>: View where Inner: View {
     var body: some View {
         NavigationStack {
             inner()
-                .navigationTitle(title)
-                #if !os(macOS)
+                #if os(macOS)
+                .padding(10)
+                #else
                 .navigationBarTitleDisplayMode(.inline)
                 #endif
+                .navigationTitle(title)
                 .toolbar {
                     ToolbarItem(placement: .cancellationAction) {
                         Button("Cancel") {

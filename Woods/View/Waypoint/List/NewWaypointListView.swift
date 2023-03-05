@@ -21,6 +21,9 @@ struct NewWaypointListView: View {
         .font(.title)
         #else
         TextField("Name", text: $text)
+            #if os(macOS)
+            .frame(width: 250)
+            #endif
             .onSubmit {
                 onCommit(WaypointList(name: text))
             }
