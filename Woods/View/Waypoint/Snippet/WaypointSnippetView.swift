@@ -31,7 +31,9 @@ struct WaypointSnippetView: View {
             }
             Spacer()
             if let location = locationManager.location {
-                Button(action: { navigatorSheetShown = true }) {
+                Button {
+                    navigatorSheetShown = true
+                } label: {
                     WaypointDistanceView(start: location, target: waypoint.location)
                 }
                 .buttonStyle(.borderless)
