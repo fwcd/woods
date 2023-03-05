@@ -53,7 +53,9 @@ struct SidebarContentView: View {
             case .accounts?:
                 AccountsView()
             case .list(let id)?:
-                WaypointListView(listId: id)
+                NavigationStack {
+                    WaypointListView(listId: id)
+                }
             default:
                 EmptyView()
             }
