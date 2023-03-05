@@ -55,6 +55,9 @@ struct SidebarContentView: View {
             case .list(let id)?:
                 NavigationStack {
                     WaypointListView(listId: id)
+                        .navigationDestination(for: WaypointRoute.self) { route in
+                            WaypointRouteView(route: route)
+                        }
                 }
             default:
                 EmptyView()
