@@ -27,8 +27,8 @@ struct WaypointLogsSection: View {
                 } label: {
                     Label("New Log", systemImage: "square.and.pencil")
                 }
-                .sheet(isPresented: $newLogSheetShown) {
-                    CancelNavigationStack(title: "New Log") {
+                .popover(isPresented: $newLogSheetShown) {
+                    PopoverNavigation(title: "New Log") {
                         newLogSheetShown = false
                     } inner: {
                         WaypointLogEditorView(waypointLog: $newLog)

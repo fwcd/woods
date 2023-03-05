@@ -72,19 +72,21 @@ struct AccountsView: View {
                     }
                 }
                 ToolbarItem(placement: .primaryAction) {
-                    Button(action: { loginSheetShown = true }) {
+                    Button {
+                        loginSheetShown = true
+                    } label: {
                         Image(systemName: "plus")
                     }
-                }
-            }
-            .sheet(isPresented: $loginSheetShown) {
-                CancelNavigationStack(title: "Login") {
-                    loginSheetShown = false
-                } inner: {
-                    LoginView { account in
-                        Task {
+                    .popover(isPresented: $loginSheetShown) {
+                        PopoverNavigation(title: "Login") {
                             loginSheetShown = false
-                            await accounts.logInAndStore(account)
+                        } inner: {
+                            LoginView { account in
+                                Task {
+                                    loginSheetShown = false
+                                    await accounts.logInAndStore(account)
+                                }
+                            }
                         }
                     }
                 }

@@ -81,8 +81,8 @@ struct RichMapButtons: View {
                 }
             }
         }
-        .sheet(isPresented: $listPickerSheetShown) {
-            CancelNavigationStack(title: "Pick Waypoint List") {
+        .popover(isPresented: $listPickerSheetShown) {
+            PopoverNavigation(title: "Pick Waypoint List") {
                 listPickerSheetShown = false
             } inner: {
                 Form {
@@ -98,8 +98,8 @@ struct RichMapButtons: View {
                         listPickerSheetShown = false
                     }
                 }
-                .navigationTitle("Pick List")
                 #if canImport(UIKit)
+                .navigationTitle("Pick List")
                 .navigationBarTitleDisplayMode(.inline)
                 #endif
             }

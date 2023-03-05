@@ -35,8 +35,8 @@ struct WaypointSnippetView: View {
                     WaypointDistanceView(start: location, target: waypoint.location)
                 }
                 .buttonStyle(.borderless)
-                .sheet(isPresented: $navigatorSheetShown) {
-                    CancelNavigationStack(title: "Navigator") {
+                .popover(isPresented: $navigatorSheetShown) {
+                    PopoverNavigation(title: "Navigator") {
                         navigatorSheetShown = false
                     } inner: {
                         WaypointLocatingNavigatorView(target: waypoint.location)

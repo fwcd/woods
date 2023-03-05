@@ -27,7 +27,7 @@ struct WaypointListView: View {
                 ForEach(list?.childs ?? [], id: \.self) { childId in
                     if let child = waypoints.listTree[childId] {
                         NavigationLink {
-                           WaypointListView(listId: childId, largeTitle: false)
+                            WaypointListView(listId: childId, largeTitle: false)
                         } label: {
                             WaypointListSnippetView(list: child)
                                 .contextMenu {

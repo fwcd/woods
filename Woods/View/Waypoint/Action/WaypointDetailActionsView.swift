@@ -25,8 +25,8 @@ struct WaypointDetailActionsView: View {
             } label: {
                 Label("Add", systemImage: "plus")
             }
-            .sheet(isPresented: $listPickerSheetShown) {
-                CancelNavigationStack(title: "Pick Waypoint List") {
+            .popover(isPresented: $listPickerSheetShown) {
+                PopoverNavigation(title: "Pick Waypoint List") {
                     listPickerSheetShown = false
                 } inner: {
                     Form {

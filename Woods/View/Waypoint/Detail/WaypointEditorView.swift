@@ -89,8 +89,8 @@ struct WaypointEditorView: View {
                     .onDelete { indexSet in
                         waypoint.additionalWaypoints.remove(atOffsets: indexSet)
                     }
-                    .sheet(isPresented: $editAdditionalWaypointSheetShown) {
-                        CancelNavigationStack(title: "Edit Additional Waypoint") {
+                    .popover(isPresented: $editAdditionalWaypointSheetShown) {
+                        PopoverNavigation(title: "Edit Additional Waypoint") {
                             editAdditionalWaypointSheetShown = false
                         } inner: {
                             WaypointEditorView(waypoint: $waypoint.additionalWaypoints[editedAdditionalWaypointIndex]) {
@@ -115,8 +115,8 @@ struct WaypointEditorView: View {
                     } label: {
                         Label("Add Waypoint...", systemImage: "plus")
                     }
-                    .sheet(isPresented: $newAdditionalWaypointSheetShown) {
-                        CancelNavigationStack(title: "New Additional Waypoint") {
+                    .popover(isPresented: $newAdditionalWaypointSheetShown) {
+                        PopoverNavigation(title: "New Additional Waypoint") {
                             newAdditionalWaypointSheetShown = false
                         } inner: {
                             WaypointEditorView(waypoint: $newAdditionalWaypoint, onCommit: commitAdditionalWaypoint)

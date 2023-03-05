@@ -30,6 +30,8 @@
 		3517B21E2835C93600A37F24 /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3517B21D2835C93600A37F24 /* LocationView.swift */; };
 		35199D9129B4F0F100921D35 /* WaypointSnippetEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35199D9029B4F0F100921D35 /* WaypointSnippetEditor.swift */; };
 		35199D9229B4F0F100921D35 /* WaypointSnippetEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35199D9029B4F0F100921D35 /* WaypointSnippetEditor.swift */; };
+		35199D9429B4F98300921D35 /* PopoverNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35199D9329B4F98300921D35 /* PopoverNavigation.swift */; };
+		35199D9529B4F98300921D35 /* PopoverNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35199D9329B4F98300921D35 /* PopoverNavigation.swift */; };
 		35222982274A737300090224 /* CollectionUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35222981274A737300090224 /* CollectionUtils.swift */; };
 		3522298E274A756D00090224 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3522298D274A756D00090224 /* Assets.xcassets */; };
 		35222991274A756D00090224 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35222990274A756D00090224 /* Preview Assets.xcassets */; };
@@ -390,6 +392,7 @@
 		35156CC6280FB2C900136E25 /* RichMapSlideOver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RichMapSlideOver.swift; sourceTree = "<group>"; };
 		3517B21D2835C93600A37F24 /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
 		35199D9029B4F0F100921D35 /* WaypointSnippetEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointSnippetEditor.swift; sourceTree = "<group>"; };
+		35199D9329B4F98300921D35 /* PopoverNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverNavigation.swift; sourceTree = "<group>"; };
 		35222981274A737300090224 /* CollectionUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionUtils.swift; sourceTree = "<group>"; };
 		35222987274A756C00090224 /* Woods.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Woods.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3522298D274A756D00090224 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -700,6 +703,7 @@
 				C7ECBDFD25EFEEA1005933C0 /* LightHTMLView.swift */,
 				350C523128078F5C00309F5C /* CompatibilityLayer.swift */,
 				3567D0112785B5DD00060C37 /* CancelNavigationStack.swift */,
+				35199D9329B4F98300921D35 /* PopoverNavigation.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1409,6 +1413,7 @@
 				3575D6BF29B0F48300DF4380 /* WaypointHintSection.swift in Sources */,
 				352229E0274A76B400090224 /* Accounts.swift in Sources */,
 				3575D6B829B0F35300DF4380 /* WaypointAttributeSection.swift in Sources */,
+				35199D9529B4F98300921D35 /* PopoverNavigation.swift in Sources */,
 				35222A00274A76C600090224 /* CollectionUtils.swift in Sources */,
 				352229ED274A76C100090224 /* Waypoint.swift in Sources */,
 				352229D2274A76AB00090224 /* WaypointListSnippetView.swift in Sources */,
@@ -1569,6 +1574,7 @@
 				35245D38280843DB00E7B082 /* AccountSnippetView.swift in Sources */,
 				C7ECBD7525EEB23B005933C0 /* WaypointDistanceView.swift in Sources */,
 				35156CC7280FB2CA00136E25 /* RichMapSlideOver.swift in Sources */,
+				35199D9429B4F98300921D35 /* PopoverNavigation.swift in Sources */,
 				C7B74EA525EDC46F00D5194B /* WaypointDetailView.swift in Sources */,
 				35AB81F928D976640052F55A /* Waypoint+GPX.swift in Sources */,
 				C7ECBDF625EFEC27005933C0 /* WebHTMLView.swift in Sources */,

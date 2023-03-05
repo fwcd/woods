@@ -25,15 +25,17 @@ struct WaypointListButtons<Suffix>: View where Suffix: View {
             Label("New List", systemImage: "plus")
             labelSuffix()
         }
-        .sheet(isPresented: $newListSheetShown) {
-            CancelNavigationStack(title: "New Waypoint List") {
+        .popover(isPresented: $newListSheetShown) {
+            PopoverNavigation(title: "New Waypoint List") {
                 newListSheetShown = false
             } inner: {
                 NewWaypointListView { child in
                     waypoints.listTree.insert(under: id, child: child)
                     newListSheetShown = false
                 }
-                .padding(20)
+                #if !os(macOS)
+                .padding(10)
+                #endif
             }
         }
         let commitNewWaypoint = {
@@ -47,8 +49,8 @@ struct WaypointListButtons<Suffix>: View where Suffix: View {
             Label("New Waypoint", systemImage: "plus")
             labelSuffix()
         }
-        .sheet(isPresented: $newWaypointSheetShown) {
-            CancelNavigationStack(title: "New Waypoint") {
+        .popover(isPresented: $newWaypointSheetShown) {
+            PopoverNavigation(title: "New Waypoint") {
                 newWaypointSheetShown = false
             } inner: {
                 WaypointEditorView(waypoint: $newWaypoint, onCommit: commitNewWaypoint)
