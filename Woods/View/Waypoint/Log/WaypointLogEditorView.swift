@@ -23,6 +23,10 @@ struct WaypointLogEditorView: View {
             Section("Content") {
                 // TODO: HTML
                 TextEditor(text: $waypointLog.content)
+                    #if os(macOS)
+                    .frame(height: 40)
+                    #endif
+
             }
             
             Section("Preview") {

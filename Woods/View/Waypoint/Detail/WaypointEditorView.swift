@@ -63,6 +63,9 @@ struct WaypointEditorView: View {
             
             Section("Description") {
                 TextEditor(text: unwrappingBinding(for: $waypoint.description, defaultingTo: ""))
+                    #if os(macOS)
+                    .frame(height: 40)
+                    #endif
             }
             
             Section("Hint") {
@@ -70,7 +73,7 @@ struct WaypointEditorView: View {
             }
             
             Section("Additional Waypoints") {
-                List {
+                Group {
                     ForEach(0..<waypoint.additionalWaypoints.count, id: \.self) { i in
                         Button {
                             editedAdditionalWaypointIndex = i
@@ -78,6 +81,7 @@ struct WaypointEditorView: View {
                         } label: {
                             WaypointSmallSnippetView(waypoint: waypoint.additionalWaypoints[i])
                         }
+                        .buttonStyle(.borderless)
                     }
                     .onMove { indexSet, offset in
                         waypoint.additionalWaypoints.move(fromOffsets: indexSet, toOffset: offset)

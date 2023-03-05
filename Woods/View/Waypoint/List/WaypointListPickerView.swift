@@ -23,6 +23,9 @@ struct WaypointListPickerView: View {
                 }
             }
         }
+        #if os(macOS)
+        .frame(minWidth: 200, minHeight: 200)
+        #endif
     }
 }
 
