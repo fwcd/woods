@@ -14,6 +14,7 @@ struct NavigationWaypointDetailView: View {
     @Binding var waypoint: Waypoint
     var hasMap: Bool = true
     var isEditable: Bool = true
+    var isRefreshable: Bool = true
     
     @EnvironmentObject private var accounts: Accounts
     @State private var editedWaypoint = Waypoint()
@@ -26,18 +27,24 @@ struct NavigationWaypointDetailView: View {
                     commitEdit()
                 }
             } else {
-                ScrollView {
-                    WaypointDetailView(waypoint: waypoint, hasMap: hasMap)
-                }
-                .refreshable {
-                    Task {
-                        if let connector = accounts.connector(for: waypoint) {
-                            do {
-                                waypoint = try await connector.waypoint(id: waypoint.id)
-                            } catch {
-                                log.warning("Could not refresh waypoint \(waypoint.id): \(error)")
+                if isRefreshable {
+                    ScrollView {
+                        WaypointDetailView(waypoint: waypoint, hasMap: hasMap)
+                    }
+                    .refreshable {
+                        Task {
+                            if let connector = accounts.connector(for: waypoint) {
+                                do {
+                                    waypoint = try await connector.waypoint(id: waypoint.id)
+                                } catch {
+                                    log.warning("Could not refresh waypoint \(waypoint.id): \(error)")
+                                }
                             }
                         }
+                    }
+                } else {
+                    ScrollView {
+                        WaypointDetailView(waypoint: waypoint, hasMap: hasMap)
                     }
                 }
             }

@@ -11,6 +11,7 @@ import SwiftUI
 struct WaypointSummaryView: View {
     @Binding var waypoint: Waypoint
     var isEditable: Bool = true
+    var isRefreshable: Bool = true
     var contentOpacity: CGFloat = 1
     
     @State private var detailSheetShown: Bool = false
@@ -42,7 +43,11 @@ struct WaypointSummaryView: View {
                     CancelNavigationStack(title: "Waypoint Details") {
                         detailSheetShown = false
                     } inner: {
-                        NavigationWaypointDetailView(waypoint: $waypoint, isEditable: isEditable)
+                        NavigationWaypointDetailView(
+                            waypoint: $waypoint,
+                            isEditable: isEditable,
+                            isRefreshable: isRefreshable
+                        )
                         .padding([.top], 15)
                         .environmentObject(waypoints)
                         .environmentObject(locationManager)
