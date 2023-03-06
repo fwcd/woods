@@ -165,7 +165,6 @@ enum GeocachingComApi {
     struct LogPost: Codable {
         var geocache: Geocache?
         @CustomCodable<StringCoding> var logType: LogType
-        var ownerIsViewing: Bool?
         @CustomCodable<IsoDateCoding?> var logDate: Date?
         var logText: String?
         @CustomCodable<IsoDateTimeWithoutZCoding?> var dateTimeCreatedUtc: Date? = nil
@@ -175,8 +174,7 @@ enum GeocachingComApi {
         struct Geocache: Codable {
             var id: Int?
             var referenceCode: String?
-            var postedCoordinates: PostedCoordinates? = .init()
-            var callerSpecific: CallerSpecific? = .init()
+            var postedCoordinates: PostedCoordinates? = nil
             
             struct CallerSpecific: Codable {
                 var favorited: Bool = false
@@ -368,11 +366,10 @@ extension GeocachingComApi.LogType: LosslessStringConvertible {
 }
 
 extension GeocachingComApi.LogPost {
-    init(_ log: WaypointLog, for waypoint: Waypoint) {
+    init(_ log: WaypointLog, for waypointId: String) {
         self.init(
-            geocache: .init(waypoint),
+            geocache: .init(waypointId: waypointId),
             logType: GeocachingComApi.LogType(log.type),
-            ownerIsViewing: log.username == waypoint.owner,
             logDate: log.date,
             logText: log.content
         )
@@ -380,7 +377,10 @@ extension GeocachingComApi.LogPost {
 }
 
 extension GeocachingComApi.LogPost.Geocache {
-    init(_ waypoint: Waypoint) {
-        self.init(id: gcCacheId(gcCode: waypoint.id), referenceCode: waypoint.id)
+    init(waypointId: String) {
+        self.init(
+            id: gcCacheId(gcCode: waypointId),
+            referenceCode: waypointId
+        )
     }
 }
