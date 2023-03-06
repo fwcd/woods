@@ -22,9 +22,3 @@ func gcCacheId(gcCode: String) -> Int {
     let offset = useBase16 ? 0 : -411_120 // = pow(16, 4) - 16 * pow(31, 3)
     return offset + rawCode.reduce(0) { base * $0 + gcDigit($1) }
 }
-
-func gcIsoDateFormatter() -> ISO8601DateFormatter {
-    let formatter = ISO8601DateFormatter()
-    formatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
-    return formatter
-}

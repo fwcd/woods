@@ -311,7 +311,7 @@ extension Waypoint {
 
 extension WaypointLog {
     init?(_ apiLog: GeocachingComApi.Geocache.Activity) {
-        let formatter = gcIsoDateFormatter()
+        let formatter = DateFormatter.isoDateTimeWithoutZ()
         guard let type = apiLog.activityTypeId.flatMap(WaypointLogType.init) else { return nil }
         self.init(
             type: type,
@@ -323,7 +323,7 @@ extension WaypointLog {
     }
     
     init?(_ apiLogPost: GeocachingComApi.LogPost) {
-        let formatter = gcIsoDateFormatter()
+        let formatter = DateFormatter.isoDateTimeWithoutZ()
         guard let type = apiLogPost.logType.flatMap(WaypointLogType.init),
               let id = apiLogPost.guid.flatMap(UUID.init(uuidString:)) else { return nil }
         self.init(
