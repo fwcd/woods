@@ -275,8 +275,7 @@ extension WaypointLogType {
 
 extension Waypoint {
     init?(_ apiCache: GeocachingComApi.Geocache) {
-        let formatter = ISO8601DateFormatter()
-        formatter.formatOptions = [.withInternetDateTime]
+        let formatter = DateFormatter.isoDateTimeWithoutZ()
         guard let location = apiCache.postedCoordinates.map(Coordinates.init) else { return nil }
         self.init(
             id: apiCache.code,
