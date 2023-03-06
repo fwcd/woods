@@ -164,7 +164,7 @@ enum GeocachingComApi {
     
     struct LogPost: Codable {
         var geocache: Geocache?
-        var logType: LogType?
+        @StringCoded var logType: LogType
         var ownerIsViewing: Bool?
         var logDate: String?
         var logText: String?
@@ -181,10 +181,6 @@ enum GeocachingComApi {
             struct CallerSpecific: Codable {
                 var favorited: Bool = false
             }
-        }
-        
-        struct LogType: Codable, RawRepresentable, Hashable {
-            let rawValue: String
         }
     }
 }
@@ -266,11 +262,6 @@ extension WaypointLogType {
         default: return nil
         }
     }
-    
-    init?(_ logPostType: GeocachingComApi.LogPost.LogType) {
-        guard let intValue = Int(logPostType.rawValue) else { return nil }
-        self.init(GeocachingComApi.LogType(rawValue: intValue))
-    }
 }
 
 extension Waypoint {
@@ -323,7 +314,7 @@ extension WaypointLog {
     
     init?(_ apiLogPost: GeocachingComApi.LogPost) {
         let formatter = DateFormatter.isoDateTimeWithoutZ()
-        guard let type = apiLogPost.logType.flatMap(WaypointLogType.init),
+        guard let type = WaypointLogType(apiLogPost.logType),
               let id = apiLogPost.guid.flatMap(UUID.init(uuidString:)) else { return nil }
         self.init(
             id: id,
@@ -366,11 +357,22 @@ extension GeocachingComApi.LogType {
     }
 }
 
+extension GeocachingComApi.LogType: LosslessStringConvertible {
+    var description: String {
+        String(rawValue)
+    }
+    
+    init?(_ description: String) {
+        guard let rawValue = Int(description) else { return nil }
+        self.rawValue = rawValue
+    }
+}
+
 extension GeocachingComApi.LogPost {
     init(_ log: WaypointLog, for waypoint: Waypoint) {
         self.init(
             geocache: .init(waypoint),
-            logType: LogType(log.type),
+            logType: GeocachingComApi.LogType(log.type),
             ownerIsViewing: log.username == waypoint.owner,
             logDate: DateFormatter.isoDate().string(from: log.timestamp),
             logText: log.content
@@ -381,11 +383,5 @@ extension GeocachingComApi.LogPost {
 extension GeocachingComApi.LogPost.Geocache {
     init(_ waypoint: Waypoint) {
         self.init(id: gcCacheId(gcCode: waypoint.id), referenceCode: waypoint.id)
-    }
-}
-
-extension GeocachingComApi.LogPost.LogType {
-    init(_ logType: WaypointLogType) {
-        self.init(rawValue: String(GeocachingComApi.LogType(logType).rawValue))
     }
 }
