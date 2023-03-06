@@ -12,21 +12,37 @@ extension WaypointType {
         switch self {
         case .waypoint:
             return "flag.fill"
+        case .mysteryCache:
+            return "questionmark"
+        case .virtualCache:
+            return "cube.transparent"
         case .webcamCache:
-            return "camera.aperture"
+            return "web.camera"
         case .earthCache:
             return "globe.europe.africa.fill"
+        case .letterbox:
+            return "tray.full.fill"
+        case .wherigo:
+            return "play.circle"
         case .event,
-             .megaEvent,
-             .gigaEvent,
              .hqCelebration,
              .groundspeakBlockParty:
-            return "bubble.right.fill"
+            return "bubble.left.fill"
+        case .megaEvent:
+            return "exclamationmark.bubble.fill"
+        case .gigaEvent:
+            return "star.bubble.fill"
         case .citoEvent,
              .lostAndFoundEvent:
             return "arrow.3.trianglepath"
+        case .projectApeCache:
+            return "pawprint.fill"
         case .geocachingHq:
             return "house.fill"
+        case .otherCache:
+            return "questionmark"
+        case .locationlessCache:
+            return "flag.checkered"
         default:
             return "archivebox.fill"
         }
@@ -41,6 +57,7 @@ struct WaypointTypeIcon_Previews: PreviewProvider {
             } icon: {
                 Image(systemName: type.iconName)
                     .font(.title)
+                    .foregroundColor(type.color)
             }
         }
     }
