@@ -162,24 +162,26 @@ enum GeocachingComApi {
         }
     }
     
-    struct LogPost: Codable {
+    struct NewLog: Codable {
         var geocache: Geocache?
         @CustomCodable<StringCoding> var logType: LogType
         @CustomCodable<IsoDateCoding?> var logDate: Date?
         var logText: String?
-        @CustomCodable<IsoDateTimeWithoutZCoding?> var dateTimeCreatedUtc: Date? = nil
-        @CustomCodable<IsoDateTimeWithoutZCoding?> var dateTimeLastUpdatedUtc: Date? = nil
-        var guid: String? = nil
         
         struct Geocache: Codable {
             var id: Int?
             var referenceCode: String?
             var postedCoordinates: PostedCoordinates? = nil
-            
-            struct CallerSpecific: Codable {
-                var favorited: Bool = false
-            }
         }
+    }
+    
+    struct PostedLog: Codable {
+        @CustomCodable<IsoDateTimeWithoutZCoding?> var logDate: Date?
+        @CustomCodable<IsoDateTimeWithoutZCoding?> var dateTimeCreatedUtc: Date? = nil
+        @CustomCodable<IsoDateTimeWithoutZCoding?> var dateTimeLastUpdatedUtc: Date? = nil
+        var logText: String?
+        var logType: String? // Strangely the log type seems to be encoded as string here, e.g. 'Write note'
+        var guid: String? = nil
     }
 }
 
@@ -309,17 +311,15 @@ extension WaypointLog {
         )
     }
     
-    init?(_ apiLogPost: GeocachingComApi.LogPost) {
-        guard let type = WaypointLogType(apiLogPost.logType),
-              let id = apiLogPost.guid.flatMap(UUID.init(uuidString:)) else { return nil }
+    init?(_ apiLog: GeocachingComApi.PostedLog) {
+        guard let id = apiLog.guid.flatMap(UUID.init(uuidString:)) else { return nil }
         self.init(
             id: id,
-            type: type,
-            date: apiLogPost.logDate,
-            createdAt: apiLogPost.dateTimeCreatedUtc,
-            lastEditedAt: apiLogPost.dateTimeLastUpdatedUtc,
+            date: apiLog.logDate,
+            createdAt: apiLog.dateTimeCreatedUtc,
+            lastEditedAt: apiLog.dateTimeLastUpdatedUtc,
             username: "",
-            content: apiLogPost.logText ?? ""
+            content: apiLog.logText ?? ""
         )
     }
 }
@@ -365,7 +365,7 @@ extension GeocachingComApi.LogType: LosslessStringConvertible {
     }
 }
 
-extension GeocachingComApi.LogPost {
+extension GeocachingComApi.NewLog {
     init(_ log: WaypointLog, for waypointId: String) {
         self.init(
             geocache: .init(waypointId: waypointId),
@@ -376,7 +376,7 @@ extension GeocachingComApi.LogPost {
     }
 }
 
-extension GeocachingComApi.LogPost.Geocache {
+extension GeocachingComApi.NewLog.Geocache {
     init(waypointId: String) {
         self.init(
             id: gcCacheId(gcCode: waypointId),
