@@ -1,5 +1,5 @@
 //
-//  IsoDateCodable.swift
+//  IsoDateTimeWithoutZCoding.swift
 //  Woods
 //
 //  Created on 06.03.23
@@ -7,16 +7,17 @@
 
 import Foundation
 
-@propertyWrapper
-struct IsoDateCodable {
+struct IsoDateTimeWithoutZCoding: CustomCodableWrapper {
     let wrappedValue: Date
-}
+    
+    init(wrappedValue: Date) {
+        self.wrappedValue = wrappedValue
+    }
 
-extension IsoDateCodable: Codable {
     init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
         let rawValue = try container.decode(String.self)
-        let formatter = DateFormatter.isoDate()
+        let formatter = DateFormatter.isoDateTimeWithoutZ()
         guard let wrappedValue = formatter.date(from: rawValue) else {
             throw DecodingError.dataCorrupted(.init(codingPath: decoder.codingPath, debugDescription: "Could not parse date from \(rawValue)"))
         }
@@ -25,7 +26,7 @@ extension IsoDateCodable: Codable {
     
     func encode(to encoder: Encoder) throws {
         var container = encoder.singleValueContainer()
-        let formatter = DateFormatter.isoDate()
+        let formatter = DateFormatter.isoDateTimeWithoutZ()
         try container.encode(formatter.string(from: wrappedValue))
     }
 }

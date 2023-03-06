@@ -89,54 +89,54 @@ enum GeocachingComApi {
     }
     
     struct Geocache: Codable {
-        let id: Int?
-        let name: String
-        let code: String
-        let premiumOnly: Bool?
-        let favoritePoints: Int?
-        let geocacheType: GeocacheType?
-        let containerType: ContainerType?
-        let difficulty: Double?
-        let terrain: Double?
-        let userFound: Bool?
-        let userDidNotFind: Bool?
-        let cacheStatus: GeocacheStatus?
-        let postedCoordinates: PostedCoordinates?
-        let detailsUrl: String?
-        let hasGeotour: Bool?
-        let hasLogDraft: Bool?
-        let placedDate: IsoDateTimeWithoutZCodable?
-        let owner: User?
-        let lastFoundDate: IsoDateTimeWithoutZCodable?
+        var id: Int?
+        var name: String
+        var code: String
+        var premiumOnly: Bool?
+        var favoritePoints: Int?
+        var geocacheType: GeocacheType?
+        var containerType: ContainerType?
+        var difficulty: Double?
+        var terrain: Double?
+        var userFound: Bool?
+        var userDidNotFind: Bool?
+        var cacheStatus: GeocacheStatus?
+        var postedCoordinates: PostedCoordinates?
+        var detailsUrl: String?
+        var hasGeotour: Bool?
+        var hasLogDraft: Bool?
+        var owner: User?
+        @CustomCodable<IsoDateTimeWithoutZCoding?> var placedDate: Date?
+        @CustomCodable<IsoDateTimeWithoutZCoding?> var lastFoundDate: Date?
         
         // Details:
         
-        let description: String?
-        let hint: String?
-        let totalActivities: Int?
-        let recentActivities: [Activity]?
-        let attributes: [Attribute]?
+        var description: String?
+        var hint: String?
+        var totalActivities: Int?
+        var recentActivities: [Activity]?
+        var attributes: [Attribute]?
         
         struct User: Codable {
-            let code: String?
-            let username: String
-            let avatar: String?
+            var code: String?
+            var username: String
+            var avatar: String?
         }
         
         struct Activity: Codable {
-            let activityTypeId: LogType?
-            let text: String?
-            let owner: User?
-            let code: String?
-            let dateCreatedUtc: IsoDateTimeWithoutZCodable?
-            let dateLastUpdatedUtc: IsoDateTimeWithoutZCodable?
-            let logDate: String?
+            var activityTypeId: LogType?
+            var text: String?
+            var owner: User?
+            var code: String?
+            @CustomCodable<IsoDateTimeWithoutZCoding?> var dateCreatedUtc: Date?
+            @CustomCodable<IsoDateTimeWithoutZCoding?> var dateLastUpdatedUtc: Date?
+            var logDate: String?
         }
         
         struct Attribute: Codable {
-            let id: Int
-            let name: String
-            let isApplicable: Bool
+            var id: Int
+            var name: String
+            var isApplicable: Bool
             
             var asWaypointAttribute: WaypointAttribute? {
                 .init(geocachingComId: id)
@@ -152,13 +152,13 @@ enum GeocachingComApi {
         let userInfo: UserInfo
         
         struct UserInfo: Codable {
-            let username: String?
-            let referenceCode: String?
-            let userType: String?
-            let isLoggedIn: Bool
-            let roles: [String]?
-            let publicGuid: String?
-            let avatarUrl: URL?
+            var username: String?
+            var referenceCode: String?
+            var userType: String?
+            var isLoggedIn: Bool
+            var roles: [String]?
+            var publicGuid: String?
+            var avatarUrl: URL?
         }
     }
     
@@ -166,10 +166,10 @@ enum GeocachingComApi {
         var geocache: Geocache?
         @CustomCodable<StringCoding> var logType: LogType
         var ownerIsViewing: Bool?
-        var logDate: IsoDateCodable?
+        var logDate: IsoDateCoding?
         var logText: String?
-        var dateTimeCreatedUtc: IsoDateTimeWithoutZCodable? = nil
-        var dateTimeLastUpdatedUtc: IsoDateTimeWithoutZCodable? = nil
+        var dateTimeCreatedUtc: IsoDateTimeWithoutZCoding? = nil
+        var dateTimeLastUpdatedUtc: IsoDateTimeWithoutZCoding? = nil
         var guid: String? = nil
         
         struct Geocache: Codable {
@@ -283,8 +283,8 @@ extension Waypoint {
                     } ?? []
             ),
             owner: apiCache.owner?.username,
-            placedAt: apiCache.placedDate?.wrappedValue,
-            lastFoundAt: apiCache.lastFoundDate?.wrappedValue,
+            placedAt: apiCache.placedDate,
+            lastFoundAt: apiCache.lastFoundDate,
             favorites: apiCache.favoritePoints ?? 0,
             found: apiCache.userFound ?? false,
             didNotFind: apiCache.userDidNotFind ?? false,
@@ -303,8 +303,8 @@ extension WaypointLog {
         guard let type = apiLog.activityTypeId.flatMap(WaypointLogType.init) else { return nil }
         self.init(
             type: type,
-            createdAt: apiLog.dateCreatedUtc?.wrappedValue,
-            lastEditedAt: apiLog.dateLastUpdatedUtc?.wrappedValue,
+            createdAt: apiLog.dateCreatedUtc,
+            lastEditedAt: apiLog.dateLastUpdatedUtc,
             username: apiLog.owner?.username ?? "",
             content: apiLog.text ?? ""
         )

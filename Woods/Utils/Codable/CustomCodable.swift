@@ -71,16 +71,16 @@ extension CustomCodable: Hashable where CustomCoder.Wrapped: Hashable {}
 // of skipping the key.
 extension KeyedDecodingContainer {
     func decode<T: CustomCodableWrapper>(
-        _ type: CustomCodable<Optional<T>>.Type,
+        _ type: CustomCodable<T?>.Type,
         forKey key: Key
-    ) throws -> CustomCodable<Optional<T>> {
+    ) throws -> CustomCodable<T?> {
         CustomCodable<Optional<T>>(wrappedValue: try decodeIfPresent(T.self, forKey: key)?.wrappedValue)
     }
 }
 
 extension KeyedEncodingContainer {
     mutating func encode<T: CustomCodableWrapper>(
-        _ value: CustomCodable<Optional<T>>,
+        _ value: CustomCodable<T?>,
         forKey key: Key
     ) throws {
         try encodeIfPresent(value.wrappedValue.map {
