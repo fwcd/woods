@@ -16,6 +16,11 @@ struct SearchView: View {
     
     @EnvironmentObject private var accounts: Accounts
     
+    // TODO: Use all accounts for search results?
+    private var connector: (any Connector)? {
+        accounts.accountLogins.values.compactMap(\.connector).first
+    }
+    
     var body: some View {
         // TODO: Integrate proper search (not just id lookup)
         NavigationStack {
@@ -24,12 +29,22 @@ struct SearchView: View {
                     WaypointDetailView(waypoint: waypoint)
                 }
             }
+            .refreshable {
+                if let id = waypoint?.id, let connector {
+                    Task {
+                        do {
+                            waypoint = try await connector.waypoint(id: id)
+                        } catch {
+                            log.warning("Could not fetch waypoint: \(error)")
+                        }
+                    }
+                }
+            }
             .navigationTitle("Search")
             .searchable(text: $searchQuery, prompt: "Enter waypoint ID...")
             .onSubmit(of: .search) {
-                Task {
-                    // TODO: Use all accounts for search results?
-                    if let connector = accounts.accountLogins.values.compactMap(\.connector).first {
+                if let connector {
+                    Task {
                         do {
                             waypoint = try await connector.waypoint(id: searchQuery)
                         } catch {
