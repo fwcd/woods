@@ -164,7 +164,7 @@ enum GeocachingComApi {
     
     struct LogPost: Codable {
         var geocache: Geocache?
-        @StringCodable var logType: LogType
+        @CustomCodable<StringCoding> var logType: LogType
         var ownerIsViewing: Bool?
         var logDate: IsoDateCodable?
         var logText: String?

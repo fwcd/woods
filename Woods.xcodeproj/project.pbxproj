@@ -213,12 +213,16 @@
 		35AB820528D979B90052F55A /* GPXError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AB820428D979B90052F55A /* GPXError.swift */; };
 		35AB820628D979B90052F55A /* GPXError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AB820428D979B90052F55A /* GPXError.swift */; };
 		35AB820728D979B90052F55A /* GPXError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AB820428D979B90052F55A /* GPXError.swift */; };
-		35B148E929B6275E00598F24 /* StringCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B148E829B6275E00598F24 /* StringCodable.swift */; };
-		35B148EA29B6275E00598F24 /* StringCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B148E829B6275E00598F24 /* StringCodable.swift */; };
+		35B148E929B6275E00598F24 /* StringCoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B148E829B6275E00598F24 /* StringCoding.swift */; };
+		35B148EA29B6275E00598F24 /* StringCoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B148E829B6275E00598F24 /* StringCoding.swift */; };
 		35B148ED29B62A0700598F24 /* IsoDateCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B148EB29B6295400598F24 /* IsoDateCodable.swift */; };
 		35B148EE29B62A0700598F24 /* IsoDateCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B148EB29B6295400598F24 /* IsoDateCodable.swift */; };
 		35B148EF29B62A0A00598F24 /* IsoDateTimeWithoutZCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B148EC29B629E200598F24 /* IsoDateTimeWithoutZCodable.swift */; };
 		35B148F029B62A0B00598F24 /* IsoDateTimeWithoutZCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B148EC29B629E200598F24 /* IsoDateTimeWithoutZCodable.swift */; };
+		35B148F529B62E6C00598F24 /* CustomCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B148F429B62E6C00598F24 /* CustomCodable.swift */; };
+		35B148F629B62E6C00598F24 /* CustomCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B148F429B62E6C00598F24 /* CustomCodable.swift */; };
+		35B148F929B62F1700598F24 /* CustomCodableWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B148F829B62F1700598F24 /* CustomCodableWrapper.swift */; };
+		35B148FA29B62F1700598F24 /* CustomCodableWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B148F829B62F1700598F24 /* CustomCodableWrapper.swift */; };
 		35BF10DE2839361300D20C9C /* WaypointAttributeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BF10DD2839361300D20C9C /* WaypointAttributeView.swift */; };
 		35BF10DF2839361300D20C9C /* WaypointAttributeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BF10DD2839361300D20C9C /* WaypointAttributeView.swift */; };
 		35C08CC329B0198F00C43B7D /* WaypointLogsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C08CC229B0198F00C43B7D /* WaypointLogsView.swift */; };
@@ -462,9 +466,11 @@
 		35AB81FC28D976D00052F55A /* Waypoint+Transferable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Waypoint+Transferable.swift"; sourceTree = "<group>"; };
 		35AB820028D977300052F55A /* UTType+GPX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UTType+GPX.swift"; sourceTree = "<group>"; };
 		35AB820428D979B90052F55A /* GPXError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPXError.swift; sourceTree = "<group>"; };
-		35B148E829B6275E00598F24 /* StringCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringCodable.swift; sourceTree = "<group>"; };
+		35B148E829B6275E00598F24 /* StringCoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringCoding.swift; sourceTree = "<group>"; };
 		35B148EB29B6295400598F24 /* IsoDateCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsoDateCodable.swift; sourceTree = "<group>"; };
 		35B148EC29B629E200598F24 /* IsoDateTimeWithoutZCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsoDateTimeWithoutZCodable.swift; sourceTree = "<group>"; };
+		35B148F429B62E6C00598F24 /* CustomCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCodable.swift; sourceTree = "<group>"; };
+		35B148F829B62F1700598F24 /* CustomCodableWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCodableWrapper.swift; sourceTree = "<group>"; };
 		35BF10DD2839361300D20C9C /* WaypointAttributeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointAttributeView.swift; sourceTree = "<group>"; };
 		35C08CC229B0198F00C43B7D /* WaypointLogsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointLogsView.swift; sourceTree = "<group>"; };
 		35C08CC529B01E2900C43B7D /* WaypointLogEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointLogEditorView.swift; sourceTree = "<group>"; };
@@ -915,6 +921,18 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		35B148F729B62EF700598F24 /* Codable */ = {
+			isa = PBXGroup;
+			children = (
+				35B148F429B62E6C00598F24 /* CustomCodable.swift */,
+				35B148F829B62F1700598F24 /* CustomCodableWrapper.swift */,
+				35B148E829B6275E00598F24 /* StringCoding.swift */,
+				35B148EC29B629E200598F24 /* IsoDateTimeWithoutZCodable.swift */,
+				35B148EB29B6295400598F24 /* IsoDateCodable.swift */,
+			);
+			path = Codable;
+			sourceTree = "<group>";
+		};
 		35C08CB929B015EC00C43B7D /* Attribute */ = {
 			isa = PBXGroup;
 			children = (
@@ -1099,6 +1117,7 @@
 		C765467525D8A231004F14E8 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				35B148F729B62EF700598F24 /* Codable */,
 				C765467625D8A23C004F14E8 /* PersistenceUtils.swift */,
 				C765468825D8A2C9004F14E8 /* DataUtils.swift */,
 				35222981274A737300090224 /* CollectionUtils.swift */,
@@ -1115,9 +1134,6 @@
 				35AB820028D977300052F55A /* UTType+GPX.swift */,
 				35AB820428D979B90052F55A /* GPXError.swift */,
 				35677A35281287A200708B3B /* Regex.swift */,
-				35B148E829B6275E00598F24 /* StringCodable.swift */,
-				35B148EC29B629E200598F24 /* IsoDateTimeWithoutZCodable.swift */,
-				35B148EB29B6295400598F24 /* IsoDateCodable.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1471,6 +1487,7 @@
 				3575D6B229B0F2A100DF4380 /* WaypointInfoSection.swift in Sources */,
 				352229F1274A76C100090224 /* WaypointLogType.swift in Sources */,
 				352229C6274A76AA00090224 /* Waypoint+Icon.swift in Sources */,
+				35B148F629B62E6C00598F24 /* CustomCodable.swift in Sources */,
 				352229F0274A76C100090224 /* GeocacheSize.swift in Sources */,
 				352229C4274A76AA00090224 /* RichMapView.swift in Sources */,
 				352229D1274A76AB00090224 /* WaypointMapView.swift in Sources */,
@@ -1490,6 +1507,7 @@
 				352229F4274A76C100090224 /* WaypointStatus.swift in Sources */,
 				35AB81FE28D976D00052F55A /* Waypoint+Transferable.swift in Sources */,
 				352229DB274A76B400090224 /* Waypoints.swift in Sources */,
+				35B148FA29B62F1700598F24 /* CustomCodableWrapper.swift in Sources */,
 				35A75F61280F655B00BC959C /* CoordinatesEditor.swift in Sources */,
 				352229BB274A76AA00090224 /* WaypointLogView.swift in Sources */,
 				352229EB274A76C100090224 /* WaypointList.swift in Sources */,
@@ -1524,7 +1542,7 @@
 				352229C0274A76AA00090224 /* WaypointDetailView.swift in Sources */,
 				352229D5274A76AB00090224 /* WaypointDistanceView.swift in Sources */,
 				352229D9274A76AB00090224 /* EnumPicker.swift in Sources */,
-				35B148EA29B6275E00598F24 /* StringCodable.swift in Sources */,
+				35B148EA29B6275E00598F24 /* StringCoding.swift in Sources */,
 				356EF3CB283C5B3A00BCBA8F /* WaypointAttributePicker.swift in Sources */,
 				352229D4274A76AB00090224 /* SlideOverCard.swift in Sources */,
 				3575D6B529B0F2EB00DF4380 /* WaypointDescriptionSection.swift in Sources */,
@@ -1646,7 +1664,7 @@
 				C765462425D87E9C004F14E8 /* WaypointsInRadiusQuery.swift in Sources */,
 				35353C3C2745D90F002ACE14 /* SidebarContentView.swift in Sources */,
 				35245D3B2808443700E7B082 /* AccountLoginSnippetView.swift in Sources */,
-				35B148E929B6275E00598F24 /* StringCodable.swift in Sources */,
+				35B148E929B6275E00598F24 /* StringCoding.swift in Sources */,
 				C7ECBDF125EFE971005933C0 /* SimpleUIViewControllerRepresentable.swift in Sources */,
 				C7B74E6C25ED8DA600D5194B /* WaypointMapView.swift in Sources */,
 				C765467F25D8A280004F14E8 /* JSONUtils.swift in Sources */,
@@ -1675,6 +1693,7 @@
 				C7ECBD9425EED91E005933C0 /* WaypointListSnippetView.swift in Sources */,
 				357BE45E280F417500E31364 /* NavigationWaypointDetailView.swift in Sources */,
 				C765465325D88E48004F14E8 /* LoginView.swift in Sources */,
+				35B148F929B62F1700598F24 /* CustomCodableWrapper.swift in Sources */,
 				35156CC4280FB0EA00136E25 /* RichMapButtons.swift in Sources */,
 				357168B0283B1EB0007305C5 /* WaypointAttribute+GeocachingCom.swift in Sources */,
 				35199DA429B52D9600921D35 /* AccountType+Connector.swift in Sources */,
@@ -1717,6 +1736,7 @@
 				C7ECBE0625EFF9D9005933C0 /* SizeView.swift in Sources */,
 				C7ECBDD325EF107E005933C0 /* GeocachingComSortOrder.swift in Sources */,
 				C7B74ED625EDD60000D5194B /* WaypointLogView.swift in Sources */,
+				35B148F529B62E6C00598F24 /* CustomCodable.swift in Sources */,
 				35DF4E6B2810D824009B8E06 /* URL+Identifiable.swift in Sources */,
 				C765462C25D880D7004F14E8 /* Length.swift in Sources */,
 				356EF3C2283C4DF100BCBA8F /* WaypointTypePicker.swift in Sources */,

@@ -5,12 +5,13 @@
 //  Created on 06.03.23
 //
 
-@propertyWrapper
-struct StringCodable<Wrapped> {
+struct StringCoding<Wrapped>: CustomCodableWrapper where Wrapped: LosslessStringConvertible {
     let wrappedValue: Wrapped
-}
-
-extension StringCodable: Codable where Wrapped: LosslessStringConvertible {
+    
+    init(wrappedValue: Wrapped) {
+        self.wrappedValue = wrappedValue
+    }
+    
     init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
         let rawValue = try container.decode(String.self)
