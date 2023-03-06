@@ -303,7 +303,7 @@ extension WaypointLog {
         guard let type = apiLog.activityTypeId.flatMap(WaypointLogType.init) else { return nil }
         self.init(
             type: type,
-            timestamp: apiLog.logDate,
+            date: apiLog.logDate,
             createdAt: apiLog.dateCreatedUtc,
             lastEditedAt: apiLog.dateLastUpdatedUtc,
             username: apiLog.owner?.username ?? "",
@@ -317,7 +317,7 @@ extension WaypointLog {
         self.init(
             id: id,
             type: type,
-            timestamp: apiLogPost.logDate,
+            date: apiLogPost.logDate,
             createdAt: apiLogPost.dateTimeCreatedUtc,
             lastEditedAt: apiLogPost.dateTimeLastUpdatedUtc,
             username: "",
@@ -373,7 +373,7 @@ extension GeocachingComApi.LogPost {
             geocache: .init(waypoint),
             logType: GeocachingComApi.LogType(log.type),
             ownerIsViewing: log.username == waypoint.owner,
-            logDate: log.timestamp,
+            logDate: log.date,
             logText: log.content
         )
     }

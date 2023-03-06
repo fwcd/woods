@@ -20,8 +20,8 @@ struct WaypointLogEditorView: View {
                 // TODO: Add icon
                 EnumPicker(selection: $waypointLog.type, label: Text("Log Type"))
                 DatePicker(selection: Binding(
-                    get: { waypointLog.timestamp ?? Date() },
-                    set: { waypointLog.timestamp = $0 }
+                    get: { waypointLog.date ?? Date() },
+                    set: { waypointLog.date = $0 }
                 )) {
                     Text("Date")
                 }
