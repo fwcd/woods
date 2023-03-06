@@ -14,6 +14,9 @@ extension URLSession {
         }
         log.info("Got HTTP \(response.statusCode) for \(request.url?.absoluteString ?? "?")")
         guard response.statusCode >= 200 && response.statusCode < 400 else {
+            if let utf8 = String(data: data, encoding: .utf8) {
+                log.warning("Got response data: \(utf8)")
+            }
             throw URLError(.badServerResponse)
         }
         return data
