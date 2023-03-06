@@ -15,7 +15,7 @@ struct WaypointLogsSection: View {
     
     @EnvironmentObject private var accounts: Accounts
     @State private var newLogSheetShown = false
-    @State private var newLogAccountId: UUID?
+    @State private var newLogAccountId: UUID = .init() // Updated in onAppear
     @State private var newLog = WaypointLog()
     
     var body: some View {
@@ -51,12 +51,23 @@ struct WaypointLogsSection: View {
                 }
             }
         }
+        .onAppear {
+            if let accountId = accounts.accountLogin(forAny: waypoint.fetchableViaAccountTypes)?.account.id {
+                newLogAccountId = accountId
+            } else {
+                log.error("Could not find any account for logging!")
+            }
+        }
+        .onChange(of: newLogAccountId) { accountId in
+            if let login = accounts.accountLogins[newLogAccountId] {
+                newLog.username = login.account.credentials.username
+            }
+        }
     }
     
     private func postNewLog() {
         Task {
-            if let accountId = newLogAccountId,
-               let login = accounts.accountLogins[accountId],
+            if let login = accounts.accountLogins[newLogAccountId],
                let connector = login.connector {
                 do {
                     _ = try await connector.post(waypointLog: newLog, for: waypoint)

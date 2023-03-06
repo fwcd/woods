@@ -9,7 +9,7 @@ import SwiftUI
 
 struct WaypointLogEditorView: View {
     @Binding var waypointLog: WaypointLog
-    @Binding var accountId: UUID?
+    @Binding var accountId: UUID
     let accountTypes: Set<AccountType>
     
     @EnvironmentObject private var accounts: Accounts
@@ -22,8 +22,9 @@ struct WaypointLogEditorView: View {
                 DatePicker(selection: $waypointLog.timestamp) {
                     Text("Date")
                 }
+                let logins = accounts.sortedAccountLogins.filter { accountTypes.contains($0.account.type) }
                 Picker(selection: $accountId) {
-                    ForEach(accounts.sortedAccountLogins.filter { accountTypes.contains($0.account.type) }) { login in
+                    ForEach(logins) { login in
                         Text(login.account.credentials.username.nilIfEmpty ?? login.account.type.description)
                             .tag(login.account.id)
                     }
@@ -44,14 +45,6 @@ struct WaypointLogEditorView: View {
                 WaypointLogView(waypointLog: waypointLog)
             }
         }
-        .onAppear {
-            accountId = accounts.accountLogin(forAny: accountTypes)?.account.id
-        }
-        .onChange(of: accountId) { accountId in
-            if let accountId, let login = accounts.accountLogins[accountId] {
-                waypointLog.username = login.account.credentials.username
-            }
-        }
         #if !os(macOS)
         .frame(minWidth: 300, minHeight: 500)
         #endif
@@ -62,7 +55,7 @@ struct EditWaypointLogView_Previews: PreviewProvider {
     static var previews: some View {
         WaypointLogEditorView(
             waypointLog: .constant(WaypointLog(type: .found, username: "Alice", content: "Very nice cache, thanks!")),
-            accountId: .constant(nil),
+            accountId: .constant(UUID()),
             accountTypes: Set(AccountType.allCases)
         )
     }
