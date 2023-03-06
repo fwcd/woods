@@ -95,10 +95,11 @@ final class GeocachingComConnector: Connector {
     func post(waypointLog: WaypointLog, for waypoint: Waypoint) async throws -> WaypointLog {
         try verifyIsGcCode(id: waypoint.id)
         let post = GeocachingComApi.LogPost(waypointLog, for: waypoint)
+        let body = try JSONEncoder.standard().encode(post)
         let request = try URLRequest.standard(
             url: apiLogUrl(gcCode: waypoint.id),
             method: "POST",
-            body: JSONEncoder.standard().encode(post)
+            body: body
         )
         let result = try await session.fetchJSON(as: GeocachingComApi.LogPost.self, for: request)
         guard let createdLog = WaypointLog(result) else { throw ConnectorError.waypointLogCouldNotBeParsed("Got result: \(result)") }

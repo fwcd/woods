@@ -168,7 +168,6 @@ enum GeocachingComApi {
         var ownerIsViewing: Bool?
         var logDate: String?
         var logText: String?
-        var usedFavoritePoint: Bool? = false
         var dateTimeCreatedUtc: String? = nil
         var dateTimeLastUpdatedUtc: String? = nil
         var guid: String? = nil
