@@ -6,11 +6,16 @@
 //
 
 import SwiftUI
+import OSLog
+
+private let log = Logger(subsystem: "Woods", category: "WaypointLogsSection")
 
 struct WaypointLogsSection: View {
     let waypoint: Waypoint
     
+    @EnvironmentObject private var accounts: Accounts
     @State private var newLogSheetShown = false
+    @State private var newLogAccountId: UUID?
     @State private var newLog = WaypointLog()
     
     var body: some View {
@@ -34,12 +39,34 @@ struct WaypointLogsSection: View {
                         } inner: {
                             WaypointLogEditorView(
                                 waypointLog: $newLog,
+                                accountId: $newLogAccountId,
                                 accountTypes: waypoint.fetchableViaAccountTypes
                             )
+                            .toolbar {
+                                Button("Post", action: postNewLog)
+                            }
+
                         }
                     }
                 }
             }
+        }
+    }
+    
+    private func postNewLog() {
+        Task {
+            if let accountId = newLogAccountId,
+               let login = accounts.accountLogins[accountId],
+               let connector = login.connector {
+                do {
+                    _ = try await connector.post(waypointLog: newLog, for: waypoint)
+                } catch {
+                    log.error("Could not post log: \(error)")
+                }
+            } else {
+                log.error("No connector for posting log")
+            }
+            newLogSheetShown = false
         }
     }
 }

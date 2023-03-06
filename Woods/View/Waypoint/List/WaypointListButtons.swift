@@ -38,11 +38,7 @@ struct WaypointListButtons<Suffix>: View where Suffix: View {
                 #endif
             }
         }
-        let commitNewWaypoint = {
-            newWaypoint.generateIdIfEmpty()
-            waypoints.listTree[id]?.add(waypoints: [newWaypoint])
-                newWaypointSheetShown = false
-        }
+        
         Button {
             newWaypointSheetShown = true
         } label: {
@@ -76,6 +72,12 @@ struct WaypointListButtons<Suffix>: View where Suffix: View {
             }
             Button("Cancel", role: .cancel) {}
         }
+    }
+    
+    private func commitNewWaypoint() {
+        newWaypoint.generateIdIfEmpty()
+        waypoints.listTree[id]?.add(waypoints: [newWaypoint])
+        newWaypointSheetShown = false
     }
 }
 

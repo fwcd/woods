@@ -9,10 +9,10 @@ import SwiftUI
 
 struct WaypointLogEditorView: View {
     @Binding var waypointLog: WaypointLog
+    @Binding var accountId: UUID?
     let accountTypes: Set<AccountType>
     
     @EnvironmentObject private var accounts: Accounts
-    @State private var accountId: UUID? = nil
     
     var body: some View {
         Form {
@@ -62,6 +62,7 @@ struct EditWaypointLogView_Previews: PreviewProvider {
     static var previews: some View {
         WaypointLogEditorView(
             waypointLog: .constant(WaypointLog(type: .found, username: "Alice", content: "Very nice cache, thanks!")),
+            accountId: .constant(nil),
             accountTypes: Set(AccountType.allCases)
         )
     }
