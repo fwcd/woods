@@ -52,21 +52,18 @@ struct WaypointLogsSection: View {
             }
         }
         .onAppear {
-            if let accountId = accounts.accountLogin(forAny: waypoint.fetchableViaAccountTypes)?.account.id {
-                newLogAccountId = accountId
+            if let login = accounts.accountLogin(forAny: waypoint.fetchableViaAccountTypes) {
+                let account = login.account
+                newLogAccountId = account.id
             } else {
                 log.error("Could not find any account for logging!")
-            }
-        }
-        .onChange(of: newLogAccountId) { accountId in
-            if let login = accounts.accountLogins[newLogAccountId] {
-                newLog.username = login.account.credentials.username
             }
         }
     }
     
     private func postNewLog() {
         Task {
+            // TODO: Log in automatically if needed
             if let login = accounts.accountLogins[newLogAccountId],
                let connector = login.connector {
                 do {
