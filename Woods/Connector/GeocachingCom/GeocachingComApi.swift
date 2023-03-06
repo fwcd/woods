@@ -185,24 +185,6 @@ enum GeocachingComApi {
         
         struct LogType: Codable, RawRepresentable, Hashable {
             let rawValue: String
-            
-            static let found = Self(rawValue: "2")
-            static let didNotFind = Self(rawValue: "3")
-            static let note = Self(rawValue: "4")
-            static let needsArchived = Self(rawValue: "7")
-            static let archived = Self(rawValue: "5")
-            static let willAttend = Self(rawValue: "9")
-            static let attended = Self(rawValue: "10")
-            static let webcamPhotoTaken = Self(rawValue: "11")
-            static let unarchived = Self(rawValue: "12")
-            static let reviewerNote = Self(rawValue: "18")
-            static let disabled = Self(rawValue: "22")
-            static let enabled = Self(rawValue: "23")
-            static let published = Self(rawValue: "24")
-            static let retracted = Self(rawValue: "25")
-            static let needsMaintenance = Self(rawValue: "45")
-            static let ownerMaintenance = Self(rawValue: "46")
-            static let updateCoordinates = Self(rawValue: "47")
         }
     }
 }
@@ -286,26 +268,8 @@ extension WaypointLogType {
     }
     
     init?(_ logPostType: GeocachingComApi.LogPost.LogType) {
-        switch logPostType {
-        case .found: self = .found
-        case .didNotFind: self = .didNotFind
-        case .note: self = .note
-        case .needsArchived: self = .needsArchived
-        case .archived: self = .archived
-        case .willAttend: self = .willAttend
-        case .attended: self = .attended
-        case .webcamPhotoTaken: self = .webcamPhotoTaken
-        case .unarchived: self = .unarchived
-        case .reviewerNote: self = .reviewerNote
-        case .disabled: self = .disabled
-        case .enabled: self = .enabled
-        case .published: self = .published
-        case .retracted: self = .retracted
-        case .needsMaintenance: self = .needsMaintenance
-        case .ownerMaintenance: self = .ownerMaintenance
-        case .updateCoordinates: self = .updateCoordinates
-        default: return nil
-        }
+        guard let intValue = Int(logPostType.rawValue) else { return nil }
+        self.init(GeocachingComApi.LogType(rawValue: intValue))
     }
 }
 
@@ -379,25 +343,7 @@ extension Coordinates {
     }
 }
 
-extension GeocachingComApi.LogPost {
-    init(_ log: WaypointLog, for waypoint: Waypoint) {
-        self.init(
-            geocache: .init(waypoint),
-            logType: LogType(log.type),
-            ownerIsViewing: log.username == waypoint.owner,
-            logDate: DateFormatter.isoDate().string(from: log.timestamp),
-            logText: log.content
-        )
-    }
-}
-
-extension GeocachingComApi.LogPost.Geocache {
-    init(_ waypoint: Waypoint) {
-        self.init(id: gcCacheId(gcCode: waypoint.id), referenceCode: waypoint.id)
-    }
-}
-
-extension GeocachingComApi.LogPost.LogType {
+extension GeocachingComApi.LogType {
     init(_ logType: WaypointLogType) {
         switch logType {
         case .found: self = .found
@@ -418,5 +364,29 @@ extension GeocachingComApi.LogPost.LogType {
         case .ownerMaintenance: self = .ownerMaintenance
         case .updateCoordinates: self = .updateCoordinates
         }
+    }
+}
+
+extension GeocachingComApi.LogPost {
+    init(_ log: WaypointLog, for waypoint: Waypoint) {
+        self.init(
+            geocache: .init(waypoint),
+            logType: LogType(log.type),
+            ownerIsViewing: log.username == waypoint.owner,
+            logDate: DateFormatter.isoDate().string(from: log.timestamp),
+            logText: log.content
+        )
+    }
+}
+
+extension GeocachingComApi.LogPost.Geocache {
+    init(_ waypoint: Waypoint) {
+        self.init(id: gcCacheId(gcCode: waypoint.id), referenceCode: waypoint.id)
+    }
+}
+
+extension GeocachingComApi.LogPost.LogType {
+    init(_ logType: WaypointLogType) {
+        self.init(rawValue: String(GeocachingComApi.LogType(logType).rawValue))
     }
 }
