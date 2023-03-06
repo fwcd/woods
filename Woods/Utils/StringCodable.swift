@@ -1,16 +1,16 @@
 //
-//  StringCoded.swift
+//  StringCodable.swift
 //  Woods
 //
 //  Created on 06.03.23
 //
 
 @propertyWrapper
-struct StringCoded<Wrapped> {
+struct StringCodable<Wrapped> {
     let wrappedValue: Wrapped
 }
 
-extension StringCoded: Codable where Wrapped: LosslessStringConvertible {
+extension StringCodable: Codable where Wrapped: LosslessStringConvertible {
     init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
         let rawValue = try container.decode(String.self)

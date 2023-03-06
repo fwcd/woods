@@ -105,9 +105,9 @@ enum GeocachingComApi {
         let detailsUrl: String?
         let hasGeotour: Bool?
         let hasLogDraft: Bool?
-        let placedDate: String?
+        let placedDate: IsoDateTimeWithoutZCodable?
         let owner: User?
-        let lastFoundDate: String?
+        let lastFoundDate: IsoDateTimeWithoutZCodable?
         
         // Details:
         
@@ -128,8 +128,8 @@ enum GeocachingComApi {
             let text: String?
             let owner: User?
             let code: String?
-            let dateCreatedUtc: String?
-            let dateLastUpdatedUtc: String?
+            let dateCreatedUtc: IsoDateTimeWithoutZCodable?
+            let dateLastUpdatedUtc: IsoDateTimeWithoutZCodable?
             let logDate: String?
         }
         
@@ -164,12 +164,12 @@ enum GeocachingComApi {
     
     struct LogPost: Codable {
         var geocache: Geocache?
-        @StringCoded var logType: LogType
+        @StringCodable var logType: LogType
         var ownerIsViewing: Bool?
-        var logDate: String?
+        var logDate: IsoDateCodable?
         var logText: String?
-        var dateTimeCreatedUtc: String? = nil
-        var dateTimeLastUpdatedUtc: String? = nil
+        var dateTimeCreatedUtc: IsoDateTimeWithoutZCodable? = nil
+        var dateTimeLastUpdatedUtc: IsoDateTimeWithoutZCodable? = nil
         var guid: String? = nil
         
         struct Geocache: Codable {
@@ -266,7 +266,6 @@ extension WaypointLogType {
 
 extension Waypoint {
     init?(_ apiCache: GeocachingComApi.Geocache) {
-        let formatter = DateFormatter.isoDateTimeWithoutZ()
         guard let location = apiCache.postedCoordinates.map(Coordinates.init) else { return nil }
         self.init(
             id: apiCache.code,
@@ -284,8 +283,8 @@ extension Waypoint {
                     } ?? []
             ),
             owner: apiCache.owner?.username,
-            placedAt: apiCache.placedDate.flatMap(formatter.date(from:)),
-            lastFoundAt: apiCache.lastFoundDate.flatMap(formatter.date(from:)),
+            placedAt: apiCache.placedDate?.wrappedValue,
+            lastFoundAt: apiCache.lastFoundDate?.wrappedValue,
             favorites: apiCache.favoritePoints ?? 0,
             found: apiCache.userFound ?? false,
             didNotFind: apiCache.userDidNotFind ?? false,
@@ -301,26 +300,24 @@ extension Waypoint {
 
 extension WaypointLog {
     init?(_ apiLog: GeocachingComApi.Geocache.Activity) {
-        let formatter = DateFormatter.isoDateTimeWithoutZ()
         guard let type = apiLog.activityTypeId.flatMap(WaypointLogType.init) else { return nil }
         self.init(
             type: type,
-            createdAt: apiLog.dateCreatedUtc.flatMap(formatter.date(from:)),
-            lastEditedAt: apiLog.dateLastUpdatedUtc.flatMap(formatter.date(from:)),
+            createdAt: apiLog.dateCreatedUtc?.wrappedValue,
+            lastEditedAt: apiLog.dateLastUpdatedUtc?.wrappedValue,
             username: apiLog.owner?.username ?? "",
             content: apiLog.text ?? ""
         )
     }
     
     init?(_ apiLogPost: GeocachingComApi.LogPost) {
-        let formatter = DateFormatter.isoDateTimeWithoutZ()
         guard let type = WaypointLogType(apiLogPost.logType),
               let id = apiLogPost.guid.flatMap(UUID.init(uuidString:)) else { return nil }
         self.init(
             id: id,
             type: type,
-            createdAt: apiLogPost.dateTimeCreatedUtc.flatMap(formatter.date(from:)),
-            lastEditedAt: apiLogPost.dateTimeLastUpdatedUtc.flatMap(formatter.date(from:)),
+            createdAt: apiLogPost.dateTimeCreatedUtc?.wrappedValue,
+            lastEditedAt: apiLogPost.dateTimeLastUpdatedUtc?.wrappedValue,
             username: "",
             content: apiLogPost.logText ?? ""
         )
@@ -374,7 +371,7 @@ extension GeocachingComApi.LogPost {
             geocache: .init(waypoint),
             logType: GeocachingComApi.LogType(log.type),
             ownerIsViewing: log.username == waypoint.owner,
-            logDate: DateFormatter.isoDate().string(from: log.timestamp),
+            logDate: .init(wrappedValue: log.timestamp),
             logText: log.content
         )
     }
