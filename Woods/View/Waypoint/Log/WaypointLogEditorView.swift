@@ -19,7 +19,10 @@ struct WaypointLogEditorView: View {
             Section("Info") {
                 // TODO: Add icon
                 EnumPicker(selection: $waypointLog.type, label: Text("Log Type"))
-                DatePicker(selection: $waypointLog.timestamp) {
+                DatePicker(selection: Binding(
+                    get: { waypointLog.timestamp ?? Date() },
+                    set: { waypointLog.timestamp = $0 }
+                )) {
                     Text("Date")
                 }
                 let logins = accounts.sortedAccountLogins.filter { accountTypes.contains($0.account.type) }

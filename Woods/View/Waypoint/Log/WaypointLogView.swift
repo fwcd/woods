@@ -20,7 +20,10 @@ struct WaypointLogView: View {
                     Text(waypointLog.username)
                         .font(.headline)
                         .textSelection(.enabled)
-                    Text("\(waypointLog.type.displayName) on \(DateFormatter.standard().string(from: waypointLog.createdAt ?? waypointLog.timestamp))")
+                    let dateSuffix = (waypointLog.timestamp ?? waypointLog.createdAt).map {
+                        " on \(DateFormatter.standard().string(from: $0))"
+                    } ?? ""
+                    Text("\(waypointLog.type.displayName)\(dateSuffix)")
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                 }

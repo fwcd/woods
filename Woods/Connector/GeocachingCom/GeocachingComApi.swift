@@ -130,7 +130,7 @@ enum GeocachingComApi {
             var code: String?
             @CustomCodable<IsoDateTimeWithoutZCoding?> var dateCreatedUtc: Date?
             @CustomCodable<IsoDateTimeWithoutZCoding?> var dateLastUpdatedUtc: Date?
-            var logDate: String?
+            @CustomCodable<IsoDateTimeWithoutZCoding?> var logDate: Date?
         }
         
         struct Attribute: Codable {
@@ -166,10 +166,10 @@ enum GeocachingComApi {
         var geocache: Geocache?
         @CustomCodable<StringCoding> var logType: LogType
         var ownerIsViewing: Bool?
-        var logDate: IsoDateCoding?
+        @CustomCodable<IsoDateCoding?> var logDate: Date?
         var logText: String?
-        var dateTimeCreatedUtc: IsoDateTimeWithoutZCoding? = nil
-        var dateTimeLastUpdatedUtc: IsoDateTimeWithoutZCoding? = nil
+        @CustomCodable<IsoDateTimeWithoutZCoding?> var dateTimeCreatedUtc: Date? = nil
+        @CustomCodable<IsoDateTimeWithoutZCoding?> var dateTimeLastUpdatedUtc: Date? = nil
         var guid: String? = nil
         
         struct Geocache: Codable {
@@ -303,6 +303,7 @@ extension WaypointLog {
         guard let type = apiLog.activityTypeId.flatMap(WaypointLogType.init) else { return nil }
         self.init(
             type: type,
+            timestamp: apiLog.logDate,
             createdAt: apiLog.dateCreatedUtc,
             lastEditedAt: apiLog.dateLastUpdatedUtc,
             username: apiLog.owner?.username ?? "",
@@ -316,8 +317,9 @@ extension WaypointLog {
         self.init(
             id: id,
             type: type,
-            createdAt: apiLogPost.dateTimeCreatedUtc?.wrappedValue,
-            lastEditedAt: apiLogPost.dateTimeLastUpdatedUtc?.wrappedValue,
+            timestamp: apiLogPost.logDate,
+            createdAt: apiLogPost.dateTimeCreatedUtc,
+            lastEditedAt: apiLogPost.dateTimeLastUpdatedUtc,
             username: "",
             content: apiLogPost.logText ?? ""
         )
@@ -371,7 +373,7 @@ extension GeocachingComApi.LogPost {
             geocache: .init(waypoint),
             logType: GeocachingComApi.LogType(log.type),
             ownerIsViewing: log.username == waypoint.owner,
-            logDate: .init(wrappedValue: log.timestamp),
+            logDate: log.timestamp,
             logText: log.content
         )
     }
