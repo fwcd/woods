@@ -38,7 +38,7 @@
 		35199DA629B52DCA00921D35 /* AccountType+Connector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35199DA329B52D9600921D35 /* AccountType+Connector.swift */; };
 		35199DA829B52DD800921D35 /* AccountType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765465C25D890F6004F14E8 /* AccountType.swift */; };
 		35199DAC29B5587500921D35 /* GeocachingComUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35199DAB29B5587500921D35 /* GeocachingComUtils.swift */; };
-		35199DAD29B5587500921D35 /* GeocachingComUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35199DAB29B5587500921D35 /* GeocachingComUtils.swift */; };
+		35199DAE29B56F6400921D35 /* GeocachingComUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35199DAB29B5587500921D35 /* GeocachingComUtils.swift */; };
 		35222982274A737300090224 /* CollectionUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35222981274A737300090224 /* CollectionUtils.swift */; };
 		3522298E274A756D00090224 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3522298D274A756D00090224 /* Assets.xcassets */; };
 		35222991274A756D00090224 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35222990274A756D00090224 /* Preview Assets.xcassets */; };
@@ -1384,7 +1384,6 @@
 				35985CF928119E1200D37DB2 /* WatchProtocol.swift in Sources */,
 				35DF4E702810DEC3009B8E06 /* LatitudeCardinal.swift in Sources */,
 				35126CE12745CE1E00CF998C /* ComplicationController.swift in Sources */,
-				35199DAD29B5587500921D35 /* GeocachingComUtils.swift in Sources */,
 				35985D002811A80600D37DB2 /* JSONUtils.swift in Sources */,
 				35199DA829B52DD800921D35 /* AccountType.swift in Sources */,
 				35DF4E842810DF1A009B8E06 /* LocationManager.swift in Sources */,
@@ -1516,6 +1515,7 @@
 				352229D4274A76AB00090224 /* SlideOverCard.swift in Sources */,
 				3575D6B529B0F2EB00DF4380 /* WaypointDescriptionSection.swift in Sources */,
 				352229DA274A76B400090224 /* KeychainError.swift in Sources */,
+				35199DAE29B56F6400921D35 /* GeocachingComUtils.swift in Sources */,
 				352229BE274A76AA00090224 /* WaypointListsView.swift in Sources */,
 				352229CF274A76AB00090224 /* Handle.swift in Sources */,
 				352229FB274A76C600090224 /* DataUtils.swift in Sources */,
