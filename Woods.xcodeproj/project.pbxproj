@@ -62,7 +62,7 @@
 		352229C4274A76AA00090224 /* RichMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B6F0FC249FA16B00454841 /* RichMapView.swift */; };
 		352229C5274A76AA00090224 /* WaypointInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBE0D25EFFC13005933C0 /* WaypointInfoView.swift */; };
 		352229C6274A76AA00090224 /* Waypoint+Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C748C2AB25EEA19300661BEE /* Waypoint+Icon.swift */; };
-		352229C7274A76AA00090224 /* SidebarContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35353C3B2745D90F002ACE14 /* SidebarContentView.swift */; };
+		352229C7274A76AA00090224 /* SplitContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35353C3B2745D90F002ACE14 /* SplitContentView.swift */; };
 		352229C8274A76AA00090224 /* Waypoint+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = C748C2A625EEA16B00661BEE /* Waypoint+Color.swift */; };
 		352229C9274A76AA00090224 /* StarsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74EB625EDC5C200D5194B /* StarsView.swift */; };
 		352229CA274A76AA00090224 /* WaypointSnippetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B74F0325EE9BED00D5194B /* WaypointSnippetView.swift */; };
@@ -128,7 +128,7 @@
 		35245D39280843DB00E7B082 /* AccountSnippetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35245D37280843DB00E7B082 /* AccountSnippetView.swift */; };
 		35245D3B2808443700E7B082 /* AccountLoginSnippetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35245D3A2808443700E7B082 /* AccountLoginSnippetView.swift */; };
 		35245D3C2808443700E7B082 /* AccountLoginSnippetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35245D3A2808443700E7B082 /* AccountLoginSnippetView.swift */; };
-		35353C3C2745D90F002ACE14 /* SidebarContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35353C3B2745D90F002ACE14 /* SidebarContentView.swift */; };
+		35353C3C2745D90F002ACE14 /* SplitContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35353C3B2745D90F002ACE14 /* SplitContentView.swift */; };
 		35677A332812856100708B3B /* AccountInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35677A322812856100708B3B /* AccountInfo.swift */; };
 		35677A342812856100708B3B /* AccountInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35677A322812856100708B3B /* AccountInfo.swift */; };
 		35677A36281287A200708B3B /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35677A35281287A200708B3B /* Regex.swift */; };
@@ -428,7 +428,7 @@
 		35245D34280841E200E7B082 /* AccountLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountLogin.swift; sourceTree = "<group>"; };
 		35245D37280843DB00E7B082 /* AccountSnippetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSnippetView.swift; sourceTree = "<group>"; };
 		35245D3A2808443700E7B082 /* AccountLoginSnippetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountLoginSnippetView.swift; sourceTree = "<group>"; };
-		35353C3B2745D90F002ACE14 /* SidebarContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarContentView.swift; sourceTree = "<group>"; };
+		35353C3B2745D90F002ACE14 /* SplitContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitContentView.swift; sourceTree = "<group>"; };
 		35677A322812856100708B3B /* AccountInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfo.swift; sourceTree = "<group>"; };
 		35677A35281287A200708B3B /* Regex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
 		3567D0112785B5DD00060C37 /* CancelNavigationStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelNavigationStack.swift; sourceTree = "<group>"; };
@@ -1152,7 +1152,7 @@
 				3503AF4829AAAF0800AF1188 /* Accounts */,
 				3503AF5129AAB0FC00AF1188 /* Utils */,
 				C73E04BE249F9F4700C6E22C /* TabbedContentView.swift */,
-				35353C3B2745D90F002ACE14 /* SidebarContentView.swift */,
+				35353C3B2745D90F002ACE14 /* SplitContentView.swift */,
 				35199D9629B513FD00921D35 /* ContentView.swift */,
 			);
 			path = View;
@@ -1506,7 +1506,7 @@
 				352229FA274A76C600090224 /* PersistenceError.swift in Sources */,
 				352229FD274A76C600090224 /* EnvironmentUtils.swift in Sources */,
 				35A75F70280F75A400BC959C /* SignUtils.swift in Sources */,
-				352229C7274A76AA00090224 /* SidebarContentView.swift in Sources */,
+				352229C7274A76AA00090224 /* SplitContentView.swift in Sources */,
 				35A75F6D280F6DD700BC959C /* SignedCardinal.swift in Sources */,
 				352229F4274A76C100090224 /* WaypointStatus.swift in Sources */,
 				35AB81FE28D976D00052F55A /* Waypoint+Transferable.swift in Sources */,
@@ -1667,7 +1667,7 @@
 				3575D6BE29B0F48300DF4380 /* WaypointHintSection.swift in Sources */,
 				C765468925D8A2C9004F14E8 /* DataUtils.swift in Sources */,
 				C765462425D87E9C004F14E8 /* WaypointsInRadiusQuery.swift in Sources */,
-				35353C3C2745D90F002ACE14 /* SidebarContentView.swift in Sources */,
+				35353C3C2745D90F002ACE14 /* SplitContentView.swift in Sources */,
 				35245D3B2808443700E7B082 /* AccountLoginSnippetView.swift in Sources */,
 				35B148E929B6275E00598F24 /* StringCoding.swift in Sources */,
 				C7ECBDF125EFE971005933C0 /* SimpleUIViewControllerRepresentable.swift in Sources */,

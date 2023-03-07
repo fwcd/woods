@@ -1,5 +1,5 @@
 //
-//  SidebarContentView.swift
+//  SplitContentView.swift
 //  Woods
 //
 //  Created by Fredrik on 6/21/20.
@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct SidebarContentView: View {
+struct SplitContentView: View {
     private enum Detail: Hashable {
         case map
         case search

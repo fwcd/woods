@@ -13,7 +13,7 @@ struct ContentView: View {
         if isCompact {
             TabbedContentView()
         } else {
-            SidebarContentView()
+            SplitContentView()
         }
     }
 }
