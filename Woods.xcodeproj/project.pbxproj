@@ -30,6 +30,7 @@
 		35156CC7280FB2CA00136E25 /* RichMapSlideOver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35156CC6280FB2C900136E25 /* RichMapSlideOver.swift */; };
 		35156CC8280FB2CA00136E25 /* RichMapSlideOver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35156CC6280FB2C900136E25 /* RichMapSlideOver.swift */; };
 		3517B21E2835C93600A37F24 /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3517B21D2835C93600A37F24 /* LocationView.swift */; };
+		351878C529B7A1150045F726 /* CollectionUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35222981274A737300090224 /* CollectionUtils.swift */; };
 		35199D9129B4F0F100921D35 /* WaypointSnippetEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35199D9029B4F0F100921D35 /* WaypointSnippetEditor.swift */; };
 		35199D9229B4F0F100921D35 /* WaypointSnippetEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35199D9029B4F0F100921D35 /* WaypointSnippetEditor.swift */; };
 		35199D9429B4F98300921D35 /* PopoverNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35199D9329B4F98300921D35 /* PopoverNavigation.swift */; };
@@ -1420,6 +1421,7 @@
 				35199DA829B52DD800921D35 /* AccountType.swift in Sources */,
 				35DF4E842810DF1A009B8E06 /* LocationManager.swift in Sources */,
 				35DF4E802810DEC3009B8E06 /* WaypointList.swift in Sources */,
+				351878C529B7A1150045F726 /* CollectionUtils.swift in Sources */,
 				35DF4E762810DEC3009B8E06 /* Coordinates.swift in Sources */,
 				35DF4E7D2810DEC3009B8E06 /* Length.swift in Sources */,
 				35DF4E812810DED1009B8E06 /* WaypointNavigatorView.swift in Sources */,
