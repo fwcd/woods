@@ -18,16 +18,23 @@ struct WaypointMapView: View {
     @Binding var useSatelliteView: Bool
     
     var body: some View {
-        Map(annotations: waypoints.map { waypoint in
-            Map.Annotation(
-                tag: waypoint.id,
-                coordinate: waypoint.location.asCLCoordinate,
-                // Uncomment to show cache names on map again
-                // title: waypoint.name,
-                color: waypoint.color,
-                iconName: waypoint.iconName
-            )
-        }, selection: $selectedWaypointId, region: $region, userTrackingMode: $userTrackingMode, useSatelliteView: $useSatelliteView)
+        Map(
+            annotations: waypoints.map { waypoint in
+                Map.Annotation(
+                    tag: waypoint.id,
+                    coordinate: waypoint.location.asCLCoordinate,
+                    // Uncomment to show cache names on map again
+                    // title: waypoint.name,
+                    color: waypoint.color,
+                    iconName: waypoint.iconName
+                )
+            },
+            selection: $selectedWaypointId,
+            region: $region,
+            userTrackingMode: $userTrackingMode,
+            useSatelliteView: $useSatelliteView,
+            zoomToAnnotations: true
+        )
     }
     
     init(

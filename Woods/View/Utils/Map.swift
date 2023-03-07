@@ -17,6 +17,7 @@ struct Map<T>: UIOrNSViewRepresentable where T: Hashable {
     @Binding var region: MKCoordinateRegion?
     @Binding var userTrackingMode: MKUserTrackingMode
     @Binding var useSatelliteView: Bool
+    let zoomToAnnotations: Bool
     
     func makeCoordinator() -> Coordinator {
         Coordinator(selection: $selection, region: $region, userTrackingMode: $userTrackingMode)
@@ -42,7 +43,6 @@ struct Map<T>: UIOrNSViewRepresentable where T: Hashable {
         mapView.userTrackingMode = userTrackingMode
         mapView.delegate = context.coordinator
         mapView.mapType = useSatelliteView ? .hybrid : .standard
-        
         return mapView
     }
     
@@ -60,6 +60,9 @@ struct Map<T>: UIOrNSViewRepresentable where T: Hashable {
         let toBeAdded = Set(new.keys).subtracting(current.keys).compactMap { new[$0] }
         mapView.removeAnnotations(toBeRemoved)
         mapView.addAnnotations(toBeAdded)
+        if zoomToAnnotations {
+            mapView.showAnnotations(annotations, animated: true)
+        }
     }
     
     class Annotation: NSObject, MKAnnotation {
@@ -136,12 +139,14 @@ struct Map<T>: UIOrNSViewRepresentable where T: Hashable {
         selection: Binding<T?>? = nil,
         region: Binding<MKCoordinateRegion?>? = nil,
         userTrackingMode: Binding<MKUserTrackingMode>? = nil,
-        useSatelliteView: Binding<Bool>? = nil
+        useSatelliteView: Binding<Bool>? = nil,
+        zoomToAnnotations: Bool = false
     ) {
         self.annotations = annotations
         _selection = selection ?? .constant(nil)
         _region = region ?? .constant(nil)
         _userTrackingMode = userTrackingMode ?? .constant(.none)
         _useSatelliteView = useSatelliteView ?? .constant(false)
+        self.zoomToAnnotations = zoomToAnnotations
     }
 }
