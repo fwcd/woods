@@ -27,6 +27,7 @@ struct SearchBar: View {
                 } label: {
                     Image(systemName: "x.circle.fill")
                 }
+                .buttonStyle(.borderless)
             }
         }
         .padding(8)
