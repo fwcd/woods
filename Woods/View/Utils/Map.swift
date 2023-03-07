@@ -43,6 +43,9 @@ struct Map<T>: UIOrNSViewRepresentable where T: Hashable {
         mapView.userTrackingMode = userTrackingMode
         mapView.delegate = context.coordinator
         mapView.mapType = useSatelliteView ? .hybrid : .standard
+        if zoomToAnnotations {
+            mapView.showAnnotations(mapView.annotations.filter { $0 is Annotation }, animated: true)
+        }
         return mapView
     }
     
@@ -60,8 +63,8 @@ struct Map<T>: UIOrNSViewRepresentable where T: Hashable {
         let toBeAdded = Set(new.keys).subtracting(current.keys).compactMap { new[$0] }
         mapView.removeAnnotations(toBeRemoved)
         mapView.addAnnotations(toBeAdded)
-        if zoomToAnnotations {
-            mapView.showAnnotations(annotations, animated: true)
+        if zoomToAnnotations && !toBeAdded.isEmpty {
+            mapView.showAnnotations(mapView.annotations.filter { $0 is Annotation }, animated: true)
         }
     }
     
