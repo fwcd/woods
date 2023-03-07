@@ -9,7 +9,7 @@
 import Foundation
 import OSLog
 
-private let log = Logger(subsystem: "Woods", category: "Utils")
+private let log = Logger(subsystem: "Woods", category: "Data+Extensions")
 
 extension Data {
     /// Reads a potentially security-scoped resource.

@@ -3,7 +3,7 @@ import Combine
 import SwiftSoup
 import OSLog
 
-private let log = Logger(subsystem: "Woods", category: "HTTPRequest")
+private let log = Logger(subsystem: "Woods", category: "URLSession+Extensions")
 
 extension URLSession {
     @discardableResult
