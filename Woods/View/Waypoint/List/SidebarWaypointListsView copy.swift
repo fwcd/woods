@@ -10,6 +10,7 @@ import SwiftUI
 
 struct SidebarWaypointListsView<Tag>: View where Tag: Hashable {
     let tagList: (UUID) -> Tag
+    let tagWaypoint: (Waypoint) -> Tag
     
     @EnvironmentObject private var waypoints: Waypoints
     
@@ -26,6 +27,11 @@ struct SidebarWaypointListsView<Tag>: View where Tag: Hashable {
             } else {
                 Text("Unknown List")
             }
+        }
+        
+        ForEach(waypoints.listTree.root.waypoints) { waypoint in
+            WaypointTinySnippetView(waypoint: waypoint)
+                .tag(tagWaypoint(waypoint))
         }
     }
 }

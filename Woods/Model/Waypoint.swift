@@ -38,6 +38,10 @@ struct Waypoint: Identifiable, Codable, Hashable {
     var additionalWaypoints: [Waypoint] = []
     var fetchableViaAccountTypes: Set<AccountType> = []
     
+    var displayName: String {
+        name.nilIfEmpty ?? id
+    }
+    
     func matches(searchQuery: String) -> Bool {
         let lowerQuery = searchQuery.lowercased()
         return [id, name, summary].compactMap { $0?.lowercased() }.contains { $0.contains(lowerQuery) }

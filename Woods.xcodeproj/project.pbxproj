@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		350BF21429B6D1DA00449258 /* WaypointTinySnippetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350BF21329B6D18800449258 /* WaypointTinySnippetView.swift */; };
+		350BF21529B6D1DA00449258 /* WaypointTinySnippetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350BF21329B6D18800449258 /* WaypointTinySnippetView.swift */; };
 		350C523028078F3800309F5C /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B6F0FE249FA1B300454841 /* Map.swift */; };
 		350C523228078F5C00309F5C /* CompatibilityLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350C523128078F5C00309F5C /* CompatibilityLayer.swift */; };
 		350C523328078F5C00309F5C /* CompatibilityLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350C523128078F5C00309F5C /* CompatibilityLayer.swift */; };
@@ -390,6 +392,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		350BF21329B6D18800449258 /* WaypointTinySnippetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointTinySnippetView.swift; sourceTree = "<group>"; };
 		350C523128078F5C00309F5C /* CompatibilityLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompatibilityLayer.swift; sourceTree = "<group>"; };
 		351120C6280704A400D5E6B3 /* Woods.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Woods.entitlements; sourceTree = "<group>"; };
 		35126CCB2745CE1D00CF998C /* Woods.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Woods.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -967,6 +970,7 @@
 				C7B74F0325EE9BED00D5194B /* WaypointSnippetView.swift */,
 				35199D9029B4F0F100921D35 /* WaypointSnippetEditor.swift */,
 				C7ECBD8E25EED8AF005933C0 /* WaypointSmallSnippetView.swift */,
+				350BF21329B6D18800449258 /* WaypointTinySnippetView.swift */,
 				C7ECBD7425EEB23B005933C0 /* WaypointDistanceView.swift */,
 			);
 			path = Snippet;
@@ -1559,6 +1563,7 @@
 				352229E1274A76BB00090224 /* ConnectorError.swift in Sources */,
 				352229DE274A76B400090224 /* AccountType.swift in Sources */,
 				357168B7283B30EF007305C5 /* CompassRoseMarkers.swift in Sources */,
+				350BF21429B6D1DA00449258 /* WaypointTinySnippetView.swift in Sources */,
 				3575D6C329B0F53400DF4380 /* WaypointDatesSection.swift in Sources */,
 				35E2B326280B87DE00A4267C /* CompareUtils.swift in Sources */,
 				35C08CC429B0198F00C43B7D /* WaypointLogsView.swift in Sources */,
@@ -1667,6 +1672,7 @@
 				35B148E929B6275E00598F24 /* StringCoding.swift in Sources */,
 				C7ECBDF125EFE971005933C0 /* SimpleUIViewControllerRepresentable.swift in Sources */,
 				C7B74E6C25ED8DA600D5194B /* WaypointMapView.swift in Sources */,
+				350BF21529B6D1DA00449258 /* WaypointTinySnippetView.swift in Sources */,
 				C765467F25D8A280004F14E8 /* JSONUtils.swift in Sources */,
 				3575D6B129B0F2A100DF4380 /* WaypointInfoSection.swift in Sources */,
 				35E5DF462746454C00226EEA /* WaypointListWrapper.swift in Sources */,

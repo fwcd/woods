@@ -13,10 +13,7 @@ struct WaypointListSnippetView: View {
     
     var body: some View {
         Label {
-            VStack {
-                Text(list.name)
-                    .font(.headline)
-            }
+            Text(list.name)
         } icon: {
             Image(systemName: "list.bullet")
         }

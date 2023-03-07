@@ -14,6 +14,7 @@ struct SidebarContentView: View {
         case search
         case accounts
         case list(UUID)
+        case waypoint(Waypoint)
     }
     
     @State private var selectedDetail: Detail? = .map
@@ -35,6 +36,8 @@ struct SidebarContentView: View {
                 Section(header: Text("Lists")) {
                     SidebarWaypointListsView { listId in
                         Detail.list(listId)
+                    } tagWaypoint: { waypoint in
+                        Detail.waypoint(waypoint)
                     }
             
                     WaypointListButtons(id: waypoints.listTree.rootId) {
@@ -55,6 +58,15 @@ struct SidebarContentView: View {
             case .list(let id)?:
                 NavigationStack {
                     WaypointListView(listId: id)
+                }
+            case .waypoint(let waypoint)?:
+                NavigationStack {
+                    // TODO: Get a binding into the root of the list tree
+                    NavigationWaypointDetailView(
+                        waypoint: .constant(waypoint),
+                        isEditable: false,
+                        isRefreshable: false
+                    )
                 }
             default:
                 EmptyView()
