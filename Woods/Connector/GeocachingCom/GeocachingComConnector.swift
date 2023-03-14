@@ -33,9 +33,12 @@ private let log = Logger(subsystem: "Woods", category: "GeocachingComConnector")
 private let searchParamsPattern = try! Regex(from: "\\{.+\\}")
 
 final class GeocachingComConnector: Connector {
+    private let username: String
     private let session = URLSession(configuration: .ephemeral)
     
     init(using credentials: Credentials) async throws {
+        username = credentials.username
+        
         let tokenFieldName = "__RequestVerificationToken"
         
         // Fetch the login page
@@ -84,7 +87,7 @@ final class GeocachingComConnector: Connector {
         log.info("Querying details for \(id)")
         let request = try URLRequest.standard(url: apiPreviewUrl(gcCode: id))
         let result = try await session.fetchJSON(as: GeocachingComApi.Geocache.self, for: request)
-        guard let waypoint = Waypoint(result) else { throw ConnectorError.waypointNotFound(id) }
+        guard let waypoint = Waypoint(result, username: username) else { throw ConnectorError.waypointNotFound(id) }
         return waypoint
     }
     
@@ -160,7 +163,7 @@ final class GeocachingComConnector: Connector {
             origin: origin,
             accumulated: accumulated + results.results
                 .compactMap {
-                    var waypoint = Waypoint($0)
+                    var waypoint = Waypoint($0, username: username)
                     waypoint?.isStub = true
                     return waypoint
                 }

@@ -28,6 +28,7 @@ struct Waypoint: Identifiable, Codable, Hashable {
     var favorites: Int = 0
     var found: Bool = false
     var didNotFind: Bool = false
+    var owned: Bool = false
     var enabled: Bool = true
     var premiumOnly: Bool = false
     var summary: String? = nil

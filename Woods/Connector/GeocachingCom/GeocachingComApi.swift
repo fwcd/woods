@@ -265,7 +265,7 @@ extension WaypointLogType {
 }
 
 extension Waypoint {
-    init?(_ apiCache: GeocachingComApi.Geocache) {
+    init?(_ apiCache: GeocachingComApi.Geocache, username: String? = nil) {
         guard let location = apiCache.postedCoordinates.map(Coordinates.init) else { return nil }
         self.init(
             id: apiCache.code,
@@ -288,6 +288,8 @@ extension Waypoint {
             favorites: apiCache.favoritePoints ?? 0,
             found: apiCache.userFound ?? false,
             didNotFind: apiCache.userDidNotFind ?? false,
+            owned: username.map { apiCache.owner?.username == $0 } ?? false,
+            enabled: apiCache.cacheStatus == .enabled,
             premiumOnly: apiCache.premiumOnly ?? false,
             description: apiCache.description,
             hint: apiCache.hint,

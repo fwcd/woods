@@ -13,6 +13,9 @@ extension Waypoint {
         if found {
             return "face.smiling.fill"
         }
+        if owned {
+            return "star.fill"
+        }
         return type.iconName
     }
 }
