@@ -289,7 +289,6 @@ extension Waypoint {
             found: apiCache.userFound ?? false,
             didNotFind: apiCache.userDidNotFind ?? false,
             owned: username.map { apiCache.owner?.username == $0 } ?? false,
-            enabled: apiCache.cacheStatus == .enabled,
             premiumOnly: apiCache.premiumOnly ?? false,
             description: apiCache.description,
             hint: apiCache.hint,
