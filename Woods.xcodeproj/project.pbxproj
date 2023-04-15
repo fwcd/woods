@@ -262,8 +262,8 @@
 		35DF4E842810DF1A009B8E06 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECBD6F25EEAB38005933C0 /* LocationManager.swift */; };
 		35DF4E852810DF2B009B8E06 /* CompareUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E2B324280B87DE00A4267C /* CompareUtils.swift */; };
 		35DF4E862810DF31009B8E06 /* FloatingPointSign+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A75F6E280F75A400BC959C /* FloatingPointSign+Extensions.swift */; };
-		35E2301B29AEBB7400C4F22F /* SidebarWaypointListsView copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E2301A29AEBB7400C4F22F /* SidebarWaypointListsView copy.swift */; };
-		35E2301C29AEBB7400C4F22F /* SidebarWaypointListsView copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E2301A29AEBB7400C4F22F /* SidebarWaypointListsView copy.swift */; };
+		35E2301B29AEBB7400C4F22F /* SidebarWaypointListsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E2301A29AEBB7400C4F22F /* SidebarWaypointListsView.swift */; };
+		35E2301C29AEBB7400C4F22F /* SidebarWaypointListsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E2301A29AEBB7400C4F22F /* SidebarWaypointListsView.swift */; };
 		35E2B325280B87DE00A4267C /* CompareUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E2B324280B87DE00A4267C /* CompareUtils.swift */; };
 		35E2B326280B87DE00A4267C /* CompareUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E2B324280B87DE00A4267C /* CompareUtils.swift */; };
 		35E5DF44274642D200226EEA /* WaypointListButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E5DF43274642D200226EEA /* WaypointListButtons.swift */; };
@@ -483,7 +483,7 @@
 		35C08CC529B01E2900C43B7D /* WaypointLogEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointLogEditorView.swift; sourceTree = "<group>"; };
 		35C08CC829B01F1400C43B7D /* DateFormatter+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extensions.swift"; sourceTree = "<group>"; };
 		35DF4E6A2810D824009B8E06 /* URL+Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Identifiable.swift"; sourceTree = "<group>"; };
-		35E2301A29AEBB7400C4F22F /* SidebarWaypointListsView copy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SidebarWaypointListsView copy.swift"; sourceTree = "<group>"; };
+		35E2301A29AEBB7400C4F22F /* SidebarWaypointListsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarWaypointListsView.swift; sourceTree = "<group>"; };
 		35E2B324280B87DE00A4267C /* CompareUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareUtils.swift; sourceTree = "<group>"; };
 		35E5DF43274642D200226EEA /* WaypointListButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointListButtons.swift; sourceTree = "<group>"; };
 		35E5DF452746454C00226EEA /* WaypointListWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointListWrapper.swift; sourceTree = "<group>"; };
@@ -698,7 +698,7 @@
 				35E5DF43274642D200226EEA /* WaypointListButtons.swift */,
 				3567D0132785B7DD00060C37 /* WaypointListContextMenu.swift */,
 				C7ECBD9325EED91E005933C0 /* WaypointListSnippetView.swift */,
-				35E2301A29AEBB7400C4F22F /* SidebarWaypointListsView copy.swift */,
+				35E2301A29AEBB7400C4F22F /* SidebarWaypointListsView.swift */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -1518,7 +1518,7 @@
 				352229F0274A76C100090224 /* GeocacheSize.swift in Sources */,
 				352229C4274A76AA00090224 /* RichMapView.swift in Sources */,
 				352229D1274A76AB00090224 /* WaypointMapView.swift in Sources */,
-				35E2301B29AEBB7400C4F22F /* SidebarWaypointListsView copy.swift in Sources */,
+				35E2301B29AEBB7400C4F22F /* SidebarWaypointListsView.swift in Sources */,
 				35245D33280830C200E7B082 /* SlideOverCardPosition.swift in Sources */,
 				35C08CCA29B01F1400C43B7D /* DateFormatter+Extensions.swift in Sources */,
 				35AB81FA28D976640052F55A /* GPX+Waypoint.swift in Sources */,
@@ -1629,7 +1629,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C70B379D25ED7CC100553597 /* Waypoints.swift in Sources */,
-				35E2301C29AEBB7400C4F22F /* SidebarWaypointListsView copy.swift in Sources */,
+				35E2301C29AEBB7400C4F22F /* SidebarWaypointListsView.swift in Sources */,
 				C765461C25D87E74004F14E8 /* Connector.swift in Sources */,
 				C7ECBDDD25EF182F005933C0 /* WaypointStatus.swift in Sources */,
 				3575D6C629B0F65B00DF4380 /* AdditionalWaypointsSection.swift in Sources */,
