@@ -15,6 +15,8 @@ struct RichMapButtons: View {
     @Binding var userTrackingMode: MKUserTrackingMode
     
     @EnvironmentObject private var waypoints: Waypoints
+    @Environment(\.colorScheme) private var colorScheme
+    @State private var isRefreshing: Bool = false
     @State private var listPickerSheetShown: Bool = false
     @State private var listPickerMode: ListPickerMode = .save
     
@@ -26,13 +28,23 @@ struct RichMapButtons: View {
     var body: some View {
         VStack(spacing: 10) {
             Button {
-                if let region = region {
+                if let region = region, !isRefreshing {
                     Task {
+                        isRefreshing = true
                         await waypoints.refresh(with: query(from: region))
+                        isRefreshing = false
                     }
                 }
             } label: {
-                Image(systemName: "arrow.clockwise.circle.fill")
+                if isRefreshing {
+                    ZStack {
+                        Image(systemName: "circle.fill")
+                        ProgressView()
+                            .progressViewStyle(CircularProgressViewStyle(tint: colorScheme == .dark ? .black : .white))
+                    }
+                } else {
+                    Image(systemName: "arrow.clockwise.circle.fill")
+                }
             }
             Button {
                 useSatelliteView = !useSatelliteView
