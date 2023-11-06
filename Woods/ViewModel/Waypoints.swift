@@ -40,29 +40,25 @@ class Waypoints: ObservableObject {
         self.currentWaypoints = Dictionary(uniqueKeysWithValues: currentWaypoints.map { ($0.id, $0) })
     }
     
-    func refresh(with query: WaypointsInRegionQuery) async {
+    func refresh(with query: WaypointsInRegionQuery) async throws {
         log.info("Refreshing waypoints in the region around \(query.region.center) (diameter: \(query.region.diameter))")
         
-        do {
-            let foundWaypoints = try await withThrowingTaskGroup(of: ([Waypoint], UUID).self) { group -> [(Waypoint, UUID)] in
-                for (acc, login) in accounts.accountLogins {
-                    group.addTask {
-                        (try await login.connector?.waypoints(for: query) ?? [], acc)
-                    }
+        let foundWaypoints = try await withThrowingTaskGroup(of: ([Waypoint], UUID).self) { group -> [(Waypoint, UUID)] in
+            for (acc, login) in accounts.accountLogins {
+                group.addTask {
+                    (try await login.connector?.waypoints(for: query) ?? [], acc)
                 }
-                
-                var foundWaypoints: [(Waypoint, UUID)] = []
-                for try await (chunk, acc) in group {
-                    foundWaypoints += chunk.map { ($0, acc) }
-                }
-                return foundWaypoints
             }
             
-            currentWaypoints = Dictionary(uniqueKeysWithValues: foundWaypoints.map { ($0.0.id, $0.0) })
-            log.info("Found \(foundWaypoints.count) waypoint(s)")
-        } catch {
-            log.warning("Could not query waypoints: \(String(describing: error))")
+            var foundWaypoints: [(Waypoint, UUID)] = []
+            for try await (chunk, acc) in group {
+                foundWaypoints += chunk.map { ($0, acc) }
+            }
+            return foundWaypoints
         }
+        
+        currentWaypoints = Dictionary(uniqueKeysWithValues: foundWaypoints.map { ($0.0.id, $0.0) })
+        log.info("Found \(foundWaypoints.count) waypoint(s)")
     }
     
     func refresh(_ waypointId: String) async {

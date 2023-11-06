@@ -6,7 +6,10 @@
 //
 
 import SwiftUI
+import OSLog
 import MapKit
+
+private let log = Logger(subsystem: "Woods", category: "RichMapButtons")
 
 struct RichMapButtons: View {
     @Binding var selectedWaypointId: String?
@@ -19,6 +22,8 @@ struct RichMapButtons: View {
     @State private var isRefreshing: Bool = false
     @State private var listPickerSheetShown: Bool = false
     @State private var listPickerMode: ListPickerMode = .save
+    @State private var errorAlertShown: Bool = false
+    @State private var errorAlertMessage: String? = nil
     
     private enum ListPickerMode {
         case open
@@ -31,7 +36,14 @@ struct RichMapButtons: View {
                 if let region = region, !isRefreshing {
                     Task {
                         isRefreshing = true
-                        await waypoints.refresh(with: query(from: region))
+                        do {
+                            try await waypoints.refresh(with: query(from: region))
+                        } catch {
+                            let message = String(describing: error)
+                            log.warning("Could not query waypoints: \(message)")
+                            errorAlertMessage = message
+                            errorAlertShown = true
+                        }
                         isRefreshing = false
                     }
                 }
@@ -115,6 +127,14 @@ struct RichMapButtons: View {
                 #endif
             }
             .environmentObject(waypoints)
+        }
+        .alert(
+            "Could not query waypoints",
+            isPresented: $errorAlertShown
+        ) {
+            Button("OK") {}
+        } message: {
+            Text(errorAlertMessage ?? "Unknown reason")
         }
     }
     
