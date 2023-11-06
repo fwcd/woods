@@ -17,8 +17,8 @@ struct IsoDateTimeWithoutZCoding: CustomCodableWrapper {
     init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
         let rawValue = try container.decode(String.self)
-        let formatter = DateFormatter.isoDateTimeWithoutZ()
-        guard let wrappedValue = formatter.date(from: rawValue) else {
+        guard let wrappedValue = DateFormatter.isoDateTimeWithoutZ().date(from: rawValue)
+                ?? DateFormatter.isoDateTimeWithoutZ(fractional: true).date(from: rawValue) else {
             throw DecodingError.dataCorrupted(.init(codingPath: decoder.codingPath, debugDescription: "Could not parse date from \(rawValue)"))
         }
         self.wrappedValue = wrappedValue

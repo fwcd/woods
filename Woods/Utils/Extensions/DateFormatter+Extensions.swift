@@ -26,9 +26,9 @@ extension DateFormatter {
         return formatter
     }
     
-    static func isoDateTimeWithoutZ() -> DateFormatter {
+    static func isoDateTimeWithoutZ(fractional: Bool = false) -> DateFormatter {
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss\(fractional ? ".SSSSSSS" : "")"
         return formatter
     }
 }
