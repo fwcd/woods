@@ -267,7 +267,8 @@ extension WaypointLogType {
 
 extension Waypoint {
     init?(_ apiCache: GeocachingComApi.Geocache, username: String? = nil) {
-        guard let location = apiCache.postedCoordinates.map(Coordinates.init) else { return nil }
+        // TODO: Add support for corrected coordinates in Waypoint model
+        guard let location = (apiCache.userCorrectedCoordinates ?? apiCache.postedCoordinates).map(Coordinates.init) else { return nil }
         self.init(
             id: apiCache.code,
             name: apiCache.name,
