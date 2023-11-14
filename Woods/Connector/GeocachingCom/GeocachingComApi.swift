@@ -83,7 +83,7 @@ enum GeocachingComApi {
         static let updateCoordinates = Self(rawValue: 47)
     }
     
-    struct PostedCoordinates: Codable {
+    struct Coordinates: Codable {
         var latitude: Double = 0
         var longitude: Double = 0
     }
@@ -101,7 +101,8 @@ enum GeocachingComApi {
         var userFound: Bool?
         var userDidNotFind: Bool?
         var cacheStatus: GeocacheStatus?
-        var postedCoordinates: PostedCoordinates?
+        var postedCoordinates: Coordinates?
+        var userCorrectedCoordinates: Coordinates?
         var detailsUrl: String?
         var hasGeotour: Bool?
         var hasLogDraft: Bool?
@@ -171,7 +172,7 @@ enum GeocachingComApi {
         struct Geocache: Codable {
             var id: Int?
             var referenceCode: String?
-            var postedCoordinates: PostedCoordinates? = nil
+            var postedCoordinates: Coordinates? = nil
         }
     }
     
@@ -326,7 +327,7 @@ extension WaypointLog {
 }
 
 extension Coordinates {
-    init(_ coordinates: GeocachingComApi.PostedCoordinates) {
+    init(_ coordinates: GeocachingComApi.Coordinates) {
         self.init(latitude: coordinates.latitude, longitude: coordinates.longitude)
     }
 }
