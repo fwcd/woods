@@ -16,6 +16,9 @@ extension Waypoint {
         if owned {
             return "star.fill"
         }
+        if locationIsUserCorrected, case .mysteryCache = type {
+            return "puzzlepiece.extension.fill"
+        }
         return type.iconName
     }
 }

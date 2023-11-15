@@ -273,6 +273,7 @@ extension Waypoint {
             id: apiCache.code,
             name: apiCache.name,
             location: location,
+            locationIsUserCorrected: apiCache.userCorrectedCoordinates != nil,
             difficulty: apiCache.difficulty.map { Int($0 * 2) },
             terrain: apiCache.terrain.map { Int($0 * 2) },
             type: apiCache.geocacheType.flatMap(WaypointType.init) ?? .otherCache,
